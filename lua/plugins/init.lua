@@ -4,8 +4,6 @@ if not present then
    return false
 end
 
-print "Works packer"
-
 -- stop linting errors
 local use = packer.use
 
