@@ -24,7 +24,7 @@ opt.whichwrap:append "<>hl" -- Move to next line when cursor reaches end
 opt.backspace = "eol,start,indent" -- Natural backspace
 -- }}}
 -- UI {{{
-opt.cmdheight = 2
+opt.cmdheight = 1
 opt.cul = true -- cursor line
 opt.signcolumn = "yes"
 opt.foldcolumn = "1"
