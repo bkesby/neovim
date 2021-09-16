@@ -1,78 +1,78 @@
 local opt = vim.opt
 local g = vim.g
 
-local options = require("rc").options
+local rc = require("rc").options
 
 g.mapleader = " "
 
 -- General Options {{{
 opt.encoding = "UTF-8"
 opt.fileencoding = "UTF-8"
-opt.autoread = true
-opt.termguicolors = true
-opt.clipboard = "unnamedplus"
-opt.mouse = "" -- Mouses are for pussys
-opt.hidden = true
-opt.timeoutlen = 200
+opt.autoread = rc.autoread
+opt.clipboard = rc.clipboard
+opt.mouse = rc.mouse -- Mouses are for pussys
+opt.hidden = rc.hidden
+opt.timeoutlen = rc.timeoutlen
 opt.iskeyword:append "-" -- Hypened words count as single word
 --opt.formatoptions:remove "cro" -- Not working??
 -- }}}
 -- Behaviour {{{
-opt.splitbelow = true
-opt.splitright = true
+opt.splitbelow = rc.splitbelow
+opt.splitright = rc.splitright
 opt.whichwrap:append "<>hl" -- Move to next line when cursor reaches end
 opt.backspace = "eol,start,indent" -- Natural backspace
 -- }}}
 -- UI {{{
-opt.cmdheight = 1
-opt.cul = true -- cursor line
-opt.signcolumn = "yes"
-opt.foldcolumn = "1"
-opt.laststatus = 2
-opt.showmode = false
-opt.pumheight = 10 -- Change popup menu size
+opt.termguicolors = rc.termguicolors
+opt.cmdheight = rc.cmdheight
+opt.cul = rc.cursorline
+opt.signcolumn = rc.signcolumn
+opt.foldcolumn = rc.foldcolumn
+opt.laststatus = rc.laststatus
+opt.showmode = rc.showmode
+opt.pumheight = rc.pumheight
 opt.shortmess:append "sI" -- Disable intro
-opt.scrolloff = 5
+opt.scrolloff = rc.scrolloff
 -- Wrap {{{
-opt.wrap = false
-opt.linebreak = true
-opt.sidescroll = 4
-opt.breakindent = true
-opt.breakindentopt = "shift:2,sbr"
-opt.showbreak = "↳"
+opt.wrap = rc.wrap
+opt.linebreak = rc.linebreak
+opt.sidescroll = rc.sidescroll
+opt.breakindent = rc.breakindent
+opt.breakindentopt = rc.breakindentopt
+opt.showbreak = rc.showbreak
 -- }}}
 -- Indentation {{{
-opt.expandtab = true
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.smartindent = true
-opt.autoindent = true
-opt.shiftround = true
+opt.expandtab = rc.expandtab
+opt.shiftwidth = rc.shiftwidth
+opt.tabstop = rc.tabstop
+opt.softtabstop = rc.softtabstop
+opt.smartindent = rc.smartindent
+opt.autoindent = rc.autoindent
+opt.shiftround = rc.shiftround
 -- }}}
 -- Numbers {{{
-opt.number = true
-opt.numberwidth = 2
+opt.number = rc.number
+opt.numberwidth = rc.numberwidth
 --opt.relativenumber = true -- Set with autocmd
 opt.ruler = true
 -- }}}
 -- Fills {{{
-opt.fillchars:append { eob = " ", vert = "┃" } -- remove tilde from end of files
-opt.listchars = { tab = "¦ ", nbsp = "·", trail = "┈", precedes = "«", extends = "»" }
+opt.fillchars:append(rc.fillchars)
+opt.listchars = rc.listchars
 -- }}}
 -- }}}
 -- Searching {{{
-opt.hlsearch = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
+opt.hlsearch = rc.hlsearch
+opt.ignorecase = rc.ignorecase
+opt.smartcase = rc.smartcase
+opt.incsearch = rc.incsearch
 -- }}}
 -- Folds {{{
-opt.foldmethod = "marker"
-opt.foldlevelstart = 0
-opt.foldnestmax = 2
+opt.foldmethod = rc.foldmethod
+opt.foldlevelstart = rc.foldlevelstart
+opt.foldnestmax = rc.foldnestmax
 -- }}}
 -- Files & Backup {{{
-opt.undofile = true
+opt.undofile = rc.undofile
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
 -- }}}
