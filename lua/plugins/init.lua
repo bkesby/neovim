@@ -14,4 +14,12 @@ return packer.startup(function()
       event = "VimEnter",
    }
 
+   use {
+      "jdhao/better-escape.vim",
+      event = "InsertEnter",
+      setup = function()
+         require("plugins.configs.others").better_escape()
+      end,
+   }
+
 end)
