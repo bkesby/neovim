@@ -15,6 +15,14 @@ return packer.startup(function()
    }
 
    use {
+      "projekt0n/github-nvim-theme",
+      after = "packer.nvim",
+      config = function()
+         require("plugins.configs.colors")
+      end,
+   }
+
+   use {
       "jdhao/better-escape.vim",
       event = "InsertEnter",
       setup = function()
