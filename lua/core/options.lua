@@ -15,6 +15,7 @@ opt.hidden = rc.hidden
 opt.timeoutlen = rc.timeoutlen
 opt.iskeyword:append "-" -- Hypened words count as single word
 --opt.formatoptions:remove "cro" -- Not working??
+opt.errorbells = false
 -- }}}
 -- Behaviour {{{
 opt.splitbelow = rc.splitbelow
@@ -54,7 +55,7 @@ opt.shiftround = rc.shiftround
 opt.number = rc.number
 opt.numberwidth = rc.numberwidth
 --opt.relativenumber = true -- Set with autocmd
-opt.ruler = true
+opt.ruler = rc.ruler
 -- }}}
 -- Fills {{{
 opt.fillchars:append(rc.fillchars)
@@ -74,6 +75,7 @@ opt.foldnestmax = rc.foldnestmax
 -- }}}
 -- Files & Backup {{{
 opt.undofile = rc.undofile
+opt.history = rc.history
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
 -- }}}
 -- Builtins {{{

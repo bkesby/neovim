@@ -58,6 +58,7 @@ M.options = {
    foldnestmax = 2,
    -- Files & Backup
    undofile = true,
+   history = 2000,
    
 }
 
