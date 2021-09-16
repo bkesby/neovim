@@ -5,6 +5,16 @@ M.ui = {
    theme = "onedark"
 }
 
+M.mappings = {
+
+}
+
+M.mappings.plugin = {
+   comment = {
+      toggle = "<Leader>/"
+   },
+}
+
 M.options = {
    -- General
    autoread = true,
@@ -72,6 +82,7 @@ M.options.plugin = {
 -- enable or disable plugins
 M.plugin_status = {
    better_escape = true,
+   comment = true,
 }
 
 

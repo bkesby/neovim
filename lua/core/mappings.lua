@@ -1,6 +1,10 @@
-local utils = require "core.utils"
+local utils = require("core.utils")
+local rc = require("rc")
 
 local map = utils.map
+local maps = rc.mappings
+local plugin_maps = maps.plugin
+
 local cmd = vim.cmd
 
 local M = {}
@@ -35,6 +39,13 @@ M.misc = function()
    end
    default_mappings()
    required_mappings()
+end
+
+-- plugin related mappings
+M.comment = function()
+   local m = plugin_maps.comment.toggle
+   map("n", m, ":CommentToggle <CR>")
+   map("v", m, ":CommentToggle <CR>")
 end
 
 return M

@@ -37,4 +37,17 @@ return packer.startup(function()
       end,
    }
 
+   -- misc
+   use {
+      "terrortylor/nvim-comment",
+      disable = not plugin_status.comment,
+      cmd = "CommentToggle",
+      config = function()
+         require("plugins.configs.others").comment()
+      end,
+      setup = function()
+         require("core.mappings").comment()
+      end,
+   }
+
 end)
