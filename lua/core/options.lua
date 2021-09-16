@@ -76,3 +76,28 @@ opt.foldnestmax = rc.foldnestmax
 opt.undofile = rc.undofile
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
 -- }}}
+-- Builtins {{{
+local disabled_built_ins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+   g["loaded_" .. plugin] = 1
+end
+-- }}}
