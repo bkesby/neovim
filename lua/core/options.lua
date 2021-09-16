@@ -51,7 +51,7 @@ opt.shiftround = true
 -- Numbers {{{
 opt.number = true
 opt.numberwidth = 2
-opt.relativenumber = true
+--opt.relativenumber = true -- Set with autocmd
 opt.ruler = true
 -- }}}
 -- Fills {{{
