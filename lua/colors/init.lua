@@ -11,7 +11,7 @@ M.init = function(theme)
    local present, base16 = pcall(require, "base16")
 
    if present then
-      base16(base16.themes[theme], true)
+      base16(base16.themes(theme), true)
 
       -- unload to force reload of highlights
       --package.loaded["colors.highlights" or false] = nil

@@ -21,7 +21,7 @@ return packer.startup(function()
 
    -- Theme collection and initializer
    use {
-      "norcalli/nvim-base16.lua",
+      "NvChad/nvim-base16.lua",
       after = "packer.nvim",
       config = function()
          require("colors").init()
