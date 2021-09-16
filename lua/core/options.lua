@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
+local options = require("rc").options
+
 g.mapleader = " "
 
 -- General Options {{{

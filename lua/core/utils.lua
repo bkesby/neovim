@@ -1,5 +1,21 @@
 local M = {}
 
+-- Config loader
+M.load_config = function(reload)
+   local config_name = "rc"
+   --
+   -- Only run once reload when necessary
+   if _G._CONFIG_CONTENTS ~= nil and not (reload or false) then
+      return _G._CONFIG_CONTENTS
+   end
+
+   if reload then
+      package.loaded[config_name or false] = nil
+   end
+   _G._CONFIG_CONTENTS = require(config_name)
+   return _G._CONFIG_CONTENTS
+end
+
 -- Mapping helper function stolen from nvChad
 M.map = function(mode, keys, cmd, opt)
    local options = { noremap = true, silent = true }
