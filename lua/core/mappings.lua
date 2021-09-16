@@ -42,6 +42,17 @@ M.misc = function()
 end
 
 -- plugin related mappings
+M.cheatsheet = function()
+   local m = plugin_maps.cheatsheet
+
+   map("n", m.default_keys, ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
+   map(
+      "n",
+      m.user_keys,
+      ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>"
+      )
+end
+
 M.comment = function()
    local m = plugin_maps.comment.toggle
    map("n", m, ":CommentToggle <CR>")

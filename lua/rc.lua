@@ -10,6 +10,10 @@ M.mappings = {
 }
 
 M.mappings.plugin = {
+   cheatsheet = {
+      default_keys = "<leader>dk",
+      user_keys = "<leader>uk",
+   },
    comment = {
       toggle = "<Leader>/"
    },
@@ -82,6 +86,7 @@ M.options.plugin = {
 -- enable or disable plugins
 M.plugin_status = {
    better_escape = true,
+   cheatsheet = true,
    comment = true,
 }
 
