@@ -48,6 +48,7 @@ return packer.startup(function()
       config = function()
          require("plugins.configs.coq").config()
       end,
+      run = ":COQdeps"
    }
 
    use {
@@ -124,6 +125,14 @@ return packer.startup(function()
             run = "make",
          },
       },
+   }
+
+   -- file manager
+   use {
+      "ms-jpq/chadtree",
+      branch = "chad",
+      cmd = "CHADopen",
+      run = ":CHADdeps",
    }
 
 end)
