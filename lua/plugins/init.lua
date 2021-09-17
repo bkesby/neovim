@@ -66,8 +66,12 @@ return packer.startup(function()
             setup = function()
                require("core.mappings").cheatsheet()
             end,
-         }
-      }
+         },
+         {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
+         },
+      },
    }
 
 end)
