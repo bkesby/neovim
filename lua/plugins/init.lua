@@ -29,6 +29,15 @@ return packer.startup(function()
    }
 
    use {
+      "nvim-treesitter/nvim-treesitter",
+      event = "BufRead",
+      config = function()
+         require("plugins.configs.treesitter")
+      end,
+      run = ":TSUpdate",
+   }
+
+   use {
       "jdhao/better-escape.vim",
       disable = not plugin_status.better_escape,
       event = "InsertEnter",
