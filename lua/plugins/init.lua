@@ -54,7 +54,7 @@ return packer.startup(function()
       "ms-jpq/coq.artifacts",
       as = "artifacts",
       branch = "artifacts",
-      after = "coq_nvim",
+      event = "InsertEnter"
    }
 
    -- lsp
@@ -120,6 +120,7 @@ return packer.startup(function()
          },
          {
             "nvim-telescope/telescope-fzf-native.nvim",
+            after = "telescope.nvim",
             run = "make",
          },
       },
