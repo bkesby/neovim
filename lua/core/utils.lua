@@ -1,5 +1,15 @@
 local M = {}
 
+-- Lazy loading function for packer
+M.lazy_load = function(plugin, timer)
+   if plugin then
+      timer = timer or 0
+      vim.defer_fn(function()
+         require("packer").loader(plugin)
+      end, timer)
+   end
+end
+
 -- Mapping helper function stolen from nvChad
 M.map = function(mode, keys, cmd, opt)
    local options = { noremap = true, silent = true }

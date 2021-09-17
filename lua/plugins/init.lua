@@ -37,6 +37,27 @@ return packer.startup(function()
       run = ":TSUpdate",
    }
 
+   -- lsp
+   use {
+      "kabouzeid/nvim-lspinstall",
+      opt = true,
+      setup = function()
+         require("core.utils").lazy_load "nvim-lspinstall"
+         -- reload current file to activate lsp for it
+         vim.defer_fn(function()
+            vim.cmd "silent! e %"
+         end, 0)
+      end,
+   }
+
+   use {
+      "neovim/nvim-lspconfig",
+      after = "nvim-lspinstall",
+      config = function()
+         require("plugins.configs.lspconfig")
+      end,
+   }
+
    use {
       "jdhao/better-escape.vim",
       disable = not plugin_status.better_escape,
