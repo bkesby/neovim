@@ -22,6 +22,7 @@ opt.splitbelow = rc.splitbelow
 opt.splitright = rc.splitright
 opt.whichwrap:append "<>hl" -- Move to next line when cursor reaches end
 opt.backspace = "eol,start,indent" -- Natural backspace
+opt.wildignorecase = rc.wildignorecase
 -- }}}
 -- UI {{{
 opt.termguicolors = rc.termguicolors

@@ -29,6 +29,7 @@ M.options = {
    -- Behaviour
    splitbelow = true,
    splitright = true,
+   wildignorecase = true,
    -- UI
    termguicolors = true,
    cmdheight = 1,
