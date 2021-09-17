@@ -72,6 +72,12 @@ return packer.startup(function()
       "ms-jpq/coq_nvim",
       branch = "coq",
       event = "InsertEnter",
+      setup = function()
+         require("plugins.configs.coq").setup()
+      end,
+      config = function()
+         require("plugins.configs.coq").config()
+      end,
    }
 
    use {
