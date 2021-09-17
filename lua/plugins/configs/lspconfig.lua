@@ -1,7 +1,8 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, lspinstall = pcall(require, "lspinstall")
+local present3, coq = pcall(require, "coq")
 
-if not (present1 or present2) then
+if not (present1 or present2 or present3) then
    return
 end
 
@@ -20,10 +21,10 @@ lspinstall.setup()
 local servers = require("lspinstall").installed_servers()
 
 for _, server in ipairs(servers) do
-   lspconfig[server].setup {
+   lspconfig[server].setup(coq.lsp_ensure_capabilities {
       on_attach = on_attach,
       flags = {
          debouce_text_changes = 150,
       },
-   }
+   })
 end

@@ -37,10 +37,31 @@ return packer.startup(function()
       run = ":TSUpdate",
    }
 
+   -- autocompletion (required for lsp config)
+   use {
+      "ms-jpq/coq_nvim",
+      branch = "coq",
+      event = "VimEnter",
+      setup = function()
+         require("plugins.configs.coq").setup()
+      end,
+      config = function()
+         require("plugins.configs.coq").config()
+      end,
+   }
+
+   use {
+      "ms-jpq/coq.artifacts",
+      as = "artifacts",
+      branch = "artifacts",
+      after = "coq_nvim",
+   }
+
    -- lsp
    use {
       "kabouzeid/nvim-lspinstall",
       opt = true,
+      after = "artifacts",
       setup = function()
          require("core.utils").lazy_load "nvim-lspinstall"
          -- reload current file to activate lsp for it
@@ -65,25 +86,6 @@ return packer.startup(function()
       setup = function()
          require("plugins.configs.others").better_escape()
       end,
-   }
-
-   -- autocompletion
-   use {
-      "ms-jpq/coq_nvim",
-      branch = "coq",
-      event = "InsertEnter",
-      setup = function()
-         require("plugins.configs.coq").setup()
-      end,
-      config = function()
-         require("plugins.configs.coq").config()
-      end,
-   }
-
-   use {
-      "ms-jpq/coq.artifacts",
-      branch = "artifacts",
-      after = "coq_nvim",
    }
 
    -- misc
