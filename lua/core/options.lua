@@ -78,6 +78,10 @@ opt.undofile = rc.undofile
 opt.history = rc.history
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
 -- }}}
+-- Environments {{{
+g.python_host_prog = vim.fn.expand("$PYENV_ROOT/versions/neovim2/bin/python")
+g.python3_host_prog = vim.fn.expand("$PYENV_ROOT/versions/neovim3/bin/python")
+-- }}}
 -- Builtins {{{
 local disabled_built_ins = {
    "2html_plugin",
