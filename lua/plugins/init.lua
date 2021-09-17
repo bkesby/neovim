@@ -67,6 +67,19 @@ return packer.startup(function()
       end,
    }
 
+   -- autocompletion
+   use {
+      "ms-jpq/coq_nvim",
+      branch = "coq",
+      event = "InsertEnter",
+   }
+
+   use {
+      "ms-jpq/coq.artifacts",
+      branch = "artifacts",
+      after = "coq_nvim",
+   }
+
    -- misc
    use {
       "terrortylor/nvim-comment",
