@@ -1,2 +1,4 @@
 # Ignore compiled plugin directory
 plugin
+
+time.log
