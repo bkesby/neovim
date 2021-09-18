@@ -121,6 +121,12 @@ return packer.startup(function()
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
       module = "cheatsheet", -- cheatsheet not activated by telescope command
+      config = function()
+         require("plugins.configs.telescope")
+      end,
+      setup = function()
+         require("core.mappings").telescope()
+      end,
       requires = {
          {
             "sudormrfbin/cheatsheet.nvim",

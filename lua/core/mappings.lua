@@ -12,6 +12,9 @@ local M = {}
 -- mappings to be called during initialization
 M.misc = function()
    local function behaviour_mappings()
+      -- space bar is leader
+      map({ "n", "v" }, " ", "<Nop>")
+
       -- don't copy the replaced text after pasting in visual mode
       map("v", "p", '"_dP')
 
@@ -63,5 +66,15 @@ M.comment = function()
    map("n", m, ":CommentToggle <CR>")
    map("v", m, ":CommentToggle <CR>")
 end
+
+M.telescope = {
+   buffers = "<leader>fb",
+   find_files = "<leader>ff",
+   git_commits = "<leader>fc",
+   git_status = "<leader>ft",
+   live_grep = "<leader>fg",
+   oldfiles = "<leader>fr",
+   -- themes = "<leader>th",
+}
 
 return M

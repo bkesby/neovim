@@ -33,7 +33,7 @@ M.options = {
    foldcolumn = "1",
    laststatus = 2,
    showmode = false,
-   pumheight = 10, -- Change popup menu size
+   -- pumheight = 10, -- Change popup menu size
    scrolloff = 5,
    -- Wrap
    wrap = false,

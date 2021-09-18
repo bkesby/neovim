@@ -32,7 +32,7 @@ opt.signcolumn = rc.signcolumn
 opt.foldcolumn = rc.foldcolumn
 opt.laststatus = rc.laststatus
 opt.showmode = rc.showmode
-opt.pumheight = rc.pumheight
+-- opt.pumheight = rc.pumheight
 opt.shortmess:append "sI" -- Disable intro
 opt.scrolloff = rc.scrolloff
 -- Wrap {{{
