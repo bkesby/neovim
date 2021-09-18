@@ -55,7 +55,7 @@ opt.shiftround = rc.shiftround
 -- Numbers {{{
 opt.number = rc.number
 opt.numberwidth = rc.numberwidth
---opt.relativenumber = true -- Set with autocmd
+opt.relativenumber = rc.relativenumber -- Set with autocmd
 opt.ruler = rc.ruler
 -- }}}
 -- Fills {{{

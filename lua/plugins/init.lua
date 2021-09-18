@@ -12,6 +12,7 @@ return packer.startup(function()
 
    use {
       "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
    }
 
    use {
@@ -21,10 +22,23 @@ return packer.startup(function()
 
    -- Theme collection and initializer
    use {
-      "NvChad/nvim-base16.lua",
+      "norcalli/nvim-base16.lua",
+      as = "base16",
       after = "packer.nvim",
       config = function()
          require("colors").init()
+      end,
+   }
+
+   use {
+      'hoob3rt/lualine.nvim',
+      after = "base16",
+      requires = {
+         "kyazdani42/nvim-web-devicons",
+         opt = true,
+      },
+      config = function()
+         require("plugins.configs.statusline")
       end,
    }
 

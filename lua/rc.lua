@@ -2,21 +2,16 @@ local M = {}
 
 M.ui = {
    -- theme to use from base16
-   theme = "onedark"
+   theme = "onedark",
+   -- outrun-dark, horizon, heetch, snazzy
 }
 
-M.mappings = {
-
-}
-
-M.mappings.plugin = {
-   cheatsheet = {
-      default_keys = "<leader>dk",
-      user_keys = "<leader>uk",
-   },
-   comment = {
-      toggle = "<Leader>/"
-   },
+M.ui.plugin = {
+   -- statusline related
+   statusline = {
+      theme = "auto",
+      -- TODO: Statusline theme should pull colors directly from colors.init.lua
+   }
 }
 
 M.options = {
@@ -25,7 +20,7 @@ M.options = {
    clipboard = "unnamedplus",
    mouse = "",
    hidden = true,
-   timeoutlen = 200,
+   timeoutlen = 250,
    -- Behaviour
    splitbelow = true,
    splitright = true,
@@ -57,6 +52,7 @@ M.options = {
    shiftround = true,
    -- Numbers
    number = true,
+   relativenumber = true,
    numberwidth = 2,
    ruler = true,
    -- Fills
@@ -74,13 +70,51 @@ M.options = {
    -- Files & Backup
    undofile = true,
    history = 2000,
-   
 }
 
 M.options.plugin = {
    better_escape = {
       interval = 100,
       shortcut = "jk",
+   },
+}
+
+M.mappings = {
+   -- Hide search highlights
+   no_search_highlight = "<Esc>",
+   -- movement
+}
+
+M.mappings.plugin = {
+   cheatsheet = {
+      default_keys = "<leader>dk",
+      user_keys = "<leader>uk",
+   },
+   comment = {
+      toggle = "<Leader>/"
+   },
+   lsp = {
+      declaration = "gD",
+      definition = "gd",
+      hover = "K",
+      implementation = "gi",
+      signature_help = "gk",
+      add_workspace_folder = "<leader>wa",
+      remove_workspace_folder = "<leader>wr",
+      list_workspace_folders = "<leader>wl",
+      type_definition = "<leader>D",
+      rename = "<leader>rn",
+      code_action = "<leader>ca",
+      references = "gr",
+      show_line_diagnostics = "<leader>e",
+      goto_prev = "[d",
+      goto_next = "]d",
+      set_loclist = "<leader>q",
+      formatting = "<leader>f",
+      range_code_action = "<leader>ca",
+   },
+   telescope = {
+      todo = "mappings",
    },
 }
 
