@@ -152,6 +152,7 @@ M.mappings.plugin = {
       git_status = "<leader>ft",
       live_grep = "<leader>fg",
       oldfiles = "<leader>fo",
+      help_tags = "<leader>fh",
       -- themes = "<leader>th",
    },
    window = {

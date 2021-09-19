@@ -74,6 +74,7 @@ M.telescope = function()
    map("n", m.git_status, ":Telescope git_status <CR>")
    map("n", m.live_grep, ":Telescope live_grep <CR>")
    map("n", m.oldfiles, ":Telescope oldfiles <CR>")
+   map("n", m.help_tags, ":Telescope help_tags <CR>")
 end
 
 M.window = function()
