@@ -3,7 +3,7 @@ local M = {}
 -- UI {{{
 M.ui = {
    -- theme to use from base16
-   theme = "onedark",
+   theme = "atlas",
    -- outrun-dark, horizon, heetch, snazzy
 }
 
@@ -66,11 +66,11 @@ M.options = {
    listchars = { tab = "¦ ", nbsp = "·", trail = "┈", precedes = "«", extends = "»" },
    -- Vim actions output
    shortmess = {
-      f = true, -- use (x of N) instead of (file x of N)
-      i = false, -- use [noeol] instead of Incomplete last line
-      l = true, -- use xL, xC instead of x lines, x characters
+      -- f = true, -- use (x of N) instead of (file x of N)
+      -- i = false, -- use [noeol] instead of Incomplete last line
+      -- l = true, -- use xL, xC instead of x lines, x characters
+      a = true, -- abbreviate messages (all of above)
       t = true, -- truncate file messages at start
-      a = true, -- abbreviate messages
       A = true, -- ignore annoying swap file messages
       o = true, -- file-read message overwrites subsequent
       O = true, -- file-read message overwrites previous
@@ -163,7 +163,7 @@ M.mappings.plugin = {
 -- Plugin switches {{{
 M.plugin_status = {
    better_escape = true,
-   chadtree = true,
+   chadtree = false,
    cheatsheet = true,
    comment = true,
    treesitter = true,

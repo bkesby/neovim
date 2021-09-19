@@ -63,9 +63,9 @@ return packer.startup(function()
       setup = function()
          require("plugins.configs.coq").setup()
       end,
-      config = function()
-         require("plugins.configs.coq").config()
-      end,
+      -- config = function()
+      --    require("plugins.configs.coq").config()
+      -- end,
       run = ":COQdeps"
    }
 
