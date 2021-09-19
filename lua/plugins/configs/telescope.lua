@@ -32,9 +32,8 @@ telescope.setup {
       border = true,
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       set_env = { COLORTERM = "truecolor", },
-      generic_sorter = require("telescope.sorters").get_fzy_sorter,
-      prefilter_sorter = require("telescope.sorters").prefilter,
-      file_sorter = require("telescope.sorters").get_fuzzy_file,
       file_ignore_patterns = { "%.pyc", },
    },
 }
+
+require("telescope").load_extension("fzf")
