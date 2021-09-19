@@ -1,5 +1,6 @@
 local M = {}
 
+-- UI {{{
 M.ui = {
    -- theme to use from base16
    theme = "onedark",
@@ -13,14 +14,19 @@ M.ui.plugin = {
       -- TODO: Statusline theme should pull colors directly from colors.init.lua
    }
 }
-
+--}}}
+-- Options {{{
 M.options = {
    -- General
    autoread = true,
    clipboard = "unnamedplus",
    mouse = "",
    hidden = true,
-   timeoutlen = 250,
+   -- Timings
+   updatetime = 1000,
+   timeout = true,
+   timeoutlen = 400,
+   ttimeoutlen = 10,
    -- Behaviour
    splitbelow = true,
    splitright = true,
@@ -58,6 +64,22 @@ M.options = {
    -- Fills
    fillchars = { eob = " ", vert = "┃" },
    listchars = { tab = "¦ ", nbsp = "·", trail = "┈", precedes = "«", extends = "»" },
+   -- Vim actions output
+   shortmess = {
+      f = true, -- use (x of N) instead of (file x of N)
+      i = false, -- use [noeol] instead of Incomplete last line
+      l = true, -- use xL, xC instead of x lines, x characters
+      t = true, -- truncate file messages at start
+      a = true, -- abbreviate messages
+      A = true, -- ignore annoying swap file messages
+      o = true, -- file-read message overwrites subsequent
+      O = true, -- file-read message overwrites previous
+      I = true, -- don't give the intro message when starting :intro
+      s = true, -- hide search TOP/BOTTOM messages
+      W = true, -- Don't show [w] or written when writing
+      T = true, -- truncate non-file messages in middle
+      F = true, -- Don't give file info when editing a file
+   },
    -- Searching
    hlsearch = true,
    ignorecase = true,
@@ -70,15 +92,25 @@ M.options = {
    -- Files & Backup
    undofile = true,
    history = 2000,
+   shada = {
+      "'500", -- previously edited files
+      "/1000", -- search item history
+      ":1000", -- commandline history
+      "<500", -- register history
+      "s100", -- max item size (kib)
+      "h", -- no hlsearch memory
+   },
 }
-
+--}}}
+-- Plugin Options{{{
 M.options.plugin = {
    better_escape = {
       interval = 125,
       shortcut = "jk",
    },
 }
-
+--}}}
+-- Mappings {{{
 M.mappings = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
@@ -99,9 +131,9 @@ M.mappings.plugin = {
       hover = "K",
       implementation = "gi",
       signature_help = "gk",
-      add_workspace_folder = "<leader>wwa",
-      remove_workspace_folder = "<leader>wwr",
-      list_workspace_folders = "<leader>wwl",
+      add_workspace_folder = "<leader>da",
+      remove_workspace_folder = "<leader>dr",
+      list_workspace_folders = "<leader>dl",
       type_definition = "<leader>D",
       rename = "<leader>rn",
       code_action = "<leader>ca",
@@ -126,13 +158,16 @@ M.mappings.plugin = {
       pick = "<leader>w",
    },
 }
-
--- enable or disable plugins
+--}}}
+-- Plugin switches {{{
 M.plugin_status = {
    better_escape = true,
+   chadtree = true,
    cheatsheet = true,
    comment = true,
+   treesitter = true,
+   window = true,
 }
-
+--}}}
 
 return M

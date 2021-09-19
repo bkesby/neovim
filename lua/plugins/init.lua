@@ -47,6 +47,7 @@ return packer.startup(function()
 
    use {
       "nvim-treesitter/nvim-treesitter",
+      disable = not plugin_status.treesitter,
       event = "BufRead",
       config = function()
          require("plugins.configs.treesitter")
@@ -97,6 +98,8 @@ return packer.startup(function()
       end,
    }
 
+   -- misc
+
    use {
       "jdhao/better-escape.vim",
       disable = not plugin_status.better_escape,
@@ -106,7 +109,6 @@ return packer.startup(function()
       end,
    }
 
-   -- misc
    use {
       "terrortylor/nvim-comment",
       disable = not plugin_status.comment,
@@ -121,6 +123,7 @@ return packer.startup(function()
 
    use {
       "https://gitlab.com/yorickpeterse/nvim-window",
+      disable = not plugin_status.window,
       config = function()
          require("plugins.configs.others").window()
       end,
@@ -163,6 +166,7 @@ return packer.startup(function()
    -- file manager
    use {
       "ms-jpq/chadtree",
+      disable = not plugin_status.chadtree,
       branch = "chad",
       cmd = "CHADopen",
       run = ":CHADdeps",

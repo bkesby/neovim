@@ -12,10 +12,15 @@ opt.autoread = rc.autoread
 opt.clipboard = rc.clipboard
 opt.mouse = rc.mouse -- Mouses are for pussys
 opt.hidden = rc.hidden
-opt.timeoutlen = rc.timeoutlen
 opt.iskeyword:append "-" -- Hypened words count as single word
 --opt.formatoptions:remove "cro" -- Not working??
 opt.errorbells = false
+-- Timings {{{
+opt.updatetime = rc.updatetime
+opt.timeout = rc.timeout
+opt.timeoutlen = rc.timeoutlen
+opt.ttimeoutlen = rc.ttimeoutlen
+-- }}}
 -- }}}
 -- Behaviour {{{
 opt.splitbelow = rc.splitbelow
@@ -33,8 +38,8 @@ opt.foldcolumn = rc.foldcolumn
 opt.laststatus = rc.laststatus
 opt.showmode = rc.showmode
 -- opt.pumheight = rc.pumheight
-opt.shortmess:append "sI" -- Disable intro
 opt.scrolloff = rc.scrolloff
+opt.emoji = false
 -- Wrap {{{
 opt.wrap = rc.wrap
 opt.linebreak = rc.linebreak
@@ -62,6 +67,9 @@ opt.ruler = rc.ruler
 opt.fillchars:append(rc.fillchars)
 opt.listchars = rc.listchars
 -- }}}
+-- Shortmess {{{
+opt.shortmess = rc.shortmess
+-- }}}
 -- }}}
 -- Searching {{{
 opt.hlsearch = rc.hlsearch
@@ -77,6 +85,7 @@ opt.foldnestmax = rc.foldnestmax
 -- Files & Backup {{{
 opt.undofile = rc.undofile
 opt.history = rc.history
+opt.shada = rc.shada
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
 -- }}}
 -- Environments {{{
