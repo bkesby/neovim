@@ -12,6 +12,9 @@ return packer.startup(function()
 
    use {
       "nvim-lua/plenary.nvim",
+   }
+
+   use {
       "nvim-lua/popup.nvim",
    }
 

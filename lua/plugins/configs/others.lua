@@ -17,8 +17,9 @@ M.window = function()
    local present, nvim_window = pcall(require, "nvim-window")
    if present then
       nvim_window.setup {
-         chars = { 'a', 's', 'd', 'f', 'j', 'k', 'l' },
-         border = 'minimal',
+         -- 'x' used as dummy first skipped character
+         chars = { 'x', 'a', 's', 'd', 'f', 'j', 'k', 'l' },
+         border = "none",
       }
    end
 end
