@@ -157,7 +157,6 @@ return packer.startup(function()
          },
          {
             "nvim-telescope/telescope-fzf-native.nvim",
-            after = "telescope.nvim",
             run = "make",
          },
       },

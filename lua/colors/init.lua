@@ -14,8 +14,8 @@ M.init = function(theme)
       base16(base16.themes[theme], true)
 
       -- unload to force reload of highlights
-      --package.loaded["colors.highlights" or false] = nil
-      --require("colors.highlights")
+      -- package.loaded["colors.highlights" or false] = nil
+      -- require("colors.highlights")
    else
       return false
    end

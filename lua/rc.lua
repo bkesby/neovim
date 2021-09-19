@@ -2,6 +2,7 @@ local M = {}
 
 -- UI {{{
 M.ui = {
+   -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
    theme = "atlas",
    -- outrun-dark, horizon, heetch, snazzy
@@ -148,8 +149,9 @@ M.mappings.plugin = {
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
+      file_browser = "<leader>ft",
       git_commits = "<leader>fc",
-      git_status = "<leader>ft",
+      git_status = "<leader>fs",
       live_grep = "<leader>fg",
       oldfiles = "<leader>fo",
       help_tags = "<leader>fh",
@@ -167,6 +169,9 @@ M.plugin_status = {
    cheatsheet = true,
    comment = true,
    treesitter = true,
+   -- TODO: Add auto pairs
+   -- TODO: Some sort of git management
+   -- TODO: Add note taking of some sort/scratchpad
    window = true,
 }
 --}}}
