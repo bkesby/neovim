@@ -74,7 +74,7 @@ M.options = {
 
 M.options.plugin = {
    better_escape = {
-      interval = 100,
+      interval = 125,
       shortcut = "jk",
    },
 }
@@ -114,7 +114,16 @@ M.mappings.plugin = {
       range_code_action = "<leader>ca",
    },
    telescope = {
-      todo = "mappings",
+      buffers = "<leader>fb",
+      find_files = "<leader>ff",
+      git_commits = "<leader>fc",
+      git_status = "<leader>ft",
+      live_grep = "<leader>fg",
+      oldfiles = "<leader>fo",
+      -- themes = "<leader>th",
+   },
+   window = {
+      pick = "<leader>w",
    },
 }
 

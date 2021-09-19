@@ -13,4 +13,14 @@ M.comment = function()
    end
 end
 
+M.window = function()
+   local present, nvim_window = pcall(require, "nvim-window")
+   if present then
+      nvim_window.setup {
+         chars = { 'a', 's', 'd', 'f', 'j', 'k', 'l' },
+         border = 'minimal',
+      }
+   end
+end
+
 return M

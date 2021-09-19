@@ -116,6 +116,16 @@ return packer.startup(function()
       end,
    }
 
+   use {
+      "https://gitlab.com/yorickpeterse/nvim-window",
+      config = function()
+         require("plugins.configs.others").window()
+      end,
+      setup = function()
+         require("core.mappings").window()
+      end,
+   }
+
    -- telescope
    use {
       "nvim-telescope/telescope.nvim",

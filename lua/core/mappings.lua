@@ -56,7 +56,6 @@ end
 -- plugin related mappings
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
-
    map("n", m.default_keys, ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
    map("n", m.user_keys, ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>")
 end
@@ -67,14 +66,19 @@ M.comment = function()
    map("v", m, ":CommentToggle <CR>")
 end
 
-M.telescope = {
-   buffers = "<leader>fb",
-   find_files = "<leader>ff",
-   git_commits = "<leader>fc",
-   git_status = "<leader>ft",
-   live_grep = "<leader>fg",
-   oldfiles = "<leader>fr",
-   -- themes = "<leader>th",
-}
+M.telescope = function()
+   local m = plugin_maps.telescope
+   map("n", m.buffers, ":Telescope buffers <CR>")
+   map("n", m.find_files, ":Telescope find_files <CR>")
+   map("n", m.git_commits, ":Telescope git_commits <CR>")
+   map("n", m.git_status, ":Telescope git_status <CR>")
+   map("n", m.live_grep, ":Telescope live_grep <CR>")
+   map("n", m.oldfiles, ":Telescope oldfiles <CR>")
+end
+
+M.window = function()
+   local m = plugin_maps.window.pick
+   map("n", m, ":lua require('nvim-window').pick() <CR>")
+end
 
 return M
