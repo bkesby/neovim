@@ -11,7 +11,7 @@ local rc = require("rc").mappings.plugin.lsp
 -- use attach function to only map keys after language server attaches to current buffer
 local on_attach = function(_, bufnr)
    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
    local opts = { noremap = true, silent = true }
 
@@ -35,19 +35,40 @@ local on_attach = function(_, bufnr)
    buf_set_keymap("n", rc.formatting, "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
    -- enable completion triggered by <c-x><c-o>
-   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 end
 
 lspinstall.setup()
 
 local servers = require("lspinstall").installed_servers()
+-- TODO: Set local always install servers (maybe in lsp install?)
 
 for _, server in ipairs(servers) do
-   lspconfig[server].setup(coq.lsp_ensure_capabilities {
-      on_attach = on_attach,
-      flags = {
-         debouce_text_changes = 150,
-      },
-   })
+   if server == "lua" then
+      lspconfig[server].setup(coq.lsp_ensure_capabilities {
+         on_attach = on_attach,
+         settings = {
+            Lua = {
+               runtime = {
+                  version = 'LuaJIT',
+                  path = vim.split(package.path, ';'),
+               },
+               diagnostics = {
+                  globals = { 'vim' },
+               },
+               workspace = {
+                  library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true }
+               },
+            },
+         },
+      })
+   else
+      lspconfig[server].setup(coq.lsp_ensure_capabilities {
+         on_attach = on_attach,
+         flags = {
+            debouce_text_changes = 150,
+         },
+      })
+   end
 end
