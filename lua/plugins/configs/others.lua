@@ -1,14 +1,15 @@
 local rc = require("rc").options.plugin
 local M = {}
 
-M.autopairs = function()
-   local present, autopairs = pcall(require, "nvim-autopairs")
-   if present then
-      autopairs.setup {
-         check_ts = true,
-      }
-   end
-end
+-- Switch to lua version if I can get it to work with coq
+-- M.autopairs = function()
+--    local present, autopairs = pcall(require, "nvim-autopairs")
+--    if present then
+--       autopairs.setup {
+--          check_ts = true,
+--       }
+--    end
+-- end
 
 M.better_escape = function()
    vim.g.better_escape_interval = rc.better_escape.interval
@@ -19,6 +20,16 @@ M.comment = function()
    local present, nvim_comment = pcall(require, "nvim_comment")
    if present then
       nvim_comment.setup()
+   end
+end
+
+M.neoscroll = function()
+   local present, neoscroll = pcall(require, "neoscroll")
+   if present then
+      neoscroll.setup {
+         hide_cursor = true,
+         respect_scrolloff = true,
+      }
    end
 end
 

@@ -169,6 +169,7 @@ M.plugin_status = {
    chadtree = false,
    cheatsheet = true,
    comment = true,
+   neoscroll = true,
    treesitter = true,
    -- TODO: Some sort of git management
    -- TODO: Add note taking of some sort/scratchpad

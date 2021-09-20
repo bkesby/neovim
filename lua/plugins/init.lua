@@ -110,12 +110,12 @@ return packer.startup(function()
    }
 
    use {
-      "windwp/nvim-autopairs",
+      "jiangmiao/auto-pairs",
       disable = not plugin_status.autopairs,
-      event = "InsertEnter",
-      config = function()
-         require("plugins.configs.others").autopairs()
-      end,
+      event = "BufEnter",
+      -- config = function()
+      --    require("plugins.configs.others").autopairs()
+      -- end,
    }
 
    use {
@@ -127,6 +127,18 @@ return packer.startup(function()
       end,
       setup = function()
          require("core.mappings").comment()
+      end,
+   }
+
+   use {
+      "karb94/neoscroll.nvim",
+      disable = not plugin_status.neoscroll,
+      opt = true,
+      config = function()
+         require("plugins.configs.others").neoscroll()
+      end,
+      setup = function()
+         require("core.utils").lazy_load("neoscroll.nvim")
       end,
    }
 
