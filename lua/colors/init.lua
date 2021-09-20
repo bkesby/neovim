@@ -6,7 +6,7 @@ M.init = function(theme)
    end
 
    -- set the global theme, used in theme switcher
-   vim.g.config_theme = theme
+   vim.g.rctheme = theme
 
    local present, base16 = pcall(require, "base16")
 
@@ -14,11 +14,22 @@ M.init = function(theme)
       base16(base16.themes[theme], true)
 
       -- unload to force reload of highlights
-      -- package.loaded["colors.highlights" or false] = nil
-      -- require("colors.highlights")
+      package.loaded["colors.highlights" or false] = nil
+      require("colors.highlights")
    else
       return false
    end
+end
+
+-- returns a table of colors for given/current theme
+M.get = function(theme)
+   local present, base16 = pcall(require, "base16")
+   if not present then
+      return
+   end
+   theme = theme or vim.g.rctheme
+
+   return base16.themes[theme]
 end
 
 return M
