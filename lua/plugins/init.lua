@@ -123,9 +123,6 @@ return packer.startup(function()
       "jiangmiao/auto-pairs",
       disable = not plugin_status.autopairs,
       event = "BufEnter",
-      -- config = function()
-      --    require("plugins.configs.others").autopairs()
-      -- end,
    }
 
    use {
