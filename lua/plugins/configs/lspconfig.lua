@@ -35,7 +35,7 @@ local on_attach = function(_, bufnr)
    buf_set_keymap("n", rc.formatting, "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
    -- enable completion triggered by <c-x><c-o>
-   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 end
 

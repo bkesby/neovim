@@ -25,12 +25,6 @@ M.comment = function()
    end
 end
 
-M.neoformat = function()
-   g.neoformat_basic_format_align = rc.neoformat.basic_format_align
-   g.neoformat_basic_format_retab = rc.neoformat.basic_format_retab
-   g.neoformat_basic_format_trim = rc.neoformat.basic_format_trim
-end
-
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
    if present then

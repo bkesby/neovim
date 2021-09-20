@@ -66,7 +66,7 @@ return packer.startup(function()
       -- config = function()
       --    require("plugins.configs.coq").config()
       -- end,
-      run = ":COQdeps"
+      run = ":silent! COQdeps"
    }
 
    use {
@@ -99,6 +99,7 @@ return packer.startup(function()
    }
 
    -- formatting
+
    use {
       "sbdchd/neoformat",
       disable = not plugin_status.neoformat,
@@ -107,7 +108,7 @@ return packer.startup(function()
          require("core.mappings").neoformat()
       end,
       config = function()
-         require("plugins.configs.others").neoformat()
+         require("plugins.configs.neoformat")
       end,
    }
 
