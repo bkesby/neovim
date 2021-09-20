@@ -7,16 +7,16 @@ local M = {}
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
-   theme = "atlas"
+   theme = "atlas",
    -- outrun-dark, horizon, heetch, snazzy
 }
 
 M.ui.plugin = {
    -- statusline related
    statusline = {
-      theme = "auto"
+      theme = "auto",
       -- TODO: Statusline theme should pull colors directly from colors.init.lua
-   }
+   },
 }
 -- }}}
 -- Options {{{
@@ -68,14 +68,14 @@ M.options = {
    -- Fills
    fillchars = {
       eob = " ",
-      vert = "┃"
+      vert = "┃",
    },
    listchars = {
       tab = "¦ ",
       nbsp = "·",
       trail = "┈",
       precedes = "«",
-      extends = "»"
+      extends = "»",
    },
    -- Vim actions output
    shortmess = {
@@ -91,7 +91,7 @@ M.options = {
       s = true, -- hide search TOP/BOTTOM messages
       W = true, -- Don't show [w] or written when writing
       T = true, -- truncate non-file messages in middle
-      F = true -- Don't give file info when editing a file
+      F = true, -- Don't give file info when editing a file
    },
    -- Searching
    hlsearch = true,
@@ -111,38 +111,38 @@ M.options = {
       ":1000", -- commandline history
       "<500", -- register history
       "s100", -- max item size (kib)
-      "h" -- no hlsearch memory
-   }
+      "h", -- no hlsearch memory
+   },
 }
 -- }}}
 -- Plugin Options{{{
 M.options.plugin = {
    better_escape = {
       interval = 125,
-      shortcut = "jk"
+      shortcut = "jk",
    },
    neoformat = {
       -- Allow basic formatting without filetype
       basic_format_align = 1,
       basic_format_retab = 1,
-      basic_format_trim = 1
-   }
+      basic_format_trim = 1,
+   },
 }
 -- }}}
 -- Mappings {{{
 M.mappings = {
    -- Hide search highlights
-   no_search_highlight = "<Esc>"
+   no_search_highlight = "<Esc>",
    -- movement
 }
 
 M.mappings.plugin = {
    cheatsheet = {
       default_keys = "<leader>dk",
-      user_keys = "<leader>uk"
+      user_keys = "<leader>uk",
    },
    comment = {
-      toggle = "<Leader>/"
+      toggle = "<Leader>/",
    },
    lsp = {
       declaration = "gD",
@@ -162,10 +162,10 @@ M.mappings.plugin = {
       goto_next = "]d",
       set_loclist = "<leader>q",
       formatting = "<leader>f",
-      range_code_action = "<leader>ca"
+      range_code_action = "<leader>ca",
    },
    neoformat = {
-      format = "<leader>nf"
+      format = "<leader>nf",
    },
    telescope = {
       buffers = "<leader>fb",
@@ -175,12 +175,17 @@ M.mappings.plugin = {
       git_status = "<leader>fs",
       live_grep = "<leader>fg",
       oldfiles = "<leader>fo",
-      help_tags = "<leader>fh"
+      help_tags = "<leader>fh",
       -- themes = "<leader>th",
    },
    window = {
-      pick = "<leader>w"
-   }
+      pick = "<leader>w",
+   },
+   zen = {
+      ataraxis_mode = "<leader>zz", -- centre
+      focus_mode = "<leader>zf",
+      minimalistic_mode = "<leader>zm",
+   },
 }
 -- }}}
 -- Plugin switches {{{
@@ -193,7 +198,8 @@ M.plugin_status = {
    neoformat = true,
    neoscroll = true,
    treesitter = true,
-   window = true
+   window = true,
+   zen = true,
 }
 -- }}}
 

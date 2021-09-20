@@ -169,6 +169,18 @@ return packer.startup(function()
       end,
    }
 
+   use {
+      "Pocco81/TrueZen.nvim",
+      disable = not plugin_status.zen,
+      cmd = {"TZAtaraxis", "TZMinimalist", "TZFocus"},
+      config = function()
+         require("plugins.configs.zen")
+      end,
+      setup = function()
+         require("core.mappings").zen()
+      end,
+   }
+
    -- telescope
    use {
       "nvim-telescope/telescope.nvim",

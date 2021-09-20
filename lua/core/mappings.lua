@@ -13,17 +13,21 @@ local M = {}
 M.misc = function()
    local function behaviour_mappings()
       -- space bar is leader
-      map({ "n", "v" }, " ", "<Nop>")
+      map({"n", "v"}, " ", "<Nop>")
 
       -- don't copy the replaced text after pasting in visual mode
-      map("v", "p", '"_dP')
+      map("v", "p", "\"_dP")
 
       -- allow moving cursor through wrapped lines as default
-      map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-      map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+      map("", "j", "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"", {
+         expr = true,
+      })
+      map("", "k", "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"", {
+         expr = true,
+      })
 
       -- don't yank on cut
-      map({ "n", "v" }, "x", '"_x')
+      map({"n", "v"}, "x", "\"_x")
    end
 
    local function required_mappings()
@@ -56,8 +60,10 @@ end
 -- plugin related mappings
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
-   map("n", m.default_keys, ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
-   map("n", m.user_keys, ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>")
+   map("n", m.default_keys,
+       ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
+   map("n", m.user_keys,
+       ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>")
 end
 
 M.comment = function()
@@ -86,6 +92,13 @@ end
 M.window = function()
    local m = plugin_maps.window.pick
    map("n", m, ":lua require('nvim-window').pick() <CR>")
+end
+
+M.zen = function()
+   local m = plugin_maps.zen
+   map("n", m.ataraxis_mode, ":TZAtaraxis <CR>")
+   map("n", m.focus_mode, ":TZFocus <CR>")
+   map("n", m.minimalistic_mode, ":TZMinimalist <CR>")
 end
 
 return M
