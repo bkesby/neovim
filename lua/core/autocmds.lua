@@ -15,8 +15,8 @@ cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
 
 -- Auto format on save
 cmd [[ 
-   augroup fmt
-      autocmd!
-      autocmd BufWritePre * undojoin | Neoformat 
-   augroup END
+augroup fmt
+autocmd!
+autocmd BufWritePre * keepjumps | undojoin | silent! Neoformat 
+augroup END
 ]]

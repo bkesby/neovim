@@ -6,8 +6,19 @@ local rc = require("rc").options.plugin
 
 -- Lua formatting
 g.neoformat_lua_luaformatter = {
-    exe = "lua-format",
-    args = { "--tab-width=3", "--no-use-tab", "indent-width=3" },
+   exe = "lua-format",
+   args = {
+      "--tab-width=3",
+      "--no-use-tab",
+      "--indent-width=3",
+      "--break-after-table-lb",
+      "--break-before-table-rb",
+      "--chop-down-table",
+      "--single-quote-to-double-quote",
+      "--no-keep-simple-control-block-one-line",
+      "--no-keep-simple-function-one-line",
+      "--extra-sep-at-table-end",
+   },
 }
 
 -- Basic filetype formatting

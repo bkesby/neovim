@@ -8,15 +8,11 @@ end
 local use = packer.use
 
 return packer.startup(function()
-   local plugin_status = require('rc').plugin_status
+   local plugin_status = require("rc").plugin_status
 
-   use {
-      "nvim-lua/plenary.nvim",
-   }
+   use {"nvim-lua/plenary.nvim"}
 
-   use {
-      "nvim-lua/popup.nvim",
-   }
+   use {"nvim-lua/popup.nvim"}
 
    use {
       "wbthomason/packer.nvim",
@@ -34,7 +30,7 @@ return packer.startup(function()
    }
 
    use {
-      'hoob3rt/lualine.nvim',
+      "hoob3rt/lualine.nvim",
       after = "base16",
       requires = {
          "kyazdani42/nvim-web-devicons",
@@ -66,14 +62,14 @@ return packer.startup(function()
       -- config = function()
       --    require("plugins.configs.coq").config()
       -- end,
-      run = ":silent! COQdeps"
+      run = ":silent! COQdeps",
    }
 
    use {
       "ms-jpq/coq.artifacts",
       as = "artifacts",
       branch = "artifacts",
-      event = "InsertEnter"
+      event = "InsertEnter",
    }
 
    -- lsp
@@ -153,6 +149,15 @@ return packer.startup(function()
       end,
       setup = function()
          require("core.utils").lazy_load("neoscroll.nvim")
+      end,
+   }
+
+   use {
+      "tpope/vim-surround",
+      disable = not plugin_status.neoscroll,
+      opt = true,
+      setup = function()
+         require("core.utils").lazy_load("vim-surround")
       end,
    }
 
