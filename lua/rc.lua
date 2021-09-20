@@ -164,12 +164,12 @@ M.mappings.plugin = {
 --}}}
 -- Plugin switches {{{
 M.plugin_status = {
+   autopairs = true,
    better_escape = true,
    chadtree = false,
    cheatsheet = true,
    comment = true,
    treesitter = true,
-   -- TODO: Add auto pairs
    -- TODO: Some sort of git management
    -- TODO: Add note taking of some sort/scratchpad
    window = true,

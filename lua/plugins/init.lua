@@ -110,6 +110,15 @@ return packer.startup(function()
    }
 
    use {
+      "windwp/nvim-autopairs",
+      disable = not plugin_status.autopairs,
+      event = "InsertEnter",
+      config = function()
+         require("plugins.configs.others").autopairs()
+      end,
+   }
+
+   use {
       "terrortylor/nvim-comment",
       disable = not plugin_status.comment,
       cmd = "CommentToggle",

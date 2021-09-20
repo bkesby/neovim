@@ -1,6 +1,15 @@
 local rc = require("rc").options.plugin
 local M = {}
 
+M.autopairs = function()
+   local present, autopairs = pcall(require, "nvim-autopairs")
+   if present then
+      autopairs.setup {
+         check_ts = true,
+      }
+   end
+end
+
 M.better_escape = function()
    vim.g.better_escape_interval = rc.better_escape.interval
    vim.g.better_escape_shortcut = rc.better_escape.shortcut
