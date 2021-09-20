@@ -66,6 +66,11 @@ M.comment = function()
    map("v", m, ":CommentToggle <CR>")
 end
 
+M.neoformat = function()
+   local m = plugin_maps.neoformat.format
+   map("n", m, ":Neoformat <CR>")
+end
+
 M.telescope = function()
    local m = plugin_maps.telescope
    map("n", m.buffers, ":Telescope buffers <CR>")

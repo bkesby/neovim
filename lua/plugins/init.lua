@@ -98,6 +98,19 @@ return packer.startup(function()
       end,
    }
 
+   -- formatting
+   use {
+      "sbdchd/neoformat",
+      disable = not plugin_status.neoformat,
+      cmd = "Neoformat",
+      setup = function()
+         require("core.mappings").neoformat()
+      end,
+      config = function()
+         require("plugins.configs.others").neoformat()
+      end,
+   }
+
    -- misc
 
    use {

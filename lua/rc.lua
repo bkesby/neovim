@@ -1,5 +1,8 @@
 local M = {}
 
+-- TODO: Some sort of git management
+-- TODO: Add note taking of some sort/scratchpad
+
 -- UI {{{
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
@@ -109,6 +112,12 @@ M.options.plugin = {
       interval = 125,
       shortcut = "jk",
    },
+   neoformat = {
+      -- Allow basic formatting without filetype
+      basic_format_align = 1,
+      basic_format_retab = 1,
+      basic_format_trim = 1,
+   }
 }
 --}}}
 -- Mappings {{{
@@ -146,6 +155,9 @@ M.mappings.plugin = {
       formatting = "<leader>f",
       range_code_action = "<leader>ca",
    },
+   neoformat = {
+      format = "<leader>nf",
+   },
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
@@ -169,10 +181,9 @@ M.plugin_status = {
    chadtree = false,
    cheatsheet = true,
    comment = true,
+   neoformat = true,
    neoscroll = true,
    treesitter = true,
-   -- TODO: Some sort of git management
-   -- TODO: Add note taking of some sort/scratchpad
    window = true,
 }
 --}}}

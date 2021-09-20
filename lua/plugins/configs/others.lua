@@ -1,4 +1,6 @@
+local g = vim.g
 local rc = require("rc").options.plugin
+
 local M = {}
 
 -- Switch to lua version if I can get it to work with coq
@@ -12,8 +14,8 @@ local M = {}
 -- end
 
 M.better_escape = function()
-   vim.g.better_escape_interval = rc.better_escape.interval
-   vim.g.better_escape_shortcut = rc.better_escape.shortcut
+   g.better_escape_interval = rc.better_escape.interval
+   g.better_escape_shortcut = rc.better_escape.shortcut
 end
 
 M.comment = function()
@@ -21,6 +23,12 @@ M.comment = function()
    if present then
       nvim_comment.setup()
    end
+end
+
+M.neoformat = function()
+   g.neoformat_basic_format_align = rc.neoformat.basic_format_align
+   g.neoformat_basic_format_retab = rc.neoformat.basic_format_retab
+   g.neoformat_basic_format_trim = rc.neoformat.basic_format_trim
 end
 
 M.neoscroll = function()
