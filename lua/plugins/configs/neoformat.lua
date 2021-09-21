@@ -19,6 +19,7 @@ g.neoformat_lua_luaformatter = {
       "--no-keep-simple-function-one-line",
       "--extra-sep-at-table-end",
       "--spaces-around-equals-in-field",
+      "--spaces-inside-table-braces",
    },
 }
 

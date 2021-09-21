@@ -10,23 +10,30 @@ local use = packer.use
 return packer.startup(function()
    local plugin_status = require("rc").plugin_status
 
-   use {"nvim-lua/plenary.nvim"}
-
-   use {"nvim-lua/popup.nvim"}
-
+   -- plugin manager
    use {
       "wbthomason/packer.nvim",
       event = "VimEnter",
    }
 
-   -- core
+   -- Neocore
+   use { "nvim-lua/plenary.nvim" }
+   use { "nvim-lua/popup.nvim" }
 
+   -- core
+   use { "tpope/vim-abolish" }
    use {
       "svermeulen/vim-subversive",
       setup = function()
          require("core.mappings").subversive()
       end,
    }
+
+   -- text objects
+   use { "kana/vim-textobj-user" }
+   use { "glts/vim-textobj-comment" }
+   use { "michaeljsmith/vim-indent-object" }
+   use { "chaoren/vim-wordmotion" }
 
    -- UI initializing
    use {
@@ -205,7 +212,7 @@ return packer.startup(function()
    use {
       "Pocco81/TrueZen.nvim",
       disable = not plugin_status.zen,
-      cmd = {"TZAtaraxis", "TZMinimalist", "TZFocus"},
+      cmd = { "TZAtaraxis", "TZMinimalist", "TZFocus" },
       config = function()
          require("plugins.configs.zen")
       end,
@@ -243,7 +250,7 @@ return packer.startup(function()
          },
          {
             "nvim-telescope/telescope-frecency.nvim",
-            requires = {"tami5/sqlite.lua"},
+            requires = { "tami5/sqlite.lua" },
          },
       },
    }
