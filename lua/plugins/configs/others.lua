@@ -36,8 +36,23 @@ M.blankline = function()
    }
 end
 
-M.codi = function()
-
+M.colorizer = function()
+   local present, colorizer = pcall(require, "colorizer")
+   if present then
+      colorizer.setup({ "*" }, {
+         RGB = true,
+         RRGGBB = true,
+         names = false,
+         RRGGBBAA = true,
+         rgb_fn = true,
+         hsl_fn = true,
+         css = true,
+         css_fn = true,
+         -- Display mode
+         mode = "background",
+      })
+      vim.cmd("ColorizerReloadAllBuffers")
+   end
 end
 
 M.comment = function()

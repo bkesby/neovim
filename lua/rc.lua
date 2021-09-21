@@ -1,7 +1,6 @@
 local M = {}
 
 -- TODO: Add note taking of some sort/scratchpad
--- TODO: Sort out highlights and theme switching
 
 -- UI {{{
 M.ui = {
@@ -226,6 +225,7 @@ M.plugin_status = {
    blankline = true,
    bufferline = false,
    codi = false, -- not smooth yet
+   colorizer = true,
    chadtree = false,
    cheatsheet = true,
    comment = true,

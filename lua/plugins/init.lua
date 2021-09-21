@@ -166,6 +166,15 @@ return packer.startup(function()
    }
 
    use {
+      "norcalli/nvim-colorizer.lua",
+      disable = not plugin_status.colorizer,
+      event = "BufRead",
+      config = function()
+         require("plugins.configs.others").colorizer()
+      end,
+   }
+
+   use {
       "jdhao/better-escape.vim",
       disable = not plugin_status.better_escape,
       event = "InsertEnter",
