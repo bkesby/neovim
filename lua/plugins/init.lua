@@ -55,9 +55,10 @@ return packer.startup(function()
    use {
       "ms-jpq/coq_nvim",
       branch = "coq",
-      event = "VimEnter",
+      event = "UIEnter",
       setup = function()
          require("plugins.configs.coq").setup()
+         -- require("core.utils").lazy_load("coq")
       end,
       -- config = function()
       --    require("plugins.configs.coq").config()
@@ -76,14 +77,7 @@ return packer.startup(function()
    use {
       "kabouzeid/nvim-lspinstall",
       opt = true,
-      after = "artifacts",
-      setup = function()
-         require("core.utils").lazy_load "nvim-lspinstall"
-         -- reload current file to activate lsp for it
-         vim.defer_fn(function()
-            vim.cmd "silent! e %"
-         end, 0)
-      end,
+      after = "coq_nvim",
    }
 
    use {
