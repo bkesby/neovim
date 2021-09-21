@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: Some sort of git management
 -- TODO: Add note taking of some sort/scratchpad
 -- TODO: Sort out highlights and theme switching
 
