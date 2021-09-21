@@ -62,5 +62,11 @@ bg("Folded", black)
 
 -- Plugins
 -- blankline
-fg("IndentBlanklineChar", black2)
+fg("IndentBlanklineChar", white)
 fg("IndentBlanklineContextChar", white .. " gui=nocombine")
+
+-- git signs
+fgbg("GitSignsAdd", line, black)
+fgbg("GitSignsDelete", pmenu_bg, black)
+fgbg("GitSignsChange", one_bg2, black)
+
