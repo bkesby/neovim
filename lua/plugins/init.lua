@@ -19,7 +19,16 @@ return packer.startup(function()
       event = "VimEnter",
    }
 
-   -- Theme collection and initializer
+   -- core
+
+   use {
+      "svermeulen/vim-subversive",
+      setup = function()
+         require("core.mappings").subversive()
+      end,
+   }
+
+   -- UI initializing
    use {
       "norcalli/nvim-base16.lua",
       as = "base16",
