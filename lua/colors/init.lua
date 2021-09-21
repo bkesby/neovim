@@ -28,8 +28,10 @@ M.get = function(theme)
       return
    end
    theme = theme or vim.g.rctheme
+   T = base16.themes[theme]
+   T.name = theme
 
-   return base16.themes[theme]
+   return T
 end
 
 return M

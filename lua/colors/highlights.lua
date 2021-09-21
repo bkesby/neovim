@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 
 local colors = require("colors").get()
+local theme = colors.name
 
 -- collect the hex values
 local black = "#" .. colors.base00
@@ -37,6 +38,12 @@ end
 
 -- Comments
 fg("Comment", darker_black)
+
+-- Theme specifics
+if theme == "heetch" then
+   fg("SpecialChar", one_bg)
+   fg("Delimiter", darker_black)
+end
 
 -- Disable cursor line
 cmd [[ hi clear CursorLine ]]
