@@ -267,6 +267,18 @@ return packer.startup(function()
       end,
    }
 
+   use {
+      "lewis6991/gitsigns.nvim",
+      disable = not plugin_status.gitsigns,
+      opt = true,
+      config = function()
+         require("plugins.configs.gitsigns")
+      end,
+      setup = function()
+         require("core.utils").lazy_load("gitsigns.nvim")
+      end,
+   }
+
    -- scratchpad
    use {
       "metakirby5/codi.vim",

@@ -232,6 +232,7 @@ M.plugin_status = {
    comment = true,
    dashboard = true,
    fugitive = true,
+   gitsigns = true,
    lastplace = true,
    neoformat = true,
    neoscroll = true,
