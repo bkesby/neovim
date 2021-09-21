@@ -102,8 +102,8 @@ M.fugitive = function()
    map("n", m.git_log, ":Git log <CR>")
    map("n", m.git_branch, ":Git branch <space>")
    map("n", m.git_checkout, ":Git checkout <space>")
-   map("n", m.git_push, ":Dispatch! git push <CR>")
-   map("n", m.git_pull, ":Dispatch! git pull <CR>")
+   map("n", m.git_push, ":Git push <CR>")
+   map("n", m.git_pull, ":Git pull <CR>")
 end
 
 M.neoformat = function()
