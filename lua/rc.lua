@@ -116,7 +116,7 @@ M.options = {
    },
 }
 -- }}}
--- Plugin Options{{{
+-- Plugin Options {{{
 M.options.plugin = {
    better_escape = {
       interval = 125,
