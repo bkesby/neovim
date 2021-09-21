@@ -111,18 +111,27 @@ return packer.startup(function()
    -- misc
 
    use {
+      "jiangmiao/auto-pairs",
+      disable = not plugin_status.autopairs,
+      event = "BufEnter",
+   }
+
+   use {
+      "lukas-reineke/indent-blankline.nvim",
+      disable = not plugin_status.blankline,
+      event = "BufRead",
+      config = function()
+         require("plugins.configs.others").blankline()
+      end,
+   }
+
+   use {
       "jdhao/better-escape.vim",
       disable = not plugin_status.better_escape,
       event = "InsertEnter",
       setup = function()
          require("plugins.configs.others").better_escape()
       end,
-   }
-
-   use {
-      "jiangmiao/auto-pairs",
-      disable = not plugin_status.autopairs,
-      event = "BufEnter",
    }
 
    use {
@@ -151,7 +160,7 @@ return packer.startup(function()
 
    use {
       "tpope/vim-surround",
-      disable = not plugin_status.neoscroll,
+      disable = not plugin_status.surround,
       opt = true,
       setup = function()
          require("core.utils").lazy_load("vim-surround")

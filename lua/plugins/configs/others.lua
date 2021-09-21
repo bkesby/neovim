@@ -18,6 +18,40 @@ M.better_escape = function()
    g.better_escape_shortcut = rc.better_escape.shortcut
 end
 
+M.blankline = function()
+   require("indent_blankline").setup {
+      indentLine_enabled = 1,
+      show_current_context = true,
+      context_patterns = {
+         "class",
+         "function",
+         "method",
+         "object",
+         "dictionary",
+         "table",
+         "^if",
+         "while",
+         "for",
+         "with",
+         "case",
+         "try",
+         "except",
+      },
+      filetype_exclude = {
+         "help",
+         "terminal",
+         "dashboard",
+         "packer",
+         "lspinfo",
+         "TelescopePrompt",
+         "TelescopeResults",
+      },
+      buftype_exclude = {"terminal"},
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = false,
+   }
+end
+
 M.comment = function()
    local present, nvim_comment = pcall(require, "nvim_comment")
    if present then
@@ -40,7 +74,7 @@ M.window = function()
    if present then
       nvim_window.setup {
          -- 'x' used as dummy first skipped character
-         chars = { 'x', 'a', 's', 'd', 'f', 'j', 'k', 'l' },
+         chars = {"x", "a", "s", "d", "f", "j", "k", "l"},
          border = "none",
       }
    end

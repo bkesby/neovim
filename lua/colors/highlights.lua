@@ -53,3 +53,7 @@ fgbg("VertSplit", black2, black)
 -- Folds
 bg("Folded", black)
 
+-- Plugins
+-- blankline
+fg("IndentBlanklineChar", black2)
+fg("IndentBlanklineContextChar", white .. " gui=nocombine")
