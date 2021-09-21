@@ -20,8 +20,10 @@ return packer.startup(function()
    use { "nvim-lua/plenary.nvim" }
    use { "nvim-lua/popup.nvim" }
 
-   -- core
-   use { "tpope/vim-abolish" }
+   -- core (the pope)
+   use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
+   use { "tpope/vim-unimpaired" } -- bracket mappings
+   use { "tpope/vim-repeat" }
    use {
       "svermeulen/vim-subversive",
       setup = function()
