@@ -25,8 +25,21 @@ local yellow = colors.base0G
 local ui = require("rc").ui
 
 -- command functions
+local function fg(group, color)
+   cmd("hi " .. group .. " guifg=" .. color)
+end
 local function bg(group, color)
-   cmd("hi " .. group " guibg=" .. color)
+   cmd("hi " .. group .. " guibg=" .. color)
+end
+local function fgbg(group, fcolor, bcolor)
+   cmd("hi " .. group .. " guifg=" .. fcolor .. " guibg=" .. bcolor)
 end
 
+-- Comments
+-- fg("Comment", green)
+
+-- Disable cursor line
 cmd [[ hi clear CursorLine ]]
+
+-- Line numbers
+

@@ -2,6 +2,7 @@ local M = {}
 
 -- TODO: Some sort of git management
 -- TODO: Add note taking of some sort/scratchpad
+-- TODO: Sort out highlights and theme switching
 
 -- UI {{{
 M.ui = {
@@ -25,13 +26,13 @@ M.options = {
    autoread = true,
    clipboard = "unnamedplus",
    mouse = "",
-   hidden = true,
    -- Timings
    updatetime = 1000,
    timeout = true,
    timeoutlen = 400,
    ttimeoutlen = 10,
    -- Behaviour
+   hidden = true,
    splitbelow = true,
    splitright = true,
    wildignorecase = true,
@@ -63,7 +64,7 @@ M.options = {
    -- Numbers
    number = true,
    relativenumber = true,
-   numberwidth = 2,
+   numberwidth = 3,
    ruler = true,
    -- Fills
    fillchars = {
