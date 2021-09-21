@@ -51,7 +51,7 @@ cmd [[ hi clear CursorLine ]]
 -- Gutters
 fgbg("LineNR", darker_black, black)
 fgbg("CursorLineNR", nord_blue, black .. " gui=bold")
-fgbg("FoldColumn", red, black)
+fgbg("FoldColumn", white, black)
 bg("SignColumn", black)
 
 -- Dividers
