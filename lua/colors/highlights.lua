@@ -51,7 +51,7 @@ cmd [[ hi clear CursorLine ]]
 -- Gutters
 fgbg("LineNR", darker_black, black)
 fgbg("CursorLineNR", nord_blue, black .. " gui=bold")
-bg("FoldColumn", black)
+fgbg("FoldColumn", red, black)
 bg("SignColumn", black)
 
 -- Dividers
@@ -59,6 +59,12 @@ fgbg("VertSplit", black2, black)
 
 -- Folds
 bg("Folded", black)
+
+-- lsp diagnostics
+fg("DiagnosticSignError", pmenu_bg)
+fg("DiagnosticSignWarn", purple)
+fg("DiagnosticSignHint", nord_blue)
+fg("DiagnosticSignInfo", nord_blue)
 
 -- Plugins
 -- blankline
@@ -69,4 +75,3 @@ fg("IndentBlanklineContextChar", white .. " gui=nocombine")
 fgbg("GitSignsAdd", line, black)
 fgbg("GitSignsDelete", pmenu_bg, black)
 fgbg("GitSignsChange", one_bg2, black)
-
