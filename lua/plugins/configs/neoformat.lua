@@ -13,7 +13,7 @@ g.neoformat_lua_luaformatter = {
       "--indent-width=3",
       "--break-after-table-lb",
       "--break-before-table-rb",
-      "--chop-down-table",
+      "--no-chop-down-table",
       "--single-quote-to-double-quote",
       "--no-keep-simple-control-block-one-line",
       "--no-keep-simple-function-one-line",

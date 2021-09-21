@@ -23,7 +23,9 @@ return packer.startup(function()
    -- core (the pope)
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
    use { "tpope/vim-unimpaired" } -- bracket mappings
-   use { "tpope/vim-repeat" }
+   use { "tpope/vim-repeat" } -- adds repeats for plugins
+   -- use { "tpope/vim-sleuth" } -- shift/tab width detection
+   use { "machakann/vim-sandwich" } -- surround stuff with motion
    use {
       "svermeulen/vim-subversive",
       setup = function()
@@ -168,6 +170,15 @@ return packer.startup(function()
    }
 
    use {
+      "moll/vim-bbye",
+      opt = true,
+      cmd = { "Bdelete", "Bwipeout" },
+      setup = function()
+         require("core.mappings").bbye()
+      end,
+   }
+
+   use {
       "terrortylor/nvim-comment",
       disable = not plugin_status.comment,
       cmd = "CommentToggle",
@@ -188,15 +199,6 @@ return packer.startup(function()
       end,
       setup = function()
          require("core.utils").lazy_load("neoscroll.nvim")
-      end,
-   }
-
-   use {
-      "tpope/vim-surround",
-      disable = not plugin_status.surround,
-      opt = true,
-      setup = function()
-         require("core.utils").lazy_load("vim-surround")
       end,
    }
 
@@ -245,16 +247,24 @@ return packer.startup(function()
             setup = function()
                require("core.mappings").cheatsheet()
             end,
-         },
-         {
+         }, {
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
-         },
-         {
+         }, {
             "nvim-telescope/telescope-frecency.nvim",
             requires = { "tami5/sqlite.lua" },
          },
       },
+   }
+
+   -- git
+   use {
+      "tpope/vim-fugitive",
+      disable = not plugin_status.fugitive,
+      cmd = { "Git", "Gdiffsplit", "Gsplit", "Gread", "Gedit" },
+      setup = function()
+         require("core.mappings").fugitive()
+      end,
    }
 
    -- scratchpad

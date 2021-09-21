@@ -138,6 +138,10 @@ M.mappings = {
 }
 
 M.mappings.plugin = {
+   bbye = {
+      delete = "<leader>x",
+      wipeout = "<leader>X",
+   },
    cheatsheet = {
       default_keys = "<leader>dk",
       user_keys = "<leader>uk",
@@ -151,6 +155,20 @@ M.mappings.plugin = {
       new_file = "<leader>fn",
       session_load = "<leader>l",
       session_save = "<leader>s",
+   },
+   fugitive = {
+      git = "<leader>gg",
+      git_add = "<leader>ga",
+      git_commit = "<leader>gc",
+      git_blame = "<leader>gb",
+      git_diff = "<leader>gd",
+      git_diff_split = "<leader>gds",
+      git_edit = "<leader>ge",
+      git_log = "<leader>gl",
+      git_branch = "<leader>gbr",
+      git_checkout = "<leader>go",
+      git_push = "<leader>gps",
+      git_pull = "<leader>gpl",
    },
    lsp = {
       declaration = "gD",
@@ -213,7 +231,7 @@ M.plugin_status = {
    cheatsheet = true,
    comment = true,
    dashboard = true,
-   fugitive = false,
+   fugitive = true,
    lastplace = true,
    neoformat = true,
    neoscroll = true,

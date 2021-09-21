@@ -13,7 +13,7 @@ local M = {}
 M.misc = function()
    local function behaviour_mappings()
       -- space bar is leader
-      map({"n", "v"}, " ", "<Nop>")
+      map({ "n", "v" }, " ", "<Nop>")
 
       -- don't copy the replaced text after pasting in visual mode
       map("v", "p", "\"_dP")
@@ -27,7 +27,7 @@ M.misc = function()
       })
 
       -- don't yank on cut
-      map({"n", "v"}, "x", "\"_x")
+      map({ "n", "v" }, "x", "\"_x")
    end
 
    local function required_mappings()
@@ -58,6 +58,12 @@ M.misc = function()
 end
 
 -- plugin related mappings
+M.bbye = function()
+   local m = plugin_maps.bbye
+   map("n", m.delete, ":Bdelete<CR>")
+   map("n", m.wipeout, ":Bwipeout<CR>")
+end
+
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
    map("n", m.default_keys,
@@ -79,6 +85,25 @@ M.dashboard = function()
    map("n", m.new_file, ":DashboardNewFile <CR>")
    map("n", m.session_load, ":SessionLoad <CR>")
    map("n", m.session_save, ":SessionSave <CR>")
+end
+
+M.fugitive = function()
+   local m = plugin_maps.fugitive
+   local opts = {
+      silent = false,
+   }
+   map("n", m.git, ":Git <CR>")
+   map("n", m.git_add, ":G add <CR>")
+   map("n", m.git_commit, ":G commit")
+   map("n", m.git_blame, ":G blame")
+   map("n", m.git_diff, ":G diff <CR>")
+   map("n", m.git_diff_split, ":Gdiffsplit <CR>")
+   map("n", m.git_edit, ":Gedit HEAD~:%<Left><Left>", opts)
+   map("n", m.git_log, ":G log <CR>")
+   map("n", m.git_branch, ":Git branch <space>")
+   map("n", m.git_checkout, ":Git checkout <space>")
+   map("n", m.git_push, ":Dispatch! git push <CR>")
+   map("n", m.git_pull, ":Dispatch! git pull <CR>")
 end
 
 M.neoformat = function()
