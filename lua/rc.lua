@@ -185,6 +185,7 @@ M.mappings.plugin = {
       oldfiles = "<leader>fo",
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
+      frecency = "<leader>fr"
    },
    window = {
       pick = "<leader>w",

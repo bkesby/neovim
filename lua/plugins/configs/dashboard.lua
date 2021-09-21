@@ -17,9 +17,9 @@ g.dashboard_custom_section = {
    b = {
       description = {
          "  Recents                         " ..
-             telescope.oldfiles:gsub("<leader>", "SPC "),
+             telescope.frecency:gsub("<leader>", "SPC "),
       },
-      command = "Telescope oldfiles",
+      command = "Telescope frecency",
    },
    c = {
       description = {

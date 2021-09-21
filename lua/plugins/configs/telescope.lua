@@ -12,7 +12,7 @@ telescope.setup {
       sorting_strategy = "ascending",
       selection_strategy = "reset",
       scroll_strategy = "cycle",
-      path_display = { "smart" },
+      path_display = {"smart"},
       layout_stategy = "flex",
       layout_config = {
          -- TODO: Can't confirm flex settings work correctly
@@ -30,10 +30,19 @@ telescope.setup {
          height = 0.80,
       },
       border = true,
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      set_env = { COLORTERM = "truecolor", },
-      file_ignore_patterns = { "%.pyc", },
+      borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
+      set_env = {
+         COLORTERM = "truecolor",
+      },
+      file_ignore_patterns = {"%.pyc"},
+   },
+   extensions = {
+      frecency = {
+         show_unindexed = false,
+         default_workspace = "CWD",
+      },
    },
 }
 
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("frecency")
