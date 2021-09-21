@@ -61,10 +61,16 @@ fgbg("VertSplit", black2, black)
 bg("Folded", black)
 
 -- lsp diagnostics
+-- signs
 fg("DiagnosticSignError", pmenu_bg)
 fg("DiagnosticSignWarn", purple)
 fg("DiagnosticSignHint", nord_blue)
 fg("DiagnosticSignInfo", nord_blue)
+-- virtual
+fg("DiagnosticError", pmenu_bg)
+fg("DiagnosticWarn", pmenu_bg)
+fg("DiagnosticInfo", nord_blue)
+fg("DiagnosticHint", nord_blue)
 
 -- Plugins
 -- blankline
