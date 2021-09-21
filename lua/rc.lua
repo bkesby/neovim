@@ -8,7 +8,7 @@ local M = {}
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
-   theme = "atlas",
+   theme = "heetch",
    -- outrun-dark, horizon, heetch, snazzy
 }
 
@@ -64,7 +64,7 @@ M.options = {
    -- Numbers
    number = true,
    relativenumber = true,
-   numberwidth = 3,
+   numberwidth = 2,
    ruler = true,
    -- Fills
    fillchars = {
