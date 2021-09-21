@@ -23,30 +23,14 @@ M.blankline = function()
       indentLine_enabled = 1,
       show_current_context = true,
       context_patterns = {
-         "class",
-         "function",
-         "method",
-         "object",
-         "dictionary",
-         "table",
-         "^if",
-         "while",
-         "for",
-         "with",
-         "case",
-         "try",
-         "except",
+         "class", "function", "method", "object", "dictionary", "table", "^if",
+         "while", "for", "with", "case", "try", "except",
       },
       filetype_exclude = {
-         "help",
-         "terminal",
-         "dashboard",
-         "packer",
-         "lspinfo",
-         "TelescopePrompt",
-         "TelescopeResults",
+         "help", "terminal", "dashboard", "packer", "lspinfo",
+         "TelescopePrompt", "TelescopeResults",
       },
-      buftype_exclude = {"terminal"},
+      buftype_exclude = { "terminal" },
       show_trailing_blankline_indent = false,
       show_first_indent_level = false,
    }
@@ -65,7 +49,7 @@ end
 
 M.lastplace = function()
    require("nvim-lastplace").setup {
-      lastplace_ignore_buftype = {"quickfix", "nofile", "help", "dashboard"},
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
       lastplace_open_folds = true,
    }
 end
@@ -85,10 +69,14 @@ M.window = function()
    if present then
       nvim_window.setup {
          -- 'x' used as dummy first skipped character
-         chars = {"x", "a", "s", "d", "f", "j", "k", "l"},
+         chars = { "x", "a", "s", "d", "f", "j", "k", "l" },
          border = "none",
       }
    end
+end
+
+M.wordmotion = function()
+   g.wordmotion_uppercase_spaces = { "-" }
 end
 
 return M

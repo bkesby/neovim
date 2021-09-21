@@ -37,7 +37,12 @@ return packer.startup(function()
    use { "kana/vim-textobj-user" }
    use { "glts/vim-textobj-comment" }
    use { "michaeljsmith/vim-indent-object" }
-   use { "chaoren/vim-wordmotion" }
+   use {
+      "chaoren/vim-wordmotion",
+      config = function()
+         require("plugins.configs.others").wordmotion()
+      end,
+   }
 
    -- UI initializing
    use {
@@ -296,7 +301,7 @@ return packer.startup(function()
       disable = not plugin_status.chadtree,
       branch = "chad",
       cmd = "CHADopen",
-      run = ":CHADdeps",
+      run = ":silent! CHADdeps",
    }
 
 end)
