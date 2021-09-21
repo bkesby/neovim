@@ -214,6 +214,19 @@ return packer.startup(function()
       },
    }
 
+   -- dashboard
+
+   use {
+      "glepnir/dashboard-nvim",
+      disable = not plugin_status.dashboard,
+      config = function()
+         require("plugins.configs.dashboard")
+      end,
+      setup = function()
+         require("core.mappings").dashboard()
+      end,
+   }
+
    -- scratchpad
    use {
       "metakirby5/codi.vim",

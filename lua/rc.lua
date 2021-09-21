@@ -145,6 +145,13 @@ M.mappings.plugin = {
    comment = {
       toggle = "<Leader>/",
    },
+   dashboard = {
+      open = "<leader>db",
+      bookmarks = "<leader>bm",
+      new_file = "<leader>fn",
+      session_load = "<leader>l",
+      session_save = "<leader>s",
+   },
    lsp = {
       declaration = "gD",
       definition = "gd",
@@ -199,6 +206,7 @@ M.plugin_status = {
    chadtree = false,
    cheatsheet = true,
    comment = true,
+   dashboard = true,
    fugitive = false,
    neoformat = true,
    neoscroll = true,

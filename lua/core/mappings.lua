@@ -72,6 +72,15 @@ M.comment = function()
    map("v", m, ":CommentToggle <CR>")
 end
 
+M.dashboard = function()
+   local m = plugin_maps.dashboard
+   map("n", m.open, ":Dashboard <CR>")
+   map("n", m.bookmarks, ":Telescope marks <CR>") -- DashboardJumpMark fails
+   map("n", m.new_file, ":DashboardNewFile <CR>")
+   map("n", m.session_load, ":SessionLoad <CR>")
+   map("n", m.session_save, ":SessionSave <CR>")
+end
+
 M.neoformat = function()
    local m = plugin_maps.neoformat.format
    map("n", m, ":Neoformat <CR>")

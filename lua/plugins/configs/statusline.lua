@@ -7,5 +7,6 @@ end
 statusline.setup {
    options = {
       theme = rc.theme,
-   }
+      disabled_filetypes = {"dashboard"},
+   },
 }
