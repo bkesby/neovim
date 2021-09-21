@@ -185,7 +185,7 @@ M.mappings.plugin = {
       oldfiles = "<leader>fo",
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
-      frecency = "<leader>fr"
+      frecency = "<leader>fr",
    },
    window = {
       pick = "<leader>w",
@@ -209,6 +209,7 @@ M.plugin_status = {
    comment = true,
    dashboard = true,
    fugitive = false,
+   lastplace = true,
    neoformat = true,
    neoscroll = true,
    surround = true,

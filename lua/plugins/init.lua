@@ -41,6 +41,19 @@ return packer.startup(function()
       end,
    }
 
+   -- dashboard
+
+   use {
+      "glepnir/dashboard-nvim",
+      disable = not plugin_status.dashboard,
+      config = function()
+         require("plugins.configs.dashboard")
+      end,
+      setup = function()
+         require("core.mappings").dashboard()
+      end,
+   }
+
    use {
       "nvim-treesitter/nvim-treesitter",
       disable = not plugin_status.treesitter,
@@ -103,6 +116,14 @@ return packer.startup(function()
    }
 
    -- misc
+
+   use {
+      "ethanholz/nvim-lastplace",
+      disable = not plugin_status.lastplace,
+      config = function()
+         require("plugins.configs.others").lastplace()
+      end,
+   }
 
    use {
       "jiangmiao/auto-pairs",
@@ -216,19 +237,6 @@ return packer.startup(function()
             requires = {"tami5/sqlite.lua"},
          },
       },
-   }
-
-   -- dashboard
-
-   use {
-      "glepnir/dashboard-nvim",
-      disable = not plugin_status.dashboard,
-      config = function()
-         require("plugins.configs.dashboard")
-      end,
-      setup = function()
-         require("core.mappings").dashboard()
-      end,
    }
 
    -- scratchpad

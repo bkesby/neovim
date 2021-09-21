@@ -63,6 +63,13 @@ M.comment = function()
    end
 end
 
+M.lastplace = function()
+   require("nvim-lastplace").setup {
+      lastplace_ignore_buftype = {"quickfix", "nofile", "help", "dashboard"},
+      lastplace_open_folds = true,
+   }
+end
+
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
    if present then
