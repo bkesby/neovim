@@ -195,6 +195,7 @@ M.plugin_status = {
    better_escape = true,
    blankline = true,
    bufferline = false,
+   codi = false, -- not smooth yet
    chadtree = false,
    cheatsheet = true,
    comment = true,

@@ -52,6 +52,10 @@ M.blankline = function()
    }
 end
 
+M.codi = function()
+
+end
+
 M.comment = function()
    local present, nvim_comment = pcall(require, "nvim_comment")
    if present then

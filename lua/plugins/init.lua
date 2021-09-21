@@ -220,6 +220,17 @@ return packer.startup(function()
       },
    }
 
+   -- scratchpad
+   use {
+      "metakirby5/codi.vim",
+      disable = not plugin_status.codi,
+      cmd = "Codi",
+      config = function()
+         require("plugins.configs.others").codi()
+      end,
+      -- TODO: Add mappings.
+   }
+
    -- file manager
    use {
       "ms-jpq/chadtree",
