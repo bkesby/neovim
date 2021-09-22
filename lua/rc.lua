@@ -49,7 +49,7 @@ M.options = {
    -- Wrap
    wrap = false,
    linebreak = true,
-   sidescroll = 4,
+   sidescroll = 1,
    breakindent = true,
    breakindentopt = "shift:2,sbr",
    showbreak = "↳",
