@@ -1,7 +1,7 @@
 local M = {}
 
 -- TODO: Add bufferline
--- TODO: Sort out best terminal solution - mappings in rc and config
+-- TODO: Setup htop terminal? < play around
 -- TODO: Add scratchpad/notes taking system
 
 -- UI {{{
@@ -243,6 +243,7 @@ M.plugin_status = {
    surround = true,
    toggleterm = true,
    treesitter = true,
+   wordmotion = false,
    window = true,
    zen = true,
 }

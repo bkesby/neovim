@@ -54,6 +54,10 @@ fgbg("CursorLineNR", nord_blue, black .. " gui=bold")
 fgbg("FoldColumn", white, black)
 bg("SignColumn", black)
 
+-- Statusline
+bg("StatusLine", black)
+fgbg("StatusLineNC", black2, black .. " gui=underline")
+
 -- Dividers
 fgbg("VertSplit", black2, black)
 

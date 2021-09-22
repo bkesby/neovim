@@ -6,7 +6,20 @@ end
 
 statusline.setup {
    options = {
+      icons_enabled = true,
       theme = rc.theme,
-      disabled_filetypes = {"dashboard"},
+      component_separators = {
+         left = "|",
+         right = "|",
+      },
+      section_separators = {
+         left = " ",
+         right = " ",
+      },
+      disabled_filetypes = { "dashboard" },
+   },
+   inactive_sections = {
+      lualine_c = {},
+      lualine_x = {},
    },
 }

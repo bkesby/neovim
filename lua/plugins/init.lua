@@ -39,6 +39,7 @@ return packer.startup(function()
    use { "michaeljsmith/vim-indent-object" }
    use {
       "chaoren/vim-wordmotion",
+      disable = not plugin_status.wordmotion,
       config = function()
          require("plugins.configs.others").wordmotion()
       end,
@@ -55,7 +56,7 @@ return packer.startup(function()
    }
 
    use {
-      "hoob3rt/lualine.nvim",
+      "shadmansaleh/lualine.nvim",
       after = "base16",
       requires = {
          "kyazdani42/nvim-web-devicons",
