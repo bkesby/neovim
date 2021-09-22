@@ -66,6 +66,14 @@ return packer.startup(function()
       end,
    }
 
+   use {
+      "akinsho/bufferline.nvim",
+      after = "lualine.nvim",
+      config = function()
+         require("plugins.configs.bufferline")
+      end,
+   }
+
    -- dashboard
 
    use {
