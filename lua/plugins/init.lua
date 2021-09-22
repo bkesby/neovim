@@ -293,6 +293,17 @@ return packer.startup(function()
       end,
    }
 
+   -- terminal
+   use {
+      "akinsho/toggleterm.nvim",
+      opt = true,
+      event = "TermEnter",
+      keys = "<leader>t",
+      config = function()
+         require("plugins.configs.toggleterm")
+      end,
+   }
+
    -- scratchpad
    use {
       "metakirby5/codi.vim",

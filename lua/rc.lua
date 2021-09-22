@@ -1,6 +1,8 @@
 local M = {}
 
--- TODO: Add note taking of some sort/scratchpad
+-- TODO: Add bufferline
+-- TODO: Sort out best terminal solution - mappings in rc and config
+-- TODO: Add scratchpad/notes taking system
 
 -- UI {{{
 M.ui = {
@@ -208,6 +210,9 @@ M.mappings.plugin = {
       -- themes = "<leader>th",
       frecency = "<leader>fr",
    },
+   toggleterm = {
+      toggle = "<leader>t",
+   },
    window = {
       pick = "<leader>w",
    },
@@ -224,10 +229,10 @@ M.plugin_status = {
    better_escape = true,
    blankline = true,
    bufferline = false,
-   codi = false, -- not smooth yet
-   colorizer = true,
    chadtree = false,
    cheatsheet = true,
+   codi = false, -- not smooth yet
+   colorizer = true,
    comment = true,
    dashboard = true,
    fugitive = true,
@@ -236,6 +241,7 @@ M.plugin_status = {
    neoformat = true,
    neoscroll = true,
    surround = true,
+   toggleterm = true,
    treesitter = true,
    window = true,
    zen = true,
