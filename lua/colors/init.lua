@@ -28,10 +28,13 @@ M.get = function(theme)
       return
    end
    theme = theme or vim.g.rctheme
-   T = base16.themes[theme]
-   T.name = theme
+   local t = { name = theme }
+   -- add # to color codes
+   for k, v in pairs(base16.themes[theme]) do
+      t[k] = "#" .. v
+   end
 
-   return T
+   return t
 end
 
 return M
