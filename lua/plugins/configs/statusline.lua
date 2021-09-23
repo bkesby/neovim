@@ -13,13 +13,9 @@ local colors = require("colors").get()
 local runtime_theme = {
    normal = {
       c = {
-         fg = colors.base0C,
-         bg = colors.base00,
+         fg = colors.base06,
+         bg = colors.base0F,
       },
-   },
-   inactive = {
-      fg = colors.base00,
-      bg = colors.base00,
    },
 }
 
@@ -79,25 +75,25 @@ end
 local mode_function = function()
    local mode = {
       n = colors.base07, -- normal
+      no = colors.base07, -- N-Pending
       i = colors.base0B, -- insert
-      v = colors.base02, -- visual
-      [""] = colors.base02, -- visual block
-      V = colors.base02, -- visual line
-      c = colors.base0E, -- command
-      no = colors.base0C, -- N-Pending
+      ic = colors.base0B, -- insert ...
+      v = colors.base0D, -- visual
+      [""] = colors.base0D, -- visual block
+      V = colors.base0B, -- visual line
       s = colors.base0E, -- select
       S = colors.base0E, -- select line
       [""] = colors.base0E, -- select block
-      ic = colors.base0B, -- insert ...
-      R = colors.base0A, -- replace
-      Rv = colors.base0A, -- v-replace
-      cv = colors.base0C, -- command
-      ce = colors.base0C, -- command
+      R = colors.base09, -- replace
+      Rv = colors.base09, -- v-replace
+      c = colors.base0A, -- command
+      cv = colors.base0A, -- command
+      ce = colors.base0A, -- command
       r = colors.base0E, -- prompt
       rm = colors.base0E, -- more
       ["r?"] = colors.base0E, -- confirm
-      ["!"] = colors.base08, -- shell
-      t = colors.base08, -- terminal
+      ["!"] = colors.base0A, -- shell
+      t = colors.base0A, -- terminal
    }
    -- Update highlight groups
    local fg = "hi! LualineModeForeground" .. " guifg=" .. mode[fn.mode()] ..
@@ -201,7 +197,7 @@ insert_right {
 
 insert_right {
    function()
-      return "██"
+      return "▐██"
    end,
    color = "LualineModeForeground",
    padding = {
