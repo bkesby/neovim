@@ -1,6 +1,6 @@
 local M = {}
 
--- TODO: Add bufferline
+-- TODO: Highlight bufferline
 -- TODO: Setup htop terminal? < play around
 -- TODO: Add scratchpad/notes taking system
 

@@ -4,23 +4,22 @@ local colors = require("colors").get()
 local theme = colors.name
 
 -- collect the hex values
-local black = "#" .. colors.base00
-local black2 = "#" .. colors.base01
-local blue = "#" .. colors.base02
-local darker_black = "#" .. colors.base03
-local folder_bg = "#" .. colors.base04
-local green = "#" .. colors.base05
-local grey = "#" .. colors.base06
-local grey_fg = "#" .. colors.base07
-local line = "#" .. colors.base08
-local nord_blue = "#" .. colors.base09
-local one_bg = "#" .. colors.base0A
-local one_bg2 = "#" .. colors.base0B
-local pmenu_bg = "#" .. colors.base0C
-local purple = "#" .. colors.base0D
-local red = "#" .. colors.base0E
-local white = "#" .. colors.base0F
--- local yellow = "#" .. colors.base0G
+local black = colors.base00
+local black2 = colors.base01
+local blue = colors.base02
+local darker_black = colors.base03
+local folder_bg = colors.base04
+local green = colors.base05
+local grey = colors.base06
+local grey_fg = colors.base07
+local line = colors.base08
+local nord_blue = colors.base09
+local one_bg = colors.base0A
+local one_bg2 = colors.base0B
+local pmenu_bg = colors.base0C
+local purple = colors.base0D
+local red = colors.base0E
+local white = colors.base0F
 
 -- collect configuration
 local ui = require("rc").ui
@@ -79,7 +78,7 @@ fg("DiagnosticHint", nord_blue)
 -- Plugins
 -- blankline
 fg("IndentBlanklineChar", white)
-fg("IndentBlanklineContextChar", white .. " gui=nocombine")
+fg("IndentBlanklineContextChar", red .. " gui=nocombine")
 
 -- git signs
 fgbg("GitSignsAdd", line, black)
