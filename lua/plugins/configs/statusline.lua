@@ -86,13 +86,13 @@ local mode_function = function()
       [""] = colors.base0E, -- select block
       R = colors.base09, -- replace
       Rv = colors.base09, -- v-replace
-      c = colors.base0A, -- command
-      cv = colors.base0A, -- command
-      ce = colors.base0A, -- command
+      c = colors.base04, -- command
+      cv = colors.base04, -- command
+      ce = colors.base04, -- command
       r = colors.base0E, -- prompt
       rm = colors.base0E, -- more
       ["r?"] = colors.base0E, -- confirm
-      ["!"] = colors.base0A, -- shell
+      ["!"] = colors.base04, -- shell
       t = colors.base0A, -- terminal
    }
    -- Update highlight groups
