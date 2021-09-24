@@ -142,6 +142,14 @@ M.mappings.plugin = {
       delete = "<leader>x",
       wipeout = "<leader>X",
    },
+   bufferline = {
+      cycle_next = "<leader><TAB>",
+      cycle_prev = "<leader><S-TAB>",
+      move_next = "<leader>bn",
+      move_prev = "<leader>bp",
+      sort_extension = "<leader>be",
+      sort_directory = "<leader>be",
+   },
    cheatsheet = {
       default_keys = "<leader>dk",
       user_keys = "<leader>uk",

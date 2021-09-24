@@ -64,6 +64,19 @@ M.bbye = function()
    map("n", m.wipeout, ":Bwipeout<CR>")
 end
 
+M.bufferline = function()
+   local m = plugin_maps.bufferline
+   local opts = {
+      noremap = false,
+   }
+   map("n", m.cycle_next, ":BufferLineCycleNext<CR>", opts)
+   map("n", m.cycle_prev, ":BufferLineCyclePrev<CR>", opts)
+   map("n", m.move_next, ":BufferLineMoveNext<CR>")
+   map("n", m.move_prev, ":BufferLineMovePrev<CR>")
+   map("n", m.sort_extension, ":BufferLineSortByExtension<CR>")
+   map("n", m.sort_directory, ":BufferLineSortByDirectory<CR>")
+end
+
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
    map("n", m.default_keys,

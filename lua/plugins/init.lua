@@ -73,6 +73,9 @@ return packer.startup(function()
       config = function()
          require("plugins.configs.bufferline")
       end,
+      setup = function()
+         require("core.mappings").bufferline()
+      end,
    }
 
    -- dashboard
