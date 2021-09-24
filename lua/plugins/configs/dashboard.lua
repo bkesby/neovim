@@ -19,7 +19,11 @@ g.dashboard_custom_header = {
    " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
    "                                                       ",
    "                                                       ",
+   "                                                       ",
    "                 Customised by Kesby                   ",
+   "                                                       ",
+   "                                                       ",
+   "                                                       ",
 }
 
 g.dashboard_custom_section = {
