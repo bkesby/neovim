@@ -208,6 +208,7 @@ M.mappings.plugin = {
       substitute_line = "ss",
       substitute_end_of_line = "S",
    },
+
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",

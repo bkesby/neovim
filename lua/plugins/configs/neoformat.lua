@@ -20,9 +20,13 @@ g.neoformat_lua_luaformatter = {
 g.neoformat_enabled_lua = { "luaformatter" }
 
 -- Python formatting
--- g.neoformat_python_black {
---    exe = "black",
--- }
+g.neoformat_python_black = {
+   exe = "black",
+   args = { "-q" },
+   replace = true,
+}
+--
+g.neoformat_enabled_python = { "black" }
 
 -- Basic filetype formatting
 g.neoformat_basic_format_align = rc.neoformat.basic_format_align
