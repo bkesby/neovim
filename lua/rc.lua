@@ -254,7 +254,7 @@ M.plugin_status = {
    surround = true,
    toggleterm = true,
    treesitter = true,
-   wordmotion = false,
+   wordmotion = true,
    window = true,
    zen = true,
 }
