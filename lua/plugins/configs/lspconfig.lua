@@ -130,6 +130,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
        update_in_insert = false,
     })
 
+setup_servers()
+
 -- Automatically reload after :LspInstall <server>
 lspinstall.post_install_hook = function()
    setup_servers()
