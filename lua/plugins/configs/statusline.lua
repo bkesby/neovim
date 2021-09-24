@@ -52,7 +52,7 @@ local config = {
       lualine_z = {},
    },
    tabline = {},
-   extensions = {},
+   extensions = { "toggleterm", "fugitive" },
 }
 
 -- Conditions

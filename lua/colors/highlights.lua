@@ -83,4 +83,4 @@ fg("IndentBlanklineContextChar", red .. " gui=nocombine")
 -- git signs
 fgbg("GitSignsAdd", line, black)
 fgbg("GitSignsDelete", pmenu_bg, black)
-fgbg("GitSignsChange", one_bg2, black)
+fgbg("GitSignsChange", nord_blue, black)
