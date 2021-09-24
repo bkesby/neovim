@@ -7,6 +7,9 @@ cmd [[ au InsertLeave * set relativenumber ]]
 -- Hide line numbers inside terminal
 cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
 
+-- Hide bufferline inside dashboard
+cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu ]]
+
 -- Hide status line on certain windows (defined in utils)
 -- cmd [[ autocmd BufEnter,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
 

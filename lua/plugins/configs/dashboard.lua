@@ -7,6 +7,21 @@ g.dashboard_disable_statusline = 1
 g.dashboard_disable_bufferline = 1
 g.dashboard_default_executive = "telescope"
 
+g.dashboard_custom_header = {
+   "                                                       ",
+   "                                                       ",
+   "                                                       ",
+   " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+   " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+   " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+   " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+   " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+   " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+   "                                                       ",
+   "                                                       ",
+   "                 Customised by Kesby                   ",
+}
+
 g.dashboard_custom_section = {
    a = {
       description = {
