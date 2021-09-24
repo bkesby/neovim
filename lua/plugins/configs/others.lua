@@ -14,8 +14,10 @@ local M = {}
 -- end
 
 M.better_escape = function()
-   g.better_escape_interval = rc.better_escape.interval
-   g.better_escape_shortcut = rc.better_escape.shortcut
+   require("better_escape").setup {
+      mapping = rc.better_escape.mapping,
+      timeout = rc.better_escape.timeout or 200,
+   }
 end
 
 M.blankline = function()

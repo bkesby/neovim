@@ -119,8 +119,8 @@ M.options = {
 -- Plugin Options {{{
 M.options.plugin = {
    better_escape = {
-      interval = 125,
-      shortcut = "jk",
+      timeout = 125,
+      mapping = "jk",
    },
    neoformat = {
       -- Allow basic formatting without filetype
