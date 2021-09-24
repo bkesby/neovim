@@ -67,7 +67,6 @@ local setup_servers = function()
    lspinstall.setup()
 
    local servers = require("lspinstall").installed_servers()
-   -- TODO: Set local always install servers (maybe in lsp install?)
 
    for _, server in ipairs(servers) do
       if server == "lua" then
