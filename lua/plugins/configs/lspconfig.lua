@@ -49,8 +49,8 @@ local on_attach = function(_, bufnr)
    buf_set_keymap("n", rc.show_line_diagnostics,
                   "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
                   opts)
-   buf_set_keymap("n", rc.goto_prev,
-                  "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+   buf_set_keymap("n", rc.goto_next,
+                  "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
    buf_set_keymap("n", rc.goto_prev,
                   "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
    buf_set_keymap("n", rc.set_loclist,
