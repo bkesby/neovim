@@ -63,40 +63,42 @@ local on_attach = function(_, bufnr)
 
 end
 
-lspinstall.setup()
+local setup_servers = function()
+   lspinstall.setup()
 
-local servers = require("lspinstall").installed_servers()
--- TODO: Set local always install servers (maybe in lsp install?)
+   local servers = require("lspinstall").installed_servers()
+   -- TODO: Set local always install servers (maybe in lsp install?)
 
-for _, server in ipairs(servers) do
-   if server == "lua" then
-      lspconfig[server].setup(coq.lsp_ensure_capabilities {
-         on_attach = on_attach,
-         settings = {
-            Lua = {
-               runtime = {
-                  version = "LuaJIT",
-                  path = vim.split(package.path, ";"),
-               },
-               diagnostics = {
-                  globals = { "vim" },
-               },
-               workspace = {
-                  library = {
-                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+   for _, server in ipairs(servers) do
+      if server == "lua" then
+         lspconfig[server].setup(coq.lsp_ensure_capabilities {
+            on_attach = on_attach,
+            settings = {
+               Lua = {
+                  runtime = {
+                     version = "LuaJIT",
+                     path = vim.split(package.path, ";"),
+                  },
+                  diagnostics = {
+                     globals = { "vim" },
+                  },
+                  workspace = {
+                     library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                     },
                   },
                },
             },
-         },
-      })
-   else
-      lspconfig[server].setup(coq.lsp_ensure_capabilities {
-         on_attach = on_attach,
-         flags = {
-            debouce_text_changes = 150,
-         },
-      })
+         })
+      else
+         lspconfig[server].setup(coq.lsp_ensure_capabilities {
+            on_attach = on_attach,
+            flags = {
+               debouce_text_changes = 150,
+            },
+         })
+      end
    end
 end
 
@@ -128,3 +130,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
        underline = false,
        update_in_insert = false,
     })
+
+-- Automatically reload after :LspInstall <server>
+lspinstall.post_install_hook = function()
+   setup_servers()
+   vim.cmd("bufdo e")
+end
