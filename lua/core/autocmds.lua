@@ -1,8 +1,11 @@
 local cmd = vim.cmd
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
-cmd [[ au InsertEnter * set norelativenumber ]]
-cmd [[ au InsertLeave * set relativenumber ]]
+cmd [[
+let ignore_filetypes = ["dashboard", "terminal"]
+au InsertEnter * if index(ignore_filetypes, &ft) < 0 | set nornu
+au InsertLeave * if index(ignore_filetypes, &ft) < 0 | set rnu
+]]
 
 -- Hide line numbers inside terminal
 cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
