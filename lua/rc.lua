@@ -8,7 +8,7 @@ local M = {}
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
-   theme = "heetch",
+   theme = "onedark",
    -- outrun-dark, horizon, heetch, snazzy
 }
 
