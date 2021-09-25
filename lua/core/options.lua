@@ -13,7 +13,7 @@ opt.clipboard = rc.clipboard
 opt.mouse = rc.mouse -- Mouses are for pussys
 opt.hidden = rc.hidden
 opt.iskeyword:append "-" -- Hypened words count as single word
---opt.formatoptions:remove "cro" -- Not working??
+-- opt.formatoptions:remove "cro" -- Not working??
 opt.errorbells = false
 -- Timings {{{
 opt.updatetime = rc.updatetime
@@ -87,6 +87,7 @@ opt.undofile = rc.undofile
 opt.history = rc.history
 opt.shada = rc.shada
 opt.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on a glob pattern
+opt.sessionoptions:append "globals"
 -- }}}
 -- Environments {{{
 g.python_host_prog = vim.fn.expand("$PYENV_ROOT/versions/neovim2/bin/python")
@@ -94,23 +95,9 @@ g.python3_host_prog = vim.fn.expand("$PYENV_ROOT/versions/neovim3/bin/python")
 -- }}}
 -- Builtins {{{
 local disabled_built_ins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
+   "2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw",
+   "netrwPlugin", "netrwSettings", "netrwFileHandlers", "matchit", "tar",
+   "tarPlugin", "rrhelper", "vimball", "vimballPlugin", "zip", "zipPlugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
