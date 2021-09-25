@@ -39,7 +39,7 @@ gitsigns.setup {
       },
    },
    status_formatter = nil,
-   watch_index = {
-      interval = 300,
+   watch_gitdir = {
+      interval = 600,
    },
 }
