@@ -10,14 +10,14 @@ local rc = require("rc").ui.plugin.statusline
 local colors = require("colors").get()
 
 -- set colors
-local runtime_theme = {
-   normal = {
-      c = {
-         fg = colors.base06,
-         bg = colors.base0F,
-      },
-   },
-}
+-- local runtime_theme = {
+--    normal = {
+--       c = {
+--          fg = colors.base06,
+--          bg = colors.base0F,
+--       },
+--    },
+-- }
 
 -- Config (built with functions below)
 local config = {
@@ -59,6 +59,9 @@ local config = {
 local conditions = {
    not_empty = function()
       return fn.empty(fn.expand "%:t") ~= 1
+   end,
+   wide_enough = function()
+      return fn.winwidth(0) > 79
    end,
 }
 
@@ -148,6 +151,7 @@ insert_left {
    },
 }
 
+-- middle buffer
 insert_left {
    function()
       return "%="
@@ -157,6 +161,7 @@ insert_left {
 insert_left {
    lsp_server,
    icon = " LSP:",
+   cond = conditions.wide_enough,
    color = {
       fg = colors.base08,
    },
@@ -187,6 +192,7 @@ insert_right {
    "filetype",
    colored = false,
    icon_only = false,
+   cond = conditions.wide_enough,
 }
 
 insert_right {
