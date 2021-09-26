@@ -9,16 +9,6 @@ local ncmd = vim.api.nvim_command
 local rc = require("rc").ui.plugin.statusline
 local colors = require("colors").get()
 
--- set colors
--- local runtime_theme = {
---    normal = {
---       c = {
---          fg = colors.base06,
---          bg = colors.base0F,
---       },
---    },
--- }
-
 -- Config (built with functions below)
 local config = {
    options = {
@@ -100,8 +90,8 @@ local mode_function = function()
    }
    -- Update highlight groups
    local fg = "hi! LualineModeForeground" .. " guifg=" .. mode[fn.mode()] ..
-                  " guibg=" .. colors.base00 .. " gui='bold'"
-   local bg = "hi! LualineModeBackground" .. " guifg=" .. colors.base00 ..
+                  " guibg=" .. colors.base01 .. " gui='bold'"
+   local bg = "hi! LualineModeBackground" .. " guifg=" .. colors.base01 ..
                   " guibg=" .. mode[fn.mode()]
    ncmd(fg .. " | " .. bg)
    return ""

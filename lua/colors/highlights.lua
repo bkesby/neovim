@@ -3,26 +3,25 @@ local cmd = vim.cmd
 local colors = require("colors").get()
 local theme = colors.name
 
--- collect the hex values
-local black = colors.base00
-local black2 = colors.base01
-local blue = colors.base02
-local darker_black = colors.base03
-local folder_bg = colors.base04
-local green = colors.base05
-local grey = colors.base06
-local grey_fg = colors.base07
-local line = colors.base08
-local nord_blue = colors.base09
-local one_bg = colors.base0A
-local one_bg2 = colors.base0B
-local pmenu_bg = colors.base0C
-local purple = colors.base0D
-local red = colors.base0E
-local white = colors.base0F
+-- TODO: Tidy up this page; make future proof/work with all base16?
 
--- collect configuration
-local ui = require("rc").ui
+-- collect the hex values under base16 styling names
+local background = colors.base00
+local background2 = colors.base01
+local selection = colors.base02
+local comment = colors.base03
+local dark_foreground = colors.base04
+local foreground = colors.base05
+local light_foreground = colors.base06
+local light_background = colors.base07
+local variable = colors.base08
+local constant = colors.base09
+local class = colors.base0A
+local string = colors.base0B
+local support = colors.base0C
+local method = colors.base0D
+local keyword = colors.base0E
+local tags = colors.base0F
 
 -- command functions
 local function fg(group, color)
@@ -35,52 +34,60 @@ local function fgbg(group, fcolor, bcolor)
    cmd("hi " .. group .. " guifg=" .. fcolor .. " guibg=" .. bcolor)
 end
 
--- Comments
-fg("Comment", darker_black)
-
--- Theme specifics
-if theme == "heetch" then
-   fg("SpecialChar", one_bg)
-   fg("Delimiter", darker_black)
-end
-
 -- Disable cursor line
 cmd [[ hi clear CursorLine ]]
 
+-- Comments
+fg("Comment", comment)
+
+-- Theme specifics
+if theme == "heetch" then
+   fg("SpecialChar", class)
+   fg("Delimiter", comment)
+   fgbg("FoldColumn", tags, background)
+   -- blankline
+   fg("IndentBlanklineChar", tags)
+   fg("IndentBlanklineContextChar", keyword .. " gui=nocombine")
+   -- git signs
+   fgbg("GitSignsAdd", variable, background)
+   fgbg("GitSignsDelete", support, background)
+   fgbg("GitSignsChange", constant, background)
+end
+
 -- Gutters
-fgbg("LineNR", darker_black, black)
-fgbg("CursorLineNR", nord_blue, black .. " gui=bold")
-fgbg("FoldColumn", white, black)
-bg("SignColumn", black)
+fgbg("LineNR", dark_foreground, background)
+fgbg("CursorLineNR", constant, background .. " gui=bold")
+bg("FoldColumn", background)
+bg("SignColumn", background)
 
 -- Statusline
-bg("StatusLine", black)
-fgbg("StatusLineNC", black2, black .. " gui=underline")
+bg("StatusLine", background)
+fgbg("StatusLineNC", background2, background .. " gui=underline")
 
 -- Dividers
-fgbg("VertSplit", black2, black)
+fgbg("VertSplit", background2, background)
 
 -- Folds
-bg("Folded", black)
+bg("Folded", background)
 
 -- lsp diagnostics
 -- signs
-fg("DiagnosticSignError", pmenu_bg)
-fg("DiagnosticSignWarn", purple)
-fg("DiagnosticSignHint", nord_blue)
-fg("DiagnosticSignInfo", nord_blue)
+fg("DiagnosticSignError", support)
+fg("DiagnosticSignWarn", method)
+fg("DiagnosticSignHint", constant)
+fg("DiagnosticSignInfo", constant)
 -- virtual
-fg("DiagnosticError", pmenu_bg)
-fg("DiagnosticWarn", pmenu_bg)
-fg("DiagnosticInfo", nord_blue)
-fg("DiagnosticHint", nord_blue)
+fg("DiagnosticError", support)
+fg("DiagnosticWarn", support)
+fg("DiagnosticInfo", constant)
+fg("DiagnosticHint", constant)
 
 -- Plugins
 -- blankline
-fg("IndentBlanklineChar", white)
-fg("IndentBlanklineContextChar", red .. " gui=nocombine")
+fg("IndentBlanklineChar", background2)
+fg("IndentBlanklineContextChar", comment .. " gui=nocombine")
 
 -- git signs
-fgbg("GitSignsAdd", line, black)
-fgbg("GitSignsDelete", pmenu_bg, black)
-fgbg("GitSignsChange", nord_blue, black)
+fgbg("GitSignsAdd", string, background)
+fgbg("GitSignsDelete", tags, background)
+fgbg("GitSignsChange", constant, background)
