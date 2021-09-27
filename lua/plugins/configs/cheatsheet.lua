@@ -5,16 +5,22 @@ if not present then
 end
 
 local mappings = require("rc").mappings
+local user_maps = mappings.user
+local plugin_maps = mappings.plugin
 
--- add custom mappings from rc into the cheatsheet
+-- add custom user mappings from rc into the cheatsheet
+for desc, code in pairs(user_maps) do
+   local description = desc:gsub("_", " ")
+   cheatsheet.add_cheat(description, code, "custom")
+end
 
--- local function add_to_cheatsheet(section, keymap, desc)
--- if section == "plugin" then
---       for sec, key in pairs(mappings.plugin) do
---          add_to_cheatsheet(sec, key, sec)
---       end
---    end
--- end
+-- add custom plugin mappings
+for sec, maps in pairs(plugin_maps) do
+   for desc, code in pairs(maps) do
+      local description = desc:gsub("_", " ")
+      cheatsheet.add_cheat(description, code, sec)
+   end
+end
 
 -- cheatsheet.add_cheat(description, code, section, tags)
 
