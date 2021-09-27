@@ -68,7 +68,7 @@ end
 -- Gutters
 fgbg("LineNR", dark_foreground, background)
 fgbg("CursorLineNR", constant, background .. " gui=bold")
-bg("FoldColumn", background)
+fgbg("FoldColumn", dark_foreground, background)
 bg("SignColumn", background)
 
 -- Statusline

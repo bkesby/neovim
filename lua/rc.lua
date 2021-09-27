@@ -10,7 +10,7 @@ M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
    theme = "onedark",
-   -- outrun-dark, horizon, heetch, snazzy
+   -- outrun-dark, horizon-dark, heetch, snazzy
 }
 
 M.ui.plugin = {
