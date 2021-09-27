@@ -310,7 +310,7 @@ return packer.startup(function()
       "mfussenegger/nvim-dap",
       -- keys = { "<leader>d" }
       disable = not plugin_status.dap,
-      after = "treesitter",
+      after = "nvim-treesitter",
       setup = function()
          require("core.mappings").dap()
       end,
