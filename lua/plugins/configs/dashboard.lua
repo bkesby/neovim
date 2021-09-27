@@ -11,6 +11,9 @@ g.dashboard_custom_header = {
    "                                                       ",
    "                                                       ",
    "                                                       ",
+   "                                                       ",
+   "                                                       ",
+   "                                                       ",
    " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
    " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
    " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
@@ -36,28 +39,28 @@ g.dashboard_custom_section = {
    },
    b = {
       description = {
-         "  Recents                         " ..
+         "  Recents                         " ..
              telescope.frecency:gsub("<leader>", "SPC "),
       },
       command = "Telescope frecency",
    },
    c = {
       description = {
-         "ﭨ  Find Word                       " ..
+         "  Find Word                       " ..
              telescope.live_grep:gsub("<leader>", "SPC "),
       },
       command = "Telescope live_grep",
    },
    d = {
       description = {
-         "  New File                        " ..
+         "  New File                        " ..
              mappings.new_file:gsub("<leader>", "SPC "),
       },
       command = "DashboardNewFile",
    },
    e = {
       description = {
-         "  Bookmarks                       " ..
+         "  Bookmarks                       " ..
              mappings.bookmarks:gsub("<leader>", "SPC "),
       },
       command = "Telescope marks",
