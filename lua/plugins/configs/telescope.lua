@@ -12,7 +12,7 @@ telescope.setup {
       sorting_strategy = "ascending",
       selection_strategy = "reset",
       scroll_strategy = "cycle",
-      path_display = {"smart"},
+      path_display = { "smart" },
       layout_stategy = "flex",
       layout_config = {
          -- TODO: Can't confirm flex settings work correctly
@@ -30,11 +30,16 @@ telescope.setup {
          height = 0.80,
       },
       border = true,
-      borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       set_env = {
          COLORTERM = "truecolor",
       },
-      file_ignore_patterns = {"%.pyc"},
+      file_ignore_patterns = { "%.pyc", "__pycache__" },
+   },
+   pickers = {
+      find_files = {
+         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__" },
+      },
    },
    extensions = {
       frecency = {
