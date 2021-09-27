@@ -1,9 +1,7 @@
 local M = {}
 
 -- TODO: Highlight bufferline
--- TODO: Setup htop terminal? < play around
 -- TODO: Add scratchpad/notes taking system
--- TODO: Add suggested coq keybindings
 
 -- UI {{{
 M.ui = {
