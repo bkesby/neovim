@@ -94,7 +94,7 @@ local mode_function = function()
    local bg = "hi! LualineModeBackground" .. " guifg=" .. colors.base01 ..
                   " guibg=" .. mode[fn.mode()]
    ncmd(fg .. " | " .. bg)
-   return ""
+   return ""
 end
 
 local lsp_server = function()
@@ -191,11 +191,12 @@ insert_right {
    color = "LualineModeForeground",
 }
 
+-- TODO: Create a clock function using sun phase icons(brightness)
 insert_right {
    function()
-      return "▐██"
+      return " ﲤ "
    end,
-   color = "LualineModeForeground",
+   color = "LualineModeBackground",
    padding = {
       left = 0,
       right = 0,
