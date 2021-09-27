@@ -79,7 +79,7 @@ fgbg("StatusLineNC", background2, background .. " gui=underline")
 fgbg("VertSplit", background2, background)
 
 -- Folds
-bg("Folded", background)
+fgbg("Folded", dark_foreground, background)
 
 -- lsp diagnostics
 -- signs + virtual
