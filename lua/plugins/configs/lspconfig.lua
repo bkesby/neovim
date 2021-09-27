@@ -104,9 +104,9 @@ end
 -- diagnostics symbols
 local signs = {
    Error = " ",
-   Warn = "ﱣ ",
-   Hint = "ﱤ ",
+   Warn = " ",
    Info = " ",
+   Hint = " ",
 }
 
 for type, icon in pairs(signs) do
