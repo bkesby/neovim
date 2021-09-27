@@ -83,7 +83,7 @@ fgbg("Folded", dark_foreground, background)
 
 -- lsp diagnostics
 -- signs + virtual
-fg("DiagnosticError", tags)
+fg("DiagnosticError", variable)
 fg("DiagnosticWarn", constant)
 fg("DiagnosticInfo", support)
 fg("DiagnosticHint", keyword)
