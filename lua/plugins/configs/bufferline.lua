@@ -4,6 +4,7 @@ if not present then
 end
 
 local colors = require("colors").get()
+local bg = colors.base00
 
 bufferline.setup {
    options = {
@@ -15,16 +16,16 @@ bufferline.setup {
    highlights = {
       -- see :h bufferline-highlights
       fill = {
-         guibg = colors.base01,
+         guibg = bg,
       },
       separator = {
-         guifg = colors.base01,
+         guifg = bg,
       },
       separator_visible = {
-         guifg = colors.base01,
+         guifg = bg,
       },
       separator_selected = {
-         guifg = colors.base01,
+         guifg = bg,
       },
       -- buffer_visible = {
       --    guifg = colors.base0F,
