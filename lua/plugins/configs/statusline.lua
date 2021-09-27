@@ -72,21 +72,21 @@ local mode_function = function()
       i = colors.base0B, -- insert
       ic = colors.base0B, -- insert ...
       v = colors.base0D, -- visual
-      [""] = colors.base0D, -- visual block
-      V = colors.base0B, -- visual line
+      [""] = colors.base0A, -- visual block
+      V = colors.base0A, -- visual line
       s = colors.base0E, -- select
       S = colors.base0E, -- select line
       [""] = colors.base0E, -- select block
       R = colors.base09, -- replace
       Rv = colors.base09, -- v-replace
-      c = colors.base04, -- command
-      cv = colors.base04, -- command
-      ce = colors.base04, -- command
+      c = colors.base08, -- command
+      cv = colors.base08, -- command
+      ce = colors.base08, -- command
+      ["!"] = colors.base08, -- shell
       r = colors.base0E, -- prompt
       rm = colors.base0E, -- more
       ["r?"] = colors.base0E, -- confirm
-      ["!"] = colors.base04, -- shell
-      t = colors.base0A, -- terminal
+      t = colors.base0F, -- terminal
    }
    -- Update highlight groups
    local fg = "hi! LualineModeForeground" .. " guifg=" .. mode[fn.mode()] ..
