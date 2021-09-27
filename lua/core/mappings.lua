@@ -2,8 +2,8 @@ local utils = require("core.utils")
 local rc = require("rc")
 
 local map = utils.map
-local maps = rc.mappings
-local plugin_maps = maps.plugin
+local user_maps = rc.mappings.user
+local plugin_maps = rc.mappings.plugin
 
 local cmd = vim.cmd
 
@@ -45,7 +45,7 @@ M.misc = function()
    local function user_mappings()
 
       -- turn off highlighting with ESC
-      map("n", maps.no_search_highlight, ":noh <CR>")
+      map("n", user_maps.no_search_highlight, ":noh <CR>")
 
       -- for _, map_table in pairs(maps) do
       --    map(unpack(map_table))

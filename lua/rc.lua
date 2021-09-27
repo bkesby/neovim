@@ -130,7 +130,8 @@ M.options.plugin = {
 }
 -- }}}
 -- Mappings {{{
-M.mappings = {
+M.mappings = {}
+M.mappings.user = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
    -- movement
