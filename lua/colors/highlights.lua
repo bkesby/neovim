@@ -48,6 +48,17 @@ if theme == "heetch" then
    -- blankline
    fg("IndentBlanklineChar", tags)
    fg("IndentBlanklineContextChar", keyword .. " gui=nocombine")
+   -- lsp diagnostics
+   -- signs
+   fg("DiagnosticSignError", support)
+   fg("DiagnosticSignWarn", method)
+   fg("DiagnosticSignHint", constant)
+   fg("DiagnosticSignInfo", constant)
+   -- virtual
+   fg("DiagnosticError", support)
+   fg("DiagnosticWarn", support)
+   fg("DiagnosticInfo", constant)
+   fg("DiagnosticHint", support)
    -- git signs
    fgbg("GitSignsAdd", variable, background)
    fgbg("GitSignsDelete", support, background)
@@ -71,16 +82,11 @@ fgbg("VertSplit", background2, background)
 bg("Folded", background)
 
 -- lsp diagnostics
--- signs
-fg("DiagnosticSignError", support)
-fg("DiagnosticSignWarn", method)
-fg("DiagnosticSignHint", constant)
-fg("DiagnosticSignInfo", constant)
--- virtual
-fg("DiagnosticError", support)
-fg("DiagnosticWarn", support)
-fg("DiagnosticInfo", constant)
-fg("DiagnosticHint", constant)
+-- signs + virtual
+fg("DiagnosticError", tags)
+fg("DiagnosticWarn", constant)
+fg("DiagnosticInfo", support)
+fg("DiagnosticHint", keyword)
 
 -- Plugins
 -- blankline
