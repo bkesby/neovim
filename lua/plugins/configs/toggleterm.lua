@@ -8,7 +8,7 @@ local mapping = require("rc").mappings.plugin.toggleterm
 term.setup {
    open_mapping = mapping.toggle,
    hide_numbers = true,
-   shade_terminals = true,
+   shade_terminals = false,
    insert_mappings = false,
    close_on_exit = true,
 }
