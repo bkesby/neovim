@@ -307,15 +307,23 @@ return packer.startup(function()
 
    -- debugging
    use {
-      "mfussenegger/nvim-dap",
-      -- keys = { "<leader>d" }
+      "Pocco81/DAPInstall",
       disable = not plugin_status.dap,
-      after = "nvim-treesitter",
-      setup = function()
-         require("core.mappings").dap()
+      -- TODO: Work out lazyload trigger
+      -- cmd = { "DIInstall", "DIUninstall", "DIList" },
+      config = function()
+         require("plugins.configs.dap")
       end,
+      requires = {
+         {
+            "mfussenegger/nvim-dap",
+            -- keys = { "<leader>d" }
+            setup = function()
+               require("core.mappings").dap()
+            end,
+         },
+      },
    }
-
    -- terminal
    use {
       "akinsho/toggleterm.nvim",
