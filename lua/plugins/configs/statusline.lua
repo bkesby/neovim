@@ -150,7 +150,7 @@ insert_left {
 
 insert_left {
    lsp_server,
-   icon = " LSP:",
+   icon = "  LSP:",
    cond = conditions.wide_enough,
    color = {
       fg = colors.base08,
