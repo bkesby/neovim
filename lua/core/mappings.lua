@@ -87,17 +87,26 @@ end
 
 M.comment = function()
    local m = plugin_maps.comment.toggle
-   map("n", m, ":CommentToggle <CR>")
-   map("v", m, ":CommentToggle <CR>")
+   map("n", m, ":CommentToggle<CR>")
+   map("v", m, ":CommentToggle<CR>")
 end
 
 M.dashboard = function()
    local m = plugin_maps.dashboard
-   map("n", m.open, ":Dashboard <CR>")
-   map("n", m.bookmarks, ":Telescope marks <CR>") -- DashboardJumpMark fails
-   map("n", m.new_file, ":DashboardNewFile <CR>")
-   map("n", m.session_load, ":SessionLoad <CR>")
-   map("n", m.session_save, ":SessionSave <CR>")
+   map("n", m.open, ":Dashboard<CR>")
+   map("n", m.bookmarks, ":Telescope marks<CR>") -- DashboardJumpMark fails
+   map("n", m.new_file, ":DashboardNewFile<CR>")
+   map("n", m.session_load, ":SessionLoad<CR>")
+   map("n", m.session_save, ":SessionSave<CR>")
+end
+
+M.dap = function()
+   local m = plugin_maps.dap
+   map("n", m.toggle_breakpoint, ":lua require'dap'.toggle_breakpoint()<CR>")
+   map("n", m.launch_and_resume, ":lua require'dap'.continue()<CR>")
+   map("n", m.step_over, "lua require'dap'.setup_over()<CR>")
+   map("n", m.step_into, "lua require'dap'.setup_into()<CR>")
+   map("n", m.launch_repl, "lua require'dap'.repl.open()<CR>")
 end
 
 M.fugitive = function()

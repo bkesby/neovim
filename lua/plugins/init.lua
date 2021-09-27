@@ -305,6 +305,17 @@ return packer.startup(function()
       end,
    }
 
+   -- debugging
+   use {
+      "mfussenegger/nvim-dap",
+      -- keys = { "<leader>d" }
+      disable = not plugin_status.dap,
+      after = "treesitter",
+      setup = function()
+         require("core.mappings").dap()
+      end,
+   }
+
    -- terminal
    use {
       "akinsho/toggleterm.nvim",

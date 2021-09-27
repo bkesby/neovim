@@ -164,6 +164,13 @@ M.mappings.plugin = {
       session_load = "<leader>l",
       session_save = "<leader>s",
    },
+   dap = {
+      toggle_breakpoint = "<leader>dt",
+      launch_and_resume = "<leader>dl",
+      step_over = "<leader>dso",
+      step_into = "<leader>dsi",
+      launch_repl = "<leader>dr",
+   },
    fugitive = {
       git = "<leader>gg",
       git_add = "<leader>ga",
@@ -246,6 +253,7 @@ M.plugin_status = {
    colorizer = true,
    comment = true,
    dashboard = true,
+   dap = true,
    fugitive = true,
    gitsigns = true,
    lastplace = true,
