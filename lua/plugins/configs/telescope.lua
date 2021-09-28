@@ -44,7 +44,7 @@ telescope.setup {
    extensions = {
       frecency = {
          show_unindexed = false,
-         default_workspace = "CWD",
+         -- default_workspace = "CWD",
       },
    },
 }

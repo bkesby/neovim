@@ -229,6 +229,7 @@ M.mappings.plugin = {
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
       frecency = "<leader>fr",
+      lsp_reference = "<leader>flr",
    },
    toggleterm = {
       toggle = "<leader>t",
