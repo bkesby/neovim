@@ -1,6 +1,6 @@
 local M = {}
 
--- TODO: Highlight bufferline
+-- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
 
 -- UI {{{
