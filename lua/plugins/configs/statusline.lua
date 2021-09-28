@@ -180,7 +180,7 @@ insert_right {
 
 insert_right {
    "filetype",
-   colored = false,
+   colored = true,
    icon_only = false,
    cond = conditions.wide_enough,
 }
