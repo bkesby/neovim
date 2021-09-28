@@ -71,5 +71,14 @@ bufferline.setup {
       separator_selected = {
          guifg = bg,
       },
+      error_selected = {
+         guifg = error_color,
+      },
+      warning_selected = {
+         guifg = warn_color,
+      },
+      info_selected = {
+         guifg = info_color,
+      },
    },
 }
