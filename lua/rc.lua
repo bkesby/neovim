@@ -2,6 +2,7 @@ local M = {}
 
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
+-- TODO: Add harpoon marks system
 
 -- UI {{{
 M.ui = {
