@@ -170,10 +170,10 @@ insert_right {
          fg = colors.base08,
       },
       modified = {
-         fg = colors.base09,
+         fg = colors.base0C,
       },
       removed = {
-         fg = colors.base0C,
+         fg = colors.base09,
       },
    },
 }
