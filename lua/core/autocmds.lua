@@ -23,6 +23,6 @@ cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
 cmd [[ 
 augroup fmt
 autocmd!
-autocmd BufWritePre *.lua,*.py undojoin | Neoformat 
+autocmd BufWritePre *.lua,*.py undojoin | silent! Neoformat 
 augroup END
 ]]
