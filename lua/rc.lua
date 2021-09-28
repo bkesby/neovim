@@ -64,7 +64,7 @@ M.options = {
    number = true,
    relativenumber = true,
    numberwidth = 2,
-   ruler = true,
+   ruler = false,
    -- Fills
    fillchars = {
       eob = " ",

@@ -167,13 +167,13 @@ insert_right {
    },
    diff_color = {
       added = {
-         fg = colors.base08,
+         fg = colors.base0B,
       },
       modified = {
-         fg = colors.base0C,
+         fg = colors.base09,
       },
       removed = {
-         fg = colors.base09,
+         fg = colors.base08,
       },
    },
 }
