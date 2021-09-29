@@ -148,6 +148,11 @@ M.mappings.user = {
    -- Move jumplist to Unimpaired style (free up <TAB>)
    prev_jump_position = "[j",
    next_jump_position = "]j",
+   -- Make the arrow keys useful
+   increase_window_height = "<UP>",
+   decrease_window_height = "<DOWN>",
+   increase_window_width = "<RIGHT>",
+   decrease_window_width = "<LEFT>",
 }
 
 M.mappings.plugin = {

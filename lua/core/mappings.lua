@@ -48,6 +48,11 @@ M.misc = function()
       -- Move jumplist controls
       map("n", user_maps.prev_jump_position, "<C-o>zz")
       map("n", user_maps.next_jump_position, "<C-i>zz")
+      -- Make arrow keys useful
+      map("n", user_maps.increase_window_height, "<C-w>5+")
+      map("n", user_maps.decrease_window_height, "<C-w>5-")
+      map("n", user_maps.increase_window_width, "<C-w>5>")
+      map("n", user_maps.decrease_window_width, "<C-w>5<")
    end
 
    behaviour_mappings()
