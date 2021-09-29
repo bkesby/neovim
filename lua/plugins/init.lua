@@ -41,6 +41,9 @@ return packer.startup(function()
    use {
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
+      setup = function()
+         require("mappings.wordmotion")
+      end,
       config = function()
          require("plugins.configs.others").wordmotion()
       end,

@@ -167,8 +167,18 @@ M.telescope = function()
 end
 
 M.window = function()
-   local m = plugin_maps.window.pick
+   local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
+end
+
+M.wordmotion = function()
+   -- used to restore cw and cW vim default behaviour
+   local opts = {
+      noremap = false,
+      silent = false,
+   }
+   map("n", "cw", "ce", opts)
+   map("n", "cW", "cE", opts)
 end
 
 M.zen = function()
