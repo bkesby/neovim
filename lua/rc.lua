@@ -16,7 +16,6 @@ M.ui.plugin = {
    -- statusline related
    statusline = {
       theme = "auto",
-      -- TODO: Statusline theme should pull colors directly from colors.init.lua
    },
 }
 -- }}}

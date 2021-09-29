@@ -378,7 +378,6 @@ return packer.startup(function()
       config = function()
          require("plugins.configs.others").codi()
       end,
-      -- TODO: Add mappings.
    }
 
    -- file manager
