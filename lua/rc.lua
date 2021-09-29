@@ -146,7 +146,9 @@ M.mappings = {}
 M.mappings.user = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
-   -- movement
+   -- Move jumplist to Unimpaired style (free up <TAB>)
+   prev_jump_position = "[j",
+   next_jump_position = "]j",
 }
 
 M.mappings.plugin = {
@@ -155,8 +157,8 @@ M.mappings.plugin = {
       wipeout = "<leader>X",
    },
    bufferline = {
-      cycle_next = "<leader><TAB>",
-      cycle_prev = "<leader><S-TAB>",
+      cycle_next = "<TAB>",
+      cycle_prev = "<S-TAB>",
       move_next = "<leader>bn",
       move_prev = "<leader>bp",
       sort_extension = "<leader>be",

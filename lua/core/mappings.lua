@@ -43,13 +43,11 @@ M.misc = function()
    end
 
    local function user_mappings()
-
       -- turn off highlighting with ESC
       map("n", user_maps.no_search_highlight, ":noh <CR>")
-
-      -- for _, map_table in pairs(maps) do
-      --    map(unpack(map_table))
-      -- end
+      -- Move jumplist controls
+      map("n", user_maps.prev_jump_position, "<C-o>zz")
+      map("n", user_maps.next_jump_position, "<C-i>zz")
    end
 
    behaviour_mappings()
