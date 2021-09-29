@@ -141,6 +141,7 @@ M.options.plugin = {
 -- }}}
 -- Mappings {{{
 M.mappings = {}
+-- User Mappings {{{
 M.mappings.user = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
@@ -152,8 +153,11 @@ M.mappings.user = {
    decrease_window_height = "<DOWN>",
    increase_window_width = "<RIGHT>",
    decrease_window_width = "<LEFT>",
+   -- Focus fold
+   focus_on_current_fold = "<leader>zc",
 }
-
+-- }}}
+-- Plugin Mappings {{{
 M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
@@ -274,6 +278,7 @@ M.mappings.plugin = {
       minimalistic_mode = "<leader>zm",
    },
 }
+-- }}}
 -- }}}
 -- Plugin switches {{{
 M.plugin_status = {

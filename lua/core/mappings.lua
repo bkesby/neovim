@@ -53,6 +53,8 @@ M.misc = function()
       map("n", user_maps.decrease_window_height, "<C-w>5-")
       map("n", user_maps.increase_window_width, "<C-w>5>")
       map("n", user_maps.decrease_window_width, "<C-w>5<")
+      -- Fold focus
+      map("n", user_maps.focus_on_current_fold, "zMzvzz")
    end
 
    behaviour_mappings()
