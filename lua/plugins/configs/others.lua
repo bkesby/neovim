@@ -64,6 +64,17 @@ M.comment = function()
    end
 end
 
+M.harpoon = function()
+   local present, harpoon = pcall(require, "harpoon")
+   if present then
+      harpoon.setup {
+         save_on_toggle = rc.harpoon.save_on_toggle,
+         save_on_change = rc.save_on_change,
+         enter_on_sendcmd = rc.enter_on_sendcmd,
+      }
+   end
+end
+
 M.lastplace = function()
    require("nvim-lastplace").setup {
       lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
@@ -99,7 +110,7 @@ M.window = function()
 end
 
 M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "(", ",", ")", "\"", "'" }
+   -- g.wordmotion_uppercase_spaces = { "(", ",", ")", "\"", "'" }
 end
 
 return M

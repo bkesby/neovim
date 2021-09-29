@@ -114,20 +114,35 @@ M.fugitive = function()
    local opts = {
       silent = false,
    }
-   map("n", m.git, ":Git <CR>")
+   map("n", m.git_status, ":Git <CR>")
    map("n", m.git_add, ":Git add %<CR>")
    map("n", m.git_commit, ":Git commit<CR>")
    map("n", m.git_blame, ":Git blame")
    map("n", m.git_diff, ":Git diff <CR>")
    map("n", m.git_diff_split, ":Gdiffsplit <CR>")
-   map("n", m.git_diff_get_l, ":diffget //3 <CR>")
-   map("n", m.git_diff_get_r, ":diffget //2 <CR>")
+   map("n", m.git_diff_get_left, ":diffget //3 <CR>")
+   map("n", m.git_diff_get_right, ":diffget //2 <CR>")
    map("n", m.git_edit, ":Gedit HEAD~:%<Left><Left>", opts)
    map("n", m.git_log, ":Git log <CR>")
    map("n", m.git_branch, ":Git branch <space>")
    map("n", m.git_checkout, ":Git checkout <space>")
    map("n", m.git_push, ":Git push <CR>")
    map("n", m.git_pull, ":Git pull <CR>")
+end
+
+M.harpoon = function()
+   local m = plugin_maps.harpoon
+   map("n", m.add_file, ":lua require('harpoon.mark').add_file()<CR>")
+   map("n", m.toggle_quick_menu,
+       ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+   map("n", m.navigate_to_file_1, ":lua require('harpoon.ui').nav_file(1)<CR>")
+   map("n", m.navigate_to_file_2, ":lua require('harpoon.ui').nav_file(2)<CR>")
+   map("n", m.navigate_to_file_3, ":lua require('harpoon.ui').nav_file(3)<CR>")
+   map("n", m.navigate_to_file_4, ":lua require('harpoon.ui').nav_file(4)<CR>")
+   map("n", m.navigate_to_file_5, ":lua require('harpoon.ui').nav_file(5)<CR>")
+   map("n", m.navigate_to_file_6, ":lua require('harpoon.ui').nav_file(6)<CR>")
+   map("n", m.navigate_to_file_7, ":lua require('harpoon.ui').nav_file(7)<CR>")
+   map("n", m.navigate_to_file_8, ":lua require('harpoon.ui').nav_file(8)<CR>")
 end
 
 M.neoformat = function()
@@ -174,16 +189,6 @@ end
 M.window = function()
    local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
-end
-
-M.wordmotion = function()
-   -- used to restore cw and cW vim default behaviour
-   local opts = {
-      noremap = false,
-      silent = false,
-   }
-   map("n", "cw", "ce", opts)
-   map("n", "cW", "cE", opts)
 end
 
 M.zen = function()

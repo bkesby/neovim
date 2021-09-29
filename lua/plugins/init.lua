@@ -28,6 +28,16 @@ return packer.startup(function()
    use { "machakann/vim-sandwich" } -- surround stuff with motion
    use { "wellle/targets.vim" }
    use {
+      "ThePrimeagen/harpoon",
+      disable = not plugin_status.harpoon,
+      setup = function()
+         require("core.mappings").harpoon()
+      end,
+      config = function()
+         require("plugins.configs.others").harpoon()
+      end,
+   }
+   use {
       "mbbill/undotree",
       setup = function()
          require("core.mappings").undo()
@@ -50,9 +60,6 @@ return packer.startup(function()
    use {
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
-      setup = function()
-         require("core.mappings").wordmotion()
-      end,
       config = function()
          require("plugins.configs.others").wordmotion()
       end,
@@ -193,15 +200,6 @@ return packer.startup(function()
    }
 
    use {
-      "norcalli/nvim-colorizer.lua",
-      disable = not plugin_status.colorizer,
-      event = "BufRead",
-      config = function()
-         require("plugins.configs.others").colorizer()
-      end,
-   }
-
-   use {
       "max397574/better-escape.nvim",
       disable = not plugin_status.better_escape,
       event = "InsertEnter",
@@ -221,14 +219,23 @@ return packer.startup(function()
    }
 
    use {
+      "norcalli/nvim-colorizer.lua",
+      disable = not plugin_status.colorizer,
+      event = "BufRead",
+      config = function()
+         require("plugins.configs.others").colorizer()
+      end,
+   }
+
+   use {
       "terrortylor/nvim-comment",
       disable = not plugin_status.comment,
       cmd = "CommentToggle",
-      config = function()
-         require("plugins.configs.others").comment()
-      end,
       setup = function()
          require("core.mappings").comment()
+      end,
+      config = function()
+         require("plugins.configs.others").comment()
       end,
    }
 
