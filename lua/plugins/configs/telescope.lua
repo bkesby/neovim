@@ -3,6 +3,8 @@ if not present then
    return
 end
 
+local actions = require("telescope.actions")
+
 telescope.setup {
    defaults = {
       prompt_prefix = " ❯ ",
@@ -27,6 +29,11 @@ telescope.setup {
          },
          width = 0.85,
          height = 0.80,
+      },
+      mappings = {
+         i = {
+            ["<ESC>"] = actions.close,
+         },
       },
       border = true,
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
