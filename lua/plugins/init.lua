@@ -28,6 +28,15 @@ return packer.startup(function()
    use { "machakann/vim-sandwich" } -- surround stuff with motion
    use { "wellle/targets.vim" }
    use {
+      "mbbill/undotree",
+      setup = function()
+         require("core.mappings").undo()
+      end,
+      config = function()
+         require("plugins.configs.others").undo()
+      end,
+   }
+   use {
       "svermeulen/vim-subversive",
       setup = function()
          require("core.mappings").subversive()

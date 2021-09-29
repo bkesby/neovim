@@ -129,6 +129,11 @@ M.options.plugin = {
       basic_format_retab = 1,
       basic_format_trim = 1,
    },
+   undo = {
+      highlight_changed_sign = 0,
+      window_layout = 3,
+      set_focus_when_toggle = 1,
+   },
 }
 -- }}}
 -- Mappings {{{
@@ -232,6 +237,9 @@ M.mappings.plugin = {
    },
    toggleterm = {
       toggle = "<leader>t",
+   },
+   undo = {
+      toggle_undo_tree = "<leader>u",
    },
    window = {
       pick_window = "<leader>w",

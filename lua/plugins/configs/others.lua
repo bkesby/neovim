@@ -81,6 +81,12 @@ M.neoscroll = function()
    end
 end
 
+M.undo = function()
+   g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign
+   g.undotree_WindowLayout = rc.undo.window_layout
+   g.undotree_SetFocusWhenToggle = rc.undo.set_focus_when_toggle
+end
+
 M.window = function()
    local present, nvim_window = pcall(require, "nvim-window")
    if present then
@@ -93,7 +99,7 @@ M.window = function()
 end
 
 M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "(", ",", ")", "\"", "'", "." }
+   g.wordmotion_uppercase_spaces = { "(", ",", ")", "\"", "'" }
 end
 
 return M

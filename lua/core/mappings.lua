@@ -166,6 +166,11 @@ M.telescope = function()
    map("n", m.frecency, ":Telescope frecency <CR>")
 end
 
+M.undo = function()
+   local m = plugin_maps.undo.toggle_undo_tree
+   map("n", m, ":UndotreeToggle<CR>")
+end
+
 M.window = function()
    local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
