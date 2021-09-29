@@ -234,7 +234,7 @@ M.mappings.plugin = {
       toggle = "<leader>t",
    },
    window = {
-      pick = "<leader>w",
+      pick_window = "<leader>w",
    },
    zen = {
       ataraxis_mode = "<leader>zz", -- centre
@@ -246,9 +246,10 @@ M.mappings.plugin = {
 -- Plugin switches {{{
 M.plugin_status = {
    autopairs = true,
+   bbye = true,
    better_escape = true,
    blankline = true,
-   bufferline = false,
+   bufferline = true,
    chadtree = false,
    cheatsheet = true,
    codi = false, -- not smooth yet
@@ -261,6 +262,7 @@ M.plugin_status = {
    lastplace = true,
    neoformat = true,
    neoscroll = true,
+   statusline = true,
    surround = true,
    toggleterm = true,
    treesitter = true,

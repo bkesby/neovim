@@ -26,6 +26,7 @@ return packer.startup(function()
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    -- use { "tpope/vim-sleuth" } -- shift/tab width detection
    use { "machakann/vim-sandwich" } -- surround stuff with motion
+   use { "wellle/targets.vim" }
    use {
       "svermeulen/vim-subversive",
       setup = function()
@@ -57,6 +58,7 @@ return packer.startup(function()
 
    use {
       "shadmansaleh/lualine.nvim",
+      disable = not plugin_status.statusline,
       after = "base16",
       requires = {
          "kyazdani42/nvim-web-devicons",
@@ -69,6 +71,7 @@ return packer.startup(function()
 
    use {
       "akinsho/bufferline.nvim",
+      disable = not plugin_status.bufferline,
       after = "lualine.nvim",
       config = function()
          require("plugins.configs.bufferline")
@@ -197,6 +200,7 @@ return packer.startup(function()
 
    use {
       "moll/vim-bbye",
+      disable = not plugin_status.bbye,
       opt = true,
       cmd = { "Bdelete", "Bwipeout" },
       setup = function()
