@@ -1,9 +1,8 @@
 local M = {}
 
+-- TODO: Add all plugin mappings into here for cheatsheet addition
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: Add harpoon marks system
--- TODO: Add all plugin mappings into here for cheatsheet addition
 
 -- UI {{{
 M.ui = {
@@ -17,7 +16,6 @@ M.ui.plugin = {
    -- statusline related
    statusline = {
       theme = "auto",
-      -- TODO: Statusline theme should pull colors directly from colors.init.lua
    },
 }
 -- }}}
@@ -123,30 +121,51 @@ M.options.plugin = {
       timeout = 125,
       mapping = "jk",
    },
+   harpoon = {
+      save_on_toggle = false,
+      save_on_change = true,
+      enter_on_sendcmd = false,
+   },
    neoformat = {
       -- Allow basic formatting without filetype
       basic_format_align = 1,
       basic_format_retab = 1,
       basic_format_trim = 1,
    },
+   undo = {
+      highlight_changed_sign = 0,
+      window_layout = 3,
+      set_focus_when_toggle = 1,
+   },
 }
 -- }}}
 -- Mappings {{{
 M.mappings = {}
+-- User Mappings {{{
 M.mappings.user = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
-   -- movement
+   -- Move jumplist to Unimpaired style (free up <TAB>)
+   prev_jump_position = "[j",
+   next_jump_position = "]j",
+   -- Make the arrow keys useful
+   increase_window_height = "<UP>",
+   decrease_window_height = "<DOWN>",
+   increase_window_width = "<RIGHT>",
+   decrease_window_width = "<LEFT>",
+   -- Focus fold
+   focus_on_current_fold = "<leader>zc",
 }
-
+-- }}}
+-- Plugin Mappings {{{
 M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
       wipeout = "<leader>X",
    },
    bufferline = {
-      cycle_next = "<leader><TAB>",
-      cycle_prev = "<leader><S-TAB>",
+      cycle_next = "<TAB>",
+      cycle_prev = "<S-TAB>",
       move_next = "<leader>bn",
       move_prev = "<leader>bp",
       sort_extension = "<leader>be",
@@ -174,20 +193,32 @@ M.mappings.plugin = {
       launch_repl = "<leader>dr",
    },
    fugitive = {
-      git = "<leader>gg",
+      git_status = "<leader>gg",
       git_add = "<leader>ga",
       git_commit = "<leader>gc",
       git_blame = "<leader>gb",
       git_diff = "<leader>gd",
       git_diff_split = "<leader>gds",
-      git_diff_get_l = "<leader>gf",
-      git_diff_get_r = "<leader>gh",
+      git_diff_get_left = "<leader>gf",
+      git_diff_get_right = "<leader>gh",
       git_edit = "<leader>ge",
       git_log = "<leader>gl",
       git_branch = "<leader>gbr",
       git_checkout = "<leader>go",
       git_push = "<leader>gps",
       git_pull = "<leader>gpl",
+   },
+   harpoon = {
+      add_file = "<leader>a",
+      toggle_quick_menu = "<leader>mm",
+      navigate_to_file_1 = "<leader>ma",
+      navigate_to_file_2 = "<leader>ms",
+      navigate_to_file_3 = "<leader>md",
+      navigate_to_file_4 = "<leader>mf",
+      navigate_to_file_5 = "<leader>mj",
+      navigate_to_file_6 = "<leader>mk",
+      navigate_to_file_7 = "<leader>ml",
+      navigate_to_file_8 = "<leader>m;",
    },
    lsp = {
       declaration = "gD",
@@ -217,7 +248,6 @@ M.mappings.plugin = {
       substitute_line = "ss",
       substitute_end_of_line = "S",
    },
-
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
@@ -231,11 +261,17 @@ M.mappings.plugin = {
       frecency = "<leader>fr",
       lsp_reference = "<leader>flr",
    },
+   todo = {
+      search_with_telescope = "<leader>fd",
+   },
    toggleterm = {
       toggle = "<leader>t",
    },
+   undo = {
+      toggle_undo_tree = "<leader>u",
+   },
    window = {
-      pick = "<leader>w",
+      pick_window = "<leader>w",
    },
    zen = {
       ataraxis_mode = "<leader>zz", -- centre
@@ -244,12 +280,14 @@ M.mappings.plugin = {
    },
 }
 -- }}}
+-- }}}
 -- Plugin switches {{{
 M.plugin_status = {
    autopairs = true,
+   bbye = true,
    better_escape = true,
    blankline = true,
-   bufferline = false,
+   bufferline = true,
    chadtree = false,
    cheatsheet = true,
    codi = false, -- not smooth yet
@@ -259,11 +297,14 @@ M.plugin_status = {
    dap = false,
    fugitive = true,
    gitsigns = true,
+   harpoon = true,
    lastplace = true,
    neoformat = true,
    neoscroll = true,
+   statusline = true,
    surround = true,
-   toggleterm = true,
+   todo = true,
+   DiagnosticHintoggleterm = true,
    treesitter = true,
    wordmotion = true,
    window = true,

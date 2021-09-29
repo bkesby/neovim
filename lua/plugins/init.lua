@@ -26,6 +26,26 @@ return packer.startup(function()
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    -- use { "tpope/vim-sleuth" } -- shift/tab width detection
    use { "machakann/vim-sandwich" } -- surround stuff with motion
+   use { "wellle/targets.vim" }
+   use {
+      "ThePrimeagen/harpoon",
+      disable = not plugin_status.harpoon,
+      setup = function()
+         require("core.mappings").harpoon()
+      end,
+      config = function()
+         require("plugins.configs.others").harpoon()
+      end,
+   }
+   use {
+      "mbbill/undotree",
+      setup = function()
+         require("core.mappings").undo()
+      end,
+      config = function()
+         require("plugins.configs.others").undo()
+      end,
+   }
    use {
       "svermeulen/vim-subversive",
       setup = function()
@@ -57,6 +77,7 @@ return packer.startup(function()
 
    use {
       "shadmansaleh/lualine.nvim",
+      disable = not plugin_status.statusline,
       after = "base16",
       requires = {
          "kyazdani42/nvim-web-devicons",
@@ -69,6 +90,7 @@ return packer.startup(function()
 
    use {
       "akinsho/bufferline.nvim",
+      disable = not plugin_status.bufferline,
       after = "lualine.nvim",
       config = function()
          require("plugins.configs.bufferline")
@@ -178,15 +200,6 @@ return packer.startup(function()
    }
 
    use {
-      "norcalli/nvim-colorizer.lua",
-      disable = not plugin_status.colorizer,
-      event = "BufRead",
-      config = function()
-         require("plugins.configs.others").colorizer()
-      end,
-   }
-
-   use {
       "max397574/better-escape.nvim",
       disable = not plugin_status.better_escape,
       event = "InsertEnter",
@@ -197,6 +210,7 @@ return packer.startup(function()
 
    use {
       "moll/vim-bbye",
+      disable = not plugin_status.bbye,
       opt = true,
       cmd = { "Bdelete", "Bwipeout" },
       setup = function()
@@ -205,14 +219,23 @@ return packer.startup(function()
    }
 
    use {
+      "norcalli/nvim-colorizer.lua",
+      disable = not plugin_status.colorizer,
+      event = "BufRead",
+      config = function()
+         require("plugins.configs.others").colorizer()
+      end,
+   }
+
+   use {
       "terrortylor/nvim-comment",
       disable = not plugin_status.comment,
       cmd = "CommentToggle",
-      config = function()
-         require("plugins.configs.others").comment()
-      end,
       setup = function()
          require("core.mappings").comment()
+      end,
+      config = function()
+         require("plugins.configs.others").comment()
       end,
    }
 
@@ -225,6 +248,18 @@ return packer.startup(function()
       end,
       setup = function()
          require("core.utils").lazy_load("neoscroll.nvim")
+      end,
+   }
+
+   use {
+      "folke/todo-comments.nvim",
+      disable = not plugin_status.todo,
+      event = "BufRead",
+      setup = function()
+         require("core.mappings").todo()
+      end,
+      config = function()
+         require("plugins.configs.todo")
       end,
    }
 
@@ -343,7 +378,6 @@ return packer.startup(function()
       config = function()
          require("plugins.configs.others").codi()
       end,
-      -- TODO: Add mappings.
    }
 
    -- file manager

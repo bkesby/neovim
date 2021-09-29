@@ -15,7 +15,6 @@ telescope.setup {
       path_display = { "smart" },
       layout_stategy = "flex",
       layout_config = {
-         -- TODO: Can't confirm flex settings work correctly
          flex = {
             height = 0.8,
             width = 0.85,

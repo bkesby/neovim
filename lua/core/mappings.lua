@@ -43,13 +43,18 @@ M.misc = function()
    end
 
    local function user_mappings()
-
       -- turn off highlighting with ESC
       map("n", user_maps.no_search_highlight, ":noh <CR>")
-
-      -- for _, map_table in pairs(maps) do
-      --    map(unpack(map_table))
-      -- end
+      -- Move jumplist controls
+      map("n", user_maps.prev_jump_position, "<C-o>zz")
+      map("n", user_maps.next_jump_position, "<C-i>zz")
+      -- Make arrow keys useful
+      map("n", user_maps.increase_window_height, "<C-w>5+")
+      map("n", user_maps.decrease_window_height, "<C-w>5-")
+      map("n", user_maps.increase_window_width, "<C-w>5>")
+      map("n", user_maps.decrease_window_width, "<C-w>5<")
+      -- Fold focus
+      map("n", user_maps.focus_on_current_fold, "zMzvzz")
    end
 
    behaviour_mappings()
@@ -114,20 +119,35 @@ M.fugitive = function()
    local opts = {
       silent = false,
    }
-   map("n", m.git, ":Git <CR>")
+   map("n", m.git_status, ":Git <CR>")
    map("n", m.git_add, ":Git add %<CR>")
    map("n", m.git_commit, ":Git commit<CR>")
    map("n", m.git_blame, ":Git blame")
    map("n", m.git_diff, ":Git diff <CR>")
    map("n", m.git_diff_split, ":Gdiffsplit <CR>")
-   map("n", m.git_diff_get_l, ":diffget //3 <CR>")
-   map("n", m.git_diff_get_r, ":diffget //2 <CR>")
+   map("n", m.git_diff_get_left, ":diffget //3 <CR>")
+   map("n", m.git_diff_get_right, ":diffget //2 <CR>")
    map("n", m.git_edit, ":Gedit HEAD~:%<Left><Left>", opts)
    map("n", m.git_log, ":Git log <CR>")
    map("n", m.git_branch, ":Git branch <space>")
    map("n", m.git_checkout, ":Git checkout <space>")
    map("n", m.git_push, ":Git push <CR>")
    map("n", m.git_pull, ":Git pull <CR>")
+end
+
+M.harpoon = function()
+   local m = plugin_maps.harpoon
+   map("n", m.add_file, ":lua require('harpoon.mark').add_file()<CR>")
+   map("n", m.toggle_quick_menu,
+       ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+   map("n", m.navigate_to_file_1, ":lua require('harpoon.ui').nav_file(1)<CR>")
+   map("n", m.navigate_to_file_2, ":lua require('harpoon.ui').nav_file(2)<CR>")
+   map("n", m.navigate_to_file_3, ":lua require('harpoon.ui').nav_file(3)<CR>")
+   map("n", m.navigate_to_file_4, ":lua require('harpoon.ui').nav_file(4)<CR>")
+   map("n", m.navigate_to_file_5, ":lua require('harpoon.ui').nav_file(5)<CR>")
+   map("n", m.navigate_to_file_6, ":lua require('harpoon.ui').nav_file(6)<CR>")
+   map("n", m.navigate_to_file_7, ":lua require('harpoon.ui').nav_file(7)<CR>")
+   map("n", m.navigate_to_file_8, ":lua require('harpoon.ui').nav_file(8)<CR>")
 end
 
 M.neoformat = function()
@@ -167,8 +187,18 @@ M.telescope = function()
    map("n", m.lsp_reference, ":Telescope lsp_references")
 end
 
+M.todo = function()
+   local m = plugin_maps.todo
+   map("n", m.search_with_telescope, ":TodoTelescope<CR>")
+end
+
+M.undo = function()
+   local m = plugin_maps.undo.toggle_undo_tree
+   map("n", m, ":UndotreeToggle<CR>")
+end
+
 M.window = function()
-   local m = plugin_maps.window.pick
+   local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
 end
 

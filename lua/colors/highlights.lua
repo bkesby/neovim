@@ -3,8 +3,6 @@ local cmd = vim.cmd
 local colors = require("colors").get()
 local theme = colors.name
 
--- TODO: Tidy up this page; make future proof/work with all base16?
-
 -- collect the hex values under base16 styling names
 local background = colors.base00
 local background2 = colors.base01

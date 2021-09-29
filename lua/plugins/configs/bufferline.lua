@@ -4,7 +4,7 @@ if not present then
 end
 
 local colors = require("colors").get()
-local bg = colors.base00
+local bg = colors.base01
 local error_color = colors.base08
 local warn_color = colors.base09
 local info_color = colors.base0C
