@@ -1,9 +1,8 @@
 local M = {}
 
+-- TODO: Add all plugin mappings into here for cheatsheet addition
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: Add harpoon marks system
--- TODO: Add all plugin mappings into here for cheatsheet addition
 
 -- UI {{{
 M.ui = {
@@ -241,7 +240,6 @@ M.mappings.plugin = {
       substitute_line = "ss",
       substitute_end_of_line = "S",
    },
-
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
@@ -253,6 +251,9 @@ M.mappings.plugin = {
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
       frecency = "<leader>fr",
+   },
+   todo = {
+      search_with_telescope = "<leader>fd",
    },
    toggleterm = {
       toggle = "<leader>t",
@@ -292,7 +293,8 @@ M.plugin_status = {
    neoscroll = true,
    statusline = true,
    surround = true,
-   toggleterm = true,
+   todo = true,
+   DiagnosticHintoggleterm = true,
    treesitter = true,
    wordmotion = true,
    window = true,

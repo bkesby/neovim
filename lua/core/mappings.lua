@@ -179,6 +179,11 @@ M.telescope = function()
    map("n", m.frecency, ":Telescope frecency <CR>")
 end
 
+M.todo = function()
+   local m = plugin_maps.todo
+   map("n", m.search_with_telescope, ":TodoTelescope<CR>")
+end
+
 M.undo = function()
    local m = plugin_maps.undo.toggle_undo_tree
    map("n", m, ":UndotreeToggle<CR>")

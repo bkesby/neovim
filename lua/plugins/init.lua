@@ -252,6 +252,18 @@ return packer.startup(function()
    }
 
    use {
+      "folke/todo-comments.nvim",
+      disable = not plugin_status.todo,
+      event = "BufRead",
+      setup = function()
+         require("core.mappings").todo()
+      end,
+      config = function()
+         require("plugins.configs.todo")
+      end,
+   }
+
+   use {
       "https://gitlab.com/yorickpeterse/nvim-window",
       disable = not plugin_status.window,
       config = function()
