@@ -28,6 +28,8 @@ g.dashboard_custom_header = {
    "                                                       ",
    "                                                       ",
 }
+-- disable tabline in dashboard
+-- vim.cmd [[ autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
 
 g.dashboard_custom_section = {
    a = {
@@ -72,6 +74,11 @@ g.dashboard_custom_section = {
       },
       command = "SessionLoad",
    },
+   g = {
+      description = {
+         "  Help                            " ..
+             telescope.help_tags:gsub("<leader>", "SPC "),
+      },
+      command = "Telescope help_tags",
+   },
 }
--- disable tabline in dashboard
--- vim.cmd [[ autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
