@@ -38,30 +38,9 @@ cmd [[ hi clear CursorLine ]]
 -- Comments
 fg("Comment", comment)
 
--- Theme specifics
-if theme == "heetch" then
-   fg("SpecialChar", class)
-   fg("Delimiter", comment)
-   fgbg("FoldColumn", tags, background)
-   -- blankline
-   fg("IndentBlanklineChar", tags)
-   fg("IndentBlanklineContextChar", keyword .. " gui=nocombine")
-   -- lsp diagnostics
-   -- signs
-   fg("DiagnosticSignError", support)
-   fg("DiagnosticSignWarn", method)
-   fg("DiagnosticSignHint", constant)
-   fg("DiagnosticSignInfo", constant)
-   -- virtual
-   fg("DiagnosticError", support)
-   fg("DiagnosticWarn", support)
-   fg("DiagnosticInfo", constant)
-   fg("DiagnosticHint", support)
-   -- git signs
-   fgbg("GitSignsAdd", variable, background)
-   fgbg("GitSignsDelete", support, background)
-   fgbg("GitSignsChange", constant, background)
-end
+-- Searching
+bg("Search", support)
+bg("IncSearch", method)
 
 -- Gutters
 fgbg("LineNR", dark_foreground, background)
@@ -95,3 +74,28 @@ fg("IndentBlanklineContextChar", comment .. " gui=nocombine")
 fgbg("GitSignsAdd", string, background)
 fgbg("GitSignsDelete", variable, background)
 fgbg("GitSignsChange", constant, background)
+
+-- Theme specifics
+if theme == "heetch" then
+   fg("SpecialChar", class)
+   fg("Delimiter", comment)
+   fgbg("FoldColumn", tags, background)
+   -- blankline
+   fg("IndentBlanklineChar", tags)
+   fg("IndentBlanklineContextChar", keyword .. " gui=nocombine")
+   -- lsp diagnostics
+   -- signs
+   fg("DiagnosticSignError", support)
+   fg("DiagnosticSignWarn", method)
+   fg("DiagnosticSignHint", constant)
+   fg("DiagnosticSignInfo", constant)
+   -- virtual
+   fg("DiagnosticError", support)
+   fg("DiagnosticWarn", support)
+   fg("DiagnosticInfo", constant)
+   fg("DiagnosticHint", support)
+   -- git signs
+   fgbg("GitSignsAdd", variable, background)
+   fgbg("GitSignsDelete", support, background)
+   fgbg("GitSignsChange", constant, background)
+end
