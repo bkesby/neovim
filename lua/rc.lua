@@ -187,9 +187,10 @@ M.mappings.plugin = {
    },
    dap = {
       toggle_breakpoint = "<leader>dt",
-      launch_and_resume = "<leader>dl",
+      continue = "<leader>dc",
       step_over = "<leader>dso",
       step_into = "<leader>dsi",
+      step_out = "<leader>dsu",
       launch_repl = "<leader>dr",
    },
    fugitive = {
@@ -294,7 +295,7 @@ M.plugin_status = {
    colorizer = true,
    comment = true,
    dashboard = true,
-   dap = false,
+   dap = true,
    fugitive = true,
    gitsigns = true,
    harpoon = true,

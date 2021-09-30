@@ -342,22 +342,16 @@ return packer.startup(function()
 
    -- debugging
    use {
-      "Pocco81/DAPInstall",
+      "mfussenegger/nvim-dap",
       disable = not plugin_status.dap,
-      -- cmd = { "DIInstall", "DIUninstall", "DIList" },
+      -- TODO: Work out lazyload trigger -- only on breakpoint set or continue()
+      setup = function()
+         require("core.mappings").dap()
+      end,
       config = function()
          require("plugins.configs.dap")
       end,
-      requires = {
-         {
-            "mfussenegger/nvim-dap",
-            -- TODO: Work out lazyload trigger -- only on breakpoint set or continue()
-            -- keys = { "<leader>d" }
-            setup = function()
-               require("core.mappings").dap()
-            end,
-         },
-      },
+      requires = { "mfussenegger/nvim-dap-python" },
    }
    -- terminal
    use {

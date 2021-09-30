@@ -1,13 +1,14 @@
-local present, dap_install = pcall(require, "dap-install")
+local present, dap_python = pcall(require, "dap-python")
 if not present then
    return
 end
 
-local debuggers = require("dap-install.api.debuggers").get_installed_debuggers()
-
-dap_install.setup()
+-- setup python debugging
+dap_python.setup(vim.fn.expand("$PYENV_ROOT/versions/debugging/bin/python"))
+-- local debuggers = require("dap-install.api.debuggers").get_installed_debuggers()
+-- dap_install.setup()
 
 -- Quick loop through all debuggers with default settings
-for _, debugger in ipairs(debuggers) do
-   dap_install.config(debugger)
-end
+-- for _, debugger in ipairs(debuggers) do
+--    dap_install.config(debugger)
+-- end

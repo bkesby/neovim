@@ -110,7 +110,7 @@ M.window = function()
 end
 
 M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "(", ")", "\"", "'", ".", "," }
+   g.wordmotion_uppercase_spaces = { "(", ")", "\"", "'", ".", ",", " " }
 end
 
 return M
