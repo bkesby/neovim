@@ -188,9 +188,9 @@ M.mappings.plugin = {
    dap = {
       toggle_breakpoint = "<leader>dt",
       continue = "<leader>dc",
-      step_over = "<leader>dso",
-      step_into = "<leader>dsi",
       step_out = "<leader>dsu",
+      step_into = "<leader>dsi",
+      step_over = "<leader>dso",
       launch_repl = "<leader>dr",
    },
    fugitive = {
