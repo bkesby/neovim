@@ -9,6 +9,7 @@ local cmd = vim.cmd
 
 local M = {}
 
+-- default opts = { noremap = true, silent = true }
 -- mappings to be called during initialization
 M.misc = function()
    local function behaviour_mappings()
@@ -28,6 +29,31 @@ M.misc = function()
 
       -- don't yank on cut
       map({ "n", "v" }, "x", "\"_x")
+
+      -- stop Y from misbehaving
+      map("n", "Y", "y$")
+
+      -- keep search/jumplist/join movement centered
+      map("n", "n", "nzzzv")
+      map("n", "N", "Nzzzv")
+      map("n", "[j", "[jzzzv")
+      map("n", "]j", "]jzzzv")
+      map("n", "J", "mzJ'z") -- leave a mark and return after join
+
+      -- break up undo points
+      local undo_marks = { ",", ".", "[", "{", "(" }
+      for _, mark in ipairs(undo_marks) do
+         map("i", mark, mark .. "<C-g>u")
+      end
+
+      -- add big movements to jump mark list
+      map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
+         expr = true,
+      })
+      map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {
+         expr = true,
+      })
+
    end
 
    local function required_mappings()
