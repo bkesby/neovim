@@ -9,7 +9,7 @@ M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
    theme = "onedark",
-   -- outrun-dark, horizon-dark, heetch, snazzy
+   -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
 }
 
 M.ui.plugin = {
@@ -140,8 +140,8 @@ M.options.plugin = {
 }
 -- }}}
 -- Mappings {{{
-M.mappings = {}
 -- User Mappings {{{
+M.mappings = {}
 M.mappings.user = {
    -- Hide search highlights
    no_search_highlight = "<Esc>",
