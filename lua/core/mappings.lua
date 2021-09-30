@@ -112,6 +112,10 @@ M.dap = function()
    map("n", m.step_over, ":lua require'dap'.step_over()<CR>")
    map("n", m.step_into, ":lua require'dap'.step_into()<CR>")
    map("n", m.launch_repl, ":lua require'dap'.repl.open()<CR>")
+   map("n", m.test_python_method, ":lua require'dap-python'.test_method()<CR>")
+   map("n", m.test_python_class, ":lua require'dap-python'.test_class()<CR>")
+   map("n", m.debug_python_selection,
+       "<ESC>:lua require'dap-python'.debug_selection()<CR>")
 end
 
 M.fugitive = function()
