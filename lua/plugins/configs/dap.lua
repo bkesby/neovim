@@ -4,7 +4,7 @@ if not present then
 end
 
 -- setup python debugging
-dap_python.setup(vim.fn.expand("$PYENV_ROOT/versions/debugging/bin/python"))
+dap_python.setup(vim.fn.expand("$PYENV_ROOT/versions/debug/bin/python"))
 -- local debuggers = require("dap-install.api.debuggers").get_installed_debuggers()
 -- dap_install.setup()
 
