@@ -102,8 +102,8 @@ M.window = function()
    local present, nvim_window = pcall(require, "nvim-window")
    if present then
       nvim_window.setup {
-         -- 'x' used as dummy first skipped character
-         chars = { "x", "a", "s", "d", "f", "j", "k", "l" },
+         -- last character has to be placed first
+         chars = { ";", "a", "s", "d", "f", "j", "k", "l" },
          border = "none",
       }
    end
