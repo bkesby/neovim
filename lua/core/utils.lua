@@ -12,7 +12,10 @@ end
 
 -- Mapping helper function stolen from nvChad
 M.map = function(mode, keys, cmd, opt)
-   local options = { noremap = true, silent = true }
+   local options = {
+      noremap = true,
+      silent = true,
+   }
    if opt then
       options = vim.tbl_extend("force", options, opt)
    end
@@ -48,7 +51,8 @@ M.map = function(mode, keys, cmd, opt)
                vim.api.nvim_set_keymap(mode, lhs, rhs, options)
             else
                mode, lhs, rhs = mode or "", lhs or "", rhs or ""
-               print("Cannot set mapping [ mode = '" .. mode .. "' | key = '" .. lhs .. "' | cmd = '" .. rhs .. "' ]")
+               print("Cannot set mapping [ mode = '" .. mode .. "' | key = '" ..
+                         lhs .. "' | cmd = '" .. rhs .. "' ]")
             end
          end
       end
