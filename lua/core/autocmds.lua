@@ -13,16 +13,21 @@ cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype ter
 -- Hide bufferline inside dashboard
 cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu ]]
 
--- Hide status line on certain windows (defined in utils)
--- cmd [[ autocmd BufEnter,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
-
 -- Filetype specifics
 cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
 
 -- Auto format on save
 cmd [[ 
 augroup fmt
-autocmd!
-autocmd BufWritePre *.lua,*.py,*.rc undojoin | silent! Neoformat 
+   autocmd!
+   autocmd BufWritePre *.lua,*.py undojoin | silent! Neoformat 
+augroup END
+]]
+
+-- Yank highlight confirmation
+cmd [[
+augroup highlight_yank
+   autocmd!
+   au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
 augroup END
 ]]
