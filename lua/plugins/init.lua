@@ -20,7 +20,10 @@ return packer.startup(function()
 
    -- core (the pope)
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
-   use { "tpope/vim-unimpaired" } -- bracket mappings
+   use {
+      "tpope/vim-unimpaired",
+      event = "UIEnter",
+   } -- bracket mappings
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    -- use { "tpope/vim-sleuth" } -- shift/tab width detection
    use { "machakann/vim-sandwich" } -- surround stuff with motion
@@ -43,7 +46,10 @@ return packer.startup(function()
 
    -- text objects
    use { "kana/vim-textobj-user" }
-   use { "glts/vim-textobj-comment" }
+   use {
+      "glts/vim-textobj-comment",
+      event = "UIEnter",
+   }
    use { "michaeljsmith/vim-indent-object" }
    use {
       "chaoren/vim-wordmotion",
@@ -144,7 +150,7 @@ return packer.startup(function()
    use {
       "jiangmiao/auto-pairs",
       disable = not plugin_status.autopairs,
-      event = "BufEnter",
+      event = "InsertEnter",
    }
 
    use {
