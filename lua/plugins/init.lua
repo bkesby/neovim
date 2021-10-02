@@ -130,11 +130,7 @@ return packer.startup(function()
       event = "UIEnter",
       setup = function()
          require("plugins.configs.coq").setup()
-         -- require("core.utils").lazy_load("coq")
       end,
-      -- config = function()
-      --    require("plugins.configs.coq").config()
-      -- end,
       run = ":silent! COQdeps",
    }
 
