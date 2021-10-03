@@ -364,6 +364,12 @@ return packer.startup(function()
       end,
    }
 
+   -- syntax
+   use {
+      "cespare/vim-toml",
+      ft = "toml",
+}
+
    -- scratchpad
    use {
       "metakirby5/codi.vim",
