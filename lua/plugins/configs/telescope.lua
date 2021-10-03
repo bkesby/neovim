@@ -1,7 +1,5 @@
 local present, telescope = pcall(require, "telescope")
-if not present then
-   return
-end
+if not present then return end
 
 local actions = require("telescope.actions")
 
@@ -40,11 +38,11 @@ telescope.setup {
       set_env = {
          COLORTERM = "truecolor",
       },
-      file_ignore_patterns = { "%.pyc", "__pycache__" },
+      file_ignore_patterns = { "%.pyc", "__pycache__", "%.lock" },
    },
    pickers = {
       find_files = {
-         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__" },
+         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock" },
       },
    },
    extensions = {
