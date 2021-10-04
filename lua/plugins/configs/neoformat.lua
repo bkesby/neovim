@@ -8,10 +8,10 @@ local rc = require("rc").options.plugin
 g.neoformat_lua_luaformatter = {
    exe = "lua-format",
    args = {
-      "--column-limit=150", "--tab-width=3", "--no-use-tab", "--indent-width=3", "--break-after-table-lb", "--break-before-table-rb",
-      "--no-chop-down-table", "--single-quote-to-double-quote", "--keep-simple-control-block-one-line", "--keep-simple-function-one-line",
-      "--extra-sep-at-table-end", "--spaces-around-equals-in-field", "--no-break-after-operator", "--spaces-inside-table-braces",
-   },
+      "--column-limit=150", "--tab-width=3", "--no-use-tab", "--indent-width=3", "--no-chop-down-table", "--single-quote-to-double-quote",
+      "--keep-simple-control-block-one-line", "--keep-simple-function-one-line", "--extra-sep-at-table-end", "--spaces-around-equals-in-field",
+      "--no-break-after-operator", "--spaces-inside-table-braces",
+   }, -- "--break-after-table-lb", "--break-before-table-rb",
 }
 g.neoformat_enabled_lua = { "luaformatter" }
 
