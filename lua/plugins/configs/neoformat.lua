@@ -2,7 +2,7 @@ local g = vim.g
 local rc = require("rc").options.plugin
 
 -- For debugging
-g.neoformat_verbose = 1
+-- g.neoformat_verbose = 1
 
 -- Lua formatting
 g.neoformat_lua_luaformatter = {
