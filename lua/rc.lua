@@ -163,13 +163,13 @@ M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
       wipeout = "<leader>X",
-      delete_all = "<leader><C-x>",
+      delete_all = "<leader>bx",
    },
    bufferline = {
       cycle_next = "<TAB>",
       cycle_prev = "<S-TAB>",
-      move_next = "<leader>bn",
-      move_prev = "<leader>bp",
+      move_next = "<leader>b<TAB>",
+      move_prev = "<leader>bb<TAB>",
       sort_extension = "<leader>be",
       sort_directory = "<leader>be",
    },
@@ -182,7 +182,7 @@ M.mappings.plugin = {
    },
    dashboard = {
       open = "<leader>hh",
-      bookmarks = "<leader>bm",
+      bookmarks = "<leader>hm",
       new_file = "<leader>hf",
       session_load = "<leader>l",
       session_save = "<leader>s",
