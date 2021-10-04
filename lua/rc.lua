@@ -3,6 +3,7 @@ local M = {}
 -- TODO: Add all plugin mappings into here for cheatsheet addition
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
+-- TODO: improve sandwich mapping to stop collision with sentence
 
 -- UI {{{
 M.ui = {
@@ -283,8 +284,7 @@ M.mappings.plugin = {
       minimalistic_mode = "<leader>zm",
    },
 }
--- }}}
--- }}}
+-- }}} }}}
 -- Plugin switches {{{
 M.plugin_status = {
    autopairs = true,

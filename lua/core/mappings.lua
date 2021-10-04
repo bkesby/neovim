@@ -42,9 +42,7 @@ M.misc = function()
 
       -- break up undo points
       local undo_marks = { ",", ".", "[", "{", "(" }
-      for _, mark in ipairs(undo_marks) do
-         map("i", mark, mark .. "<C-g>u")
-      end
+      for _, mark in ipairs(undo_marks) do map("i", mark, mark .. "<C-g>u") end
 
       -- add big movements to jump mark list
       map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
@@ -110,8 +108,7 @@ end
 
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
-   map("n", m.default_keys,
-       ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
+   map("n", m.default_keys, ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
    map("n", m.user_keys,
        ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>")
 end
@@ -140,8 +137,7 @@ M.dap = function()
    map("n", m.launch_repl, ":lua require'dap'.repl.open()<CR>")
    map("n", m.test_python_method, ":lua require'dap-python'.test_method()<CR>")
    map("n", m.test_python_class, ":lua require'dap-python'.test_class()<CR>")
-   map("n", m.debug_python_selection,
-       "<ESC>:lua require'dap-python'.debug_selection()<CR>")
+   map("n", m.debug_python_selection, "<ESC>:lua require'dap-python'.debug_selection()<CR>")
 end
 
 M.fugitive = function()
@@ -168,8 +164,7 @@ end
 M.harpoon = function()
    local m = plugin_maps.harpoon
    map("n", m.add_file, ":lua require('harpoon.mark').add_file()<CR>")
-   map("n", m.toggle_quick_menu,
-       ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+   map("n", m.toggle_quick_menu, ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
    map("n", m.navigate_to_file_1, ":lua require('harpoon.ui').nav_file(1)<CR>")
    map("n", m.navigate_to_file_2, ":lua require('harpoon.ui').nav_file(2)<CR>")
    map("n", m.navigate_to_file_3, ":lua require('harpoon.ui').nav_file(3)<CR>")
@@ -193,11 +188,9 @@ M.subversive = function()
    }
    -- <plug> doesn't work so use full original command
    map("n", m.substitute,
-       ":<c-u>call subversive#singleMotion#preSubstitute(v:register, 0, '')<cr>:set opfunc=subversive#singleMotion#substituteMotion<cr>g@",
-       opt)
+       ":<c-u>call subversive#singleMotion#preSubstitute(v:register, 0, '')<cr>:set opfunc=subversive#singleMotion#substituteMotion<cr>g@", opt)
    map("n", m.substitute_line,
-       ":<c-u>call subversive#singleMotion#substituteLineSetup(v:register, v:count)<cr>:set opfunc=subversive#singleMotion#substituteLine<cr>g@l",
-       opt)
+       ":<c-u>call subversive#singleMotion#substituteLineSetup(v:register, v:count)<cr>:set opfunc=subversive#singleMotion#substituteLine<cr>g@l", opt)
    map("n", m.substitute_end_of_line,
        ":<c-u>call subversive#singleMotion#substituteToEndOfLineSetup(v:register, v:count)<cr>:set opfunc=subversive#singleMotion#substituteToEndOfLine<cr>g@l",
        opt)
