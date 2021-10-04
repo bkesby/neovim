@@ -3,16 +3,6 @@ local rc = require("rc").options.plugin
 
 local M = {}
 
--- Switch to lua version if I can get it to work with coq
--- M.autopairs = function()
---    local present, autopairs = pcall(require, "nvim-autopairs")
---    if present then
---       autopairs.setup {
---          check_ts = true,
---       }
---    end
--- end
-
 M.better_escape = function()
    require("better_escape").setup {
       mapping = rc.better_escape.mapping,

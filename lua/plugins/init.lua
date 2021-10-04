@@ -26,7 +26,7 @@ return packer.startup(function()
    } -- bracket mappings
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    -- use { "tpope/vim-sleuth" } -- shift/tab width detection
-   use { "machakann/vim-sandwich" } -- surround stuff with motion
+   -- use { "machakann/vim-sandwich" } -- surround stuff with motion
    use { "wellle/targets.vim" }
    use {
       "ThePrimeagen/harpoon",
@@ -106,11 +106,13 @@ return packer.startup(function()
    use {
       "ms-jpq/coq_nvim",
       branch = "coq",
-      event = "BufRead",
-      setup = function() require("plugins.configs.coq").setup() end,
       run = ":silent! COQdeps",
+      event = "BufEnter",
+      setup = function() require("plugins.configs.coq") end,
+      requires = { "windwp/nvim-autopairs" },
    }
 
+   -- snippets
    use {
       "ms-jpq/coq.artifacts",
       as = "artifacts",
@@ -146,12 +148,6 @@ return packer.startup(function()
       "ethanholz/nvim-lastplace",
       disable = not plugin_status.lastplace,
       config = function() require("plugins.configs.others").lastplace() end,
-   }
-
-   use {
-      "jiangmiao/auto-pairs",
-      disable = not plugin_status.autopairs,
-      event = "InsertEnter",
    }
 
    use {
@@ -276,7 +272,7 @@ return packer.startup(function()
       "simrat39/rust-tools.nvim",
       disable = not plugin_status.rust_tools,
       after = "nvim-lspconfig",
-      -- ft = "rust",
+      ft = "rust",
       config = function() require("plugins.configs.rust_tools") end,
    }
 
