@@ -9,6 +9,13 @@ vim.g.coq_settings = {
    keymap = {
       recommended = false,
    },
+   display = {
+      pum = {
+         x_truncate_len = 8,
+         kind_context = { " ", " ❯" },
+         source_context = { "", " " },
+      },
+   },
 }
 
 -- Autopairs setup
