@@ -55,7 +55,7 @@ return packer.startup(function()
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
       event = "UIEnter",
-      config = function() require("plugins.configs.others").wordmotion() end,
+      setup = function() require("plugins.configs.others").wordmotion() end,
    }
 
    -- UI initializing
