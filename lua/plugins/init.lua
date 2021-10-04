@@ -151,6 +151,12 @@ return packer.startup(function()
    }
 
    use {
+      "windwp/nvim-ts-autotag",
+      disable = not plugin_status.autotag,
+      event = "BufRead",
+   }
+
+   use {
       "lukas-reineke/indent-blankline.nvim",
       disable = not plugin_status.blankline,
       event = "BufRead",

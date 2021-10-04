@@ -16,6 +16,7 @@ npairs.setup({
    disabled_filetype = { "TelescopePrompt" },
    check_ts = true,
    map_bs = false,
+   fast_wrap = {},
 })
 
 local opts = {
