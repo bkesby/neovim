@@ -170,8 +170,8 @@ M.mappings.plugin = {
       cycle_prev = "<S-TAB>",
       move_next = "<leader>b<TAB>",
       move_prev = "<leader>bb<TAB>",
-      sort_extension = "<leader>be",
-      sort_directory = "<leader>be",
+      sort_extension = "<leader>bse",
+      sort_directory = "<leader>bsd",
    },
    cheatsheet = {
       default_keys = "<leader>dk",
