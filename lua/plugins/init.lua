@@ -276,7 +276,7 @@ return packer.startup(function()
       "simrat39/rust-tools.nvim",
       disable = not plugin_status.rust_tools,
       after = "nvim-lspconfig",
-      ft = "rust",
+      -- ft = "rust",
       config = function() require("plugins.configs.rust_tools") end,
    }
 

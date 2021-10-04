@@ -287,7 +287,7 @@ M.mappings.plugin = {
 -- }}}
 -- Plugin switches {{{
 M.plugin_status = {
-   autopairs = false,
+   autopairs = true,
    bbye = true,
    better_escape = true,
    blankline = true,
