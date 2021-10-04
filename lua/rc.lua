@@ -163,6 +163,7 @@ M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
       wipeout = "<leader>X",
+      delete_all = "<leader><C-x>",
    },
    bufferline = {
       cycle_next = "<TAB>",

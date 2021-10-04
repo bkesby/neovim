@@ -91,6 +91,7 @@ M.bbye = function()
    local m = plugin_maps.bbye
    map("n", m.delete, ":Bdelete<CR>")
    map("n", m.wipeout, ":Bwipeout<CR>")
+   map("n", m.delete_all, ":bufdo :Bdelete<CR>")
 end
 
 M.bufferline = function()
