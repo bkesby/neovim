@@ -305,6 +305,7 @@ M.plugin_status = {
    lastplace = true,
    neoformat = true,
    neoscroll = true,
+   rust_tools = true,
    statusline = true,
    surround = true,
    todo = true,

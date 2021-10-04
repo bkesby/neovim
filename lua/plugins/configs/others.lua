@@ -24,14 +24,8 @@ M.blankline = function()
    require("indent_blankline").setup {
       indentLine_enabled = 1,
       show_current_context = true,
-      context_patterns = {
-         "class", "function", "method", "object", "dictionary", "table", "^if",
-         "while", "for", "with", "case", "try", "except",
-      },
-      filetype_exclude = {
-         "help", "terminal", "dashboard", "packer", "lspinfo",
-         "TelescopePrompt", "TelescopeResults",
-      },
+      context_patterns = { "class", "function", "method", "object", "dictionary", "table", "^if", "while", "for", "with", "case", "try", "except" },
+      filetype_exclude = { "help", "terminal", "dashboard", "packer", "lspinfo", "TelescopePrompt", "TelescopeResults", "Telescope" },
       buftype_exclude = { "terminal" },
       show_trailing_blankline_indent = false,
       show_first_indent_level = false,
@@ -59,9 +53,7 @@ end
 
 M.comment = function()
    local present, nvim_comment = pcall(require, "nvim_comment")
-   if present then
-      nvim_comment.setup()
-   end
+   if present then nvim_comment.setup() end
 end
 
 M.harpoon = function()
@@ -109,8 +101,6 @@ M.window = function()
    end
 end
 
-M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "(", ")", "\"", "'", ".", ",", " " }
-end
+M.wordmotion = function() g.wordmotion_uppercase_spaces = { "(", ")", "\"", "'", ".", ",", " " } end
 
 return M
