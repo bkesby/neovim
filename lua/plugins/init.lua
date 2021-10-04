@@ -244,7 +244,7 @@ return packer.startup(function()
          }, {
             "nvim-telescope/telescope-frecency.nvim",
             requires = { "tami5/sqlite.lua" },
-         },
+         }, { "nvim-telescope/telescope-project.nvim" },
       },
    }
 

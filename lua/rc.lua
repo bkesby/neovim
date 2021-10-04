@@ -141,7 +141,7 @@ M.options.plugin = {
 }
 -- }}}
 -- Mappings {{{
--- User Mappings {{{
+-- User Mappings
 M.mappings = {}
 M.mappings.user = {
    -- Hide search highlights
@@ -157,8 +157,7 @@ M.mappings.user = {
    -- Focus fold
    focus_on_current_fold = "<leader>zc",
 }
--- }}}
--- Plugin Mappings {{{
+-- Plugin Mappings
 M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
@@ -257,6 +256,7 @@ M.mappings.plugin = {
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
+      find_projects = "<leader>fp",
       file_browser = "<leader>ft",
       git_commits = "<leader>fc",
       git_status = "<leader>fs",
