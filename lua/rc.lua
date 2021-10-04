@@ -181,9 +181,9 @@ M.mappings.plugin = {
       toggle = "<Leader>/",
    },
    dashboard = {
-      open = "<leader>h",
+      open = "<leader>hh",
       bookmarks = "<leader>bm",
-      new_file = "<leader>fn",
+      new_file = "<leader>hf",
       session_load = "<leader>l",
       session_save = "<leader>s",
    },
