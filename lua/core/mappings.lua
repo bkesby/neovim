@@ -16,6 +16,10 @@ M.misc = function()
       -- space bar is leader
       map({ "n", "v" }, " ", "<Nop>")
 
+      -- change inner/all seNteNce
+      map({ "x", "o" }, "in", "is")
+      map({ "x", "o" }, "an", "as")
+
       -- don't copy the replaced text after pasting in visual mode
       map("v", "p", "\"_dP")
 
@@ -179,6 +183,17 @@ end
 M.neoformat = function()
    local m = plugin_maps.neoformat.format
    map("n", m, ":Neoformat <CR>")
+end
+
+M.sandwich = function()
+   local m = plugin_maps.sandwich
+   local opts = {
+      noremap = false,
+   }
+   map({ "x", "o" }, m.auto_inner, "<Plug>(textobj-sandwich-auto-i)", opts)
+   map({ "x", "o" }, m.auto_all, "<Plug>(textobj-sandwich-auto-a)", opts)
+   map({ "x", "o" }, m.query_inner, "<Plug>(textobj-sandwich-query-i)", opts)
+   map({ "x", "o" }, m.query_all, "<Plug>(textobj-sandwich-query-a)", opts)
 end
 
 M.subversive = function()

@@ -248,6 +248,12 @@ M.mappings.plugin = {
    neoformat = {
       format = "<leader>nf",
    },
+   sandwich = {
+      auto_inner = "is",
+      auto_all = "as",
+      query_inner = "iz",
+      query_all = "az",
+   },
    subversive = {
       substitute = "s",
       substitute_line = "ss",
@@ -308,6 +314,7 @@ M.plugin_status = {
    neoformat = true,
    neoscroll = true,
    rust_tools = true,
+   sandwich = true,
    statusline = true,
    subversive = false,
    todo = true,

@@ -74,6 +74,8 @@ M.neoscroll = function()
    end
 end
 
+M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
+
 M.undo = function()
    g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign
    g.undotree_WindowLayout = rc.undo.window_layout

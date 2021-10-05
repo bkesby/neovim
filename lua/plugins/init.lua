@@ -26,7 +26,12 @@ return packer.startup(function()
    } -- bracket mappings
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    -- use { "tpope/vim-sleuth" } -- shift/tab width detection
-   -- use { "machakann/vim-sandwich" } -- surround stuff with motion
+   use {
+      "machakann/vim-sandwich",
+      disable = not plugin_status.sandwich,
+      setup = function() require("plugins.configs.others").sandwich() end,
+      config = function() require("core.mappings").sandwich() end,
+   } -- surround stuff with motion
    use { "wellle/targets.vim" }
    use {
       "ThePrimeagen/harpoon",
@@ -49,6 +54,7 @@ return packer.startup(function()
    use { "kana/vim-textobj-user" }
    use {
       "glts/vim-textobj-comment",
+      -- TODO: change mapping to use k?
       event = "UIEnter",
    }
    use { "michaeljsmith/vim-indent-object" }
