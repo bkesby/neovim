@@ -4,7 +4,6 @@ local M = {}
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: improve sandwich mapping to stop collision with sentence
 
 -- UI {{{
 M.ui = {
@@ -126,6 +125,14 @@ M.options.plugin = {
       timeout = 125,
       mapping = "jk",
    },
+   coq = {
+      auto_start = "shut-up",
+      display = {
+         x_truncate_len = 8,
+         kind_context = { " ", " ❯" },
+         source_context = { "", " " },
+      },
+   },
    harpoon = {
       save_on_toggle = false,
       save_on_change = true,
@@ -182,6 +189,14 @@ M.mappings.plugin = {
    },
    comment = {
       toggle = "<Leader>/",
+   },
+   coq = {
+      pum_escape = "<ESC>",
+      pum_cancel = "<C-c>",
+      pum_next = "<TAB>",
+      pum_previous = "<S-TAB>",
+      pum_select = "<CR>",
+      pum_backspace = "<BS>",
    },
    dashboard = {
       open = "<leader>hh",
