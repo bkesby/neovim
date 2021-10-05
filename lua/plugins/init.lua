@@ -41,6 +41,7 @@ return packer.startup(function()
    }
    use {
       "svermeulen/vim-subversive",
+      disable = not plugin_status.subversive,
       setup = function() require("core.mappings").subversive() end,
    }
 
