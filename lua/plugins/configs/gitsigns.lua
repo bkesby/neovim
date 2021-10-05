@@ -38,6 +38,6 @@ gitsigns.setup {
    },
    status_formatter = nil,
    watch_gitdir = {
-      interval = 600,
+      interval = 200,
    },
 }
