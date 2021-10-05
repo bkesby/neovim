@@ -184,8 +184,8 @@ M.mappings.plugin = {
       open = "<leader>hh",
       bookmarks = "<leader>hm",
       new_file = "<leader>hf",
-      session_load = "<leader>l",
-      session_save = "<leader>s",
+      session_load = "<leader>hl",
+      session_save = "<leader>hs",
    },
    dap = {
       toggle_breakpoint = "<leader>db",
@@ -279,6 +279,14 @@ M.mappings.plugin = {
    },
    toggleterm = {
       toggle = "<leader>t",
+   },
+   trouble = {
+      open = "<leader>pp",
+      lsp_workspace_diagnostics = "<leader>pw",
+      lsp_document_diagnostics = "<leader>pd",
+      lsp_references = "<leader>pr",
+      loclist = "<leader>pl",
+      quickfix = "<leader>pq",
    },
    undo = {
       toggle_undo_tree = "<leader>u",

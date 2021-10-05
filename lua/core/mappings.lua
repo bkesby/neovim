@@ -234,6 +234,18 @@ M.todo = function()
    map("n", m.search_with_telescope, ":TodoTelescope<CR>")
 end
 
+M.trouble = function()
+   local m = plugin_maps.trouble
+   map("n", m.open, "<cmd>TroubleToggle<CR>")
+   map("n", m.lsp_workspace_diagnostics, "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>")
+   map("n", m.lsp_document_diagnostics, "<cmd>TroubleToggle lsp_document_diagnostics<CR>")
+   map("n", m.lsp_references, "<cmd>TroubleToggle lsp_references<CR>")
+   map("n", m.loclist, "<cmd>TroubleToggle loclist<CR>")
+   map("n", m.quickfix, "<cmd>TroubleToggle quickfix<CR>")
+   -- map("n", m.next_item, "<cmd>TroubleToggle quickfix<CR>")
+   -- map("n", m.prev_item, "<cmd>TroubleToggle quickfix<CR>")
+end
+
 M.undo = function()
    local m = plugin_maps.undo.toggle_undo_tree
    map("n", m, ":UndotreeToggle<CR>")

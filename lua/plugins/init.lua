@@ -299,6 +299,12 @@ return packer.startup(function()
    }
 
    use {
+      "folke/trouble.nvim",
+      cmd = { "Trouble", "TroubleToggle" },
+      setup = function() require("core.mappings").trouble() end,
+   }
+
+   use {
       "simrat39/rust-tools.nvim",
       disable = not plugin_status.rust_tools,
       after = "nvim-lspconfig",
