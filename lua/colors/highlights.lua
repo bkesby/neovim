@@ -22,15 +22,9 @@ local keyword = colors.base0E
 local tags = colors.base0F
 
 -- command functions
-local function fg(group, color)
-   cmd("hi " .. group .. " guifg=" .. color)
-end
-local function bg(group, color)
-   cmd("hi " .. group .. " guibg=" .. color)
-end
-local function fgbg(group, fcolor, bcolor)
-   cmd("hi " .. group .. " guifg=" .. fcolor .. " guibg=" .. bcolor)
-end
+local function fg(group, color) cmd("hi " .. group .. " guifg=" .. color) end
+local function bg(group, color) cmd("hi " .. group .. " guibg=" .. color) end
+local function fgbg(group, fcolor, bcolor) cmd("hi " .. group .. " guifg=" .. fcolor .. " guibg=" .. bcolor) end
 
 -- Disable cursor line
 cmd [[ hi clear CursorLine ]]

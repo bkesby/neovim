@@ -1,7 +1,5 @@
 local present, true_zen = pcall(require, "true-zen")
-if not present then
-   return
-end
+if not present then return end
 
 true_zen.setup {
    ui = {
@@ -26,7 +24,7 @@ true_zen.setup {
             right_padding = 24,
             top_padding = 1,
             bottom_padding = 1,
-            ideal_writing_area_width = {0},
+            ideal_writing_area_width = { 0 },
             auto_padding = true,
             keep_default_fold_fillchars = true,
             custome_bg = "",

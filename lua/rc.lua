@@ -1,8 +1,10 @@
 local M = {}
 
 -- TODO: Add all plugin mappings into here for cheatsheet addition
+-- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
+-- TODO: improve sandwich mapping to stop collision with sentence
 
 -- UI {{{
 M.ui = {
@@ -140,7 +142,7 @@ M.options.plugin = {
 }
 -- }}}
 -- Mappings {{{
--- User Mappings {{{
+-- User Mappings
 M.mappings = {}
 M.mappings.user = {
    -- Hide search highlights
@@ -156,20 +158,20 @@ M.mappings.user = {
    -- Focus fold
    focus_on_current_fold = "<leader>zc",
 }
--- }}}
--- Plugin Mappings {{{
+-- Plugin Mappings
 M.mappings.plugin = {
    bbye = {
       delete = "<leader>x",
       wipeout = "<leader>X",
+      delete_all = "<leader>bx",
    },
    bufferline = {
       cycle_next = "<TAB>",
       cycle_prev = "<S-TAB>",
-      move_next = "<leader>bn",
-      move_prev = "<leader>bp",
-      sort_extension = "<leader>be",
-      sort_directory = "<leader>be",
+      move_next = "<leader>b<TAB>",
+      move_prev = "<leader>bb<TAB>",
+      sort_extension = "<leader>bse",
+      sort_directory = "<leader>bsd",
    },
    cheatsheet = {
       default_keys = "<leader>dk",
@@ -179,11 +181,11 @@ M.mappings.plugin = {
       toggle = "<Leader>/",
    },
    dashboard = {
-      open = "<leader>h",
-      bookmarks = "<leader>bm",
-      new_file = "<leader>fn",
-      session_load = "<leader>l",
-      session_save = "<leader>s",
+      open = "<leader>hh",
+      bookmarks = "<leader>hm",
+      new_file = "<leader>hf",
+      session_load = "<leader>hl",
+      session_save = "<leader>hs",
    },
    dap = {
       toggle_breakpoint = "<leader>db",
@@ -247,6 +249,12 @@ M.mappings.plugin = {
    neoformat = {
       format = "<leader>nf",
    },
+   sandwich = {
+      auto_inner = "is",
+      auto_all = "as",
+      query_inner = "iz",
+      query_all = "az",
+   },
    subversive = {
       substitute = "s",
       substitute_line = "ss",
@@ -255,6 +263,7 @@ M.mappings.plugin = {
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
+      find_projects = "<leader>fp",
       file_browser = "<leader>ft",
       git_commits = "<leader>fc",
       git_status = "<leader>fs",
@@ -263,13 +272,21 @@ M.mappings.plugin = {
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
       frecency = "<leader>fr",
-      lsp_reference = "<leader>flr",
+      lsp_reference = "<leader>fl",
    },
    todo = {
       search_with_telescope = "<leader>fd",
    },
    toggleterm = {
       toggle = "<leader>t",
+   },
+   trouble = {
+      open = "<leader>pp",
+      lsp_workspace_diagnostics = "<leader>pw",
+      lsp_document_diagnostics = "<leader>pd",
+      lsp_references = "<leader>pr",
+      loclist = "<leader>pl",
+      quickfix = "<leader>pq",
    },
    undo = {
       toggle_undo_tree = "<leader>u",
@@ -283,11 +300,11 @@ M.mappings.plugin = {
       minimalistic_mode = "<leader>zm",
    },
 }
--- }}}
--- }}}
+-- }}} }}}
 -- Plugin switches {{{
 M.plugin_status = {
-   autopairs = true,
+   -- autopairs = true,
+   autotag = true,
    bbye = true,
    better_escape = true,
    blankline = true,
@@ -305,10 +322,12 @@ M.plugin_status = {
    lastplace = true,
    neoformat = true,
    neoscroll = true,
+   rust_tools = true,
+   sandwich = true,
    statusline = true,
-   surround = true,
+   subversive = false,
    todo = true,
-   DiagnosticHintoggleterm = true,
+   toggleterm = true,
    treesitter = true,
    wordmotion = true,
    window = true,

@@ -20,7 +20,7 @@ cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
 cmd [[ 
 augroup fmt
    autocmd!
-   autocmd BufWritePre *.lua,*.py undojoin | silent! Neoformat 
+   autocmd BufWritePre *.lua,*.py,*.rc silent! undojoin | silent! Neoformat 
 augroup END
 ]]
 
@@ -29,5 +29,13 @@ cmd [[
 augroup highlight_yank
    autocmd!
    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
+augroup END
+]]
+
+-- Lightbulb code action hint
+cmd [[
+augroup lightbulb
+   autocmd!
+   au CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 augroup END
 ]]

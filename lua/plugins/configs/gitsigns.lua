@@ -1,7 +1,5 @@
 local present, gitsigns = pcall(require, "gitsigns")
-if not present then
-   return
-end
+if not present then return end
 
 gitsigns.setup {
    attach_to_untracked = false,
@@ -40,6 +38,6 @@ gitsigns.setup {
    },
    status_formatter = nil,
    watch_gitdir = {
-      interval = 600,
+      interval = 200,
    },
 }

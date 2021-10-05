@@ -3,16 +3,6 @@ local rc = require("rc").options.plugin
 
 local M = {}
 
--- Switch to lua version if I can get it to work with coq
--- M.autopairs = function()
---    local present, autopairs = pcall(require, "nvim-autopairs")
---    if present then
---       autopairs.setup {
---          check_ts = true,
---       }
---    end
--- end
-
 M.better_escape = function()
    require("better_escape").setup {
       mapping = rc.better_escape.mapping,
@@ -25,12 +15,11 @@ M.blankline = function()
       indentLine_enabled = 1,
       show_current_context = true,
       context_patterns = {
-         "class", "function", "method", "object", "dictionary", "table", "^if",
-         "while", "for", "with", "case", "try", "except",
+         "class", "function", "method", "object", "dictionary", "table", "^if", "while", "for", "with", "case", "try",
+         "except",
       },
       filetype_exclude = {
-         "help", "terminal", "dashboard", "packer", "lspinfo",
-         "TelescopePrompt", "TelescopeResults",
+         "help", "terminal", "dashboard", "packer", "lspinfo", "TelescopePrompt", "TelescopeResults", "Telescope",
       },
       buftype_exclude = { "terminal" },
       show_trailing_blankline_indent = false,
@@ -59,9 +48,7 @@ end
 
 M.comment = function()
    local present, nvim_comment = pcall(require, "nvim_comment")
-   if present then
-      nvim_comment.setup()
-   end
+   if present then nvim_comment.setup() end
 end
 
 M.harpoon = function()
@@ -82,6 +69,13 @@ M.lastplace = function()
    }
 end
 
+M.lightbulb = function()
+   vim.fn.sign_define("LightBulbSign", {
+      text = "",
+      texthl = "DiagnosticSignHint",
+   })
+end
+
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
    if present then
@@ -91,6 +85,8 @@ M.neoscroll = function()
       }
    end
 end
+
+M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
 
 M.undo = function()
    g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign
@@ -109,8 +105,6 @@ M.window = function()
    end
 end
 
-M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "(", ")", "\"", "'", ".", ",", " " }
-end
+M.wordmotion = function() g.wordmotion_uppercase_spaces = { "\"", "'", ".", ":", ";", ",", "(", ")" } end
 
 return M

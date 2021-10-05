@@ -9,11 +9,16 @@ local cmd = vim.cmd
 
 local M = {}
 
+-- default opts = { noremap = true, silent = true }
 -- mappings to be called during initialization
 M.misc = function()
    local function behaviour_mappings()
       -- space bar is leader
       map({ "n", "v" }, " ", "<Nop>")
+
+      -- change inner/all seNteNce
+      map({ "x", "o" }, "in", "is")
+      map({ "x", "o" }, "an", "as")
 
       -- don't copy the replaced text after pasting in visual mode
       map("v", "p", "\"_dP")
@@ -28,6 +33,29 @@ M.misc = function()
 
       -- don't yank on cut
       map({ "n", "v" }, "x", "\"_x")
+
+      -- stop Y from misbehaving
+      map("n", "Y", "y$")
+
+      -- keep search/jumplist/join movement centered
+      map("n", "n", "nzzzv")
+      map("n", "N", "Nzzzv")
+      map("n", "[j", "[jzzzv")
+      map("n", "]j", "]jzzzv")
+      map("n", "J", "mzJ'z") -- leave a mark and return after join
+
+      -- break up undo points
+      local undo_marks = { ",", ".", "[", "{", "(" }
+      for _, mark in ipairs(undo_marks) do map("i", mark, mark .. "<C-g>u") end
+
+      -- add big movements to jump mark list
+      map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
+         expr = true,
+      })
+      map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {
+         expr = true,
+      })
+
    end
 
    local function required_mappings()
@@ -67,6 +95,7 @@ M.bbye = function()
    local m = plugin_maps.bbye
    map("n", m.delete, ":Bdelete<CR>")
    map("n", m.wipeout, ":Bwipeout<CR>")
+   map("n", m.delete_all, ":bufdo :Bdelete<CR>")
 end
 
 M.bufferline = function()
@@ -84,8 +113,7 @@ end
 
 M.cheatsheet = function()
    local m = plugin_maps.cheatsheet
-   map("n", m.default_keys,
-       ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
+   map("n", m.default_keys, ":lua require('cheatsheet').show_cheatsheet_telescope() <CR>")
    map("n", m.user_keys,
        ":lua require('cheatsheet').show_cheatsheet_telescope{ bundled_cheatsheets = false, bundled_plugin_cheatsheets = false } <CR>")
 end
@@ -114,8 +142,7 @@ M.dap = function()
    map("n", m.launch_repl, ":lua require'dap'.repl.open()<CR>")
    map("n", m.test_python_method, ":lua require'dap-python'.test_method()<CR>")
    map("n", m.test_python_class, ":lua require'dap-python'.test_class()<CR>")
-   map("n", m.debug_python_selection,
-       "<ESC>:lua require'dap-python'.debug_selection()<CR>")
+   map("n", m.debug_python_selection, "<ESC>:lua require'dap-python'.debug_selection()<CR>")
 end
 
 M.fugitive = function()
@@ -142,8 +169,7 @@ end
 M.harpoon = function()
    local m = plugin_maps.harpoon
    map("n", m.add_file, ":lua require('harpoon.mark').add_file()<CR>")
-   map("n", m.toggle_quick_menu,
-       ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+   map("n", m.toggle_quick_menu, ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
    map("n", m.navigate_to_file_1, ":lua require('harpoon.ui').nav_file(1)<CR>")
    map("n", m.navigate_to_file_2, ":lua require('harpoon.ui').nav_file(2)<CR>")
    map("n", m.navigate_to_file_3, ":lua require('harpoon.ui').nav_file(3)<CR>")
@@ -157,6 +183,17 @@ end
 M.neoformat = function()
    local m = plugin_maps.neoformat.format
    map("n", m, ":Neoformat <CR>")
+end
+
+M.sandwich = function()
+   local m = plugin_maps.sandwich
+   local opts = {
+      noremap = false,
+   }
+   map({ "x", "o" }, m.auto_inner, "<Plug>(textobj-sandwich-auto-i)", opts)
+   map({ "x", "o" }, m.auto_all, "<Plug>(textobj-sandwich-auto-a)", opts)
+   map({ "x", "o" }, m.query_inner, "<Plug>(textobj-sandwich-query-i)", opts)
+   map({ "x", "o" }, m.query_all, "<Plug>(textobj-sandwich-query-a)", opts)
 end
 
 M.subversive = function()
@@ -181,6 +218,7 @@ M.telescope = function()
    local m = plugin_maps.telescope
    map("n", m.buffers, ":Telescope buffers <CR>")
    map("n", m.find_files, ":Telescope find_files <CR>")
+   map("n", m.find_projects, ":Telescope project<CR>")
    map("n", m.file_browser, ":Telescope file_browser <CR>")
    map("n", m.git_commits, ":Telescope git_commits <CR>")
    map("n", m.git_status, ":Telescope git_status <CR>")
@@ -188,12 +226,24 @@ M.telescope = function()
    map("n", m.oldfiles, ":Telescope oldfiles <CR>")
    map("n", m.help_tags, ":Telescope help_tags <CR>")
    map("n", m.frecency, ":Telescope frecency <CR>")
-   map("n", m.lsp_reference, ":Telescope lsp_references")
+   map("n", m.lsp_reference, ":Telescope lsp_references<CR>")
 end
 
 M.todo = function()
    local m = plugin_maps.todo
    map("n", m.search_with_telescope, ":TodoTelescope<CR>")
+end
+
+M.trouble = function()
+   local m = plugin_maps.trouble
+   map("n", m.open, "<cmd>TroubleToggle<CR>")
+   map("n", m.lsp_workspace_diagnostics, "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>")
+   map("n", m.lsp_document_diagnostics, "<cmd>TroubleToggle lsp_document_diagnostics<CR>")
+   map("n", m.lsp_references, "<cmd>TroubleToggle lsp_references<CR>")
+   map("n", m.loclist, "<cmd>TroubleToggle loclist<CR>")
+   map("n", m.quickfix, "<cmd>TroubleToggle quickfix<CR>")
+   -- map("n", m.next_item, "<cmd>TroubleToggle quickfix<CR>")
+   -- map("n", m.prev_item, "<cmd>TroubleToggle quickfix<CR>")
 end
 
 M.undo = function()

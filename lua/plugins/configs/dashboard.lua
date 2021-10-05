@@ -8,70 +8,54 @@ g.dashboard_disable_bufferline = 1
 g.dashboard_default_executive = "telescope"
 
 g.dashboard_custom_header = {
-   "                                                       ",
-   "                                                       ",
-   "                                                       ",
-   "                                                       ",
-   "                                                       ",
-   "                                                       ",
+   "                                                       ", "                                                       ",
+   "                                                       ", "                                                       ",
+   "                                                       ", "                                                       ",
    " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
    " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
    " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
    " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
    " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
    " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+   "                                                       ", "                                                       ",
+   "                                                       ", "                 Customised by Kesby                   ",
+   "                                                       ", "                                                       ",
    "                                                       ",
-   "                                                       ",
-   "                                                       ",
-   "                 Customised by Kesby                   ",
-   "                                                       ",
-   "                                                       ",
-   "                                                       ",
-}
-
-g.dashboard_custom_section = {
-   a = {
-      description = {
-         "  Find File                       " ..
-             telescope.find_files:gsub("<leader>", "SPC "),
-      },
-      command = "Telescope find_files",
-   },
-   b = {
-      description = {
-         "  Recents                         " ..
-             telescope.frecency:gsub("<leader>", "SPC "),
-      },
-      command = "Telescope frecency",
-   },
-   c = {
-      description = {
-         "  Find Word                       " ..
-             telescope.live_grep:gsub("<leader>", "SPC "),
-      },
-      command = "Telescope live_grep",
-   },
-   d = {
-      description = {
-         "  New File                        " ..
-             mappings.new_file:gsub("<leader>", "SPC "),
-      },
-      command = "DashboardNewFile",
-   },
-   e = {
-      description = {
-         "  Bookmarks                       " ..
-             mappings.bookmarks:gsub("<leader>", "SPC "),
-      },
-      command = "Telescope marks",
-   },
-   f = {
-      description = {
-         "  Load Last Session               " ..
-             mappings.session_load:gsub("<leader>", "SPC "),
-      },
-      command = "SessionLoad",
-   },
 }
 -- disable tabline in dashboard
 -- vim.cmd [[ autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
+
+g.dashboard_custom_section = {
+   a = {
+      description = { "  Find File                       " .. telescope.find_files:gsub("<leader>", "SPC ") },
+      command = "Telescope find_files",
+   },
+   b = {
+      description = { "  Recents                         " .. telescope.frecency:gsub("<leader>", "SPC ") },
+      command = "Telescope frecency",
+   },
+   c = {
+      description = { "  Find Word                       " .. telescope.live_grep:gsub("<leader>", "SPC ") },
+      command = "Telescope live_grep",
+   },
+   d = {
+      description = { "ﱮ  Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
+      command = "Telescope project",
+   },
+   e = {
+      description = { "  New File                        " .. mappings.new_file:gsub("<leader>", "SPC ") },
+      command = "DashboardNewFile",
+   },
+   f = {
+      description = { "  Bookmarks                       " .. mappings.bookmarks:gsub("<leader>", "SPC ") },
+      command = "Telescope marks",
+   },
+   g = {
+      description = { "  Load Last Session               " .. mappings.session_load:gsub("<leader>", "SPC ") },
+      command = "SessionLoad",
+   },
+   h = {
+      description = { "  Help                            " .. telescope.help_tags:gsub("<leader>", "SPC ") },
+      command = "Telescope help_tags",
+   },
+}

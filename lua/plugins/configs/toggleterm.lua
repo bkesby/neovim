@@ -1,7 +1,5 @@
 local present, term = pcall(require, "toggleterm")
-if not present then
-   return
-end
+if not present then return end
 
 local mapping = require("rc").mappings.plugin.toggleterm
 

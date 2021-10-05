@@ -8,15 +8,13 @@ local rc = require("rc").options.plugin
 g.neoformat_lua_luaformatter = {
    exe = "lua-format",
    args = {
-      "--tab-width=3", "--no-use-tab", "--indent-width=3",
-      "--break-after-table-lb", "--break-before-table-rb",
+      "--column-limit=120", "--tab-width=3", "--no-use-tab", "--indent-width=3",
       "--no-chop-down-table", "--single-quote-to-double-quote",
-      "--no-keep-simple-control-block-one-line",
-      "--no-keep-simple-function-one-line", "--extra-sep-at-table-end",
-      "--spaces-around-equals-in-field", "--spaces-inside-table-braces",
-   },
+      "--keep-simple-control-block-one-line", "--keep-simple-function-one-line",
+      "--extra-sep-at-table-end", "--spaces-around-equals-in-field", "--no-break-after-operator",
+      "--spaces-inside-table-braces",
+   }, -- "--break-after-table-lb", "--break-before-table-rb",
 }
-
 g.neoformat_enabled_lua = { "luaformatter" }
 
 -- Python formatting
@@ -25,8 +23,14 @@ g.neoformat_python_black = {
    args = { "-q" },
    replace = true,
 }
---
 g.neoformat_enabled_python = { "black" }
+
+-- Rust formatting
+g.neoformat_rust_rustfmt = {
+   exe = "rustfmt",
+   replace = true,
+}
+g.neoformat_enabled_rust = { "rustfmt" }
 
 -- Basic filetype formatting
 g.neoformat_basic_format_align = rc.neoformat.basic_format_align
