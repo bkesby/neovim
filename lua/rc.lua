@@ -115,6 +115,9 @@ M.options = {
       "s100", -- max item size (kib)
       "h", -- no hlsearch memory
    },
+   -- environments
+   python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
+   python3_path = "$PYENV_ROOT/versions/neovim3/bin/python",
 }
 -- }}}
 -- Plugin Options {{{
