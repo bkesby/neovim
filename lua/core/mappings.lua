@@ -209,7 +209,7 @@ M.telescope = function()
    map("n", m.oldfiles, ":Telescope oldfiles <CR>")
    map("n", m.help_tags, ":Telescope help_tags <CR>")
    map("n", m.frecency, ":Telescope frecency <CR>")
-   map("n", m.lsp_reference, ":Telescope lsp_references")
+   map("n", m.lsp_reference, ":Telescope lsp_references<CR>")
 end
 
 M.todo = function()

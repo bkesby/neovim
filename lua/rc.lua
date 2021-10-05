@@ -265,7 +265,7 @@ M.mappings.plugin = {
       help_tags = "<leader>fh",
       -- themes = "<leader>th",
       frecency = "<leader>fr",
-      lsp_reference = "<leader>flr",
+      lsp_reference = "<leader>fl",
    },
    todo = {
       search_with_telescope = "<leader>fd",
