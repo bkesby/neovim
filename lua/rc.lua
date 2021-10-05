@@ -1,6 +1,7 @@
 local M = {}
 
 -- TODO: Add all plugin mappings into here for cheatsheet addition
+-- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
 -- TODO: improve sandwich mapping to stop collision with sentence
