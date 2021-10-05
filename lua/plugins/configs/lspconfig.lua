@@ -37,8 +37,16 @@ local on_attach = function(_, bufnr)
    buf_set_keymap("n", rc.set_loclist, "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
    buf_set_keymap("n", rc.formatting, "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-   -- enable completion triggered by <c-x><c-o>
-   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+   local handlers = vim.lsp.handlers
+   -- extended lsp utils
+   handlers["textDocument/codeAction"] = require"lsputil.codeAction".code_action_handler
+   handlers["textDocument/references"] = require"lsputil.locations".references_handler
+   handlers["textDocument/definition"] = require"lsputil.locations".definition_handler
+   handlers["textDocument/declaration"] = require"lsputil.locations".declaration_handler
+   handlers["textDocument/typeDefinition"] = require"lsputil.locations".typeDefinition_handler
+   handlers["textDocument/implementation"] = require"lsputil.locations".implementation_handler
+   handlers["textDocument/documentSymbol"] = require"lsputil.symbols".document_handler
+   handlers["workspace/symbol"] = require"lsputil.symbols".workspace_handler
 
 end
 
