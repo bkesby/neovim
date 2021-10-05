@@ -1,7 +1,5 @@
 local present, statusline = pcall(require, "lualine")
-if not present then
-   return
-end
+if not present then return end
 
 local fn = vim.fn
 local ncmd = vim.api.nvim_command
@@ -47,22 +45,14 @@ local config = {
 
 -- Conditions
 local conditions = {
-   not_empty = function()
-      return fn.empty(fn.expand "%:t") ~= 1
-   end,
-   wide_enough = function()
-      return fn.winwidth(0) > 79
-   end,
+   not_empty = function() return fn.empty(fn.expand "%:t") ~= 1 end,
+   wide_enough = function() return fn.winwidth(0) > 69 end,
 }
 
 -- Insert functions
-local function insert_left(component)
-   table.insert(config.sections.lualine_c, component)
-end
+local function insert_left(component) table.insert(config.sections.lualine_c, component) end
 
-local function insert_right(component)
-   table.insert(config.sections.lualine_y, component)
-end
+local function insert_right(component) table.insert(config.sections.lualine_y, component) end
 
 -- Display functions
 local mode_function = function()
@@ -89,10 +79,8 @@ local mode_function = function()
       t = colors.base0F, -- terminal
    }
    -- Update highlight groups
-   local fg = "hi! LualineModeForeground" .. " guifg=" .. mode[fn.mode()] ..
-                  " guibg=" .. colors.base01 .. " gui='bold'"
-   local bg = "hi! LualineModeBackground" .. " guifg=" .. colors.base01 ..
-                  " guibg=" .. mode[fn.mode()]
+   local fg = "hi! LualineModeForeground" .. " guifg=" .. mode[fn.mode()] .. " guibg=" .. colors.base01 .. " gui='bold'"
+   local bg = "hi! LualineModeBackground" .. " guifg=" .. colors.base01 .. " guibg=" .. mode[fn.mode()]
    ncmd(fg .. " | " .. bg)
    return ""
 end
@@ -101,14 +89,10 @@ local lsp_server = function()
    local msg = "No Active Lsp"
    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
    local clients = vim.lsp.get_active_clients()
-   if next(clients) == nil then
-      return msg
-   end
+   if next(clients) == nil then return msg end
    for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
-      if filetypes and fn.index(filetypes, buf_ft) ~= -1 then
-         return client.name
-      end
+      if filetypes and fn.index(filetypes, buf_ft) ~= -1 then return client.name end
    end
    return msg
 end
@@ -128,7 +112,10 @@ insert_left {
    cond = conditions.not_empty,
 }
 
-insert_left { "location" }
+insert_left {
+   "location",
+   cond = conditions.wide_enough,
+}
 
 insert_left {
    "diagnostics",
@@ -143,9 +130,8 @@ insert_left {
 
 -- middle buffer
 insert_left {
-   function()
-      return "%="
-   end,
+   function() return "%=" end,
+   cond = conditions.wide_enough,
 }
 
 insert_left {
@@ -176,6 +162,7 @@ insert_right {
          fg = colors.base08,
       },
    },
+   cond = conditions.wide_enough,
 }
 
 insert_right {
@@ -193,9 +180,7 @@ insert_right {
 
 -- TODO: Create a clock function using sun phase icons(brightness)
 insert_right {
-   function()
-      return " ﲤ "
-   end,
+   function() return " ﲤ " end,
    color = "LualineModeBackground",
    padding = {
       left = 0,
