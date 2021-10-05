@@ -311,6 +311,11 @@ M.mappings.plugin = {
    },
    window = {
       pick_window = "<leader>w",
+      enter_shift_mode = "<C-w>m",
+      shift_left = "<C-M-h>",
+      shift_right = "<C-M-l>",
+      shift_up = "<C-M-k>",
+      shift_down = "<C-M-j>",
    },
    zen = {
       ataraxis_mode = "<leader>zz", -- centre
@@ -348,7 +353,8 @@ M.plugin_status = {
    toggleterm = true,
    treesitter = true,
    wordmotion = true,
-   window = true,
+   window_select = true,
+   window_move = true,
    zen = true,
 }
 -- }}}

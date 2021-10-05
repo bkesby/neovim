@@ -235,9 +235,15 @@ return packer.startup(function()
 
    use {
       "https://gitlab.com/yorickpeterse/nvim-window",
-      disable = not plugin_status.window,
+      disable = not plugin_status.window_select,
       config = function() require("plugins.configs.others").window() end,
-      setup = function() require("core.mappings").window() end,
+      setup = function() require("core.mappings").window_select() end,
+   }
+
+   use {
+      "sindrets/winshift.nvim",
+      disable = not plugin_status.window_move,
+      setup = function() require("core.mappings").window_move() end,
    }
 
    use {

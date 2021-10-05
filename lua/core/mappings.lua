@@ -251,9 +251,18 @@ M.undo = function()
    map("n", m, ":UndotreeToggle<CR>")
 end
 
-M.window = function()
+M.window_select = function()
    local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
+end
+
+M.window_move = function()
+   local m = plugin_maps.window
+   map("n", m.enter_shift_mode, "<Cmd>WinShift<CR>")
+   map("n", m.shift_left, "<Cmd>WinShift left<CR>")
+   map("n", m.shift_right, "<Cmd>WinShift right<CR>")
+   map("n", m.shift_up, "<Cmd>WinShift up<CR>")
+   map("n", m.shift_down, "<Cmd>WinShift down<CR>")
 end
 
 M.zen = function()
