@@ -13,4 +13,11 @@ treesitter.setup {
    autotag = {
       enabled = true,
    },
+   textsubjects = {
+      enable = true,
+      keymaps = {
+         ["."] = "textsubjects-smart",
+         [";"] = "textsubjects-container-outer",
+      },
+   },
 }

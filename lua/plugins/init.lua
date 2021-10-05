@@ -59,6 +59,10 @@ return packer.startup(function()
    }
    use { "michaeljsmith/vim-indent-object" }
    use {
+      "RRethy/nvim-treesitter-textsubjects",
+      after = "nvim-treesitter",
+   }
+   use {
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
       event = "UIEnter",
