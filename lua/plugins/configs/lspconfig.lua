@@ -9,9 +9,7 @@ local rc = require("rc").mappings.plugin.lsp
 -- use attach function to only map keys after language server attaches to current buffer
 local on_attach = function(_, bufnr)
    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-   -- local function buf_set_option(...)
-   --    vim.api.nvim_buf_set_option(bufnr, ...)
-   -- end
+   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
    local opts = {
       noremap = true,
@@ -26,7 +24,8 @@ local on_attach = function(_, bufnr)
    buf_set_keymap("n", rc.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    buf_set_keymap("n", rc.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
    buf_set_keymap("n", rc.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-   buf_set_keymap("n", rc.list_workspace_folders, "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+   buf_set_keymap("n", rc.list_workspace_folders,
+                  "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
    buf_set_keymap("n", rc.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
    buf_set_keymap("n", rc.rename, "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
    buf_set_keymap("n", rc.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -50,41 +49,26 @@ local on_attach = function(_, bufnr)
 
 end
 
+-- setup language server configurations
 local setup_servers = function()
    lspinstall.setup()
 
    local servers = require("lspinstall").installed_servers()
-
    for _, server in ipairs(servers) do
+      local config = {
+         on_attach = on_attach,
+         flags = {
+            debouce_text_changes = 150,
+         },
+      }
+
       if server == "lua" then
-         lspconfig[server].setup(coq.lsp_ensure_capabilities {
-            on_attach = on_attach,
-            settings = {
-               Lua = {
-                  runtime = {
-                     version = "LuaJIT",
-                     path = vim.split(package.path, ";"),
-                  },
-                  diagnostics = {
-                     globals = { "vim" },
-                  },
-                  workspace = {
-                     library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                     },
-                  },
-               },
-            },
-         })
-      else
-         lspconfig[server].setup(coq.lsp_ensure_capabilities {
-            on_attach = on_attach,
-            flags = {
-               debouce_text_changes = 150,
-            },
-         })
+         config.on_new_config = function(cfg, root_dir)
+            if root_dir == vim.fn.stdpath("config") then cfg.settings = require("lua-dev").setup().settings end
+         end
       end
+
+      lspconfig[server].setup(coq.lsp_ensure_capabilities(config))
    end
 end
 
