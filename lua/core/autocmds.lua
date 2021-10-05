@@ -31,3 +31,11 @@ augroup highlight_yank
    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
 augroup END
 ]]
+
+-- Lightbulb code action hint
+cmd [[
+augroup lightbulb
+   autocmd!
+   au CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+augroup END
+]]

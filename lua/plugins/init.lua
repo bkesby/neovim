@@ -146,6 +146,12 @@ return packer.startup(function()
       requires = { "folke/lua-dev.nvim" },
    }
 
+   use {
+      "kosayoda/nvim-lightbulb",
+      module = "nvim-lightbulb",
+      setup = function() require("plugins.configs.others").lightbulb() end,
+   }
+
    -- formatting
 
    use {
@@ -295,6 +301,12 @@ return packer.startup(function()
       ft = "rust",
       config = function() require("plugins.configs.rust_tools") end,
    }
+
+   -- Not working nicely with coq
+   -- use {
+   --    "weilbith/nvim-code-action-menu",
+   --    cmd = "CodeActionMenu",
+   -- }
 
    -- terminal
    use {

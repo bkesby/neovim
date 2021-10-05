@@ -14,8 +14,13 @@ M.blankline = function()
    require("indent_blankline").setup {
       indentLine_enabled = 1,
       show_current_context = true,
-      context_patterns = { "class", "function", "method", "object", "dictionary", "table", "^if", "while", "for", "with", "case", "try", "except" },
-      filetype_exclude = { "help", "terminal", "dashboard", "packer", "lspinfo", "TelescopePrompt", "TelescopeResults", "Telescope" },
+      context_patterns = {
+         "class", "function", "method", "object", "dictionary", "table", "^if", "while", "for", "with", "case", "try",
+         "except",
+      },
+      filetype_exclude = {
+         "help", "terminal", "dashboard", "packer", "lspinfo", "TelescopePrompt", "TelescopeResults", "Telescope",
+      },
       buftype_exclude = { "terminal" },
       show_trailing_blankline_indent = false,
       show_first_indent_level = false,
@@ -62,6 +67,13 @@ M.lastplace = function()
       lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
       lastplace_open_folds = true,
    }
+end
+
+M.lightbulb = function()
+   vim.fn.sign_define("LightBulbSign", {
+      text = "",
+      texthl = "DiagnosticSignHint",
+   })
 end
 
 M.neoscroll = function()
