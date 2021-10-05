@@ -1,7 +1,5 @@
 local present, dap_python = pcall(require, "dap-python")
-if not present then
-   return
-end
+if not present then return end
 
 -- setup python debugging
 dap_python.setup(vim.fn.expand("$PYENV_ROOT/versions/debug/bin/python"))

@@ -6,12 +6,12 @@ local present, packer = pcall(require, "packer")
 
 -- install packer on new system
 if not present then
-   local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+   local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
    print "Cloning packer..."
    -- remove the dir before cloning
-   vim.fn.delete(install_path, "rf")
-   vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", "--depth", "1", install_path })
+   vim.fn.delete(packer_path, "rf")
+   vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", "--depth", "1", packer_path })
 
    cmd "packadd packer.nvim"
    present, packer = pcall(require, "packer")

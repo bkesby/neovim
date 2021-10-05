@@ -1,8 +1,6 @@
 local present, cheatsheet = pcall(require, "cheatsheet")
 
-if not present then
-   return
-end
+if not present then return end
 
 local mappings = require("rc").mappings
 local user_maps = mappings.user
