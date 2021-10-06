@@ -300,6 +300,7 @@ M.mappings.plugin = {
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
+      find_hidden_files = "<leader>fF",
       find_projects = "<leader>fp",
       file_browser = "<leader>ft",
       git_commits = "<leader>fc",
