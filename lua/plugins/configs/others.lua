@@ -64,7 +64,7 @@ end
 
 M.lastplace = function()
    require("nvim-lastplace").setup {
-      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard", "gitcommit" },
       lastplace_open_folds = true,
    }
 end
