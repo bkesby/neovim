@@ -15,6 +15,7 @@ cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu ]]
 
 -- Filetype specifics
 -- cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
+cmd [[ autocmd FileType markdown setlocal wrap ]]
 
 -- Auto format on save
 cmd [[ 
