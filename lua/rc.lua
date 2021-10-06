@@ -151,7 +151,7 @@ M.options.plugin = {
       delay = 25,
       inc = 5,
       blend = 60,
-      width = 20,
+      width = 12,
       winhl = "PmenuSbar",
    },
    undo = {
