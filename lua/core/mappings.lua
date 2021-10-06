@@ -45,14 +45,14 @@ M.misc = function()
       map("n", "J", "mzJ'z") -- leave a mark and return after join
 
       -- break up undo points
-      local undo_marks = { ",", ".", "[", "{", "(" }
+      local undo_marks = { ",", ".", "[", "{", "(", ";", ":" }
       for _, mark in ipairs(undo_marks) do map("i", mark, mark .. "<C-g>u") end
 
       -- add big movements to jump mark list
-      map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
+      map("n", "k", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'k'", {
          expr = true,
       })
-      map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {
+      map("n", "j", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'j'", {
          expr = true,
       })
 
