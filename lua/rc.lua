@@ -4,6 +4,7 @@ local M = {}
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
+-- TODO: Change sessions to not use dashboard?
 
 -- UI {{{
 M.ui = {
