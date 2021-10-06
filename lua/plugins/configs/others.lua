@@ -64,7 +64,7 @@ end
 
 M.lastplace = function()
    require("nvim-lastplace").setup {
-      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard", "gitcommit" },
       lastplace_open_folds = true,
    }
 end
@@ -87,6 +87,33 @@ M.neoscroll = function()
 end
 
 M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
+
+M.scrollview = function()
+   g.scrollview_excluded_filetypes = { "Dashboard", "Telescope" }
+   g.scrollview_current_only = 1
+   g.scrollview_column = 1
+   g.scrollview_hide_on_intersect = 1
+   g.scrollview_win = 60
+   g.scrollview_zindex = 1
+end
+
+M.specs = function()
+   local present, specs = pcall(require, "specs")
+   if not present then return end
+   specs.setup {
+      show_jumps = true,
+      min_jump = 15,
+      popup = {
+         delay_ms = 20,
+         inc_ms = 8,
+         blend = 30,
+         width = 8,
+         winhl = "Pmenu",
+         fader = specs.linear_fader,
+         resizer = specs.slide_resizer,
+      },
+   }
+end
 
 M.undo = function()
    g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign

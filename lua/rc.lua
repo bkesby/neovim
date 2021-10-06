@@ -4,7 +4,6 @@ local M = {}
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: improve sandwich mapping to stop collision with sentence
 
 -- UI {{{
 M.ui = {
@@ -115,6 +114,9 @@ M.options = {
       "s100", -- max item size (kib)
       "h", -- no hlsearch memory
    },
+   -- environments
+   python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
+   python3_path = "$PYENV_ROOT/versions/neovim3/bin/python",
 }
 -- }}}
 -- Plugin Options {{{
@@ -122,6 +124,14 @@ M.options.plugin = {
    better_escape = {
       timeout = 125,
       mapping = "jk",
+   },
+   coq = {
+      auto_start = "shut-up",
+      display = {
+         x_truncate_len = 8,
+         kind_context = { " ", " ❯" },
+         source_context = { "", " " },
+      },
    },
    harpoon = {
       save_on_toggle = false,
@@ -179,6 +189,14 @@ M.mappings.plugin = {
    },
    comment = {
       toggle = "<Leader>/",
+   },
+   coq = {
+      pum_escape = "<ESC>",
+      pum_cancel = "<C-c>",
+      pum_next = "<TAB>",
+      pum_previous = "<S-TAB>",
+      pum_select = "<CR>",
+      pum_backspace = "<BS>",
    },
    dashboard = {
       open = "<leader>hh",
@@ -293,6 +311,11 @@ M.mappings.plugin = {
    },
    window = {
       pick_window = "<leader>w",
+      enter_shift_mode = "<C-w>m",
+      shift_left = "<C-M-h>",
+      shift_right = "<C-M-l>",
+      shift_up = "<C-M-k>",
+      shift_down = "<C-M-j>",
    },
    zen = {
       ataraxis_mode = "<leader>zz", -- centre
@@ -324,13 +347,16 @@ M.plugin_status = {
    neoscroll = true,
    rust_tools = true,
    sandwich = true,
+   scrollview = true,
+   specs = true,
    statusline = true,
    subversive = false,
    todo = true,
    toggleterm = true,
    treesitter = true,
    wordmotion = true,
-   window = true,
+   window_select = true,
+   window_move = true,
    zen = true,
 }
 -- }}}
