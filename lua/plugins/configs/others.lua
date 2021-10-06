@@ -56,15 +56,15 @@ M.harpoon = function()
    if present then
       harpoon.setup {
          save_on_toggle = rc.harpoon.save_on_toggle,
-         save_on_change = rc.save_on_change,
-         enter_on_sendcmd = rc.enter_on_sendcmd,
+         save_on_change = rc.harpoon.save_on_change,
+         enter_on_sendcmd = rc.harpoon.enter_on_sendcmd,
       }
    end
 end
 
 M.lastplace = function()
    require("nvim-lastplace").setup {
-      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard" },
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help", "dashboard", "gitcommit" },
       lastplace_open_folds = true,
    }
 end
@@ -75,6 +75,8 @@ M.lightbulb = function()
       texthl = "DiagnosticSignHint",
    })
 end
+
+M.markdown = function() g.mkdp_filetypes = { "markdown" } end
 
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
@@ -87,6 +89,34 @@ M.neoscroll = function()
 end
 
 M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
+
+M.scrollview = function()
+   g.scrollview_excluded_filetypes = { "Dashboard", "Telescope" }
+   g.scrollview_current_only = 1
+   g.scrollview_column = 1
+   g.scrollview_hide_on_intersect = 1
+   g.scrollview_win = 60
+   g.scrollview_zindex = 1
+   g.scrollview_refresh_time = 100
+end
+
+M.specs = function()
+   local present, specs = pcall(require, "specs")
+   if not present then return end
+   specs.setup {
+      show_jumps = rc.specs.show_jumps,
+      min_jump = rc.specs.min_jump,
+      popup = {
+         delay_ms = rc.specs.delay,
+         inc_ms = rc.specs.inc,
+         blend = rc.specs.blend,
+         width = rc.specs.width,
+         winhl = rc.specs.winhl,
+         fader = specs.pulse_fader,
+         resizer = specs.shrink_resizer,
+      },
+   }
+end
 
 M.undo = function()
    g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign

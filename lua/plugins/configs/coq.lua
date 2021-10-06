@@ -1,5 +1,9 @@
 local fn = vim.fn
+
 local map = require("core.utils").map
+local maps = require("rc").mappings.plugin
+local settings = require("rc").options.plugin
+
 local npairs = require("nvim-autopairs")
 
 -- COQ setup
@@ -11,9 +15,9 @@ vim.g.coq_settings = {
    },
    display = {
       pum = {
-         x_truncate_len = 8,
-         kind_context = { " ", " ❯" },
-         source_context = { "", " " },
+         x_truncate_len = settings.coq.display.x_truncate_len,
+         kind_context = settings.coq.display.kind_context,
+         source_context = settings.coq.display.source_context,
       },
    },
 }
@@ -31,10 +35,10 @@ local opts = {
 }
 
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
-map("i", "<esc>", [[pumvisible() ? "<c-e><esc>" : "<esc>"]], opts)
-map("i", "<c-c>", [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], opts)
-map("i", "<tab>", [[pumvisible() ? "<c-n>" : "<tab>"]], opts)
-map("i", "<s-tab>", [[pumvisible() ? "<c-p>" : "<bs>"]], opts)
+map("i", maps.coq.pum_escape, [[pumvisible() ? "<c-e><esc>" : "<esc>"]], opts)
+map("i", maps.coq.pum_cancel, [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], opts)
+map("i", maps.coq.pum_next, [[pumvisible() ? "<c-n>" : "<tab>"]], opts)
+map("i", maps.coq.pum_previous, [[pumvisible() ? "<c-p>" : "<bs>"]], opts)
 
 -- Global store of functions
 _G.MUtils = {}
@@ -50,7 +54,7 @@ MUtils.CR = function()
       return npairs.autopairs_cr()
    end
 end
-map("i", "<cr>", "v:lua.MUtils.CR()", opts)
+map("i", maps.coq.pum_select, "v:lua.MUtils.CR()", opts)
 
 MUtils.BS = function()
    if fn.pumvisible() ~= 0 and fn.complete_info({ "mode" }).mode == "eval" then
@@ -59,4 +63,4 @@ MUtils.BS = function()
       return npairs.autopairs_bs()
    end
 end
-map("i", "<bs>", "v:lua.MUtils.BS()", opts)
+map("i", maps.coq.pum_backspace, "v:lua.MUtils.BS()", opts)

@@ -20,19 +20,24 @@ return packer.startup(function()
 
    -- core (the pope)
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
-   use {
+   use { "tpope/vim-repeat" } -- adds repeats for plugins
+   use { "wellle/targets.vim" }
+   use { -- bracket mappings
       "tpope/vim-unimpaired",
       event = "UIEnter",
-   } -- bracket mappings
-   use { "tpope/vim-repeat" } -- adds repeats for plugins
-   -- use { "tpope/vim-sleuth" } -- shift/tab width detection
+   }
+   use { "tpope/vim-sleuth" } -- shift/tab width detection
    use {
       "machakann/vim-sandwich",
       disable = not plugin_status.sandwich,
       setup = function() require("plugins.configs.others").sandwich() end,
       config = function() require("core.mappings").sandwich() end,
    } -- surround stuff with motion
-   use { "wellle/targets.vim" }
+   use {
+      "svermeulen/vim-subversive",
+      disable = not plugin_status.subversive,
+      setup = function() require("core.mappings").subversive() end,
+   }
    use {
       "ThePrimeagen/harpoon",
       disable = not plugin_status.harpoon,
@@ -40,14 +45,14 @@ return packer.startup(function()
       config = function() require("plugins.configs.others").harpoon() end,
    }
    use {
+      "dstein64/nvim-scrollview",
+      disable = not plugin_status.scrollview,
+      setup = function() require("plugins.configs.others").scrollview() end,
+   }
+   use {
       "mbbill/undotree",
       setup = function() require("core.mappings").undo() end,
       config = function() require("plugins.configs.others").undo() end,
-   }
-   use {
-      "svermeulen/vim-subversive",
-      disable = not plugin_status.subversive,
-      setup = function() require("core.mappings").subversive() end,
    }
 
    -- text objects
@@ -226,6 +231,12 @@ return packer.startup(function()
    }
 
    use {
+      "edluffy/specs.nvim",
+      disable = not plugin_status.specs,
+      config = function() require("plugins.configs.others").specs() end,
+   }
+
+   use {
       "folke/todo-comments.nvim",
       disable = not plugin_status.todo,
       event = "BufRead",
@@ -235,9 +246,15 @@ return packer.startup(function()
 
    use {
       "https://gitlab.com/yorickpeterse/nvim-window",
-      disable = not plugin_status.window,
+      disable = not plugin_status.window_select,
       config = function() require("plugins.configs.others").window() end,
-      setup = function() require("core.mappings").window() end,
+      setup = function() require("core.mappings").window_select() end,
+   }
+
+   use {
+      "sindrets/winshift.nvim",
+      disable = not plugin_status.window_move,
+      setup = function() require("core.mappings").window_move() end,
    }
 
    use {
@@ -331,6 +348,23 @@ return packer.startup(function()
    use {
       "cespare/vim-toml",
       ft = "toml",
+   }
+
+   -- markdown
+   use {
+      "iamcco/markdown-preview.nvim",
+      ft = "markdown",
+      run = "cd app && npm install",
+      setup = function()
+         require("plugins.configs.others").markdown()
+         require("core.mappings").markdown()
+      end,
+   }
+   use {
+      "ellisonleao/glow.nvim",
+      disable = not plugin_status.glow,
+      cmd = "Glow",
+      setup = function() require("core.mappings").glow() end,
    }
 
    -- scratchpad

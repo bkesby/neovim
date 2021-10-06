@@ -4,7 +4,7 @@ local M = {}
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: improve sandwich mapping to stop collision with sentence
+-- TODO: Change sessions to not use dashboard?
 
 -- UI {{{
 M.ui = {
@@ -115,6 +115,9 @@ M.options = {
       "s100", -- max item size (kib)
       "h", -- no hlsearch memory
    },
+   -- environments
+   python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
+   python3_path = "$PYENV_ROOT/versions/neovim3/bin/python",
 }
 -- }}}
 -- Plugin Options {{{
@@ -122,6 +125,14 @@ M.options.plugin = {
    better_escape = {
       timeout = 125,
       mapping = "jk",
+   },
+   coq = {
+      auto_start = "shut-up",
+      display = {
+         x_truncate_len = 8,
+         kind_context = { " ", " ❯" },
+         source_context = { "", " " },
+      },
    },
    harpoon = {
       save_on_toggle = false,
@@ -133,6 +144,15 @@ M.options.plugin = {
       basic_format_align = 1,
       basic_format_retab = 1,
       basic_format_trim = 1,
+   },
+   specs = {
+      show_jumps = true,
+      min_jump = 15,
+      delay = 25,
+      inc = 5,
+      blend = 60,
+      width = 20,
+      winhl = "PmenuSbar",
    },
    undo = {
       highlight_changed_sign = 0,
@@ -180,6 +200,14 @@ M.mappings.plugin = {
    comment = {
       toggle = "<Leader>/",
    },
+   coq = {
+      pum_escape = "<ESC>",
+      pum_cancel = "<C-c>",
+      pum_next = "<TAB>",
+      pum_previous = "<S-TAB>",
+      pum_select = "<CR>",
+      pum_backspace = "<BS>",
+   },
    dashboard = {
       open = "<leader>hh",
       bookmarks = "<leader>hm",
@@ -214,6 +242,10 @@ M.mappings.plugin = {
       git_push = "<leader>gps",
       git_pull = "<leader>gpl",
    },
+   glow = {
+      toggle_preview = "<leader>vv",
+      file_preview = "<leader>vf",
+   },
    harpoon = {
       add_file = "<leader>a",
       toggle_quick_menu = "<leader>mm",
@@ -245,6 +277,11 @@ M.mappings.plugin = {
       set_loclist = "<leader>q",
       formatting = "<leader>f",
       range_code_action = "<leader>ca",
+   },
+   markdown_preview = {
+      start_preview = "<leader>vp",
+      stop_preview = "<leader>vs",
+      toggle_preview = "<leader>vv",
    },
    neoformat = {
       format = "<leader>nf",
@@ -293,6 +330,11 @@ M.mappings.plugin = {
    },
    window = {
       pick_window = "<leader>w",
+      enter_shift_mode = "<C-w>m",
+      shift_left = "<C-M-h>",
+      shift_right = "<C-M-l>",
+      shift_up = "<C-M-k>",
+      shift_down = "<C-M-j>",
    },
    zen = {
       ataraxis_mode = "<leader>zz", -- centre
@@ -318,19 +360,24 @@ M.plugin_status = {
    dap = true,
    fugitive = true,
    gitsigns = true,
+   glow = false,
    harpoon = true,
    lastplace = true,
+   markdown_preview = true,
    neoformat = true,
    neoscroll = true,
    rust_tools = true,
    sandwich = true,
+   scrollview = true,
+   specs = true,
    statusline = true,
    subversive = false,
    todo = true,
    toggleterm = true,
    treesitter = true,
    wordmotion = true,
-   window = true,
+   window_select = true,
+   window_move = true,
    zen = true,
 }
 -- }}}

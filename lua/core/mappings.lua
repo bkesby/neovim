@@ -45,16 +45,21 @@ M.misc = function()
       map("n", "J", "mzJ'z") -- leave a mark and return after join
 
       -- break up undo points
-      local undo_marks = { ",", ".", "[", "{", "(" }
+      local undo_marks = { ",", ".", "[", "{", "(", ";", ":" }
       for _, mark in ipairs(undo_marks) do map("i", mark, mark .. "<C-g>u") end
 
       -- add big movements to jump mark list
-      map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
+      map("n", "k", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'k'", {
          expr = true,
       })
-      map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {
+      map("n", "j", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'j'", {
          expr = true,
       })
+
+      -- remove search highlight on insert enter
+      for _, key in ipairs { "a", "A", "<Insert>", "i", "I", "gi", "gI", "o", "O" } do
+         map("n", key, ":nohlsearch<CR>" .. key)
+      end
 
    end
 
@@ -150,20 +155,28 @@ M.fugitive = function()
    local opts = {
       silent = false,
    }
-   map("n", m.git_status, ":Git <CR>")
+   map("n", m.git_status, ":Git<CR>")
    map("n", m.git_add, ":Git add %<CR>")
    map("n", m.git_commit, ":Git commit<CR>")
    map("n", m.git_blame, ":Git blame")
-   map("n", m.git_diff, ":Git diff <CR>")
-   map("n", m.git_diff_split, ":Gdiffsplit <CR>")
-   map("n", m.git_diff_get_left, ":diffget //3 <CR>")
-   map("n", m.git_diff_get_right, ":diffget //2 <CR>")
+   map("n", m.git_diff, ":Git diff<CR>")
+   map("n", m.git_diff_split, ":Gvdiffsplit<CR>")
+   map("n", m.git_diff_get_left, ":diffget //3<CR>")
+   map("n", m.git_diff_get_right, ":diffget //2<CR>")
    map("n", m.git_edit, ":Gedit HEAD~:%<Left><Left>", opts)
-   map("n", m.git_log, ":Git log <CR>")
-   map("n", m.git_branch, ":Git branch <space>")
-   map("n", m.git_checkout, ":Git checkout <space>")
-   map("n", m.git_push, ":Git push <CR>")
-   map("n", m.git_pull, ":Git pull <CR>")
+   map("n", m.git_log, ":Git log<CR>")
+   map("n", m.git_branch, ":Git branch<SPACE>", opts)
+   map("n", m.git_checkout, ":Git checkout<SPACE>", opts)
+   map("n", m.git_push, ":Git push<CR>")
+   map("n", m.git_pull, ":Git pull<CR>")
+end
+
+M.glow = function()
+   local m = plugin_maps.glow
+   map("n", m.toggle_preview, ":Glow<CR>")
+   map("n", m.file_preview, ":Glow<SPACE>", {
+      silent = false,
+   })
 end
 
 M.harpoon = function()
@@ -178,6 +191,13 @@ M.harpoon = function()
    map("n", m.navigate_to_file_6, ":lua require('harpoon.ui').nav_file(6)<CR>")
    map("n", m.navigate_to_file_7, ":lua require('harpoon.ui').nav_file(7)<CR>")
    map("n", m.navigate_to_file_8, ":lua require('harpoon.ui').nav_file(8)<CR>")
+end
+
+M.markdown = function()
+   local m = plugin_maps.markdown_preview
+   map("n", m.start_preview, ":MarkdownPreview<CR>")
+   map("n", m.stop_preview, ":MarkdownPreviewStop<CR>")
+   map("n", m.toggle_preview, ":MarkdownPreviewToggle<CR>")
 end
 
 M.neoformat = function()
@@ -251,9 +271,18 @@ M.undo = function()
    map("n", m, ":UndotreeToggle<CR>")
 end
 
-M.window = function()
+M.window_select = function()
    local m = plugin_maps.window.pick_window
    map("n", m, ":lua require('nvim-window').pick() <CR>")
+end
+
+M.window_move = function()
+   local m = plugin_maps.window
+   map("n", m.enter_shift_mode, "<Cmd>WinShift<CR>")
+   map("n", m.shift_left, "<Cmd>WinShift left<CR>")
+   map("n", m.shift_right, "<Cmd>WinShift right<CR>")
+   map("n", m.shift_up, "<Cmd>WinShift up<CR>")
+   map("n", m.shift_down, "<Cmd>WinShift down<CR>")
 end
 
 M.zen = function()
