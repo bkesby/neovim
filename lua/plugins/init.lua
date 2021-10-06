@@ -19,6 +19,7 @@ return packer.startup(function()
    use { "nvim-lua/popup.nvim" }
 
    -- core (the pope)
+   use { "tpope/vim-dispatch" }
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
    use {
       "tpope/vim-unimpaired",
