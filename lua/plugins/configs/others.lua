@@ -88,6 +88,15 @@ end
 
 M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
 
+M.scrollview = function()
+   g.scrollview_excluded_filetypes = { "Dashboard", "Telescope" }
+   g.scrollview_current_only = 1
+   g.scrollview_column = 1
+   g.scrollview_hide_on_intersect = 1
+   g.scrollview_win = 60
+   g.scrollview_zindex = 1
+end
+
 M.specs = function()
    local present, specs = pcall(require, "specs")
    if not present then return end
@@ -99,9 +108,9 @@ M.specs = function()
          inc_ms = 8,
          blend = 30,
          width = 8,
-         winhl = "StatusLine",
-         fader = specs.pulse_fader,
-         resizer = specs.shrink_resizer,
+         winhl = "Pmenu",
+         fader = specs.linear_fader,
+         resizer = specs.slide_resizer,
       },
    }
 end
