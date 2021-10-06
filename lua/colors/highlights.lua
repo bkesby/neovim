@@ -34,7 +34,7 @@ fg("Comment", comment)
 
 -- Searching
 bg("Search", support)
-bg("IncSearch", method)
+bg("IncSearch", class)
 
 -- Gutters
 fgbg("LineNR", dark_foreground, background)

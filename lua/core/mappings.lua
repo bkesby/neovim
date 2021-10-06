@@ -57,7 +57,7 @@ M.misc = function()
       })
 
       -- remove search highlight on insert enter
-      for _, key in ipairs { "a", "A", "<Insert>", "i", "I", "gi", "gI", "o", "O" } do
+      for _, key in ipairs { "a", "A", "<Insert>", "i", "I", "gi", "gI", "o", "O", "cw", "cW", "ciw", "ciW" } do
          map("n", key, ":nohlsearch<CR>" .. key)
       end
 
