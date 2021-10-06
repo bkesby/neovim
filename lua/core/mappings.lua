@@ -152,7 +152,7 @@ M.fugitive = function()
    }
    map("n", m.git_status, ":Git <CR>")
    map("n", m.git_add, ":Git add %<CR>")
-   map("n", m.git_commit, ":Git commit<CR>")
+   map("n", m.git_commit, ":Git commit<CR>k")
    map("n", m.git_blame, ":Git blame")
    map("n", m.git_diff, ":Git diff <CR>")
    map("n", m.git_diff_split, ":Gvdiffsplit <CR>")
