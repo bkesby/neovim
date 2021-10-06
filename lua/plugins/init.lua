@@ -350,6 +350,14 @@ return packer.startup(function()
       ft = "toml",
    }
 
+   -- markdown
+   use {
+      "ellisonleao/glow.nvim",
+      disable = not plugin_status.glow,
+      cmd = "Glow",
+      setup = function() require("core.mappings").glow() end,
+   }
+
    -- scratchpad
    use {
       "metakirby5/codi.vim",

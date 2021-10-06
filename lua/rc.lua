@@ -232,6 +232,10 @@ M.mappings.plugin = {
       git_push = "<leader>gps",
       git_pull = "<leader>gpl",
    },
+   glow = {
+      toggle_preview = "<leader>vv",
+      file_preview = "<leader>vf",
+   },
    harpoon = {
       add_file = "<leader>a",
       toggle_quick_menu = "<leader>mm",
@@ -341,6 +345,7 @@ M.plugin_status = {
    dap = true,
    fugitive = true,
    gitsigns = true,
+   glow = true,
    harpoon = true,
    lastplace = true,
    neoformat = true,

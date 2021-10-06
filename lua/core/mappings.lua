@@ -171,6 +171,14 @@ M.fugitive = function()
    map("n", m.git_pull, ":Git pull <CR>")
 end
 
+M.glow = function()
+   local m = plugin_maps.glow
+   map("n", m.toggle_preview, ":Glow<CR>")
+   map("n", m.file_preview, ":Glow<SPACE>", {
+      silent = false,
+   })
+end
+
 M.harpoon = function()
    local m = plugin_maps.harpoon
    map("n", m.add_file, ":lua require('harpoon.mark').add_file()<CR>")
