@@ -97,6 +97,7 @@ M.scrollview = function()
    g.scrollview_hide_on_intersect = 1
    g.scrollview_win = 60
    g.scrollview_zindex = 1
+   g.scrollview_refresh_time = 100
 end
 
 M.specs = function()
