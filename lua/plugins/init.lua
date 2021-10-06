@@ -22,11 +22,11 @@ return packer.startup(function()
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
    use { "tpope/vim-repeat" } -- adds repeats for plugins
    use { "wellle/targets.vim" }
-   use {
+   use { -- bracket mappings
       "tpope/vim-unimpaired",
       event = "UIEnter",
-   } -- bracket mappings
-   -- use { "tpope/vim-sleuth" } -- shift/tab width detection
+   }
+   use { "tpope/vim-sleuth" } -- shift/tab width detection
    use {
       "machakann/vim-sandwich",
       disable = not plugin_status.sandwich,
