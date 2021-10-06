@@ -193,6 +193,13 @@ M.harpoon = function()
    map("n", m.navigate_to_file_8, ":lua require('harpoon.ui').nav_file(8)<CR>")
 end
 
+M.markdown = function()
+   local m = plugin_maps.markdown_preview
+   map("n", m.start_preview, ":MarkdownPreview<CR>")
+   map("n", m.stop_preview, ":MarkdownPreviewStop<CR>")
+   map("n", m.toggle_preview, ":MarkdownPreviewToggle<CR>")
+end
+
 M.neoformat = function()
    local m = plugin_maps.neoformat.format
    map("n", m, ":Neoformat <CR>")

@@ -352,6 +352,15 @@ return packer.startup(function()
 
    -- markdown
    use {
+      "iamcco/markdown-preview.nvim",
+      ft = "markdown",
+      run = "cd app && npm install",
+      setup = function()
+         require("plugins.configs.others").markdown()
+         require("core.mappings").markdown()
+      end,
+   }
+   use {
       "ellisonleao/glow.nvim",
       disable = not plugin_status.glow,
       cmd = "Glow",

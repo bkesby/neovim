@@ -76,6 +76,8 @@ M.lightbulb = function()
    })
 end
 
+M.markdown = function() g.mkdp_filetypes = { "markdown" } end
+
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
    if present then

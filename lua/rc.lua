@@ -268,6 +268,11 @@ M.mappings.plugin = {
       formatting = "<leader>f",
       range_code_action = "<leader>ca",
    },
+   markdown_preview = {
+      start_preview = "<leader>vp",
+      stop_preview = "<leader>vs",
+      toggle_preview = "<leader>vv",
+   },
    neoformat = {
       format = "<leader>nf",
    },
@@ -345,9 +350,10 @@ M.plugin_status = {
    dap = true,
    fugitive = true,
    gitsigns = true,
-   glow = true,
+   glow = false,
    harpoon = true,
    lastplace = true,
+   markdown_preview = true,
    neoformat = true,
    neoscroll = true,
    rust_tools = true,
