@@ -88,6 +88,24 @@ end
 
 M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
 
+M.specs = function()
+   local present, specs = pcall(require, "specs")
+   if not present then return end
+   specs.setup {
+      show_jumps = true,
+      min_jump = 15,
+      popup = {
+         delay_ms = 20,
+         inc_ms = 5,
+         blend = 30,
+         width = 8,
+         winhl = "Search",
+         fader = specs.pulse_fader,
+         resizer = specs.shrink_resizer,
+      },
+   }
+end
+
 M.undo = function()
    g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign
    g.undotree_WindowLayout = rc.undo.window_layout

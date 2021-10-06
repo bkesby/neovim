@@ -347,6 +347,7 @@ M.plugin_status = {
    neoscroll = true,
    rust_tools = true,
    sandwich = true,
+   specs = true,
    statusline = true,
    subversive = false,
    todo = true,

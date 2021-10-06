@@ -226,6 +226,12 @@ return packer.startup(function()
    }
 
    use {
+      "edluffy/specs.nvim",
+      disable = not plugin_status.specs,
+      config = function() require("plugins.configs.others").specs() end,
+   }
+
+   use {
       "folke/todo-comments.nvim",
       disable = not plugin_status.todo,
       event = "BufRead",
