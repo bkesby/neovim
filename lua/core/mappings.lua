@@ -56,6 +56,12 @@ M.misc = function()
          expr = true,
       })
 
+      -- remove search highlight on insert enter
+      for _, key in ipairs { "a", "A", "<Insert>", "i", "I", "gi", "gI", "o", "O" } do
+         print(key)
+         map("n", key, ":nohlsearch<CR>" .. key)
+      end
+
    end
 
    local function required_mappings()
