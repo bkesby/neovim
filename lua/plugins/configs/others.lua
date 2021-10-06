@@ -56,8 +56,8 @@ M.harpoon = function()
    if present then
       harpoon.setup {
          save_on_toggle = rc.harpoon.save_on_toggle,
-         save_on_change = rc.save_on_change,
-         enter_on_sendcmd = rc.enter_on_sendcmd,
+         save_on_change = rc.harpoon.save_on_change,
+         enter_on_sendcmd = rc.harpoon.enter_on_sendcmd,
       }
    end
 end
@@ -103,16 +103,16 @@ M.specs = function()
    local present, specs = pcall(require, "specs")
    if not present then return end
    specs.setup {
-      show_jumps = true,
-      min_jump = 15,
+      show_jumps = rc.specs.show_jumps,
+      min_jump = rc.specs.min_jump,
       popup = {
-         delay_ms = 20,
-         inc_ms = 8,
-         blend = 30,
-         width = 8,
-         winhl = "Pmenu",
-         fader = specs.linear_fader,
-         resizer = specs.slide_resizer,
+         delay_ms = rc.specs.delay,
+         inc_ms = rc.specs.inc,
+         blend = rc.specs.blend,
+         width = rc.specs.width,
+         winhl = rc.specs.winhl,
+         fader = specs.pulse_fader,
+         resizer = specs.shrink_resizer,
       },
    }
 end

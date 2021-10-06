@@ -144,6 +144,15 @@ M.options.plugin = {
       basic_format_retab = 1,
       basic_format_trim = 1,
    },
+   specs = {
+      show_jumps = true,
+      min_jump = 15,
+      delay = 25,
+      inc = 5,
+      blend = 60,
+      width = 20,
+      winhl = "PmenuSbar",
+   },
    undo = {
       highlight_changed_sign = 0,
       window_layout = 3,
