@@ -39,7 +39,7 @@ g.dashboard_custom_section = {
       command = "Telescope live_grep",
    },
    d = {
-      description = { " Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
+      description = { "  Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
       command = "Telescope project",
    },
    e = {
