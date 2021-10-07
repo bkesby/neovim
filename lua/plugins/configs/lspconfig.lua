@@ -63,6 +63,7 @@ local setup_servers = function()
       }
 
       if server == "lua" then
+         -- neovim configuration language server setup
          config.on_new_config = function(cfg, root_dir)
             if root_dir == vim.fn.stdpath("config") then cfg.settings = require("lua-dev").setup().settings end
          end
