@@ -298,6 +298,12 @@ return packer.startup(function()
    }
 
    use {
+      "tpope/vim-rhubarb",
+      disable = not plugin_status.fugitive,
+      after = "vim-fugitive",
+   }
+
+   use {
       "lewis6991/gitsigns.nvim",
       disable = not plugin_status.gitsigns,
       opt = true,
