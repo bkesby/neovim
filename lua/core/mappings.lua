@@ -24,10 +24,10 @@ M.misc = function()
       map("v", "p", "\"_dP")
 
       -- allow moving cursor through wrapped lines as default
-      map("", "j", "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"", {
+      map("", "j", "v:count || mode(1)[0:1] == \"no\" ? (v:count > 15 ? \"m'\" . v:count : \"\" ) . \"j\" : \"gj\"", {
          expr = true,
       })
-      map("", "k", "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"", {
+      map("", "k", "v:count || mode(1)[0:1] == \"no\" ? (v:count > 15 ? \"m'\" . v:count : \"\" ) . \"k\" : \"gk\"", {
          expr = true,
       })
 
@@ -37,7 +37,7 @@ M.misc = function()
       -- stop Y from misbehaving
       map("n", "Y", "y$")
 
-      -- keep search/jumplist/join movement centered
+      -- keep search/kumplist/join movement centered
       map("n", "n", "nzzzv")
       map("n", "N", "Nzzzv")
       map("n", "[j", "[jzzzv")
@@ -47,14 +47,6 @@ M.misc = function()
       -- break up undo points
       local undo_marks = { ",", ".", "[", "{", "(", ";", ":" }
       for _, mark in ipairs(undo_marks) do map("i", mark, mark .. "<C-g>u") end
-
-      -- add big movements to jump mark list
-      map("n", "k", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'k'", {
-         expr = true,
-      })
-      map("n", "j", "(v:count > 15 ? \"m'\" . v:count : \"\") . 'j'", {
-         expr = true,
-      })
 
       -- remove search highlight on insert enter
       for _, key in ipairs { "a", "A", "<Insert>", "i", "I", "gi", "gI", "o", "O" } do
