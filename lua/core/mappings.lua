@@ -24,10 +24,10 @@ M.misc = function()
       map("v", "p", "\"_dP")
 
       -- allow moving cursor through wrapped lines as default
-      map("", "j", "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"", {
+      map("n", "j", "v:count == 0 ? 'gj' : 'j'", {
          expr = true,
       })
-      map("", "k", "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"", {
+      map("n", "k", "v:count == 0 ? 'gk' : 'k'", {
          expr = true,
       })
 
