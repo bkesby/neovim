@@ -68,6 +68,10 @@ return packer.startup(function()
       after = "nvim-treesitter",
    }
    use {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+   }
+   use {
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
       event = "UIEnter",
