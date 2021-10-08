@@ -230,7 +230,7 @@ M.telescope = function()
    local m = plugin_maps.telescope
    map("n", m.buffers, ":Telescope buffers <CR>")
    map("n", m.find_files, ":Telescope find_files <CR>")
-   map("n", m.find_hidden_files, ":lua require('telescope.builtin').find_files({hidden=true})")
+   map("n", m.find_hidden_files, ":lua require('telescope.builtin').find_files({hidden=true})<CR>")
    map("n", m.find_projects, ":Telescope project<CR>")
    map("n", m.file_browser, ":Telescope file_browser <CR>")
    map("n", m.git_commits, ":Telescope git_commits <CR>")
