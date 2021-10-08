@@ -86,7 +86,7 @@ local mode_function = function()
 end
 
 local lsp_server = function()
-   local msg = "No Active Lsp"
+   local msg = "ﭥ"
    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
    local clients = vim.lsp.get_active_clients()
    if next(clients) == nil then return msg end
@@ -136,7 +136,7 @@ insert_left {
 
 insert_left {
    lsp_server,
-   icon = "  LSP:",
+   icon = " ",
    cond = conditions.wide_enough,
    color = {
       fg = colors.base08,
