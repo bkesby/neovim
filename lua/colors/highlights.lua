@@ -44,7 +44,7 @@ bg("SignColumn", background)
 
 -- Statusline
 bg("StatusLine", background)
-fgbg("StatusLineNC", background2, background .. " gui=underline")
+fgbg("StatusLineNC", background2, background)
 
 -- Dividers
 fgbg("VertSplit", background2, background)
