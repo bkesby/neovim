@@ -61,11 +61,14 @@ local setup_servers = function()
             debouce_text_changes = 150,
          },
       }
-
+      -- Define seperate language configurations here
       if server == "lua" then
          -- neovim configuration language server setup
          config.on_new_config = function(cfg, root_dir)
-            if root_dir == vim.fn.stdpath("config") then cfg.settings = require("lua-dev").setup().settings end
+            local conf_dir = root_dir == vim.fn.stdpath("config")
+            -- TODO: This can and should be done better (any directory recursively down)
+            local dev_dir = vim.fn.fnamemodify(root_dir, ":h") == vim.fn.expand("~/Projects/neovim")
+            if conf_dir or dev_dir then cfg.settings = require("lua-dev").setup().settings end
          end
       end
 
