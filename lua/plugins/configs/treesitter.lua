@@ -11,7 +11,7 @@ treesitter.setup {
       enable = true,
    },
    autotag = {
-      enabled = true,
+      enable = true,
    },
    textsubjects = {
       enable = true,
