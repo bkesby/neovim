@@ -137,7 +137,7 @@ return packer.startup(function()
       "ms-jpq/coq.artifacts",
       as = "artifacts",
       branch = "artifacts",
-      event = "InsertEnter",
+      event = "BufRead",
    }
 
    -- lsp

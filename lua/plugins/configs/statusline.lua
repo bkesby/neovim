@@ -7,11 +7,20 @@ local ncmd = vim.api.nvim_command
 local rc = require("rc").ui.plugin.statusline
 local colors = require("colors").get()
 
+-- Edit lualine auto selected theme
+local theme = require("lualine.themes." .. rc.theme)
+theme.inactive.c = {
+   fg = colors.base01,
+   bg = colors.base00,
+   gui = "strikethrough",
+}
+-- theme.inactive.y.bg = colors.base00
+
 -- Config (built with functions below)
 local config = {
    options = {
       icons_enabled = true,
-      theme = rc.theme,
+      theme = theme,
       component_separators = {
          left = "",
          right = "",

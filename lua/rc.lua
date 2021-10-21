@@ -1,5 +1,6 @@
 local M = {}
 
+-- TODO: switch out lualine for feline
 -- TODO: Add all plugin mappings into here for cheatsheet addition
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
