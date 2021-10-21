@@ -38,6 +38,6 @@ augroup END
 cmd [[
 augroup lightbulb
    autocmd!
-   au CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+   au CursorHold,CursorHoldI *.py,*.lua,*.rs,*.svelte lua require'nvim-lightbulb'.update_lightbulb()
 augroup END
 ]]
