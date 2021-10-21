@@ -44,7 +44,7 @@ telescope.setup {
    },
    pickers = {
       find_files = {
-         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock" },
+         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock", "node_modules" },
       },
    },
    extensions = {
