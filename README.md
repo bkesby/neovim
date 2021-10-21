@@ -65,5 +65,9 @@ $ nvim +PackerSync
 
 6. Back out and reload into nvim `:q` ;) Everything should be working.
 
+7. To get autocomplete all working for each language you need to install the correct language server. Lucky for you I've done the hard work
+so all you have to do is use `nvim-lsp-installer`. Within neovim enter the command `:LspInstallInfo` which will open a menu to select lsp servers
+to install. For python you want pyright, and I recommend you also install sumneko_lua for configuring lua neovim files.
+
 BONUS. To change to theme, and all settings for the most part (atleast to start with) open up `rc.lua` and go to line 14 and change quote
 to "monokai"
