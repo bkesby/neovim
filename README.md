@@ -69,7 +69,13 @@ $ nvim +PackerSync
 so all you have to do is use `nvim-lsp-installer`. Within neovim enter the command `:LspInstallInfo` which will open a menu to select lsp servers
 to install (Press i to install). For python you want pyright, and I recommend you also install sumneko_lua for configuring lua neovim files.
 
-7a. Turns out you need node.js for pyright server to work. Not a big deal just `sudo apt install npm` and it should work then.
+7a. Turns out you need node.js for pyright server to work. Not a big deal just install a version of node >> 15.0:
+  
+```bash
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
 
 BONUS. To change to theme, and all settings for the most part (atleast to start with) open up `rc.lua` and go to line 14 and change quote
 to "monokai"
