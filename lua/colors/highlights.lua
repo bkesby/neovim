@@ -33,8 +33,8 @@ cmd [[ hi clear CursorLine ]]
 fg("Comment", comment)
 
 -- Searching
-bg("Search", support)
-bg("IncSearch", class)
+fgbg("Search", support, dark_foreground)
+fgbg("IncSearch", class, dark_foreground)
 
 -- Gutters
 fgbg("LineNR", dark_foreground, background)
