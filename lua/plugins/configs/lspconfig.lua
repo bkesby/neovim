@@ -1,5 +1,5 @@
 local present1, lspconfig = pcall(require, "lspconfig")
-local present2, lspinstall = pcall(require, "lspinstall")
+local present2, lspinstall = pcall(require, "nvim-lsp-installer")
 local present3, coq = pcall(require, "coq")
 
 if not (present1 or present2 or present3) then return end
@@ -49,29 +49,24 @@ local on_attach = function(_, bufnr)
 
 end
 
--- setup language server configurations
-local setup_servers = function()
-   lspinstall.setup()
-
-   local servers = require("lspinstall").installed_servers()
-   for _, server in ipairs(servers) do
-      local config = {
-         on_attach = on_attach,
-         flags = {
-            debouce_text_changes = 150,
-         },
-      }
-
-      if server == "lua" then
-         -- neovim configuration language server setup
-         config.on_new_config = function(cfg, root_dir)
-            if root_dir == vim.fn.stdpath("config") then cfg.settings = require("lua-dev").setup().settings end
-         end
+-- nvim-lsp-installer
+lspinstall.on_server_ready(function(server)
+   local opts = {
+      on_attach = on_attach,
+      flags = {
+         debouce_text_changes = 150,
+      },
+   }
+   if server == "sumneko_lua" then
+      opts.on_new_config = function(opt, root_dir)
+         local conf_dir = root_dir == vim.fn.stdpath("config")
+         local dev_dir = vim.fn.fnamemodify(root_dir, ":h") == vim.fn.expand("~/Projects/neovim")
+         if conf_dir or dev_dir then opt.settings = require("lua-dev").setup().settings end
       end
-
-      lspconfig[server].setup(coq.lsp_ensure_capabilities(config))
    end
-end
+   server:setup(coq.lsp_ensure_capabilities(opts))
+   vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 -- diagnostics symbols
 local signs = {
@@ -94,17 +89,18 @@ end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
    virtual_text = {
       prefix = " ",
-      spacing = 0,
+      spacing = 5,
+      severity_limit = "Warning",
    },
    signs = true,
    underline = false,
    update_in_insert = false,
 })
 
-setup_servers()
+-- setup_servers()
 
 -- Automatically reload after :LspInstall <server>
-lspinstall.post_install_hook = function()
-   setup_servers()
-   vim.cmd("bufdo e")
-end
+-- lspinstall.post_install_hook = function()
+--    setup_servers()
+--    vim.cmd("bufdo e")
+-- end

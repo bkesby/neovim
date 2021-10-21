@@ -142,13 +142,13 @@ return packer.startup(function()
 
    -- lsp
    use {
-      "kabouzeid/nvim-lspinstall",
+      "williamboman/nvim-lsp-installer",
       after = "coq_nvim",
    }
 
    use {
       "RishabhRD/nvim-lsputils",
-      after = "nvim-lspinstall",
+      after = "nvim-lsp-installer",
       requires = { "RishabhRD/popfix" },
    }
 

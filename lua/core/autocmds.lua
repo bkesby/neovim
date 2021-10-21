@@ -14,8 +14,9 @@ cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype ter
 cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu ]]
 
 -- Filetype specifics
--- cmd [[ autocmd Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
-cmd [[ autocmd FileType markdown setlocal wrap ]]
+cmd [[ au Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
+cmd [[ au Filetype svelte setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
+cmd [[ au FileType markdown setlocal wrap ]]
 
 -- Auto format on save
 cmd [[ 
@@ -29,7 +30,7 @@ augroup END
 cmd [[
 augroup highlight_yank
    autocmd!
-   au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
+   au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visu=false}
 augroup END
 ]]
 

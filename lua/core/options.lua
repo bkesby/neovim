@@ -37,6 +37,7 @@ opt.signcolumn = rc.signcolumn
 opt.foldcolumn = rc.foldcolumn
 opt.laststatus = rc.laststatus
 opt.showmode = rc.showmode
+opt.inccommand = rc.inccommand
 -- opt.pumheight = rc.pumheight
 opt.scrolloff = rc.scrolloff
 opt.emoji = false

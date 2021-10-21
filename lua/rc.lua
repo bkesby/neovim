@@ -46,6 +46,7 @@ M.options = {
    foldcolumn = "1",
    laststatus = 2,
    showmode = false,
+   inccommand = "split",
    -- pumheight = 10, -- Change popup menu size
    scrolloff = 5,
    -- Wrap
