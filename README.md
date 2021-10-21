@@ -39,7 +39,7 @@ $ nvim --version
 $ cd ~/.config && git clone https://github.com/bkesby/nvim.git
 ```
 
-3. Setup some options before loading neovim. Use vim or another editor and open `lua/rc.lua'. Go down to line 121 and change path python paths
+3. Setup some options before loading neovim. Use vim or another editor and open `lua/rc.lua`. Go down to line 121 and change path python paths
 to point to your python installations. I would obviously recommend you create a virtualenv specifically for these but thats your provocative.
 You can choose to remove the python2 path if you don't have a python2 install by removing path within the quotes.
 
@@ -48,10 +48,11 @@ python2_path = "",
 python3_path = "/usr/bin/python"
 ```
 
-4. Install pynvim into the python instance you pointed to above
+4. Install pynvim into the python instance you pointed to above, along with venv
 
 ```bash
 $ pip install pynvim
+$ sudo apt install --yes -- python3-venv
 ```
 
 5. Initialize neovim first time
