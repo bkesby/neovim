@@ -57,6 +57,7 @@ lspinstall.on_server_ready(function(server)
          debouce_text_changes = 150,
       },
    }
+   -- neovim configuration help
    if server == "sumneko_lua" then
       opts.on_new_config = function(opt, root_dir)
          local conf_dir = root_dir == vim.fn.stdpath("config")
@@ -64,6 +65,11 @@ lspinstall.on_server_ready(function(server)
          if conf_dir or dev_dir then opt.settings = require("lua-dev").setup().settings end
       end
    end
+   -- typescript configuration
+   if server == "tsserver" then opts.cmd = { "yarn", "typescript-language-server", "--stdio" } end
+   -- svelte configuration
+   if server == "svelte" then opts.cmd = { "yarn", "svelteserver", "--stdio" } end
+
    server:setup(coq.lsp_ensure_capabilities(opts))
    vim.cmd [[ do User LspAttachBuffers ]]
 end)
