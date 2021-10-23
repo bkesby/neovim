@@ -87,7 +87,8 @@ return packer.startup(function()
    }
 
    use {
-      "shadmansaleh/lualine.nvim",
+      "famiu/feline.nvim",
+      as = "statusline",
       disable = not plugin_status.statusline,
       after = "base16",
       requires = {
@@ -100,7 +101,7 @@ return packer.startup(function()
    use {
       "akinsho/bufferline.nvim",
       disable = not plugin_status.bufferline,
-      after = "lualine.nvim",
+      after = "statusline",
       config = function() require("plugins.configs.bufferline") end,
       setup = function() require("core.mappings").bufferline() end,
    }

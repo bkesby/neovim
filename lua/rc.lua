@@ -11,14 +11,32 @@ local M = {}
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
-   theme = "onedark",
+   theme = "monokai",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
+   -- include this and diagnostics styles to be included everywhere
+   diagnostic = {
+      error = " ",
+      warn = " ",
+      info = " ",
+      hint = " ",
+   },
+   git = {
+      added = " ",
+      modified = "柳",
+      removed = " ",
+   },
 }
 
 M.ui.plugin = {
    -- statusline related
    statusline = {
-      theme = "auto",
+      icon_styles = {
+         left = " ",
+         right = " ",
+         main_icon = "  ",
+         vi_mode_icon = "  ",
+         position_icon = "  ",
+      },
    },
 }
 -- }}}
@@ -155,6 +173,10 @@ M.options.plugin = {
       blend = 60,
       width = 12,
       winhl = "PmenuSbar",
+   },
+   statusline = {
+      hidden = { "help", "dashboard", "terminal", "telescope" },
+      shown = {},
    },
    undo = {
       highlight_changed_sign = 0,

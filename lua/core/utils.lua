@@ -1,5 +1,26 @@
 local M = {}
 
+-- Hide the statusline for inactive and chosen windows
+M.hide_statusline = function()
+   local rc = require("rc").options.plugin.statusline
+   local hidden = rc.hidden
+   local shown = rc.shown
+   local buftype = vim.api.nvim_buf_get_option("%", "ft")
+
+   -- Defined shown windows will never be hidden
+   if vim.tbl_contains(shown, buftype) then
+      vim.api.nvim_buf_set_option("laststatus", 2)
+      return
+   end
+
+   if vim.tbl_contains(hidden, buftype) then
+      vim.api.nvim_set_option("laststatus", 0)
+      return
+   else
+      vim.api.nvim_set_option("laststatus", 2)
+   end
+end
+
 -- Lazy loading function for packer
 M.lazy_load = function(plugin, timer)
    if plugin then

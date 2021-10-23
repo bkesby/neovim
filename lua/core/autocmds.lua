@@ -7,6 +7,9 @@ au InsertEnter * if index(ignore_filetypes, &ft) < 0 | set nornu
 au InsertLeave * if index(ignore_filetypes, &ft) < 0 | set rnu
 ]]
 
+-- Hide statusline
+cmd [[ au BufEnter,BufWinEnter,FileType,WinEnter * lua require("core.utils").hide_statusline() ]]
+
 -- Hide line numbers inside terminal
 cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
 

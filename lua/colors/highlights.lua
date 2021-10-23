@@ -43,8 +43,8 @@ fgbg("FoldColumn", dark_foreground, background)
 bg("SignColumn", background)
 
 -- Statusline
-bg("StatusLine", background)
-fgbg("StatusLineNC", background2, background)
+fgbg("StatusLine", dark_foreground, background)
+fgbg("StatusLineNC", background2, background .. " gui=underline")
 
 -- Dividers
 fgbg("VertSplit", background2, background)
@@ -54,15 +54,26 @@ fgbg("Folded", dark_foreground, background)
 
 -- lsp diagnostics
 -- signs + virtual
-fg("DiagnosticError", variable)
-fg("DiagnosticWarn", constant)
-fg("DiagnosticInfo", support)
-fg("DiagnosticHint", keyword)
+fg("DiagnosticStatusError", variable)
+fg("DiagnosticStatusWarn", constant)
+fg("DiagnosticStatusInfo", support)
+fg("DiagnosticStatusHint", keyword)
+
+fgbg("DiagnosticError", variable, background)
+fgbg("DiagnosticWarn", constant, background)
+fgbg("DiagnosticInfo", support, background)
+fgbg("DiagnosticHint", keyword, background)
 
 -- Plugins
 -- blankline
 fg("IndentBlanklineChar", background2)
 fg("IndentBlanklineContextChar", comment .. " gui=nocombine")
+
+-- git
+-- TODO: Create link to child git groups to use fg defined below
+fg("GitAdd", string)
+fg("GitDelete", variable)
+fg("GitChange", constant)
 
 -- git signs
 fgbg("GitSignsAdd", string, background)
