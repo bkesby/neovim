@@ -29,8 +29,11 @@ theme.setup {
       GitDelete = {
          fg = "${red}",
       },
+      IndentBlanklineContextChar = {
+         fg = "${gray}",
+      },
    },
 }
 
 theme.load()
-vim.opt.cursorline = false -- disabled except for telescope
+-- vim.opt.cursorline = false -- disabled except for telescope
