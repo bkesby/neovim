@@ -10,6 +10,30 @@ theme.setup {
    },
    -- Declare highlight group additions and changes
    hlgroups = {
+      DiagnosticError = {
+         fg = "${red}",
+         bg = "${bg}",
+      },
+      DiagnosticInformation = {
+         fg = "${cyan}",
+         bg = "${bg}",
+      },
+      DiagnosticSignError = {
+         fg = "${red}",
+         bg = "${bg}",
+      },
+      DiagnosticSignWarning = {
+         fg = "${yellow}",
+         bg = "${bg}",
+      },
+      DiagnosticSignHint = {
+         fg = "${blue}",
+         bg = "${bg}",
+      },
+      DiagnosticSignInformation = {
+         fg = "${cyan}",
+         bg = "${bg}",
+      },
       FoldColumn = {
          link = "SignColumn",
       },
@@ -24,6 +48,18 @@ theme.setup {
       },
       IndentBlanklineContextChar = {
          fg = "${gray}",
+      },
+      LspDiagnosticsVirtualTextError = {
+         link = "LspDiagnosticsSignError",
+      },
+      LspDiagnosticsVirtualTextWarning = {
+         link = "LspDiagnosticsSignWarning",
+      },
+      LspDiagnosticsVirtualTextInformation = {
+         link = "LspDiagnosticsSignInformation",
+      },
+      LspDiagnosticsVirtualTextHint = {
+         link = "LspDiagnosticsSignHint",
       },
       StatusLineNC = {
          fg = "${gray}",

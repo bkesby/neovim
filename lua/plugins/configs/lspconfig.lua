@@ -98,7 +98,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
       prefix = " ",
       spacing = 5,
       severity_limit = "Warning",
-      hl = "DiagnosticError",
    },
    signs = true,
    underline = false,

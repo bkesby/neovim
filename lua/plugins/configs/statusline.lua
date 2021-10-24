@@ -7,7 +7,6 @@ local rc = require("rc")
 local opts = rc.ui.plugin.statusline
 
 local colors = require("onedarkpro").get_colors(rc.ui.theme)
-local color_utils = require("onedarkpro.utils")
 
 local vi_mode_colors = {
    NORMAL = colors.white,
@@ -81,6 +80,7 @@ components.active[1][3] = {
       return icon .. " " .. filename .. " "
    end,
    enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 70 end,
+   left_sep = " ",
 }
 -- diagnostics
 components.active[1][4] = {
