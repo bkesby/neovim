@@ -81,7 +81,7 @@ return packer.startup(function()
    -- UI initializing
    use {
       "norcalli/nvim-base16.lua",
-      as = "base16",
+      as = "theme",
       after = "packer.nvim",
       config = function() require("colors").init() end,
    }
@@ -90,7 +90,7 @@ return packer.startup(function()
       "famiu/feline.nvim",
       as = "statusline",
       disable = not plugin_status.statusline,
-      after = "base16",
+      after = "theme",
       requires = {
          "kyazdani42/nvim-web-devicons",
          opt = true,
