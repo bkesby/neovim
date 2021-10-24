@@ -8,7 +8,7 @@ print(rc.ui.somethign)
 theme.setup {
    theme = "onedark",
    options = {
-      highlight_cursorline = true, -- enabled only for telescope
+      highlight_cursorline = true,
    },
    -- Declare highlight group additions and changes
    hlgroups = {
