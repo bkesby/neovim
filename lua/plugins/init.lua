@@ -80,10 +80,11 @@ return packer.startup(function()
 
    -- UI initializing
    use {
-      "norcalli/nvim-base16.lua",
+      "olimorris/onedarkpro.nvim",
       as = "theme",
       after = "packer.nvim",
-      config = function() require("colors").init() end,
+      config = function() require("onedarkpro").load() end,
+      -- config = function() require("colors").init() end,
    }
 
    use {
