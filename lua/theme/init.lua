@@ -13,7 +13,7 @@ theme.setup {
          link = "SignColumn",
       },
       StatusLineNC = {
-         fg = "${comment}",
+         fg = "${gray}",
          bg = "${bg}",
          style = "strikethrough",
       },

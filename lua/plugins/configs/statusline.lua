@@ -71,19 +71,19 @@ components.active[1][5] = {
    provider = "diagnostic_warnings",
    enabled = function() return lsp.diagnostics_exist "Warning" end,
    icon = " " .. rc.ui.symbols.diagnostic.warn,
-   hl = "DiagnosticsDefaultWarn",
+   hl = "LspDiagnosticsDefaultWarning",
 }
 components.active[1][6] = {
    provider = "diagnostic_hints",
    enabled = function() return lsp.diagnostics_exist "Hint" end,
    icon = " " .. rc.ui.symbols.diagnostic.hint,
-   -- hl = "DiagnosticStatusHint",
+   hl = "LspDiagnosticsDefaultHint",
 }
 components.active[1][7] = {
    provider = "diagnostic_info",
    enabled = function() return lsp.diagnostics_exist "Information" end,
    icon = " " .. rc.ui.symbols.diagnostic.info,
-   -- hl = "DiagnosticStatusInfo",
+   hl = "LspDiagnosticsDefaultInformation",
 }
 -- }}}
 -- middle section{{{
