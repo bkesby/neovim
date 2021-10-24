@@ -2,17 +2,42 @@ local present, statusline = pcall(require, "feline")
 if not present then return end
 
 local lsp = require "feline.providers.lsp"
+local vimode_utils = require "feline.providers.vi_mode"
 local rc = require("rc")
 local opts = rc.ui.plugin.statusline
+
 local colors = require("onedarkpro").get_colors(rc.ui.theme)
+local color_utils = require("onedarkpro.utils")
 
 local vi_mode_colors = {
-   NORMAL = colors.green,
-   INSERT = colors.red,
+   NORMAL = colors.white,
+   INSERT = colors.green,
    VISUAL = colors.purple,
-   OP = colors.green,
+   OP = colors.white,
    BLOCK = colors.blue,
+   REPLACE = colors.red,
+   ["V-REPLACE"] = colors.red,
+   ENTER = colors.cyan,
+   MORE = colors.cyan,
+   SELECT = colors.orange,
+   COMMAND = colors.green,
+   SHELL = colors.green,
+   TERM = colors.green,
+   NONE = colors.yellow,
 }
+
+local properties = {
+   force_inactive = {
+      filetypes = { "Dashboard", "packer", "fugitive", "fugitiveblame" },
+   },
+}
+
+local vimode_hl = function()
+   return {
+      name = vimode_utils.get_mode_highlight_name(),
+      fg = vimode_utils.get_mode_color(),
+   }
+end
 
 -- initialize component table
 local components = {
@@ -28,24 +53,23 @@ table.insert(components.active, {})
 -- left section{{{
 -- main icon
 components.active[1][1] = {
-   provider = opts.icon_styles.main_icon,
-
+   provider = opts.icon_styles.edge,
+   right_sep = " ",
+   hl = vimode_hl,
+}
+-- directory
+components.active[1][2] = {
+   provider = function()
+      local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+      return " " .. dir_name .. " "
+   end,
+   enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 80 end,
    hl = {
-      fg = colors.fg,
-      bg = colors.bg,
-   },
-
-   right_sep = {
-      str = opts.icon_styles.right,
-      hl = {
-         fg = colors.fg,
-         bg = colors.bg,
-      },
+      style = "bold",
    },
 }
-
 -- filename
-components.active[1][2] = {
+components.active[1][3] = {
    provider = function()
       local filename = vim.fn.expand "%:t"
       local extension = vim.fn.expand "%:e"
@@ -54,20 +78,10 @@ components.active[1][2] = {
          icon = " "
          return icon
       end
-      return " " .. icon .. " " .. filename .. " "
+      return icon .. " " .. filename .. " "
    end,
    enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 70 end,
 }
-
--- directory
-components.active[1][3] = {
-   provider = function()
-      local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-      return "  " .. dir_name .. " "
-   end,
-   enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 80 end,
-}
-
 -- diagnostics
 components.active[1][4] = {
    provider = "diagnostic_errors",
@@ -92,6 +106,13 @@ components.active[1][7] = {
    enabled = function() return lsp.diagnostics_exist "Information" end,
    icon = " " .. rc.ui.symbols.diagnostic.info,
    hl = "LspDiagnosticsDefaultInformation",
+}
+-- filler
+components.active[1][8] = {
+   provider = " ",
+   hl = {
+      fg = colors.cursorline,
+   },
 }
 -- }}}
 -- middle section{{{
@@ -124,6 +145,9 @@ components.active[2][1] = {
       return " ﭥ "
    end,
    enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 80 end,
+   hl = {
+      fg = colors.yellow,
+   },
 } -- }}}
 -- right section{{{
 -- git branch
@@ -147,9 +171,16 @@ components.active[3][4] = {
    provider = "git_branch",
    enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 70 end,
    icon = "  ",
+   left_sep = " ",
+   hl = {
+      fg = colors.purple,
+      style = "bold",
+   },
 }
 components.active[3][5] = {
-   provider = " " .. opts.icon_styles.left,
+   provider = opts.icon_styles.edge,
+   left_sep = " ",
+   hl = vimode_hl,
 }
 
 -- components.active[3][6] = {
@@ -172,8 +203,10 @@ components.active[3][5] = {
 
 statusline.setup({
    colors = {
-      fg = colors.fg,
-      bg = colors.bg,
+      fg = "NONE",
+      bg = colors.color_column,
    },
    components = components,
+   properties = properties,
+   vi_mode_colors = vi_mode_colors,
 })

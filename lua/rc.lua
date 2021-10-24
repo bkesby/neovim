@@ -33,6 +33,7 @@ M.ui.plugin = {
    -- statusline related
    statusline = {
       icon_styles = {
+         edge = "▊",
          left = " ",
          right = " ",
          main_icon = "  ",
