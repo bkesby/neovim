@@ -14,16 +14,18 @@ M.ui = {
    theme = "onedark",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
    -- include this and diagnostics styles to be included everywhere
-   diagnostic = {
-      error = " ",
-      warn = " ",
-      info = " ",
-      hint = " ",
-   },
-   git = {
-      added = " ",
-      modified = "柳",
-      removed = " ",
+   symbols = {
+      diagnostic = {
+         error = " ",
+         warn = " ",
+         info = " ",
+         hint = " ",
+      },
+      git = {
+         added = " ",
+         modified = "柳",
+         removed = " ",
+      },
    },
 }
 

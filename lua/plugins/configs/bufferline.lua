@@ -17,9 +17,6 @@ bufferline.setup {
       always_show_bufferline = false,
       show_buffer_close_icons = false,
       show_close_icon = false,
-      -- custom_areas = {
-      --    right = diagnostics,
-      -- },
    },
    -- highlights = {
    --    -- see :h bufferline-highlights

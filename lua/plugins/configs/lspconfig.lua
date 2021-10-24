@@ -77,10 +77,10 @@ end)
 
 -- diagnostics symbols
 local signs = {
-   Error = rc.ui.diagnostic.error,
-   Warn = rc.ui.diagnostic.warn,
-   Info = rc.ui.diagnostic.info,
-   Hint = rc.ui.diagnostic.hint,
+   Error = rc.ui.symbols.diagnostic.error,
+   Warn = rc.ui.symbols.diagnostic.warn,
+   Info = rc.ui.symbols.diagnostic.info,
+   Hint = rc.ui.symbols.diagnostic.hint,
 }
 
 for type, icon in pairs(signs) do

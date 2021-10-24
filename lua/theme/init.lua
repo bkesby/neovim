@@ -1,12 +1,13 @@
-local present, onedark = pcall(require, "onedarkpro")
+local present, theme = pcall(require, "onedarkpro")
 if not present then return end
 
 local rc = require("rc")
 
-print(rc.ui.theme)
+print(rc.ui.somethign)
 
-onedark.setup {
+theme.setup {
    theme = "onedark",
+   -- Declare highlight group additions and changes
    hlgroups = {
       FoldColumn = {
          link = "SignColumn",
@@ -14,9 +15,18 @@ onedark.setup {
       StatusLineNC = {
          fg = "${comment}",
          bg = "${bg}",
-         style = "underline",
+         style = "strikethrough",
+      },
+      GitAdd = {
+         fg = "${green}",
+      },
+      GitChange = {
+         fg = "${orange}",
+      },
+      GitDelete = {
+         fg = "${red}",
       },
    },
 }
 
-onedark.load()
+theme.load()
