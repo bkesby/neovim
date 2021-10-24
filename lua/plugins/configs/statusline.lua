@@ -4,7 +4,7 @@ if not present then return end
 local lsp = require "feline.providers.lsp"
 local rc = require("rc")
 local opts = rc.ui.plugin.statusline
-local colors = require("colors").get()
+local colors = require("onedarkpro").get_colors(rc.ui.theme)
 
 -- initialize component table
 local components = {
@@ -23,15 +23,15 @@ components.active[1][1] = {
    provider = opts.icon_styles.main_icon,
 
    hl = {
-      fg = colors.base06,
-      bg = colors.base01,
+      fg = colors.fg,
+      bg = colors.bg,
    },
 
    right_sep = {
       str = opts.icon_styles.right,
       hl = {
-         fg = colors.base09,
-         bg = colors.base01,
+         fg = colors.fg,
+         bg = colors.bg,
       },
    },
 }
@@ -65,25 +65,25 @@ components.active[1][4] = {
    provider = "diagnostic_errors",
    enabled = function() return lsp.diagnostics_exist "Error" end,
    icon = " " .. rc.ui.diagnostic.error,
-   hl = "DiagnosticStatusError",
+   -- hl = "DiagnosticStatusError",
 }
 components.active[1][5] = {
    provider = "diagnostic_warnings",
    enabled = function() return lsp.diagnostics_exist "Warning" end,
    icon = " " .. rc.ui.diagnostic.warn,
-   hl = "DiagnosticStatusWarn",
+   -- hl = "DiagnosticStatusWarn",
 }
 components.active[1][6] = {
    provider = "diagnostic_hints",
    enabled = function() return lsp.diagnostics_exist "Hint" end,
    icon = " " .. rc.ui.diagnostic.hint,
-   hl = "DiagnosticStatusHint",
+   -- hl = "DiagnosticStatusHint",
 }
 components.active[1][7] = {
    provider = "diagnostic_info",
    enabled = function() return lsp.diagnostics_exist "Information" end,
    icon = " " .. rc.ui.diagnostic.info,
-   hl = "DiagnosticStatusInfo",
+   -- hl = "DiagnosticStatusInfo",
 }
 -- }}}
 -- middle section{{{
@@ -123,17 +123,17 @@ components.active[2][1] = {
 components.active[3][1] = {
    provider = "git_diff_added",
    icon = " " .. rc.ui.git.added,
-   hl = "GitAdd",
+   -- hl = "GitAdd",
 }
 components.active[3][2] = {
    provider = "git_diff_changed",
    icon = " " .. rc.ui.git.modified,
-   hl = "GitChange",
+   -- hl = "GitChange",
 }
 components.active[3][3] = {
    provider = "git_diff_removed",
    icon = " " .. rc.ui.git.removed,
-   hl = "GitDelete",
+   -- hl = "GitDelete",
 }
 components.active[3][4] = {
    provider = "git_branch",
@@ -144,28 +144,28 @@ components.active[3][5] = {
    provider = " " .. opts.icon_styles.left,
 }
 
-components.active[3][6] = {
-   provider = "vi_mode",
-   hl = function()
-      return {
-         name = require("feline.providers.vi_mode").get_mode_highlight_name(),
-         fg = require("feline.providers.vi_mode").get_mode_color(),
-         style = "bold",
-      }
-   end,
-   right_sep = {
-      str = opts.icon_styles.right,
-      hl = {
-         fg = colors.base09,
-         bg = colors.base01,
-      },
-   },
-} -- }}}
+-- components.active[3][6] = {
+--    provider = "vi_mode",
+--    -- hl = function()
+--    --    return {
+--    --       name = require("feline.providers.vi_mode").get_mode_highlight_name(),
+--    --       fg = require("feline.providers.vi_mode").get_mode_color(),
+--    --       style = "bold",
+--    --    }
+--    -- end,
+--    right_sep = {
+--       str = opts.icon_styles.right,
+--       hl = {
+--          fg = colors.fg,
+--          bg = colors.fg,
+--       },
+--    },
+-- } -- }}}
 
 statusline.setup({
    colors = {
-      bg = colors.base01,
-      fg = colors.base06,
+      fg = colors.fg,
+      bg = colors.bg,
    },
    components = components,
 })

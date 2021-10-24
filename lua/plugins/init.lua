@@ -83,8 +83,8 @@ return packer.startup(function()
       "olimorris/onedarkpro.nvim",
       as = "theme",
       after = "packer.nvim",
-      config = function() require("onedarkpro").load() end,
-      -- config = function() require("colors").init() end,
+      -- config = function() require("onedarkpro").load() end,
+      config = function() require("theme") end,
    }
 
    use {
