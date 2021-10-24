@@ -11,7 +11,7 @@ local M = {}
 M.ui = {
    -- TODO: Load the theme from $HOME base16 file
    -- theme to use from base16
-   theme = "monokai",
+   theme = "onedark",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
    -- include this and diagnostics styles to be included everywhere
    diagnostic = {
