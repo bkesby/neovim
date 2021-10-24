@@ -163,10 +163,10 @@ components.active[3][5] = {
 -- } -- }}}
 
 statusline.setup({
-   colors = {
-      fg = colors.fg,
-      bg = colors.bg,
-   },
+   -- colors = {
+   --    fg = colors.fg,
+   --    bg = colors.bg,
+   -- },
    components = components,
 })
 

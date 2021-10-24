@@ -12,8 +12,8 @@ onedark.setup {
          link = "SignColumn",
       },
       StatusLineNC = {
-         fg = "$comment",
-         bg = "$bg",
+         fg = "${comment}",
+         bg = "${bg}",
          style = "underline",
       },
    },
