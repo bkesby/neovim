@@ -3,8 +3,6 @@ if not present then return end
 
 local rc = require("rc")
 
-print(rc.ui.somethign)
-
 theme.setup {
    theme = "onedark",
    options = {
@@ -14,11 +12,6 @@ theme.setup {
    hlgroups = {
       FoldColumn = {
          link = "SignColumn",
-      },
-      StatusLineNC = {
-         fg = "${gray}",
-         bg = "${bg}",
-         style = "strikethrough",
       },
       GitAdd = {
          fg = "${green}",
@@ -32,8 +25,15 @@ theme.setup {
       IndentBlanklineContextChar = {
          fg = "${gray}",
       },
+      StatusLineNC = {
+         fg = "${gray}",
+         bg = "${bg}",
+         style = "strikethrough",
+      },
+      -- TSField = {
+      --    fg = "${highlight}",
+      -- },
    },
 }
 
 theme.load()
--- vim.opt.cursorline = false -- disabled except for telescope

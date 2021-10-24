@@ -6,6 +6,14 @@ local rc = require("rc")
 local opts = rc.ui.plugin.statusline
 local colors = require("onedarkpro").get_colors(rc.ui.theme)
 
+local vi_mode_colors = {
+   NORMAL = colors.green,
+   INSERT = colors.red,
+   VISUAL = colors.purple,
+   OP = colors.green,
+   BLOCK = colors.blue,
+}
+
 -- initialize component table
 local components = {
    active = {},
@@ -163,9 +171,9 @@ components.active[3][5] = {
 -- } -- }}}
 
 statusline.setup({
-   -- colors = {
-   --    fg = colors.fg,
-   --    bg = colors.bg,
-   -- },
+   colors = {
+      fg = colors.fg,
+      bg = colors.bg,
+   },
    components = components,
 })

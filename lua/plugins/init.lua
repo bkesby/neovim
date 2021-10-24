@@ -116,12 +116,18 @@ return packer.startup(function()
       setup = function() require("core.mappings").dashboard() end,
    }
 
+   -- treesitter
    use {
       "nvim-treesitter/nvim-treesitter",
       disable = not plugin_status.treesitter,
       event = "BufRead",
       config = function() require("plugins.configs.treesitter") end,
       run = ":TSUpdate",
+   }
+
+   use {
+      "nvim-treesitter/playground",
+      after = "nvim-treesitter",
    }
 
    -- autocompletion (required for lsp config)
