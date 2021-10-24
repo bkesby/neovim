@@ -7,6 +7,9 @@ print(rc.ui.somethign)
 
 theme.setup {
    theme = "onedark",
+   options = {
+      highlight_cursorline = true, -- enabled only for telescope
+   },
    -- Declare highlight group additions and changes
    hlgroups = {
       FoldColumn = {
@@ -30,3 +33,4 @@ theme.setup {
 }
 
 theme.load()
+vim.opt.cursorline = false -- disabled except for telescope
