@@ -130,7 +130,7 @@ M.window = function()
       nvim_window.setup {
          -- last character has to be placed first
          chars = { ";", "a", "s", "d", "f", "j", "k", "l" },
-         border = "none",
+         border = "single",
       }
    end
 end
