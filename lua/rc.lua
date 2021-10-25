@@ -1,19 +1,14 @@
 local M = {}
 
--- TODO: switch out lualine for feline
 -- TODO: Add all plugin mappings into here for cheatsheet addition
 -- TODO: Add all plugin options in here too
 -- TODO: Complete DAP setup (dap-python, dap-telescope)
 -- TODO: Add scratchpad/notes taking system
--- TODO: Change sessions to not use dashboard?
 
 -- UI {{{
 M.ui = {
-   -- TODO: Load the theme from $HOME base16 file
-   -- theme to use from base16
    theme = "onedark",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
-   -- include this and diagnostics styles to be included everywhere
    symbols = {
       diagnostic = {
          error = " ",
