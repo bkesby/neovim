@@ -62,7 +62,7 @@ theme.setup {
          link = "LspDiagnosticsSignHint",
       },
       StatusLineNC = {
-         fg = "${gray}",
+         fg = "${indentline}",
          bg = "${bg}",
          style = "strikethrough",
       },
