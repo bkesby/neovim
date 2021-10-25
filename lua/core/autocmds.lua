@@ -25,7 +25,7 @@ cmd [[ au FileType markdown setlocal wrap ]]
 cmd [[ 
 augroup fmt
    autocmd!
-   autocmd BufWritePre *.lua,*.py,*.rc silent! undojoin | silent! Neoformat 
+   autocmd BufWritePre *.lua,*.py,*.rs silent! undojoin | silent! Neoformat 
 augroup END
 ]]
 
