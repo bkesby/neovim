@@ -14,7 +14,7 @@ cmd [[ au BufEnter,BufWinEnter,FileType,WinEnter * lua require("core.utils").hid
 cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
 
 -- Hide bufferline inside dashboard
-cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu ]]
+cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu nocul ]]
 
 -- Filetype specifics
 cmd [[ au Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
