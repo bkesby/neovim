@@ -69,6 +69,9 @@ theme.setup {
       -- TSField = {
       --    fg = "${highlight}",
       -- },
+      TSFuncMacro = {
+         fg = "${red}",
+      },
    },
 }
 
