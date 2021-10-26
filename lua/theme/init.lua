@@ -46,6 +46,9 @@ theme.setup {
       GitDelete = {
          fg = "${red}",
       },
+      Identifier = {
+         fg = "${red}",
+      },
       IndentBlanklineContextChar = {
          fg = "${gray}",
       },
