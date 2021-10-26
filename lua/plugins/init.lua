@@ -342,9 +342,8 @@ return packer.startup(function()
    use {
       "simrat39/rust-tools.nvim",
       disable = not plugin_status.rust_tools,
-      -- TODO: another case of lazy loading needed to wait until lspconfig is loaded
-      -- after = "nvim-lspconfig",
-      ft = "rust",
+      after = "nvim-lspconfig",
+      -- ft = "rust",
       config = function() require("plugins.configs.rust_tools") end,
    }
 
