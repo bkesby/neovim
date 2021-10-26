@@ -2,6 +2,7 @@ local present, statusline = pcall(require, "feline")
 if not present then return end
 
 local lsp = require "feline.providers.lsp"
+local cursor = require "feline.providers.cursor"
 local vimode_utils = require "feline.providers.vi_mode"
 local rc = require("rc")
 local opts = rc.ui.plugin.statusline
@@ -178,28 +179,15 @@ components.active[3][4] = {
    },
 }
 components.active[3][5] = {
+   provider = function() return cursor.position() end,
+   left_sep = " ",
+}
+components.active[3][6] = {
    provider = opts.icon_styles.edge,
    left_sep = " ",
    hl = vimode_hl,
 }
-
--- components.active[3][6] = {
---    provider = "vi_mode",
---    -- hl = function()
---    --    return {
---    --       name = require("feline.providers.vi_mode").get_mode_highlight_name(),
---    --       fg = require("feline.providers.vi_mode").get_mode_color(),
---    --       style = "bold",
---    --    }
---    -- end,
---    right_sep = {
---       str = opts.icon_styles.right,
---       hl = {
---          fg = colors.fg,
---          bg = colors.fg,
---       },
---    },
--- } -- }}}
+--- }}}
 
 statusline.setup({
    colors = {
