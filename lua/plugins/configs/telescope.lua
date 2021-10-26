@@ -38,11 +38,11 @@ telescope.setup {
       set_env = {
          COLORTERM = "truecolor",
       },
-      file_ignore_patterns = { "%.pyc", "__pycache__", "%.lock" },
+      file_ignore_patterns = { "%.pyc", "__pycache__", "%.lock", "target" },
    },
    pickers = {
       find_files = {
-         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock", "node_modules" },
+         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock", "node_modules", "target" },
       },
    },
    extensions = {
