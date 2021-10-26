@@ -46,6 +46,9 @@ theme.setup {
       GitDelete = {
          fg = "${red}",
       },
+      Identifier = {
+         fg = "${red}",
+      },
       IndentBlanklineContextChar = {
          fg = "${gray}",
       },
@@ -65,6 +68,9 @@ theme.setup {
          fg = "${indentline}",
          bg = "${bg}",
          style = "strikethrough",
+      },
+      yamlPlainScalar = {
+         fg = "${green}",
       },
       -- TSField = {
       --    fg = "${highlight}",
