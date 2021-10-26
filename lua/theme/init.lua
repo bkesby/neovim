@@ -69,9 +69,6 @@ theme.setup {
          bg = "${bg}",
          style = "strikethrough",
       },
-      yamlPlainScalar = {
-         fg = "${green}",
-      },
       -- TSField = {
       --    fg = "${highlight}",
       -- },
