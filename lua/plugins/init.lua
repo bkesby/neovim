@@ -347,12 +347,6 @@ return packer.startup(function()
       config = function() require("plugins.configs.rust_tools") end,
    }
 
-   -- Not working nicely with coq
-   -- use {
-   --    "weilbith/nvim-code-action-menu",
-   --    cmd = "CodeActionMenu",
-   -- }
-
    -- terminal
    use {
       "akinsho/toggleterm.nvim",
