@@ -59,7 +59,6 @@ return packer.startup(function()
    use { "kana/vim-textobj-user" }
    use {
       "glts/vim-textobj-comment",
-      -- TODO: change mapping to use k?
       event = "UIEnter",
    }
    use { "michaeljsmith/vim-indent-object" }
