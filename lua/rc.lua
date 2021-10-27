@@ -27,7 +27,7 @@ M.ui = {
 M.ui.plugin = {
    -- statusline related
    statusline = {
-      icon_styles = {
+      icons = {
          edge = "▊",
          left = " ",
          right = " ",
