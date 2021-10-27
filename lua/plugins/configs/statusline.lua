@@ -168,19 +168,30 @@ local comps = {
    },
 }
 
--- declare component positions
 local components = {
-   active = {
-      {
-         comps.vi_mode.left, comps.directory, comps.filename, comps.diagnostics.error, comps.diagnostics.warning,
-         comps.diagnostics.hint, comps.diagnostics.info,
-      }, { comps.lsp }, {
-         comps.git.diff.added, comps.git.diff.changed, comps.git.diff.deleted, comps.git.branch, comps.position,
-         comps.vi_mode.right,
-      },
-   },
+   active = { {}, {}, {} },
    inactive = {},
 }
+
+-- left
+table.insert(components.active[1], comps.vi_mode.left)
+table.insert(components.active[1], comps.directory)
+table.insert(components.active[1], comps.filename)
+table.insert(components.active[1], comps.diagnostics.error)
+table.insert(components.active[1], comps.diagnostics.warning)
+table.insert(components.active[1], comps.diagnostics.hint)
+table.insert(components.active[1], comps.diagnostics.info)
+
+-- mid
+table.insert(components.active[2], comps.lsp)
+
+-- right
+table.insert(components.active[3], comps.git.diff.added)
+table.insert(components.active[3], comps.git.diff.changed)
+table.insert(components.active[3], comps.git.diff.deleted)
+table.insert(components.active[3], comps.git.branch)
+table.insert(components.active[3], comps.position)
+table.insert(components.active[3], comps.vi_mode.right)
 
 statusline.setup({
    colors = {
