@@ -12,7 +12,7 @@ telescope.setup {
       sorting_strategy = "ascending",
       selection_strategy = "reset",
       scroll_strategy = "cycle",
-      path_display = { "smart" },
+      path_display = { "truncate" },
       layout_stategy = "flex",
       layout_config = {
          flex = {
@@ -43,6 +43,10 @@ telescope.setup {
    pickers = {
       find_files = {
          file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock", "node_modules", "target" },
+      },
+      file_browser = {
+         -- file_ignore_patterns = { "%.png", "%.jpg"}
+         hidden = true,
       },
    },
    extensions = {
