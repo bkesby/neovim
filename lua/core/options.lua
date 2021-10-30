@@ -54,7 +54,7 @@ opt.expandtab = rc.expandtab
 opt.shiftwidth = rc.shiftwidth
 opt.tabstop = rc.tabstop
 opt.softtabstop = rc.softtabstop
-opt.smartindent = rc.smartindent
+-- opt.smartindent = rc.smartindent
 opt.autoindent = rc.autoindent
 opt.shiftround = rc.shiftround
 -- }}}

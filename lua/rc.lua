@@ -77,7 +77,7 @@ M.options = {
    shiftwidth = 4,
    tabstop = 4,
    softtabstop = 4,
-   smartindent = true,
+   -- smartindent = true,
    autoindent = true,
    shiftround = true,
    -- Numbers
