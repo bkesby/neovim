@@ -16,9 +16,9 @@ M.misc = function()
       -- space bar is leader
       map({ "n", "v" }, " ", "<Nop>")
 
-      -- change inner/all seNteNce
-      map({ "x", "o" }, "in", "is")
-      map({ "x", "o" }, "an", "as")
+      -- change inner/all Zentence
+      map({ "x", "o" }, "iz", "is")
+      map({ "x", "o" }, "az", "as")
 
       -- don't copy the replaced text after pasting in visual mode
       map("v", "p", "\"_dP")
