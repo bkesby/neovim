@@ -135,8 +135,6 @@ M.window = function()
    end
 end
 
-M.wordmotion = function()
-   g.wordmotion_uppercase_spaces = { "\"", "'", ".", ":", ";", ",", "(", ")", "/", "{", "}", "[", "]" }
-end
+M.wordmotion = function() g.wordmotion_uppercase_spaces = rc.wordmotion.uppercase_spaces end
 
 return M

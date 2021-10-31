@@ -1,8 +1,6 @@
 local M = {}
 
--- TODO: Add all plugin mappings into here for cheatsheet addition
--- TODO: Add all plugin options in here too
--- TODO: Complete DAP setup (dap-python, dap-telescope)
+-- TODO: Add all plugin options in here
 -- TODO: Add scratchpad/notes taking system
 
 -- UI {{{
@@ -181,6 +179,9 @@ M.options.plugin = {
       window_layout = 3,
       set_focus_when_toggle = 1,
    },
+   wordmotion = {
+      uppercase_space = { "\"", "'", ".", ":", ";", ",", "(", ")", "/", "{", "}", "[", "]" },
+   },
 }
 -- }}}
 -- Mappings {{{
@@ -338,7 +339,12 @@ M.mappings.plugin = {
       search_with_telescope = "<leader>fd",
    },
    toggleterm = {
-      toggle = "<leader>t",
+      toggle = "<leader>tt",
+      term = {
+         escape = "<ESC>",
+         normal_mode = "jk",
+         insert_exit_toggle = "JK",
+      },
    },
    trouble = {
       open = "<leader>pp",
