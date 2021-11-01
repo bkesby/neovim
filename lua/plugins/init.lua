@@ -21,6 +21,7 @@ return packer.startup(function()
    -- core (the pope)
    use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
    use { "tpope/vim-repeat" } -- adds repeats for plugins
+   -- TODO: Add config for targets to add <> to b
    use { "wellle/targets.vim" }
    use { -- bracket mappings
       "tpope/vim-unimpaired",
