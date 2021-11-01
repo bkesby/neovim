@@ -12,7 +12,6 @@ theme.setup {
    hlgroups = {
       DiagnosticError = {
          fg = "${red}",
-         bg = "${bg}",
       },
       DiagnosticInformation = {
          fg = "${cyan}",
