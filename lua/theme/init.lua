@@ -6,7 +6,7 @@ local rc = require("rc")
 theme.setup {
    theme = "onedark",
    options = {
-      highlight_cursorline = true,
+      cursorline = true,
    },
    -- Declare highlight group additions and changes
    hlgroups = {
