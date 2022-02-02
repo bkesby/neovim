@@ -1,7 +1,7 @@
 local present, bufferline = pcall(require, "bufferline")
 if not present then return end
 
-local colors = require("onedark").get_colors()
+local colors = require("onedarkpro").get_colors()
 local bg = colors.base01
 local error_color = colors.base08
 local warn_color = colors.base09

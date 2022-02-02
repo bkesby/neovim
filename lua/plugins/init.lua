@@ -164,7 +164,6 @@ return packer.startup(function()
       "neovim/nvim-lspconfig",
       after = "nvim-lsputils",
       config = function() require("plugins.configs.lspconfig") end,
-      requires = { "folke/lua-dev.nvim" },
    }
 
    use {

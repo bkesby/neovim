@@ -98,6 +98,9 @@ lspinstall.on_server_ready(function(server)
                types = true,
                plugins = true,
             },
+            lspconfig = {
+               globals = { "vim" },
+            },
          })
          if conf_dir or dev_dir then opt.settings = lua_dev end
       end
@@ -111,3 +114,4 @@ lspinstall.on_server_ready(function(server)
    vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
+-- LspUtils options

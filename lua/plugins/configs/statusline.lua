@@ -57,7 +57,7 @@ local comps = {
          local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
          return " " .. dir_name .. " "
       end,
-      enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 80 end,
+      enabled = function() return vim.api.nvim_win_get_width(0) > 80 end,
       hl = {
          style = "bold",
       },
@@ -73,31 +73,31 @@ local comps = {
          end
          return icon .. " " .. filename .. " "
       end,
-      enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 70 end,
+      enabled = function() return vim.api.nvim_win_get_width(0) > 70 end,
       left_sep = " ",
    },
    diagnostics = {
       error = {
          provider = "diagnostic_errors",
-         enabled = function() return lsp.diagnostics_exist "Error" end,
-         icon = " " .. rc.ui.symbols.diagnostic.error,
+         enabled = function() return lsp.diagnostics_exist "ERROR" end,
+         -- icon = " " .. rc.ui.symbols.diagnostic.error,
          hl = "LspDiagnosticsDefaultError",
       },
       warning = {
          provider = "diagnostic_warnings",
-         enabled = function() return lsp.diagnostics_exist "Warning" end,
+         enabled = function() return lsp.diagnostics_exist "WARN" end,
          icon = " " .. rc.ui.symbols.diagnostic.warn,
          hl = "LspDiagnosticsDefaultWarning",
       },
       hint = {
          provider = "diagnostic_hints",
-         enabled = function() return lsp.diagnostics_exist "Hint" end,
+         enabled = function() return lsp.diagnostics_exist "HINT" end,
          icon = " " .. rc.ui.symbols.diagnostic.hint,
          hl = "LspDiagnosticsDefaultHint",
       },
       info = {
          provider = "diagnostic_info",
-         enabled = function() return lsp.diagnostics_exist "Information" end,
+         enabled = function() return lsp.diagnostics_exist "INFO" end,
          icon = " " .. rc.ui.symbols.diagnostic.info,
          hl = "LspDiagnosticsDefaultInformation",
       },
@@ -124,11 +124,11 @@ local comps = {
          local clients = vim.lsp.get_active_clients()
          for _, client in ipairs(clients) do
             local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return "  " .. client.name end
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return " " .. client.name end
          end
          return " ﭥ "
       end,
-      enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 80 end,
+      enabled = function() return vim.api.nvim_win_get_width(0) > 80 end,
       hl = {
          fg = colors.yellow,
       },
@@ -136,7 +136,7 @@ local comps = {
    git = {
       branch = {
          provider = "git_branch",
-         enabled = function(winid) return vim.api.nvim_win_get_width(winid) > 70 end,
+         enabled = function() return vim.api.nvim_win_get_width(0) > 70 end,
          icon = "  ",
          left_sep = " ",
          hl = {
@@ -190,7 +190,7 @@ table.insert(components.active[3], comps.git.diff.added)
 table.insert(components.active[3], comps.git.diff.changed)
 table.insert(components.active[3], comps.git.diff.deleted)
 table.insert(components.active[3], comps.git.branch)
-table.insert(components.active[3], comps.position)
+-- table.insert(components.active[3], comps.position)
 table.insert(components.active[3], comps.vi_mode.right)
 
 statusline.setup({
