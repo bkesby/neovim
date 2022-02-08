@@ -132,8 +132,8 @@ M.options = {
       "h", -- no hlsearch memory
    },
    -- environments
-   python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
-   python3_path = "$PYENV_ROOT/versions/neovim3/bin/python",
+   -- python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
+   python3_path = "$PYENV_ROOT/versions/3.10.2/bin/python",
 }
 -- }}}
 -- Plugin Options {{{
