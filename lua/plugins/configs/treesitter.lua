@@ -2,7 +2,7 @@ local present, treesitter = pcall(require, "nvim-treesitter.configs")
 if not present then return end
 
 treesitter.setup {
-   ensure_installed = { "css", "html", "javascript", "lua", "python", "rust", "json", "toml", "rst" },
+   ensure_installed = { "css", "elm", "html", "javascript", "lua", "python", "rust", "json", "toml", "rst" },
    highlight = {
       enable = true,
       use_languagetree = true,
