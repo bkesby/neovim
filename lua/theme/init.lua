@@ -10,8 +10,6 @@ theme.setup {
    },
    -- Declare highlight group additions and changes
    hlgroups = {
-      StatusLine = {
-         bg = "${red}"},
       DiagnosticError = {
          fg = "${red}",
       },
