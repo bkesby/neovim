@@ -41,16 +41,8 @@ local properties = {
 
 local comps = {
    vi_mode = {
-      left = {
-         provider = opts.icons.edge,
-         right_sep = " ",
-         hl = vimode_hl,
-      },
-      right = {
-         provider = opts.icons.edge,
-         left_sep = " ",
-         hl = vimode_hl,
-      },
+      left = { provider = opts.icons.edge, right_sep = " ", hl = vimode_hl },
+      right = { provider = opts.icons.edge, left_sep = " ", hl = vimode_hl },
    },
    directory = {
       provider = function()
@@ -58,9 +50,7 @@ local comps = {
          return " " .. dir_name .. " "
       end,
       enabled = function() return vim.api.nvim_win_get_width(0) > 80 end,
-      hl = {
-         style = "bold",
-      },
+      hl = { style = "bold" },
    },
    filename = {
       provider = function()
@@ -81,25 +71,25 @@ local comps = {
          provider = "diagnostic_errors",
          enabled = function() return lsp.diagnostics_exist "ERROR" end,
          -- icon = " " .. rc.ui.symbols.diagnostic.error,
-         hl = "LspDiagnosticsDefaultError",
+         -- hl = "LspDiagnosticsDefaultError",
       },
       warning = {
          provider = "diagnostic_warnings",
          enabled = function() return lsp.diagnostics_exist "WARN" end,
          icon = " " .. rc.ui.symbols.diagnostic.warn,
-         hl = "LspDiagnosticsDefaultWarning",
+         -- hl = "LspDiagnosticsDefaultWarning",
       },
       hint = {
          provider = "diagnostic_hints",
          enabled = function() return lsp.diagnostics_exist "HINT" end,
          icon = " " .. rc.ui.symbols.diagnostic.hint,
-         hl = "LspDiagnosticsDefaultHint",
+         -- hl = "LspDiagnosticsDefaultHint",
       },
       info = {
          provider = "diagnostic_info",
          enabled = function() return lsp.diagnostics_exist "INFO" end,
          icon = " " .. rc.ui.symbols.diagnostic.info,
-         hl = "LspDiagnosticsDefaultInformation",
+         -- hl = "LspDiagnosticsDefaultInformation",
       },
    },
    lsp = {
@@ -115,23 +105,26 @@ local comps = {
             local frame = math.floor(ms / 120) % #spinners
 
             if percentage >= 70 then
-               return string.format(" %%<%s %s (%s%%%%) ", success_icon[frame + 1], title, msg, percentage)
+               return string.format(" %%<%s %s (%s%%%%) ",
+                                    success_icon[frame + 1], title, msg,
+                                    percentage)
             else
-               return string.format(" %%<%s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
+               return string.format(" %%<%s %s (%s%%%%) ", spinners[frame + 1],
+                                    title, msg, percentage)
             end
          end
          local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
          local clients = vim.lsp.get_active_clients()
          for _, client in ipairs(clients) do
             local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return " " .. client.name end
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+               return " " .. client.name
+            end
          end
          return " ﭥ "
       end,
       enabled = function() return vim.api.nvim_win_get_width(0) > 80 end,
-      hl = {
-         fg = colors.yellow,
-      },
+      hl = { fg = colors.yellow },
    },
    git = {
       branch = {
@@ -139,26 +132,23 @@ local comps = {
          enabled = function() return vim.api.nvim_win_get_width(0) > 70 end,
          icon = "  ",
          left_sep = " ",
-         hl = {
-            fg = colors.purple,
-            style = "bold",
-         },
+         hl = { fg = colors.purple, style = "bold" },
       },
       diff = {
          added = {
             provider = "git_diff_added",
             icon = " " .. rc.ui.symbols.git.added,
-            hl = "GitAdd",
+            -- hl = "GitAddStatus",
          },
          changed = {
             provider = "git_diff_changed",
             icon = " " .. rc.ui.symbols.git.modified,
-            hl = "GitChange",
+            -- hl = "GitChange",
          },
          deleted = {
             provider = "git_diff_removed",
             icon = " " .. rc.ui.symbols.git.removed,
-            hl = "GitDelete",
+            -- hl = "GitDelete",
          },
       },
    },
@@ -168,10 +158,7 @@ local comps = {
    },
 }
 
-local components = {
-   active = { {}, {}, {} },
-   inactive = {},
-}
+local components = { active = { {}, {}, {} }, inactive = {} }
 
 -- left
 table.insert(components.active[1], comps.vi_mode.left)
@@ -194,10 +181,7 @@ table.insert(components.active[3], comps.git.branch)
 table.insert(components.active[3], comps.vi_mode.right)
 
 statusline.setup({
-   colors = {
-      fg = "NONE",
-      bg = colors.color_column,
-   },
+   colors = { fg = colors.fg_statusline, bg = colors.bg_statusline },
    components = components,
    properties = properties,
    vi_mode_colors = vi_mode_colors,

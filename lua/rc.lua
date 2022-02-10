@@ -1,24 +1,16 @@
 local M = {}
 
--- TODO: Add all plugin options in here
 -- TODO: Add scratchpad/notes taking system
+-- TODO: Fix statusbar colours by getting onedarkpro theme colors
 
 -- UI {{{
 M.ui = {
    theme = "onedark",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
    symbols = {
-      diagnostic = {
-         error = " ",
-         warn = " ",
-         info = " ",
-         hint = " ",
-      },
-      git = {
-         added = " ",
-         modified = "柳",
-         removed = " ",
-      },
+      diagnostic = { error = " ", warn = " ", info = " ",
+                     hint = " " },
+      git = { added = " ", modified = "柳", removed = " " },
    },
 }
 
@@ -84,10 +76,7 @@ M.options = {
    numberwidth = 2,
    ruler = false,
    -- Fills
-   fillchars = {
-      eob = " ",
-      vert = "┃",
-   },
+   fillchars = { eob = " ", vert = "┃" },
    listchars = {
       tab = "¦ ",
       nbsp = "·",
@@ -138,10 +127,7 @@ M.options = {
 -- }}}
 -- Plugin Options {{{
 M.options.plugin = {
-   better_escape = {
-      timeout = 125,
-      mapping = "jk",
-   },
+   better_escape = { timeout = 125, mapping = "jk" },
    coq = {
       auto_start = "shut-up",
       display = {
@@ -180,7 +166,21 @@ M.options.plugin = {
       set_focus_when_toggle = 1,
    },
    wordmotion = {
-      uppercase_space = { "\"", "'", ".", ":", ";", ",", "(", ")", "/", "{", "}", "[", "]" },
+      uppercase_space = {
+         "\"",
+         "'",
+         ".",
+         ":",
+         ";",
+         ",",
+         "(",
+         ")",
+         "/",
+         "{",
+         "}",
+         "[",
+         "]",
+      },
    },
 }
 -- }}}
@@ -216,13 +216,8 @@ M.mappings.plugin = {
       sort_extension = "<leader>bse",
       sort_directory = "<leader>bsd",
    },
-   cheatsheet = {
-      default_keys = "<leader>dk",
-      user_keys = "<leader>uk",
-   },
-   comment = {
-      toggle = "<Leader>/",
-   },
+   cheatsheet = { default_keys = "<leader>dk", user_keys = "<leader>uk" },
+   comment = { toggle = "<Leader>/" },
    coq = {
       pum_escape = "<ESC>",
       pum_cancel = "<C-c>",
@@ -265,10 +260,7 @@ M.mappings.plugin = {
       git_push = "<leader>gps",
       git_pull = "<leader>gpl",
    },
-   glow = {
-      toggle_preview = "<leader>vv",
-      file_preview = "<leader>vf",
-   },
+   glow = { toggle_preview = "<leader>vv", file_preview = "<leader>vf" },
    harpoon = {
       add_file = "<leader>a",
       toggle_quick_menu = "<leader>mm",
@@ -306,9 +298,7 @@ M.mappings.plugin = {
       stop_preview = "<leader>vs",
       toggle_preview = "<leader>vv",
    },
-   neoformat = {
-      format = "<leader>nf",
-   },
+   neoformat = { format = "<leader>nf" },
    sandwich = {
       auto_inner = "is",
       auto_all = "as",
@@ -335,16 +325,10 @@ M.mappings.plugin = {
       frecency = "<leader>fr",
       lsp_reference = "<leader>fl",
    },
-   todo = {
-      search_with_telescope = "<leader>fd",
-   },
+   todo = { search_with_telescope = "<leader>fd" },
    toggleterm = {
       toggle = "<leader>tt",
-      term = {
-         escape = "<ESC>",
-         normal_mode = "jk",
-         insert_exit_toggle = "JK",
-      },
+      term = { escape = "<ESC>", normal_mode = "jk", insert_exit_toggle = "JK" },
    },
    trouble = {
       open = "<leader>pp",
@@ -354,9 +338,7 @@ M.mappings.plugin = {
       loclist = "<leader>pl",
       quickfix = "<leader>pq",
    },
-   undo = {
-      toggle_undo_tree = "<leader>u",
-   },
+   undo = { toggle_undo_tree = "<leader>u" },
    window = {
       pick_window = "<leader>w",
       enter_shift_mode = "<C-w>m",
