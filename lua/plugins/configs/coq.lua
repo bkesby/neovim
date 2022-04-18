@@ -10,9 +10,7 @@ local npairs = require("nvim-autopairs")
 vim.g.coq_settings = {
    auto_start = "shut-up",
    ["clients.snippets.warn"] = {},
-   keymap = {
-      recommended = false,
-   },
+   keymap = { recommended = false },
    display = {
       pum = {
          x_truncate_len = settings.coq.display.x_truncate_len,
@@ -23,16 +21,9 @@ vim.g.coq_settings = {
 }
 
 -- Autopairs setup
-npairs.setup({
-   disabled_filetype = { "TelescopePrompt" },
-   check_ts = true,
-   map_bs = false,
-   fast_wrap = {},
-})
+npairs.setup({ disabled_filetype = { "TelescopePrompt" }, check_ts = true, map_bs = true, fast_wrap = {} })
 
-local opts = {
-   expr = true,
-}
+local opts = { expr = true }
 
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
 map("i", maps.coq.pum_escape, [[pumvisible() ? "<c-e><esc>" : "<esc>"]], opts)
