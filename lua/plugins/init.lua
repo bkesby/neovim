@@ -148,14 +148,12 @@ return packer.startup(function(use)
 
    use {
       "norcalli/nvim-colorizer.lua",
-      disable = not plugin_status.colorizer,
       event = "BufRead",
       config = function() require("plugins.configs.others").colorizer() end,
    }
 
    use {
       "terrortylor/nvim-comment",
-      disable = not plugin_status.comment,
       cmd = "CommentToggle",
       setup = function() require("core.mappings").comment() end,
       config = function() require("plugins.configs.others").comment() end,
@@ -163,7 +161,6 @@ return packer.startup(function(use)
 
    use {
       "karb94/neoscroll.nvim",
-      disable = not plugin_status.neoscroll,
       opt = true,
       config = function() require("plugins.configs.others").neoscroll() end,
       setup = function() require("core.utils").lazy_load("neoscroll.nvim") end,
@@ -183,14 +180,12 @@ return packer.startup(function(use)
 
    use {
       "https://gitlab.com/yorickpeterse/nvim-window",
-      disable = not plugin_status.window_select,
       config = function() require("plugins.configs.others").window() end,
       setup = function() require("core.mappings").window_select() end,
    }
 
    use {
       "sindrets/winshift.nvim",
-      disable = not plugin_status.window_move,
       setup = function() require("core.mappings").window_move() end,
    }
 
