@@ -1,10 +1,9 @@
 local present, packer = pcall(require, "plugins.packerinit")
-
-if not present then return false end
+if not present then return end
 
 return packer.startup(function(use)
    -- plugin manager
-   use { "wbthomason/packer.nvim", event = "VimEnter" }
+   use { "wbthomason/packer.nvim" }
 
    -- Neocore
    use { "nvim-lua/plenary.nvim" }
@@ -274,4 +273,8 @@ return packer.startup(function(use)
       end,
    }
 
+   if vim.g.bootstrap then
+      print("Packer.bootstrap is set")
+      require('packer').sync()
+   end
 end)

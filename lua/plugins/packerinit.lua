@@ -1,15 +1,13 @@
--- Automatically install packer
 local fn = vim.fn
-local cmd = vim.cmd
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-cmd "packadd packer.nvim"
-
-local present, packer = pcall(require, "packer")
+vim.g.bootstrap = false
 
 -- bootstrap packer on fresh install
-if not present then
-   packer_bootstrap = fn.system({
+if fn.empty(fn.glob(install_path)) > 0 then
+   print("Cloning Packer...")
+   vim.g.bootstrap = true
+   fn.system({
       'git',
       'clone',
       '--depth',
@@ -17,15 +15,13 @@ if not present then
       'https://github.com/wbthomason/packer.nvim',
       install_path
    })
+   print("Packer cloned!")
 end
 
--- Autocommand to reload neovim on plugin init file save
-cmd [[
-   augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost init.lua source <afile> | PackerCompile
-   augroup end
-]]
+vim.cmd [[packadd packer.nvim]]
+
+local present, packer = pcall(require, "packer")
+if not present then return end
 
 -- Initialize packer with custom settings
 packer.init {
