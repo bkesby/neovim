@@ -15,34 +15,22 @@ telescope.setup {
       path_display = { "truncate" },
       layout_stategy = "flex",
       layout_config = {
-         flex = {
-            height = 0.8,
-            width = 0.85,
-            scroll_speed = 5,
-         },
-         horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-            results_width = 0.8,
-         },
+         flex = { height = 0.8, width = 0.85, scroll_speed = 5 },
+         horizontal = { prompt_position = "top", preview_width = 0.55, results_width = 0.8 },
          width = 0.85,
          height = 0.80,
       },
-      mappings = {
-         i = {
-            ["<ESC>"] = actions.close,
-         },
-      },
+      mappings = { i = { ["<ESC>"] = actions.close } },
       border = true,
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      set_env = {
-         COLORTERM = "truecolor",
-      },
+      set_env = { COLORTERM = "truecolor" },
       file_ignore_patterns = { "%.pyc", "__pycache__", "%.lock", "target" },
    },
    pickers = {
       find_files = {
-         file_ignore_patterns = { "%.png", "%.jpg", "%.jpeg", "__pycache__", "%.lock", "node_modules", "target" },
+         file_ignore_patterns = {
+            "%.png", "%.jpg", "%.svg", "%.jpeg", "__pycache__", "%.lock", "node_modules", "target", "build/",
+         },
       },
       file_browser = {
          -- file_ignore_patterns = { "%.png", "%.jpg"}

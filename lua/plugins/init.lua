@@ -9,10 +9,7 @@ return packer.startup(function()
    local plugin_status = require("rc").plugin_status
 
    -- plugin manager
-   use {
-      "wbthomason/packer.nvim",
-      event = "VimEnter",
-   }
+   use { "wbthomason/packer.nvim", event = "VimEnter" }
 
    -- Neocore
    use { "nvim-lua/plenary.nvim" }
@@ -58,19 +55,10 @@ return packer.startup(function()
 
    -- text objects
    use { "kana/vim-textobj-user" }
-   use {
-      "glts/vim-textobj-comment",
-      event = "UIEnter",
-   }
+   use { "glts/vim-textobj-comment", event = "UIEnter" }
    use { "michaeljsmith/vim-indent-object" }
-   use {
-      "RRethy/nvim-treesitter-textsubjects",
-      after = "nvim-treesitter",
-   }
-   use {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      after = "nvim-treesitter",
-   }
+   use { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" }
+   use { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" }
    use {
       "chaoren/vim-wordmotion",
       disable = not plugin_status.wordmotion,
@@ -92,10 +80,7 @@ return packer.startup(function()
       as = "statusline",
       disable = not plugin_status.statusline,
       after = "theme",
-      requires = {
-         "kyazdani42/nvim-web-devicons",
-         opt = true,
-      },
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = function() require("plugins.configs.statusline") end,
    }
 
@@ -125,10 +110,7 @@ return packer.startup(function()
       run = ":TSUpdate",
    }
 
-   use {
-      "nvim-treesitter/playground",
-      after = "nvim-treesitter",
-   }
+   use { "nvim-treesitter/playground", after = "nvim-treesitter" }
 
    -- autocompletion (required for lsp config)
    use {
@@ -141,30 +123,14 @@ return packer.startup(function()
    }
 
    -- snippets
-   use {
-      "ms-jpq/coq.artifacts",
-      as = "artifacts",
-      branch = "artifacts",
-      event = "BufRead",
-   }
+   use { "ms-jpq/coq.artifacts", as = "artifacts", branch = "artifacts", event = "BufRead" }
 
    -- lsp
-   use {
-      "williamboman/nvim-lsp-installer",
-      after = "coq_nvim",
-   }
+   use { "williamboman/nvim-lsp-installer", after = "coq_nvim" }
 
-   use {
-      "RishabhRD/nvim-lsputils",
-      after = "nvim-lsp-installer",
-      requires = { "RishabhRD/popfix" },
-   }
+   use { "RishabhRD/nvim-lsputils", after = "nvim-lsp-installer", requires = { "RishabhRD/popfix" } }
 
-   use {
-      "neovim/nvim-lspconfig",
-      after = "nvim-lsputils",
-      config = function() require("plugins.configs.lspconfig") end,
-   }
+   use { "neovim/nvim-lspconfig", after = "nvim-lsputils", config = function() require("plugins.configs.lspconfig") end }
 
    use {
       "kosayoda/nvim-lightbulb",
@@ -190,11 +156,7 @@ return packer.startup(function()
       config = function() require("plugins.configs.others").lastplace() end,
    }
 
-   use {
-      "windwp/nvim-ts-autotag",
-      disable = not plugin_status.autotag,
-      event = "BufRead",
-   }
+   use { "windwp/nvim-ts-autotag", disable = not plugin_status.autotag, event = "BufRead" }
 
    use {
       "lukas-reineke/indent-blankline.nvim",
@@ -290,13 +252,9 @@ return packer.startup(function()
             after = "telescope.nvim",
             config = function() require "plugins.configs.cheatsheet" end,
             setup = function() require("core.mappings").cheatsheet() end,
-         }, {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-         }, {
-            "nvim-telescope/telescope-frecency.nvim",
-            requires = { "tami5/sqlite.lua" },
-         }, { "nvim-telescope/telescope-project.nvim" },
+         }, { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+         { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } },
+         { "nvim-telescope/telescope-project.nvim" },
       },
    }
 
@@ -308,11 +266,7 @@ return packer.startup(function()
       setup = function() require("core.mappings").fugitive() end,
    }
 
-   use {
-      "tpope/vim-rhubarb",
-      disable = not plugin_status.fugitive,
-      after = "vim-fugitive",
-   }
+   use { "tpope/vim-rhubarb", disable = not plugin_status.fugitive, after = "vim-fugitive" }
 
    use {
       "lewis6991/gitsigns.nvim",
@@ -356,10 +310,7 @@ return packer.startup(function()
    }
 
    -- syntax
-   use {
-      "cespare/vim-toml",
-      ft = "toml",
-   }
+   use { "cespare/vim-toml", ft = "toml" }
 
    -- markdown
    use {

@@ -8,8 +8,7 @@ M.ui = {
    theme = "onedark",
    -- outrun-dark, horizon-dark, heetch, snazzy, solarized-dark
    symbols = {
-      diagnostic = { error = " ", warn = " ", info = " ",
-                     hint = " " },
+      diagnostic = { error = " ", warn = " ", info = " ", hint = " " },
       git = { added = " ", modified = "柳", removed = " " },
    },
 }
@@ -77,13 +76,7 @@ M.options = {
    ruler = false,
    -- Fills
    fillchars = { eob = " ", vert = "┃" },
-   listchars = {
-      tab = "¦ ",
-      nbsp = "·",
-      trail = "┈",
-      precedes = "«",
-      extends = "»",
-   },
+   listchars = { tab = "¦ ", nbsp = "·", trail = "┈", precedes = "«", extends = "»" },
    -- Vim actions output
    shortmess = {
       -- f = true, -- use (x of N) instead of (file x of N)
@@ -123,6 +116,7 @@ M.options = {
    -- environments
    -- python2_path = "$PYENV_ROOT/versions/neovim2/bin/python",
    python3_path = "$PYENV_ROOT/versions/3.10.2/bin/python",
+   python_path = "$PYENV_ROOT/versions/3.10.2/bin/python",
 }
 -- }}}
 -- Plugin Options {{{
@@ -130,58 +124,19 @@ M.options.plugin = {
    better_escape = { timeout = 125, mapping = "jk" },
    coq = {
       auto_start = "shut-up",
-      display = {
-         x_truncate_len = 8,
-         kind_context = { " ", " ❯" },
-         source_context = { "", " " },
-      },
+      display = { x_truncate_len = 8, kind_context = { " ", " ❯" }, source_context = { "", " " } },
    },
-   harpoon = {
-      save_on_toggle = false,
-      save_on_change = true,
-      enter_on_sendcmd = false,
-   },
+   harpoon = { save_on_toggle = false, save_on_change = true, enter_on_sendcmd = false },
    neoformat = {
       -- Allow basic formatting without filetype
-      basic_format_align = 1,
-      basic_format_retab = 1,
-      basic_format_trim = 1,
+      basic_format_align = true,
+      basic_format_retab = true,
+      basic_format_trim = true,
    },
-   specs = {
-      show_jumps = true,
-      min_jump = 15,
-      delay = 25,
-      inc = 5,
-      blend = 60,
-      width = 12,
-      winhl = "PmenuSbar",
-   },
-   statusline = {
-      hidden = { "help", "dashboard", "terminal", "telescope" },
-      shown = {},
-   },
-   undo = {
-      highlight_changed_sign = 0,
-      window_layout = 3,
-      set_focus_when_toggle = 1,
-   },
-   wordmotion = {
-      uppercase_space = {
-         "\"",
-         "'",
-         ".",
-         ":",
-         ";",
-         ",",
-         "(",
-         ")",
-         "/",
-         "{",
-         "}",
-         "[",
-         "]",
-      },
-   },
+   specs = { show_jumps = true, min_jump = 15, delay = 25, inc = 5, blend = 60, width = 12, winhl = "PmenuSbar" },
+   statusline = { hidden = { "help", "dashboard", "terminal", "telescope" }, shown = {} },
+   undo = { highlight_changed_sign = 0, window_layout = 3, set_focus_when_toggle = 1 },
+   wordmotion = { uppercase_space = { "\"", "'", ".", ":", ";", ",", "(", ")", "/", "{", "}", "[", "]" } },
 }
 -- }}}
 -- Mappings {{{
@@ -203,11 +158,7 @@ M.mappings.user = {
 }
 -- Plugin Mappings
 M.mappings.plugin = {
-   bbye = {
-      delete = "<leader>x",
-      wipeout = "<leader>X",
-      delete_all = "<leader>bx",
-   },
+   bbye = { delete = "<leader>x", wipeout = "<leader>X", delete_all = "<leader>bx" },
    bufferline = {
       cycle_next = "<TAB>",
       cycle_prev = "<S-TAB>",
@@ -293,23 +244,10 @@ M.mappings.plugin = {
       formatting = "<leader>f",
       range_code_action = "<leader>ca",
    },
-   markdown_preview = {
-      start_preview = "<leader>vp",
-      stop_preview = "<leader>vs",
-      toggle_preview = "<leader>vv",
-   },
+   markdown_preview = { start_preview = "<leader>vp", stop_preview = "<leader>vs", toggle_preview = "<leader>vv" },
    neoformat = { format = "<leader>nf" },
-   sandwich = {
-      auto_inner = "is",
-      auto_all = "as",
-      query_inner = "iz",
-      query_all = "az",
-   },
-   subversive = {
-      substitute = "s",
-      substitute_line = "ss",
-      substitute_end_of_line = "S",
-   },
+   sandwich = { auto_inner = "is", auto_all = "as", query_inner = "iz", query_all = "az" },
+   subversive = { substitute = "s", substitute_line = "ss", substitute_end_of_line = "S" },
    telescope = {
       buffers = "<leader>fb",
       find_files = "<leader>ff",
@@ -326,10 +264,7 @@ M.mappings.plugin = {
       lsp_reference = "<leader>fl",
    },
    todo = { search_with_telescope = "<leader>fd" },
-   toggleterm = {
-      toggle = "<leader>tt",
-      term = { escape = "<ESC>", normal_mode = "jk", insert_exit_toggle = "JK" },
-   },
+   toggleterm = { toggle = "<leader>tt", term = { escape = "<ESC>", normal_mode = "jk", insert_exit_toggle = "JK" } },
    trouble = {
       open = "<leader>pp",
       lsp_workspace_diagnostics = "<leader>pw",

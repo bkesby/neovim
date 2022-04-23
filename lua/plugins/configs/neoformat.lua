@@ -2,7 +2,7 @@ local g = vim.g
 local rc = require("rc").options.plugin
 
 -- For debugging
--- g.neoformat_verbose = 1
+g.neoformat_verbose = 1
 
 -- Lua formatting
 g.neoformat_lua_luaformatter = {
@@ -17,26 +17,24 @@ g.neoformat_lua_luaformatter = {
 g.neoformat_enabled_lua = { "luaformatter" }
 
 -- Python formatting
-g.neoformat_python_black = {
-   exe = "black",
-   args = { "-q" },
-   replace = true,
-}
+g.neoformat_python_black = { exe = "black", args = { "-q" }, replace = true }
 
-g.neoformat_python_poetry = {
-   exe = "poetry",
-   args = { "run", "black" },
-   replace = true,
-}
+g.neoformat_python_poetry = { exe = "poetry", args = { "run", "black" }, replace = true }
 
 g.neoformat_enabled_python = { "poetry", "black" }
 
 -- Rust formatting
-g.neoformat_rust_rustfmt = {
-   exe = "rustfmt",
+g.neoformat_rust_rustfmt = { exe = "rustfmt", replace = true }
+g.neoformat_enabled_rust = { "rustfmt" }
+
+-- Eslint formatting
+g.neoformat_javascript_prettier = {
+   exe = "prettier",
+   args = { "--ignore-path .gitignore", "--check --plugin-search-dir=. ." },
    replace = true,
 }
-g.neoformat_enabled_rust = { "rustfmt" }
+
+g.neoformat_enabled_javascript = { "prettier" }
 
 -- run all enabled formatters
 -- g.neoformat_run_all_formatters = 1

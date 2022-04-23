@@ -4,10 +4,7 @@ local rc = require("rc").options.plugin
 local M = {}
 
 M.better_escape = function()
-   require("better_escape").setup {
-      mapping = rc.better_escape.mapping,
-      timeout = rc.better_escape.timeout or 200,
-   }
+   require("better_escape").setup { mapping = rc.better_escape.mapping, timeout = rc.better_escape.timeout or 200 }
 end
 
 M.blankline = function()
@@ -69,23 +66,13 @@ M.lastplace = function()
    }
 end
 
-M.lightbulb = function()
-   vim.fn.sign_define("LightBulbSign", {
-      text = "",
-      texthl = "DiagnosticSignHint",
-   })
-end
+M.lightbulb = function() vim.fn.sign_define("LightBulbSign", { text = "", texthl = "DiagnosticSignHint" }) end
 
 M.markdown = function() g.mkdp_filetypes = { "markdown" } end
 
 M.neoscroll = function()
    local present, neoscroll = pcall(require, "neoscroll")
-   if present then
-      neoscroll.setup {
-         hide_cursor = true,
-         respect_scrolloff = true,
-      }
-   end
+   if present then neoscroll.setup { hide_cursor = true, respect_scrolloff = true } end
 end
 
 M.sandwich = function() g.textobj_sandwich_no_default_key_mappings = 1 end
@@ -129,7 +116,7 @@ M.window = function()
    if present then
       nvim_window.setup {
          -- last character has to be placed first
-         chars = { ";", "a", "s", "d", "f", "j", "k", "l" },
+         chars = { "a", "s", "d", "f", "j", "k", "l", ";" },
          border = "single",
       }
    end
