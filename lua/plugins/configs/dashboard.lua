@@ -1,6 +1,6 @@
 local g = vim.g
-local mappings = require("rc").mappings.plugin.dashboard
-local telescope = require("rc").mappings.plugin.telescope
+local mappings = require("maps").plugin.dashboard
+local telescope = require("maps").plugin.telescope
 
 g.dashboard_disable_at_vimenter = 0
 g.dashboard_disable_statusline = 1

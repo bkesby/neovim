@@ -1,9 +1,8 @@
-local utils = require("core.utils")
-local rc = require("rc")
+local map = require("core.utils").map
 
-local map = utils.map
-local user_maps = rc.mappings.user
-local plugin_maps = rc.mappings.plugin
+local maps = require("maps")
+local user_maps = maps.user
+local plugin_maps = maps.plugin
 
 local cmd = vim.cmd
 

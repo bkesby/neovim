@@ -1,8 +1,7 @@
 local fn = vim.fn
 
 local map = require("core.utils").map
-local maps = require("rc").mappings.plugin
-local settings = require("rc").options.plugin
+local maps = require("maps").plugin
 
 local npairs = require("nvim-autopairs")
 
@@ -13,9 +12,9 @@ vim.g.coq_settings = {
    keymap = { recommended = false },
    display = {
       pum = {
-         x_truncate_len = settings.coq.display.x_truncate_len,
-         kind_context = settings.coq.display.kind_context,
-         source_context = settings.coq.display.source_context,
+         x_truncate_len = 8,
+         kind_context = { " ", " ❯"},
+         source_context = { "", " " },
       },
    },
 }

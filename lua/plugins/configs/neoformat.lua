@@ -1,5 +1,4 @@
 local g = vim.g
-local rc = require("rc").options.plugin
 
 -- For debugging
 g.neoformat_verbose = 1
@@ -10,7 +9,7 @@ g.neoformat_lua_luaformatter = {
    args = {
       "--column-limit=120", "--tab-width=3", "--no-use-tab", "--indent-width=3", "--no-chop-down-table",
       "--single-quote-to-double-quote", "--keep-simple-control-block-one-line", "--keep-simple-function-one-line",
-      "--extra-sep-at-table-end", "--spaces-around-equals-in-field", "--no-break-after-operator",
+      "--extra-sep-at-table-end", "--spaces-around-equals-in-field",
       "--spaces-inside-table-braces",
    }, -- "--break-after-table-lb", "--break-before-table-rb",
 }
@@ -40,6 +39,6 @@ g.neoformat_enabled_javascript = { "prettier" }
 -- g.neoformat_run_all_formatters = 1
 
 -- Basic filetype formatting
-g.neoformat_basic_format_align = rc.neoformat.basic_format_align
-g.neoformat_basic_format_retab = rc.neoformat.basic_format_retab
-g.neoformat_basic_format_trim = rc.neoformat.basic_format_trim
+g.neoformat_basic_format_align = true
+g.neoformat_basic_format_retab = true
+g.neoformat_basic_format_trim = true

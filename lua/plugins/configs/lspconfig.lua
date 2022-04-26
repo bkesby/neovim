@@ -4,8 +4,7 @@ local present3, coq = pcall(require, "coq")
 
 if not (present1 or present2 or present3) then return end
 
-local rc = require("rc")
-local lsp = rc.mappings.plugin.lsp
+local lsp = require('maps').plugin.lsp
 
 -- use attach function to only map keys after language server attaches to current buffer
 local on_attach = function(_, bufnr)
@@ -52,10 +51,10 @@ end
 
 -- diagnostics symbols
 local signs = {
-   Error = rc.ui.symbols.diagnostic.error,
-   Warn = rc.ui.symbols.diagnostic.warn,
-   Info = rc.ui.symbols.diagnostic.info,
-   Hint = rc.ui.symbols.diagnostic.hint,
+   Error = " ",
+   Warn = " ",
+   Info = " ",
+   Hint = " ",
 }
 
 for type, icon in pairs(signs) do

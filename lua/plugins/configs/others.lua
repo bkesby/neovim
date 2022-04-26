@@ -1,10 +1,9 @@
 local g = vim.g
-local rc = require("rc").options.plugin
 
 local M = {}
 
 M.better_escape = function()
-   require("better_escape").setup { mapping = rc.better_escape.mapping, timeout = rc.better_escape.timeout or 200 }
+   require("better_escape").setup { mapping = "jk", timeout = 125 }
 end
 
 M.blankline = function()
@@ -52,9 +51,9 @@ M.harpoon = function()
    local present, harpoon = pcall(require, "harpoon")
    if present then
       harpoon.setup {
-         save_on_toggle = rc.harpoon.save_on_toggle,
-         save_on_change = rc.harpoon.save_on_change,
-         enter_on_sendcmd = rc.harpoon.enter_on_sendcmd,
+         save_on_toggle = false,
+         save_on_change = true,
+         enter_on_sendcmd = false,
       }
    end
 end
@@ -91,14 +90,14 @@ M.specs = function()
    local present, specs = pcall(require, "specs")
    if not present then return end
    specs.setup {
-      show_jumps = rc.specs.show_jumps,
-      min_jump = rc.specs.min_jump,
+      show_jumps = true,
+      min_jump = 15,
       popup = {
-         delay_ms = rc.specs.delay,
-         inc_ms = rc.specs.inc,
-         blend = rc.specs.blend,
-         width = rc.specs.width,
-         winhl = rc.specs.winhl,
+         delay_ms = 25,
+         inc_ms = 5,
+         blend = 60,
+         width = 12,
+         winhl = "PmenuSbar",
          fader = specs.pulse_fader,
          resizer = specs.shrink_resizer,
       },
@@ -106,22 +105,25 @@ M.specs = function()
 end
 
 M.undo = function()
-   g.undotree_HighlightChangedWithSign = rc.undo.highlight_changed_sign
-   g.undotree_WindowLayout = rc.undo.window_layout
-   g.undotree_SetFocusWhenToggle = rc.undo.set_focus_when_toggle
+   g.undotree_HighlightChangedWithSign = 0
+   g.undotree_WindowLayout = 3
+   g.undotree_SetFocusWhenToggle = 1
 end
 
 M.window = function()
    local present, nvim_window = pcall(require, "nvim-window")
    if present then
       nvim_window.setup {
-         -- last character has to be placed first
          chars = { "a", "s", "d", "f", "j", "k", "l", ";" },
          border = "single",
       }
    end
 end
 
-M.wordmotion = function() g.wordmotion_uppercase_spaces = rc.wordmotion.uppercase_space end
+M.wordmotion = function()
+   g.wordmotion_uppercase_spaces = {
+      "\"", "'", ".", ":", ";", ",", "(", ")", "/", "{", "}", "[", "]",
+   }
+end
 
 return M

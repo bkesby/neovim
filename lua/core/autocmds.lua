@@ -1,4 +1,12 @@
 local cmd = vim.cmd
+-- 
+-- Autocommand to reload neovim on plugin init file save
+-- cmd [[
+--    augroup packer_user_config
+--       autocmd!
+--       autocmd BufWritePost init.lua source <afile> | PackerSync
+--    augroup end
+-- ]]
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 cmd [[

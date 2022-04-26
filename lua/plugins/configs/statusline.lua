@@ -4,10 +4,8 @@ if not present then return end
 local lsp = require "feline.providers.lsp"
 local cursor = require "feline.providers.cursor"
 local vimode_utils = require "feline.providers.vi_mode"
-local rc = require("rc")
-local opts = rc.ui.plugin.statusline
 
-local colors = require("onedarkpro").get_colors(rc.ui.theme)
+local colors = require("onedarkpro").get_colors("onedark")
 
 local vi_mode_colors = {
    NORMAL = colors.white,
@@ -41,8 +39,8 @@ local properties = {
 
 local comps = {
    vi_mode = {
-      left = { provider = opts.icons.edge, right_sep = " ", hl = vimode_hl },
-      right = { provider = opts.icons.edge, left_sep = " ", hl = vimode_hl },
+      left = { provider = "▊", right_sep = " ", hl = vimode_hl },
+      right = { provider = "▊", left_sep = " ", hl = vimode_hl },
    },
    directory = {
       provider = function()
