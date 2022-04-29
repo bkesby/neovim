@@ -1,5 +1,5 @@
 -- local core_modules = { "options", "autocmds", "mappings", "globals" }
-local core_modules = { "options" }
+local core_modules = { "autocmds", "options" }
 
 for _, module in ipairs(core_modules) do
    local ok, err = pcall(require, "core." .. module)

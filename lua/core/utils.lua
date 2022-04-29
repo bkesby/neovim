@@ -2,9 +2,10 @@ local M = {}
 
 -- Hide the statusline for inactive and chosen windows
 M.hide_statusline = function()
-   local rc = require("rc").options.plugin.statusline
-   local hidden = rc.hidden
-   local shown = rc.shown
+   local hidden = {
+      "help", "dashboard", "terminal", "telescope",
+   }
+   local shown = {}
    local api = vim.api
    local buftype = api.nvim_buf_get_option(0, "ft")
 

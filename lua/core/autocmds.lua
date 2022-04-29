@@ -1,18 +1,20 @@
 local cmd = vim.cmd
--- 
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
 -- Autocommand to reload neovim on plugin init file save
--- cmd [[
---    augroup packer_user_config
---       autocmd!
---       autocmd BufWritePost init.lua source <afile> | PackerSync
---    augroup end
--- ]]
+cmd [[
+   augroup packer_user_config
+      autocmd!
+      autocmd BufWritePost init.lua source <afile> | PackerSync
+   augroup end
+]]
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 cmd [[
-let ignore_filetypes = ["dashboard", "terminal"]
-au InsertEnter * if index(ignore_filetypes, &ft) < 0 | set nornu
-au InsertLeave * if index(ignore_filetypes, &ft) < 0 | set rnu
+   let ignore_filetypes = ["dashboard", "terminal"]
+   au InsertEnter * if index(ignore_filetypes, &ft) < 0 | set nornu
+   au InsertLeave * if index(ignore_filetypes, &ft) < 0 | set rnu
 ]]
 
 -- Hide statusline
@@ -31,20 +33,27 @@ cmd [[ au FileType markdown setlocal wrap ]]
 cmd [[ au FileType nix setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
 
 -- Auto format on save
-cmd [[ 
-augroup fmt
-   autocmd!
-   autocmd BufWritePre *.lua,*.py,*.rs silent! undojoin | silent! Neoformat 
-augroup END
-]]
+-- cmd [[ 
+-- augroup fmt
+--    autocmd!
+--    autocmd BufWritePre *.lua,*.py,*.rs silent! undojoin | silent! Neoformat 
+-- augroup END
+-- ]]
+
+-- Remove whitespace on save
+autocmd('BufWritePre', {
+   pattern = '*',
+   command = 'set fo-=c fo-=r fo-=o'
+})
 
 -- Yank highlight confirmation
-cmd [[
-augroup highlight_yank
-   autocmd!
-   au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visu=false}
-augroup END
-]]
+augroup('YankHighlight', { clear = true })
+autocmd('TextYankPost', {
+   group = 'YankHighlight',
+   callback = function()
+      vim.highlight.on_yank { higroup="IncSearch", timeout="1000" }
+   end
+})
 
 -- Lightbulb code action hint
 cmd [[
@@ -53,3 +62,9 @@ augroup lightbulb
    au CursorHold,CursorHoldI *.py,*.lua,*.rs,*.svelte lua require'nvim-lightbulb'.update_lightbulb()
 augroup END
 ]]
+
+-- Enter insert mode when switching to terminal
+autocmd('TermOpen', {
+   pattern = '*',
+   command = 'startinsert',
+})
