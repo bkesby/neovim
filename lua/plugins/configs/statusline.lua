@@ -68,25 +68,25 @@ local comps = {
       error = {
          provider = "diagnostic_errors",
          enabled = function() return lsp.diagnostics_exist "ERROR" end,
-         -- icon = " " .. rc.ui.symbols.diagnostic.error,
+         -- icon = "  ",
          -- hl = "LspDiagnosticsDefaultError",
       },
       warning = {
          provider = "diagnostic_warnings",
          enabled = function() return lsp.diagnostics_exist "WARN" end,
-         icon = " " .. rc.ui.symbols.diagnostic.warn,
+         icon = "  ",
          -- hl = "LspDiagnosticsDefaultWarning",
       },
       hint = {
          provider = "diagnostic_hints",
          enabled = function() return lsp.diagnostics_exist "HINT" end,
-         icon = " " .. rc.ui.symbols.diagnostic.hint,
+         icon = "  ",
          -- hl = "LspDiagnosticsDefaultHint",
       },
       info = {
          provider = "diagnostic_info",
          enabled = function() return lsp.diagnostics_exist "INFO" end,
-         icon = " " .. rc.ui.symbols.diagnostic.info,
+         icon = "  ",
          -- hl = "LspDiagnosticsDefaultInformation",
       },
    },
@@ -135,17 +135,17 @@ local comps = {
       diff = {
          added = {
             provider = "git_diff_added",
-            icon = " " .. rc.ui.symbols.git.added,
+            icon = "  ",
             -- hl = "GitAddStatus",
          },
          changed = {
             provider = "git_diff_changed",
-            icon = " " .. rc.ui.symbols.git.modified,
+            icon = " 柳",
             -- hl = "GitChange",
          },
          deleted = {
             provider = "git_diff_removed",
-            icon = " " .. rc.ui.symbols.git.removed,
+            icon = "  ",
             -- hl = "GitDelete",
          },
       },
