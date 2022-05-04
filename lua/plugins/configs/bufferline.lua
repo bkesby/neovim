@@ -3,6 +3,9 @@ if not present then return end
 
 local colors = require("onedarkpro").get_colors()
 
+local fill = colors.cursorline
+local inactive_bg = colors.indentline
+
 -- TODO: Create global git status count to display for all files in project?
 bufferline.setup {
    options = {
@@ -16,23 +19,26 @@ bufferline.setup {
    highlights = {
    --    -- see :h bufferline-highlights
       fill = {
-         guibg = colors.cursorline,
+         guibg = fill,
       },
       background = {
-         guibg = colors.indentline, 
+         guibg = inactive_bg, 
       },
       numbers = {
-         guibg = colors.indentline,
+         guibg = inactive_bg,
+      },
+      modified = {
+         guibg = inactive_bg,
       },
       separator = {
-         guifg = colors.cursorline,
-         guibg = colors.indentline,
+         guifg = fill,
+         guibg = inactive_bg,
       },
       separator_visible = {
-         guifg = colors.cursorline,
+         guifg = fill,
       },
       separator_selected = {
-         guifg = colors.cursorline,
+         guifg = fill,
       },
    --    error_selected = {
    --       guifg = error_color,
