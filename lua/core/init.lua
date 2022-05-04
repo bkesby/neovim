@@ -1,5 +1,5 @@
 -- local core_modules = { "options", "autocmds", "mappings", "globals" }
-local core_modules = { "autocmds", "options" }
+local core_modules = { "autocmds", "options", "mappings" }
 
 for _, module in ipairs(core_modules) do
    local ok, err = pcall(require, "core." .. module)
@@ -7,4 +7,4 @@ for _, module in ipairs(core_modules) do
 end
 
 -- Run initialization mappings
--- require("core.mappings").misc()
+require("core.mappings").misc()
