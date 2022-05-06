@@ -81,8 +81,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
    update_in_insert = false,
 })
 
-local servers = { 
-   "bashls", 
+local servers = {
+   "bashls",
    "cssls",
    "dockerls",
    "eslint",
@@ -105,11 +105,15 @@ lspinstall.setup {
    automatic_installation = true,
 }
 
+-- Lua-dev for configuration lsp
+local luadev = require("lua-dev").setup({})
+
 -- LSP config server setup
 for _, server in pairs(servers) do
    local opts = { on_attach = on_attach }
    -- Server specific options
-   
+   if server == "sumneko_lua" then opts = luadev end
+
    lspconfig[server].setup(opts)
    lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
 end

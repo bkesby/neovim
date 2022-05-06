@@ -99,6 +99,7 @@ return packer.startup(function(use)
    use { "ms-jpq/coq.artifacts", as = "artifacts", branch = "artifacts", event = "BufRead" }
 
    -- lsp
+   use { "folke/lua-dev.nvim" }
    use { "williamboman/nvim-lsp-installer", after = "coq_nvim" }
    use { "RishabhRD/nvim-lsputils", after = "nvim-lsp-installer", requires = { "RishabhRD/popfix" } }
    use { "neovim/nvim-lspconfig", after = "nvim-lsputils", config = function() require("plugins.configs.lspconfig") end }
@@ -115,6 +116,11 @@ return packer.startup(function(use)
       cmd = "Neoformat",
       setup = function() require("core.mappings").neoformat() end,
       config = function() require("plugins.configs.neoformat") end,
+   }
+
+   use {
+      "McAuleyPenney/tidy.nvim",
+      event = "BufWritePre",
    }
 
    -- misc
@@ -210,6 +216,7 @@ return packer.startup(function(use)
          }, { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
          { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } },
          { "nvim-telescope/telescope-project.nvim" },
+         { "nvim-telescope/telescope-file-browser.nvim" },
       },
    }
 
