@@ -27,11 +27,11 @@ g.dashboard_custom_header = {
 
 g.dashboard_custom_section = {
    a = {
-      description = { "  Find File                       " .. telescope.find_files:gsub("<leader>", "SPC ") },
+      description = { "  Find File                       " .. telescope.find_files:gsub("<leader>", "SPC ") },
       command = "Telescope find_files",
    },
    b = {
-      description = { "  Recents                         " .. telescope.frecency:gsub("<leader>", "SPC ") },
+      description = { "  Recents                         " .. telescope.frecency:gsub("<leader>", "SPC ") },
       command = "Telescope frecency",
    },
    c = {
@@ -39,7 +39,7 @@ g.dashboard_custom_section = {
       command = "Telescope live_grep",
    },
    d = {
-      description = { "  Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
+      description = { "  Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
       command = "Telescope project",
    },
    e = {

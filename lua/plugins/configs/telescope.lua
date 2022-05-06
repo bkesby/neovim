@@ -32,12 +32,11 @@ telescope.setup {
             "%.png", "%.jpg", "%.svg", "%.jpeg", "__pycache__", "%.lock", "node_modules", "target", "build/",
          },
       },
-      file_browser = {
-         -- file_ignore_patterns = { "%.png", "%.jpg"}
-         hidden = true,
-      },
    },
    extensions = {
+      file_browser = {
+
+      },
       frecency = {
          show_unindexed = false,
          -- default_workspace = "CWD",
@@ -48,3 +47,4 @@ telescope.setup {
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("project")
+require("telescope").load_extension("file_browser")
