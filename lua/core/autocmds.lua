@@ -33,18 +33,13 @@ cmd [[ au FileType markdown setlocal wrap ]]
 cmd [[ au FileType nix setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
 
 -- Auto format on save
--- cmd [[ 
+-- cmd [[
 -- augroup fmt
 --    autocmd!
---    autocmd BufWritePre *.lua,*.py,*.rs silent! undojoin | silent! Neoformat 
+--    autocmd BufWritePre *.lua,*.py,*.rs silent! undojoin | silent! Neoformat
 -- augroup END
 -- ]]
 
--- Remove whitespace on save
-autocmd('BufWritePre', {
-   pattern = '*',
-   command = 'set fo-=c fo-=r fo-=o'
-})
 
 -- Yank highlight confirmation
 augroup('YankHighlight', { clear = true })
