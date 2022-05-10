@@ -93,7 +93,7 @@ local servers = {
    "phpactor",
    "pyright",
    "rust_analyzer",
-   "sqls",
+   "sqlls",
    "svelte",
    "taplo",
    "yamlls",
