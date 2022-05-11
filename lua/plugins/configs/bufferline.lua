@@ -26,6 +26,7 @@ bufferline.setup {
       background = inactive,
       diagnostic = inactive,
       error = inactive,
+      error_diagnostic = inactive,
       info = inactive,
       info_diagnostic = inactive,
       modified = inactive,
