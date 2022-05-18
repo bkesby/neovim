@@ -169,10 +169,7 @@ local M = {
          diary_tab = "<Leader>n<Leader>t",
          diary_yesterday = "<Leader>n<Leader>y",
          diary_tomorrow = "<Leader>n<Leader>m",
-<<<<<<< HEAD
-=======
          diary_generate = "<Leader>n<Leader>i",
->>>>>>> 39ed08a (adds: vimwiki with mappings moved to n)
          -- local
          html = "<Leader>nh",
          html_browse = "<Leader>nhh",
