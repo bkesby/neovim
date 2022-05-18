@@ -159,6 +159,25 @@ local M = {
          shift_up = "<C-M-k>",
          shift_down = "<C-M-j>",
       },
+      vimwiki = {
+         -- global
+         open_index = "<Leader>nn",
+         open_tab = "<Leader>nt",
+         select_open = "<Leader>ns",
+         diary_index = "<Leader>ni",
+         diary_entry = "<Leader>n<Leader>n",
+         diary_tab = "<Leader>n<Leader>t",
+         diary_yesterday = "<Leader>n<Leader>y",
+         diary_tomorrow = "<Leader>n<Leader>m",
+         -- local
+         html = "<Leader>nh",
+         html_browse = "<Leader>nhh",
+         new = "<Leader>nw",
+         delete = "<Leader>nd",
+         rename = "<Leader>nr",
+         next_link = "<Leader>]n",
+         prev_link = "<Leader>]n",
+      },
       zen = {
          ataraxis_mode = "<leader>zz",
 	 focus_mode = "<leader>zf",

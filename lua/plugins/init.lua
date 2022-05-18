@@ -34,6 +34,9 @@ return packer.startup(function(use)
       config = function() require("plugins.configs.others").undo() end,
    }
 
+   -- note taking
+   use { "vimwiki/vimwiki", setup = function() require("core.mappings").vimwiki() end, }
+
    -- text objects
    use { "wellle/targets.vim" } -- additional text objects
    use { "kana/vim-textobj-user" }
@@ -269,15 +272,15 @@ return packer.startup(function(use)
    use { "cespare/vim-toml", ft = "toml" }
 
    -- markdown
-   use {
-      "iamcco/markdown-preview.nvim",
-      ft = "markdown",
-      run = "cd app && npm install",
-      setup = function()
-         require("plugins.configs.others").markdown()
-         require("core.mappings").markdown()
-      end,
-   }
+   -- use {
+   --    "iamcco/markdown-preview.nvim",
+   --    ft = "markdown",
+   --    run = "cd app && npm install",
+   --    setup = function()
+   --       require("plugins.configs.others").markdown()
+   --       require("core.mappings").markdown()
+   --    end,
+   -- }
 
    if vim.g.bootstrap then
       print("Packer.bootstrap is set")

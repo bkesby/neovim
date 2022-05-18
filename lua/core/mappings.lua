@@ -277,6 +277,25 @@ M.window_move = function()
    map("n", m.shift_down, "<Cmd>WinShift down<CR>")
 end
 
+M.vimwiki = function()
+   local m = plugin_maps.vimwiki
+   map("n", m.open_index, "<Plug>VimwikiIndex")
+   map("n", m.open_tab, "<Plug>VimwikiTabIndex")
+   map("n", m.select_open, "<Plug>VimwikiUISelect")
+   map("n", m.diary_index, "<Plug>VimwikiDiaryIndex")
+   map("n", m.diary_entry, "<Plug>VimwikiMakeDiaryNote")
+   map("n", m.diary_tab, "<Plug>VimwikiTabMakeDiaryNote")
+   map("n", m.diary_yesterday, "<Plug>VimwikiYeseterdayDiaryNote")
+   map("n", m.diary_tomorrow, "<Plug>VimwikiMakeTomorrowDiaryNote")
+   map("n", m.html, "<Plug>Vimwiki2HTML")
+   map("n", m.html_browse, "<Plug>Vimwiki2HTMLBrowse")
+   map("n", m.new, "<Plug>VimwikiGoto")
+   map("n", m.delete, "<Plug>VimwikiDeleteFile")
+   map("n", m.rename, "<Plug>VimwikiRenameFile")
+   map("n", m.next_link, "<Plug>VimwikiNextLink")
+   map("n", m.prev_link, "<Plug>VimwikiPrevLink")
+end
+
 M.zen = function()
    local m = plugin_maps.zen
    map("n", m.ataraxis_mode, ":TZAtaraxis <CR>")
