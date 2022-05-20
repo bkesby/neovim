@@ -99,7 +99,7 @@ local M = {
          rename = "<leader>rn",
          code_action = "<leader>ca",
          references = "gr",
-         formatting = "<leader>f",
+         format = "<leader>cf",
          range_code_action = "<leader>ca",
       },
       markdown_preview = {
