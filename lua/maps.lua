@@ -176,8 +176,8 @@ local M = {
          new = "<Leader>nw",
          delete = "<Leader>nd",
          rename = "<Leader>nr",
-         next_link = "<Leader>]n",
-         prev_link = "<Leader>]n",
+         next_link = "]n",
+         prev_link = "[n",
       },
       zen = {
          ataraxis_mode = "<leader>zz",

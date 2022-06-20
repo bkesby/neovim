@@ -1,13 +1,13 @@
-local g = vim.g
-local mappings = require("maps").plugin.dashboard
+local db = require('dashboard')
+local dashboard = require("maps").plugin.dashboard
 local telescope = require("maps").plugin.telescope
 
-g.dashboard_disable_at_vimenter = 0
-g.dashboard_disable_statusline = 1
-g.dashboard_disable_bufferline = 1
-g.dashboard_default_executive = "telescope"
+-- db.dashboard_disable_at_vimenter = 0
+db.hide_statusline = true
+db.hide_tabline = true
+db.dashboard_default_executive = "telescope"
 
-g.dashboard_custom_header = {
+db.custom_header = {
    "                                                       ", "                                                       ",
    "                                                       ", "                                                       ",
    "                                                       ", "                                                       ",
@@ -25,37 +25,53 @@ g.dashboard_custom_header = {
 -- disable tabline in dashboard
 -- vim.cmd [[ autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
 
-g.dashboard_custom_section = {
-   a = {
-      description = { "  Find File                       " .. telescope.find_files:gsub("<leader>", "SPC ") },
-      command = "Telescope find_files",
+db.custom_center = {
+   {
+      icon = " ",
+      desc = "Find File                            ",
+      shortcut = telescope.find_files:gsub("<leader>", "SPC "),
+      action = "Telescope find_files",
    },
-   b = {
-      description = { "  Recents                         " .. telescope.frecency:gsub("<leader>", "SPC ") },
-      command = "Telescope frecency",
+   {
+      icon = " ",
+      desc = "Recents                              ",
+      shortcut = telescope.frecency:gsub("<leader>", "SPC "),
+      action = "Telescope frecency",
    },
-   c = {
-      description = { "  Find Word                       " .. telescope.live_grep:gsub("<leader>", "SPC ") },
-      command = "Telescope live_grep",
+   {
+      icon = " ",
+      desc = "Find Word                            ",
+      shortcut = telescope.live_grep:gsub("<leader>", "SPC "),
+      action = "Telescope live_grep",
    },
-   d = {
-      description = { "  Find Project                    " .. telescope.find_projects:gsub("<leader>", "SPC ") },
-      command = "Telescope project",
+   {
+      icon = " ",
+      desc = "Find Project                         ",
+      shortcut = telescope.find_projects:gsub("<leader>", "SPC "),
+      action = "Telescope project",
    },
-   e = {
-      description = { "  New File                        " .. mappings.new_file:gsub("<leader>", "SPC ") },
-      command = "DashboardNewFile",
+   {
+      icon = " ",
+      desc = "New File                             ",
+      shortcut = dashboard.new_file:gsub("<leader>", "SPC "),
+      action = "DashboardNewFile",
    },
-   f = {
-      description = { "  Bookmarks                       " .. mappings.bookmarks:gsub("<leader>", "SPC ") },
-      command = "Telescope marks",
+   {
+      icon = " ",
+      desc = "Bookmarks                            ",
+      shortcut = dashboard.bookmarks:gsub("<leader>", "SPC "),
+      action = "Telescope marks",
    },
-   g = {
-      description = { "  Load Last Session               " .. mappings.session_load:gsub("<leader>", "SPC ") },
-      command = "SessionLoad",
+   {
+      icon = " ",
+      desc = "Load Last Session                    ",
+      shortcut = dashboard.session_load:gsub("<leader>", "SPC "),
+      action = "Telescope SessionLoad",
    },
-   h = {
-      description = { "  Help                            " .. telescope.help_tags:gsub("<leader>", "SPC ") },
-      command = "Telescope help_tags",
+   {
+      icon = " ",
+      desc = "Help                                 ",
+      shortcut = telescope.help_tags:gsub("<leader>", "SPC "),
+      action = "Telescope help_tags",
    },
 }
