@@ -16,28 +16,24 @@ set_keymap('n', maps.set_loclist, '<cmd>lua vim.diagnostic.setloclist()<CR>', op
 
 -- use attach function to only map keys after language server attaches to current buffer
 local on_attach = function(client, bufnr)
-   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-   local opts = {
-      noremap = true,
-      silent = true,
-   }
+   local buf_opts = { noremap=true, silent=true, buffer=bufnr }
+   local function buf_set_keymap(...) vim.keymap.set(...) end
 
    -- see `:help vim.lsp.*` for documentation on any of the below functions
-   buf_set_keymap("n", maps.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-   buf_set_keymap("n", maps.definition, "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-   buf_set_keymap("n", maps.hover, "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-   buf_set_keymap("n", maps.implementation, "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-   buf_set_keymap("n", maps.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-   buf_set_keymap("n", maps.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-   buf_set_keymap("n", maps.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+   buf_set_keymap("n", maps.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>", buf_opts)
+   buf_set_keymap("n", maps.definition, "<cmd>lua vim.lsp.buf.definition()<CR>", buf_opts)
+   buf_set_keymap("n", maps.hover, "<cmd>lua vim.lsp.buf.hover()<CR>", buf_opts)
+   buf_set_keymap("n", maps.implementation, "<cmd>lua vim.lsp.buf.implementation()<CR>", buf_opts)
+   buf_set_keymap("n", maps.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>", buf_opts)
+   buf_set_keymap("n", maps.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", buf_opts)
+   buf_set_keymap("n", maps.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", buf_opts)
    buf_set_keymap("n", maps.list_workspace_folders,
-                  "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-   buf_set_keymap("n", maps.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-   buf_set_keymap("n", maps.rename, "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-   buf_set_keymap("n", maps.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-   buf_set_keymap("n", maps.references, "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-   buf_set_keymap("n", maps.format, "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+                  "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", buf_opts)
+   buf_set_keymap("n", maps.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>", buf_opts)
+   buf_set_keymap("n", maps.rename, vim.lsp.buf.rename, buf_opts)
+   buf_set_keymap("n", maps.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", buf_opts)
+   buf_set_keymap("n", maps.references, "<cmd>lua vim.lsp.buf.references()<CR>", buf_opts)
+   buf_set_keymap("n", maps.format, "<cmd>lua vim.lsp.buf.format()<CR>", buf_opts)
 
    local handlers = vim.lsp.handlers
    -- extended lsp utils
@@ -106,7 +102,11 @@ lspinstall.setup {
 }
 
 -- Lua-dev for configuration lsp
-local luadev = require("lua-dev").setup({})
+local luadev = require("lua-dev").setup({
+   lspconfig = {
+      on_attach = on_attach
+   }
+})
 
 -- LSP config server setup
 for _, server in pairs(servers) do
