@@ -20,20 +20,21 @@ local on_attach = function(client, bufnr)
    local function buf_set_keymap(...) vim.keymap.set(...) end
 
    -- see `:help vim.lsp.*` for documentation on any of the below functions
-   buf_set_keymap("n", maps.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>", buf_opts)
-   buf_set_keymap("n", maps.definition, "<cmd>lua vim.lsp.buf.definition()<CR>", buf_opts)
-   buf_set_keymap("n", maps.hover, "<cmd>lua vim.lsp.buf.hover()<CR>", buf_opts)
-   buf_set_keymap("n", maps.implementation, "<cmd>lua vim.lsp.buf.implementation()<CR>", buf_opts)
-   buf_set_keymap("n", maps.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>", buf_opts)
-   buf_set_keymap("n", maps.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", buf_opts)
-   buf_set_keymap("n", maps.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", buf_opts)
-   buf_set_keymap("n", maps.list_workspace_folders,
-                  "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", buf_opts)
-   buf_set_keymap("n", maps.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>", buf_opts)
+   buf_set_keymap("n", maps.declaration, vim.lsp.buf.declaration, buf_opts)
+   buf_set_keymap("n", maps.definition, vim.lsp.buf.definition, buf_opts)
+   buf_set_keymap("n", maps.hover, vim.lsp.buf.hover, buf_opts)
+   buf_set_keymap("n", maps.implementation, vim.lsp.buf.implementation, buf_opts)
+   buf_set_keymap("n", maps.signature_help, vim.lsp.buf.signature_help, buf_opts)
+   buf_set_keymap("n", maps.add_workspace_folder, vim.lsp.buf.add_workspace_folder, buf_opts)
+   buf_set_keymap("n", maps.remove_workspace_folder, vim.lsp.buf.remove_workspace_folder, buf_opts)
+   buf_set_keymap("n", maps.list_workspace_folders, function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+   end, buf_opts)
+   buf_set_keymap("n", maps.type_definition, vim.lsp.buf.type_definition, buf_opts)
    buf_set_keymap("n", maps.rename, vim.lsp.buf.rename, buf_opts)
-   buf_set_keymap("n", maps.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>", buf_opts)
-   buf_set_keymap("n", maps.references, "<cmd>lua vim.lsp.buf.references()<CR>", buf_opts)
-   buf_set_keymap("n", maps.format, "<cmd>lua vim.lsp.buf.format()<CR>", buf_opts)
+   buf_set_keymap("n", maps.code_action, vim.lsp.buf.code_action, buf_opts)
+   buf_set_keymap("n", maps.references, vim.lsp.buf.references, buf_opts)
+   buf_set_keymap("n", maps.format, vim.lsp.buf.format, buf_opts)
 
    local handlers = vim.lsp.handlers
    -- extended lsp utils
