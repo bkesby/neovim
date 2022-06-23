@@ -2,7 +2,6 @@ local db = require('dashboard')
 local dashboard = require("maps").plugin.dashboard
 local telescope = require("maps").plugin.telescope
 
--- db.dashboard_disable_at_vimenter = 0
 db.hide_statusline = true
 db.hide_tabline = true
 db.dashboard_default_executive = "telescope"
@@ -22,8 +21,6 @@ db.custom_header = {
    "                                                       ", "                                                       ",
    "                                                       ",
 }
--- disable tabline in dashboard
--- vim.cmd [[ autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
 
 db.custom_center = {
    {
