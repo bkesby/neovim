@@ -253,11 +253,12 @@ return packer.startup(function(use)
       setup = function() require("core.mappings").trouble() end,
    }
 
-   use {
-      "simrat39/rust-tools.nvim",
-      after = "nvim-lspconfig",
-      config = function() require("plugins.configs.rust_tools") end,
-   }
+   -- TODO: Incorporate with lsp config to not double load on_attach
+   -- use {
+   --    "simrat39/rust-tools.nvim",
+   --    after = "nvim-lspconfig",
+   --    config = function() require("plugins.configs.rust_tools") end,
+   -- }
 
    -- terminal
    use {

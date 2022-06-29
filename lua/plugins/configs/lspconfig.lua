@@ -102,19 +102,18 @@ lspinstall.setup {
    automatic_installation = true,
 }
 
--- Lua-dev for configuration lsp
-local luadev = require("lua-dev").setup({
-   lspconfig = {
-      on_attach = on_attach
-   }
-})
-
 -- LSP config server setup
 for _, server in pairs(servers) do
-   local opts = { on_attach = on_attach }
-   -- Server specific options
-   if server == "sumneko_lua" then opts = luadev end
+   local server_opts = { on_attach = on_attach }
 
-   lspconfig[server].setup(opts)
-   lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
+   -- Server specific options
+   if server == "sumneko_lua" then
+      server_opts = require("lua-dev").setup({
+         lspconfig = {
+            on_attach = on_attach
+         }
+      })
+   end
+
+   lspconfig[server].setup(coq.lsp_ensure_capabilities(server_opts))
 end
