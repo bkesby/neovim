@@ -6,7 +6,7 @@ local colors = require("onedarkpro").get_colors()
 local fill = colors.cursorline
 local inactive_bg = colors.indentline
 
-local inactive = { guibg = inactive_bg }
+local inactive = { bg = inactive_bg }
 
 -- TODO: Create global git status count to display for all files in project?
 bufferline.setup {
@@ -21,7 +21,7 @@ bufferline.setup {
    highlights = {
    --    -- see :h bufferline-highlights
       fill = {
-         guibg = fill,
+         bg = fill,
       },
       background = inactive,
       diagnostic = inactive,
@@ -34,14 +34,14 @@ bufferline.setup {
       warning = inactive,
       warning_diagnostic = inactive,
       separator = {
-         guifg = fill,
-         guibg = inactive_bg,
+         fg = fill,
+         bg = inactive_bg,
       },
       separator_visible = {
-         guifg = fill,
+         fg = fill,
       },
       separator_selected = {
-         guifg = fill,
+         fg = fill,
       },
    },
 }
