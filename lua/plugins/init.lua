@@ -102,7 +102,7 @@ return packer.startup(function(use)
    use { "ms-jpq/coq.artifacts", as = "artifacts", branch = "artifacts", event = "BufRead" }
 
    -- lsp
-   use { "folke/lua-dev.nvim" }
+   use { "folke/neodev.nvim" }
    use { "williamboman/nvim-lsp-installer", after = "coq_nvim" }
    use { "RishabhRD/nvim-lsputils", after = "nvim-lsp-installer", requires = { "RishabhRD/popfix" } }
    use { "neovim/nvim-lspconfig", after = "nvim-lsputils", config = function() require("plugins.configs.lspconfig") end }

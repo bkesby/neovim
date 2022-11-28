@@ -4,6 +4,9 @@ local present3, coq = pcall(require, "coq")
 
 if not (present1 or present2 or present3) then return end
 
+-- Neodev setup
+require("neodev").setup({})
+
 local maps = require('maps').plugin.lsp
 local set_keymap = vim.api.nvim_set_keymap
 
@@ -105,15 +108,6 @@ lspinstall.setup {
 -- LSP config server setup
 for _, server in pairs(servers) do
    local server_opts = { on_attach = on_attach }
-
-   -- Server specific options
-   if server == "sumneko_lua" then
-      server_opts = require("lua-dev").setup({
-         lspconfig = {
-            on_attach = on_attach
-         }
-      })
-   end
 
    lspconfig[server].setup(coq.lsp_ensure_capabilities(server_opts))
 end
