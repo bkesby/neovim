@@ -55,14 +55,14 @@ return packer.startup(function(use)
       "olimorris/onedarkpro.nvim",
       as = "theme",
       after = "packer.nvim",
+      requires = { "nvim-tree/nvim-web-devicons" },
       config = function() require("core.colors") end,
    }
 
    use {
-      "famiu/feline.nvim",
+      "feline-nvim/feline.nvim",
       as = "statusline",
       after = "theme",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = function() require("plugins.configs.statusline") end,
    }
 
@@ -87,8 +87,8 @@ return packer.startup(function(use)
       config = function() require("plugins.configs.treesitter") end,
       run = ":TSUpdate",
    }
-
-   use { "nvim-treesitter/playground", after = "nvim-treesitter" }
+   
+   -- use { "nvim-treesitter/playground", after = "nvim-treesitter" }
 
    -- autocompletion (required for lsp config)
    use {
