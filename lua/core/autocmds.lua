@@ -30,6 +30,7 @@ cmd [[ autocmd FileType dashboard setlocal showtabline=0 nonu nornu nocul ]]
 cmd [[ au Filetype lua setlocal tabstop=3 shiftwidth=3 softtabstop=3 ]]
 cmd [[ au Filetype svelte setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
 cmd [[ au FileType markdown setlocal wrap ]]
+cmd [[ au FileType wiki setlocal wrap ]]
 cmd [[ au FileType nix setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
 
 -- Auto format on save
