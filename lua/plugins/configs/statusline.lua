@@ -5,7 +5,7 @@ local lsp = require "feline.providers.lsp"
 local cursor = require "feline.providers.cursor"
 local vimode_utils = require "feline.providers.vi_mode"
 
-local colors = require("onedarkpro").get_colors("onedark")
+local colors = require("onedarkpro.helpers").get_colors("onedark")
 
 local vi_mode_colors = {
    NORMAL = colors.white,

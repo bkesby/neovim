@@ -1,7 +1,7 @@
 local present, bufferline = pcall(require, "bufferline")
 if not present then return end
 
-local colors = require("onedarkpro").get_colors()
+local colors = require("onedarkpro.helpers").get_colors()
 
 local fill = colors.cursorline
 local inactive_bg = colors.indentline
