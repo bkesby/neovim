@@ -124,7 +124,7 @@ return packer.startup(function(use)
    -- misc
    use { "ethanholz/nvim-lastplace", config = function() require("plugins.configs.others").lastplace() end }
 
-   use { "windwp/nvim-ts-autotag", event = "VimEnter" }
+   -- use { "windwp/nvim-ts-autotag", event = "VimEnter" }
 
    use {
       "lukas-reineke/indent-blankline.nvim",
@@ -272,7 +272,7 @@ return packer.startup(function(use)
    -- AI
    -- use {
    --    "jackMort/ChatGPT.nvim",
-   --    requires = { "MuniTanjim/nui.nvim", "nvim-telescope/telescope.nvim" },
+   --    requires = { "MuniTanfjim/nui.nvim", "nvim-telescope/telescope.nvim" },
    --    config = function() require("chatgpt").setup() end,
    -- }
 
