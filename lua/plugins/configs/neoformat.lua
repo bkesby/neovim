@@ -1,7 +1,7 @@
 local g = vim.g
 
 -- For debugging
-g.neoformat_verbose = 1
+g.neoformat_verbose = 0
 
 -- Lua formatting
 g.neoformat_lua_luaformatter = {

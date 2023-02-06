@@ -24,10 +24,7 @@ return packer.startup(function(use)
       setup = function() require("core.mappings").harpoon() end,
       config = function() require("plugins.configs.others").harpoon() end,
    }
-   use {
-      "dstein64/nvim-scrollview",
-      setup = function() require("plugins.configs.others").scrollview() end,
-   }
+   use { "dstein64/nvim-scrollview", setup = function() require("plugins.configs.others").scrollview() end }
    use {
       "mbbill/undotree",
       setup = function() require("core.mappings").undo() end,
@@ -35,7 +32,7 @@ return packer.startup(function(use)
    }
 
    -- note taking
-   use { "vimwiki/vimwiki", setup = function() require("core.mappings").vimwiki() end, }
+   use { "vimwiki/vimwiki", setup = function() require("core.mappings").vimwiki() end }
 
    -- text objects
    use { "wellle/targets.vim" } -- additional text objects
@@ -76,6 +73,7 @@ return packer.startup(function(use)
    -- dashboard
    use {
       "glepnir/dashboard-nvim",
+      event = "VimEnter",
       config = function() require("plugins.configs.dashboard") end,
       setup = function() require("core.mappings").dashboard() end,
    }
@@ -83,11 +81,11 @@ return packer.startup(function(use)
    -- treesitter
    use {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
+      event = "VimEnter",
       config = function() require("plugins.configs.treesitter") end,
       run = ":TSUpdate",
    }
-   
+
    -- use { "nvim-treesitter/playground", after = "nvim-treesitter" }
 
    -- autocompletion (required for lsp config)
@@ -121,22 +119,16 @@ return packer.startup(function(use)
       config = function() require("plugins.configs.neoformat") end,
    }
 
-   use {
-      "McAuleyPenney/tidy.nvim",
-      event = "BufWritePre",
-   }
+   use { "McAuleyPenney/tidy.nvim", event = "BufWritePre" }
 
    -- misc
-   use {
-      "ethanholz/nvim-lastplace",
-      config = function() require("plugins.configs.others").lastplace() end,
-   }
+   use { "ethanholz/nvim-lastplace", config = function() require("plugins.configs.others").lastplace() end }
 
-   use { "windwp/nvim-ts-autotag", event = "BufRead" }
+   use { "windwp/nvim-ts-autotag", event = "VimEnter" }
 
    use {
       "lukas-reineke/indent-blankline.nvim",
-      event = "BufRead",
+      event = "VimEnter",
       config = function() require("plugins.configs.others").blankline() end,
    }
 
@@ -173,10 +165,7 @@ return packer.startup(function(use)
       setup = function() require("core.utils").lazy_load("neoscroll.nvim") end,
    }
 
-   use {
-      "edluffy/specs.nvim",
-      config = function() require("plugins.configs.others").specs() end,
-   }
+   use { "edluffy/specs.nvim", config = function() require("plugins.configs.others").specs() end }
 
    use {
       "folke/todo-comments.nvim",
@@ -191,10 +180,7 @@ return packer.startup(function(use)
       setup = function() require("core.mappings").window_select() end,
    }
 
-   use {
-      "sindrets/winshift.nvim",
-      setup = function() require("core.mappings").window_move() end,
-   }
+   use { "sindrets/winshift.nvim", setup = function() require("core.mappings").window_move() end }
 
    use {
       "Pocco81/TrueZen.nvim",
@@ -206,8 +192,8 @@ return packer.startup(function(use)
    -- telescope
    use {
       "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
-      module = "cheatsheet", -- cheatsheet not activated by telescope command
+      -- cmd = "Telescope",
+      -- module = "cheatsheet", -- cheatsheet not activated by telescope command
       config = function() require("plugins.configs.telescope") end,
       setup = function() require("core.mappings").telescope() end,
       requires = {
@@ -218,8 +204,7 @@ return packer.startup(function(use)
             setup = function() require("core.mappings").cheatsheet() end,
          }, { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
          { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } },
-         { "nvim-telescope/telescope-project.nvim" },
-         { "nvim-telescope/telescope-file-browser.nvim" },
+         { "nvim-telescope/telescope-project.nvim" }, { "nvim-telescope/telescope-file-browser.nvim" },
       },
    }
 
@@ -283,8 +268,16 @@ return packer.startup(function(use)
    --    end,
    -- }
 
+   --
+   -- AI
+   -- use {
+   --    "jackMort/ChatGPT.nvim",
+   --    requires = { "MuniTanjim/nui.nvim", "nvim-telescope/telescope.nvim" },
+   --    config = function() require("chatgpt").setup() end,
+   -- }
+
    if vim.g.bootstrap then
       print("Packer.bootstrap is set")
-      require('packer').sync()
+      require("packer").sync()
    end
 end)
