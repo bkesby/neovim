@@ -1,4 +1,3 @@
--- Theme config loaded from plugun config
 local present, theme = pcall(require, 'onedarkpro')
 if not present then
    return
@@ -78,4 +77,4 @@ theme.setup {
    },
 }
 
-theme.load()
+vim.cmd("colorscheme onedark")

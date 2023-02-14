@@ -1,16 +1,24 @@
-local present, lazy = pcall(require, "lazy")
-
--- Bootstrap lazy into nvim if not present
-if not present then
-    require("plugins.lazyinit")
-    lazy = require("lazy")
+-- Bootstrap Neovim with Lazy.nvim if not present
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
 -- Necessary to be set before lazy
 vim.g.mapleader = " "
 
-lazy.setup({
-
+-- Declare Lazy configuration here and plugin configuration in plugins file.
+require("lazy").setup("plugins.plugins", {
+  defaults = { lazy = true },
+  install = { colorscheme = { "onedark" }},
 })
 -- return packer.startup(function(use)
    -- -- plugin manager
