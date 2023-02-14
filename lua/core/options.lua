@@ -110,8 +110,8 @@ set.wildignore:append ".pyc,.swp" -- Files to ignore when opeing files based on 
 set.sessionoptions:append "globals"
 -- }}}
 -- Environments {{{
-g.python_host_prog = vim.fn.expand("$PYENV_ROOT/versions/3.10.2/bin/python")
-g.python3_host_prog = vim.fn.expand("$PYENV_ROOT/versions/3.10.2/bin/python")
+g.python_host_prog = vim.fn.expand("$PYENV_ROOT/versions/pynvim/bin/python")
+g.python3_host_prog = vim.fn.expand("$PYENV_ROOT/versions/pynvim/bin/python")
 -- }}}
 -- Builtins {{{
 local disabled_built_ins = {
