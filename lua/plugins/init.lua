@@ -1,3 +1,17 @@
+local present, lazy = pcall(require, "lazy")
+
+-- Bootstrap lazy into nvim if not present
+if not present then
+    require("plugins.lazyinit")
+    lazy = require("lazy")
+end
+
+-- Necessary to be set before lazy
+vim.g.mapleader = " "
+
+lazy.setup({
+
+})
 -- return packer.startup(function(use)
    -- -- plugin manager
    -- use { "wbthomason/packer.nvim" }

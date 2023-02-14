@@ -1,7 +1,6 @@
 local set = vim.opt
 local g = vim.g
 
-g.mapleader = " "
 --
 -- General Options {{{
 set.encoding = "UTF-8"
