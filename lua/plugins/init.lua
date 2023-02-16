@@ -21,13 +21,6 @@ require("lazy").setup("plugins.plugins", {
   install = { colorscheme = { "onedark" }},
 })
 -- return packer.startup(function(use)
-   -- -- plugin manager
-   -- use { "wbthomason/packer.nvim" }
--- 
-   -- -- Neocore
-   -- use { "nvim-lua/plenary.nvim" }
-   -- use { "nvim-lua/popup.nvim" }
--- 
    -- -- core (the pope)
    -- use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
    -- use { "tpope/vim-repeat" } -- adds repeats for plugins
