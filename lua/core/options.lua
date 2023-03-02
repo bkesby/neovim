@@ -4,7 +4,7 @@ local g = vim.g
 --
 -- General Options {{{
 set.encoding = "UTF-8"
-set.fileencoding = "UTF-8"
+--set.fileencoding = "UTF-8"
 set.autoread = true
 set.clipboard = "unnamedplus"
 set.mouse = ""
@@ -32,7 +32,7 @@ set.cmdheight = 1
 set.cul = true
 set.signcolumn = "yes"
 set.foldcolumn = "1"
-set.laststatus = 2
+set.laststatus = 3
 set.showmode = false
 set.inccommand = "split"
 -- set.pumheight = 10
