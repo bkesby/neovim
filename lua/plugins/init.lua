@@ -1,51 +1,33 @@
--- Bootstrap Neovim with Lazy.nvim if not present
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+return {
+  -- Lua core
+  "MunifTanjim/nui.nvim",
+  "nvim-lua/plenary.nvim",
+  "nvim-lua/popup.nvim",
 
--- Necessary to be set before lazy
-vim.g.mapleader = " "
+  -- Pope core
+  { "tpope/vim-abolish", lazy = false },
+  { "tpope/vim-repeat", lazy = false },
+  { "tpope/vim-sleuth", lazy = false },
+  { "tpope/vim-unimpaired", lazy = false },
 
--- Declare Lazy configuration here and plugin configuration in plugins file.
-require("lazy").setup("plugins.plugins", {
-  defaults = { lazy = true },
-  install = { colorscheme = { "onedark" }},
-})
--- return packer.startup(function(use)
-   -- -- core (the pope)
-   -- use { "tpope/vim-abolish" } -- abbreviations, substitusion and coercion
-   -- use { "tpope/vim-repeat" } -- adds repeats for plugins
-   -- use { "tpope/vim-sleuth" } -- shift/tab width detection
-   -- use { "tpope/vim-unimpaired", event = "UIEnter" } -- bracket mappings
-   -- use {
-      -- "machakann/vim-sandwich",
-      -- setup = function() require("plugins.configs.others").sandwich() end,
-      -- config = function() require("core.mappings").sandwich() end,
-   -- } -- surround stuff with motion
-   -- use {
-      -- "ThePrimeagen/harpoon",
-      -- setup = function() require("core.mappings").harpoon() end,
-      -- config = function() require("plugins.configs.others").harpoon() end,
-   -- }
-   -- use { "dstein64/nvim-scrollview", setup = function() require("plugins.configs.others").scrollview() end }
-   -- use {
-      -- "mbbill/undotree",
-      -- setup = function() require("core.mappings").undo() end,
-      -- config = function() require("plugins.configs.others").undo() end,
-   -- }
--- 
+  -- surround stuff with motion
+  {
+    "machakann/vim-sandwich",
+    lazy = false,
+    init = function() require("core.mappings").sandwich() end,
+    config = function() require("plugins.configs.others").sandwich() end,
+  },
+  
+  -- better undo
+  {
+    "mbbill/undotree",
+    lazy = false,
+    init = function() require("core.mappings").undo() end,
+    config = function() require("plugins.configs.others").undo() end,
+  },
+}
    -- -- note taking
    -- use { "vimwiki/vimwiki", setup = function() require("core.mappings").vimwiki() end }
--- 
    -- -- text objects
    -- use { "wellle/targets.vim" } -- additional text objects
    -- use { "kana/vim-textobj-user" }
@@ -58,30 +40,6 @@ require("lazy").setup("plugins.plugins", {
       -- event = "UIEnter",
       -- setup = function() require("plugins.configs.others").wordmotion() end,
    -- }
--- 
-   -- -- UI initializing
-   -- use {
-      -- "olimorris/onedarkpro.nvim",
-      -- as = "theme",
-      -- after = "packer.nvim",
-      -- requires = { "nvim-tree/nvim-web-devicons" },
-      -- config = function() require("core.colors") end,
-   -- }
--- 
-   -- use {
-      -- "feline-nvim/feline.nvim",
-      -- as = "statusline",
-      -- after = "theme",
-      -- config = function() require("plugins.configs.statusline") end,
-   -- }
--- 
-   -- use {
-      -- "akinsho/bufferline.nvim",
-      -- after = "statusline",
-      -- config = function() require("plugins.configs.bufferline") end,
-      -- setup = function() require("core.mappings").bufferline() end,
-   -- }
--- 
    -- -- dashboard
    -- use {
       -- "glepnir/dashboard-nvim",
