@@ -2,8 +2,8 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     lazy = false,
-    config = function() require("plugins.configs.telescope") end,
     init = function() require("core.mappings").telescope() end,
+    config = function() require("plugins.configs.telescope") end,
     dependencies = {
       { "sudormrfbin/cheatsheet.nvim",
         config = function() require("plugins.configs.cheatsheet") end,

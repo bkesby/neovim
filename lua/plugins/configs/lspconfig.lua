@@ -1,8 +1,9 @@
 local present1, lspconfig = pcall(require, "lspconfig")
-local present2, lspinstall = pcall(require, "nvim-lsp-installer")
-local present3, coq = pcall(require, "coq")
+local present2, mason = pcall(require, "mason")
+local present3, masonconfig = pcall(require, "mason-lspconfig")
+local present4, coq = pcall(require, "coq")
 
-if not (present1 or present2 or present3) then return end
+if not (present1 or present2 or present3 or present4) then return end
 
 -- Neodev setup
 require("neodev").setup({})
@@ -88,19 +89,20 @@ local servers = {
    "eslint",
    "html",
    "jsonls",
+   "lua_ls",
    "tsserver",
-   "sumneko_lua",
-   "phpactor",
    "pyright",
    "rust_analyzer",
    "sqlls",
+   -- "sumneko_lua",
    "svelte",
    "taplo",
    "yamlls",
 }
 
--- nvim-lsp-installer
-lspinstall.setup {
+-- Mason server manager
+mason.setup()
+masonconfig.setup {
    ensure_installed = servers,
    automatic_installation = true,
 }

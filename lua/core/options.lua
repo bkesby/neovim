@@ -112,9 +112,3 @@ set.sessionoptions:append "globals"
 g.python_host_prog = vim.fn.expand("$PYENV_ROOT/versions/pynvim/bin/python")
 g.python3_host_prog = vim.fn.expand("$PYENV_ROOT/versions/pynvim/bin/python")
 -- }}}
--- Builtins {{{
-local disabled_built_ins = {
-   "2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper", "vimball", "vimballPlugin", "zip", "zipPlugin",
-}
-for _, plugin in pairs(disabled_built_ins) do g["loaded_" .. plugin] = 1 end
--- }}}

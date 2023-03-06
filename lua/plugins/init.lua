@@ -10,36 +10,80 @@ return {
   { "tpope/vim-sleuth", lazy = false },
   { "tpope/vim-unimpaired", lazy = false },
 
-  -- surround stuff with motion
-  {
-    "machakann/vim-sandwich",
-    lazy = false,
-    init = function() require("core.mappings").sandwich() end,
-    config = function() require("plugins.configs.others").sandwich() end,
+  { -- treesitter
+    "nvim-treesitter/nvim-treesitter",
+    event = "VimEnter",
+    build = ":TSUpdate",
+    config = function() require("plugins.configs.treesitter") end,
+    dependencies = {
+      "RRethy/nvim-treesitter-textsubjects",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    }
   },
-  
-  -- better undo
-  {
+
+  { -- better escape
+    "max397574/better-escape.nvim",
+    event = "InsertEnter",
+    config = function() require("plugins.configs.others").better_escape() end,
+  },
+
+  { -- better undo
     "mbbill/undotree",
     lazy = false,
     init = function() require("core.mappings").undo() end,
     config = function() require("plugins.configs.others").undo() end,
   },
+
+  { -- buffer closing
+    "moll/vim-bbye",
+    cmd = { "Bdelete", "Bwipeout" },
+    init = function() require("core.mappings").bbye() end,
+  },
+
+  { -- automatic commenting 
+    "terrortylor/nvim-comment",
+    cmd = "CommentToggle",
+    init = function() require("core.mappings").comment() end,
+    config = function() require("plugins.configs.others").comment() end,
+  },
+
+  { -- surround stuff with motion 
+    "machakann/vim-sandwich",
+    lazy = false,
+    init = function() require("core.mappings").sandwich() end,
+    config = function() require("plugins.configs.others").sandwich() end,
+  },
+
+  -- text objects
+  { "wellle/targets.vim" },
+  { "kana/vim-textobj-user" },
+  { "glts/vim-textobj-comment" },
+  { "michaeljsmith/vim-indent-object" },
+
+  { -- tidy up file
+    "McAuleyPenney/tidy.nvim",
+    lazy = false,
+  },
+
+  { -- Improved `W` key
+    "chaoren/vim-wordmotion",
+    init = function() require("plugins.configs.others").wordmotion() end,
+  },
+
+  { -- Window selection
+    "https://gitlab.com/yorickpeterse/nvim-window",
+    init = function() require("core.mappings").window_select() end,
+    config = function() require("plugins.configs.others").window() end,
+  },
+
+  { -- Window shifting
+    "sindrets/winshift.nvim",
+    init = function() require("core.mappings").window_move() end,
+  },
+
 }
    -- -- note taking
    -- use { "vimwiki/vimwiki", setup = function() require("core.mappings").vimwiki() end }
-   -- -- text objects
-   -- use { "wellle/targets.vim" } -- additional text objects
-   -- use { "kana/vim-textobj-user" }
-   -- use { "glts/vim-textobj-comment", event = "UIEnter" }
-   -- use { "michaeljsmith/vim-indent-object" }
-   -- use { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" }
-   -- use { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" }
-   -- use {
-      -- "chaoren/vim-wordmotion",
-      -- event = "UIEnter",
-      -- setup = function() require("plugins.configs.others").wordmotion() end,
-   -- }
    -- -- dashboard
    -- use {
       -- "glepnir/dashboard-nvim",
@@ -47,73 +91,20 @@ return {
       -- config = function() require("plugins.configs.dashboard") end,
       -- setup = function() require("core.mappings").dashboard() end,
    -- }
--- 
-   -- -- treesitter
-   -- use {
-      -- "nvim-treesitter/nvim-treesitter",
-      -- event = "VimEnter",
-      -- config = function() require("plugins.configs.treesitter") end,
-      -- run = ":TSUpdate",
-   -- }
--- 
-   -- -- use { "nvim-treesitter/playground", after = "nvim-treesitter" }
--- 
-   -- -- autocompletion (required for lsp config)
-   -- use {
-      -- "ms-jpq/coq_nvim",
-      -- branch = "coq",
-      -- run = ":silent! COQdeps",
-      -- event = "BufEnter",
-      -- setup = function() require("plugins.configs.coq") end,
-      -- requires = { "windwp/nvim-autopairs" },
-   -- }
-   -- use { "ms-jpq/coq.artifacts", as = "artifacts", branch = "artifacts", event = "BufRead" }
--- 
-   -- -- lsp
-   -- use { "folke/neodev.nvim" }
-   -- use { "williamboman/nvim-lsp-installer", after = "coq_nvim" }
-   -- use { "RishabhRD/nvim-lsputils", after = "nvim-lsp-installer", requires = { "RishabhRD/popfix" } }
-   -- use { "neovim/nvim-lspconfig", after = "nvim-lsputils", config = function() require("plugins.configs.lspconfig") end }
--- 
-   -- use {
-      -- "kosayoda/nvim-lightbulb",
-      -- module = "nvim-lightbulb",
-      -- setup = function() require("plugins.configs.others").lightbulb() end,
-   -- }
--- 
    -- -- formatting
+   -- CHange this to recommended from Mason github page
    -- use {
       -- "sbdchd/neoformat",
       -- cmd = "Neoformat",
       -- setup = function() require("core.mappings").neoformat() end,
       -- config = function() require("plugins.configs.neoformat") end,
    -- }
--- 
-   -- use { "McAuleyPenney/tidy.nvim", event = "BufWritePre" }
--- 
    -- -- misc
    -- use { "ethanholz/nvim-lastplace", config = function() require("plugins.configs.others").lastplace() end }
 -- 
    -- -- use { "windwp/nvim-ts-autotag", event = "VimEnter" }
 -- 
-   -- use {
-      -- "lukas-reineke/indent-blankline.nvim",
-      -- event = "VimEnter",
-      -- config = function() require("plugins.configs.others").blankline() end,
-   -- }
 -- 
-   -- use {
-      -- "max397574/better-escape.nvim",
-      -- event = "InsertEnter",
-      -- config = function() require("plugins.configs.others").better_escape() end,
-   -- }
--- 
-   -- use {
-      -- "moll/vim-bbye",
-      -- opt = true,
-      -- cmd = { "Bdelete", "Bwipeout" },
-      -- setup = function() require("core.mappings").bbye() end,
-   -- }
 -- 
    -- use {
       -- "norcalli/nvim-colorizer.lua",
@@ -121,12 +112,6 @@ return {
       -- config = function() require("plugins.configs.others").colorizer() end,
    -- }
 -- 
-   -- use {
-      -- "terrortylor/nvim-comment",
-      -- cmd = "CommentToggle",
-      -- setup = function() require("core.mappings").comment() end,
-      -- config = function() require("plugins.configs.others").comment() end,
-   -- }
 -- 
    -- use {
       -- "karb94/neoscroll.nvim",
@@ -143,57 +128,12 @@ return {
       -- setup = function() require("core.mappings").todo() end,
       -- config = function() require("plugins.configs.todo") end,
    -- }
--- 
-   -- use {
-      -- "https://gitlab.com/yorickpeterse/nvim-window",
-      -- config = function() require("plugins.configs.others").window() end,
-      -- setup = function() require("core.mappings").window_select() end,
-   -- }
--- 
-   -- use { "sindrets/winshift.nvim", setup = function() require("core.mappings").window_move() end }
--- 
    -- use {
       -- "Pocco81/TrueZen.nvim",
       -- cmd = { "TZAtaraxis", "TZMinimalist", "TZFocus" },
       -- config = function() require("plugins.configs.zen") end,
       -- setup = function() require("core.mappings").zen() end,
    -- }
--- 
-   -- -- telescope
-   -- use {
-      -- "nvim-telescope/telescope.nvim",
-      -- -- cmd = "Telescope",
-      -- -- module = "cheatsheet", -- cheatsheet not activated by telescope command
-      -- config = function() require("plugins.configs.telescope") end,
-      -- setup = function() require("core.mappings").telescope() end,
-      -- requires = {
-         -- {
-            -- "sudormrfbin/cheatsheet.nvim",
-            -- after = "telescope.nvim",
-            -- config = function() require "plugins.configs.cheatsheet" end,
-            -- setup = function() require("core.mappings").cheatsheet() end,
-         -- }, { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-         -- { "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sqlite.lua" } },
-         -- { "nvim-telescope/telescope-project.nvim" }, { "nvim-telescope/telescope-file-browser.nvim" },
-      -- },
-   -- }
--- 
-   -- -- git
-   -- use {
-      -- "tpope/vim-fugitive",
-      -- cmd = { "Git", "Gdiffsplit", "Gsplit", "Gread", "Gedit" },
-      -- setup = function() require("core.mappings").fugitive() end,
-   -- }
--- 
-   -- use { "tpope/vim-rhubarb", after = "vim-fugitive" }
--- 
-   -- use {
-      -- "lewis6991/gitsigns.nvim",
-      -- opt = true,
-      -- config = function() require("plugins.configs.gitsigns") end,
-      -- setup = function() require("core.utils").lazy_load("gitsigns.nvim") end,
-   -- }
--- 
    -- -- debugging
    -- use {
       -- "mfussenegger/nvim-dap",
@@ -245,9 +185,3 @@ return {
    -- --    requires = { "MuniTanfjim/nui.nvim", "nvim-telescope/telescope.nvim" },
    -- --    config = function() require("chatgpt").setup() end,
    -- -- }
--- 
-   -- if vim.g.bootstrap then
-      -- print("Packer.bootstrap is set")
-      -- require("packer").sync()
-   -- end
--- end)

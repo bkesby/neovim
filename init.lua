@@ -19,6 +19,32 @@ vim.g.mapleader = " "
 require("lazy").setup("plugins", {
   defaults = { lazy = true },
   install = { colorscheme = { "onedark" }},
+  ui = {
+    border = "single",
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "2html_plugin",
+        "getscript",
+        "getscriptPlugin",
+        "gzip",
+        "logipat",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "matchit",
+        "tar",
+        "tarPlugin",
+        "rrhelper",
+        "vimball",
+        "vimballPlugin",
+        "zip",
+        "zipPlugin",
+      }
+    }
+  },
 })
 
 -- Load core configuration

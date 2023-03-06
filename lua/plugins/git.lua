@@ -5,9 +5,10 @@ return {
     init = function() require("core.mappings").fugitive() end,
     dependencies = { "tpope/vim-rhubarb" },
   },
-  -- In numberline
-  { 
+
+  { -- In numberline
     "lewis6991/gitsigns.nvim",
+    lazy = false,
     config = function() require("plugins.configs.gitsigns") end,
   },
 }
